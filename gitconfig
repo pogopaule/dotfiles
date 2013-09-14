@@ -1,0 +1,10 @@
+[user]
+	name = Fabian Schwarzer
+	email = fabian.schwarzer@gmx.de
+[color]
+	ui = true
+[alias]
+	lol = log --decorate --all --graph --oneline
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
