@@ -18,3 +18,9 @@ ln -s ~/dotfiles/vimrc ~/.vimrc<br/>
 ln -s ~/dotfiles/vim ~/.vim<br/>
 ln -s ~/dotfiles/gitconfig ~/.gitconfig<br/>
 ln -s ~/dotfiles/gitignore_global ~/.gitignore_global<br/>
+
+Both
+=======
+cd dotfiles<br/>
+git submodule init<br/>
+git submodule update<br/>
