@@ -4,17 +4,17 @@ dotfiles
 Windows
 ========
 
-git clone git://github.com/pogopaule/dotfiles.git C:\Users\%HOMEPATH%\dotfiles
-mklink /H %HOMEPATH%_vimrc %HOMEPATH%\dotfiles\vimrc
-mklink /J %HOMEPATH%\vimfiles %HOMEPATH%\dotfiles\vim
-mklink /J %HOMEPATH%.gitconfig %HOMEPATH%\dotfiles\gitconfig
-mklink /J %HOMEPATH%.gitignore_global %HOMEPATH%\dotfiles.gitignore_global
+git clone git://github.com/pogopaule/dotfiles.git C:\Users\%HOMEPATH%\dotfiles<br/>
+mklink /H %HOMEPATH%_vimrc %HOMEPATH%\dotfiles\vimrc<br/>
+mklink /J %HOMEPATH%\vimfiles %HOMEPATH%\dotfiles\vim<br/>
+mklink /J %HOMEPATH%.gitconfig %HOMEPATH%\dotfiles\gitconfig<br/>
+mklink /J %HOMEPATH%.gitignore_global %HOMEPATH%\dotfiles.gitignore_global<br/>
 
 Mac
 ========
 
-git clone git://github.com/pogopaule/dotfiles.git ~/dotfiles
-ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/vim ~/.vim
-ln -s ~/dotfiles/gitconfig ~/.gitconfig
-ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
+git clone git://github.com/pogopaule/dotfiles.git ~/dotfiles<br/>
+ln -s ~/dotfiles/vimrc ~/.vimrc<br/>
+ln -s ~/dotfiles/vim ~/.vim<br/>
+ln -s ~/dotfiles/gitconfig ~/.gitconfig<br/>
+ln -s ~/dotfiles/gitignore_global ~/.gitignore_global<br/>
