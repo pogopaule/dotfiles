@@ -18,6 +18,7 @@ ln -s ~/dotfiles/vimrc ~/.vimrc<br/>
 ln -s ~/dotfiles/vim ~/.vim<br/>
 ln -s ~/dotfiles/gitconfig ~/.gitconfig<br/>
 ln -s ~/dotfiles/gitignore_global ~/.gitignore_global<br/>
+ln -s ~/dotfiles/bash_profile ~/.bash_profile<br/>
 
 Both
 =======
