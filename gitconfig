@@ -5,6 +5,8 @@
 	ui = true
 [alias]
 	lol = log --decorate --all --graph --oneline
+	s = status
+	p = pull
 [core]
 	autocrlf = input
 	excludesfile = ~/.gitignore_global
