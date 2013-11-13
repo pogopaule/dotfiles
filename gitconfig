@@ -5,8 +5,12 @@
 	ui = true
 [alias]
 	l = log --decorate --all --graph --oneline
+	a = add
+	c = commit
+	b = branch
 	s = status
 	p = pull
+	d = diff
 [core]
 	autocrlf = input
 	excludesfile = ~/.gitignore_global
