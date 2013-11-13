@@ -6,6 +6,7 @@ alias ll='ls -lah'
 alias l='ls'
 alias h='cd ~'
 alias doc='cd ~/Documents'
+alias jj='cd ..'
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
