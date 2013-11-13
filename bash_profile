@@ -5,3 +5,6 @@ alias ll='ls -la'
 alias l='ls'
 alias h='cd ~'
 alias doc='cd ~/Documents'
+
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
