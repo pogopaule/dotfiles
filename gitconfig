@@ -4,7 +4,7 @@
 [color]
 	ui = true
 [alias]
-	lol = log --decorate --all --graph --oneline
+	l = log --decorate --all --graph --oneline
 	s = status
 	p = pull
 [core]
