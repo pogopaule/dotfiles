@@ -1,3 +1,10 @@
+" Init pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+syntax enable
+filetype plugin indent on
+
+
 set number
 set shiftwidth=2
 set tabstop=2
