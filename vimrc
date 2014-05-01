@@ -4,6 +4,8 @@ call pathogen#infect()
 syntax enable
 filetype plugin indent on
 
+" Key mappings
+imap jj <esc>
 
 set number
 set shiftwidth=2
@@ -13,7 +15,6 @@ set smartindent
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 :syntax on
-imap jk <esc>
 set gfn=Courier\ New
 set backspace=2
 set backspace=indent,eol,start
