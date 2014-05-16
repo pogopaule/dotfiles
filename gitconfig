@@ -1,18 +1,20 @@
 [user]
-	name = Fabian Schwarzer
-	email = fabian.schwarzer@gmx.de
+  name = pogopaule
+  email = pogopaule@gmx.de
 [color]
-	ui = true
+  ui = true
 [alias]
-	l = log --graph --branches --remotes --tags --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-	a = add
-	c = commit
-	b = branch
-	s = status
-	p = pull
-	d = diff
+  l = log --graph --branches --remotes --tags --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  a = add
+  c = commit
+  b = branch
+  s = status
+  pl = pull
+  ps = push
+  d = diff
+  dd = diff --cached
 [core]
-	autocrlf = input
-	excludesfile = ~/.gitignore_global
+  autocrlf = input
+  excludesfile = ~/.gitignore_global
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
