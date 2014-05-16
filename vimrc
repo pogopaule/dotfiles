@@ -16,11 +16,14 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 imap jj <esc>
 
-set number
+set encoding=utf-8
+set relativenumber
 set shiftwidth=2
 set tabstop=2
 set autoindent
 set smartindent
+set expandtab
+set list listchars=tab:→\ ,trail:·
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 :syntax on
