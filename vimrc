@@ -17,6 +17,7 @@ noremap <Right> <NOP>
 imap jj <esc>
 map <C-n> :NERDTree <Enter>
 map <C-a> GVgg
+let mapleader=","
 
 set encoding=utf-8
 set relativenumber
