@@ -34,6 +34,10 @@ set gfn=Courier\ New
 set backspace=2
 set backspace=indent,eol,start
 
+" Settings for ctrlp plugin
+set wildignore+=*/vendor/*,*/node_modules/*,*/tmp/*,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\vendor\\*,*\\node_modules\\*,*\\tmp\\*,.swp,*.zip,*.exe  " Windows
+
 if has("gui_running")
   " GUI is running or is about to start.
   " Maximize gvim window.
