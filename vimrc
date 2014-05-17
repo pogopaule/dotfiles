@@ -18,9 +18,10 @@ imap jj <esc>
 map <C-n> :NERDTree <Enter>
 map <C-a> GVgg
 let mapleader=","
+nmap <CR> o<Esc>
 
 set encoding=utf-8
-set relativenumber
+set number
 set shiftwidth=2
 set tabstop=2
 set autoindent
