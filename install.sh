@@ -7,6 +7,8 @@ ln -s $PWD/gitignore_global ~/.gitignore_global
 ln -s $PWD/bash_profile ~/.bash_profile
 ln -s $PWD/agignore ~/.agignore
 
+npm install -g js-beautify
+
 git submodule init
 git submodule update
 

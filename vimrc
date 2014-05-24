@@ -5,6 +5,7 @@ syntax enable
 filetype plugin indent on
 
 " Key mappings
+let mapleader=","
 " disable arrow keys
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
@@ -14,10 +15,11 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+" Shortcuts
 imap jj <esc>
 map <C-n> :NERDTree <Enter>
 map <C-a> GVgg
-let mapleader=","
+nnoremap <leader>ff :%!js-beautify -k -s 2 -f -<CR>
 nmap <CR> o<Esc>
 
 set encoding=utf-8
