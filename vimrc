@@ -4,6 +4,9 @@ call pathogen#infect()
 syntax enable
 filetype plugin indent on
 
+set background=light
+colorscheme solarized
+
 " Key mappings
 let mapleader=","
 " disable arrow keys
