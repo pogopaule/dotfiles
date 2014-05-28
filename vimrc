@@ -43,6 +43,9 @@ set backspace=indent,eol,start
 set foldlevelstart=10
 set foldmethod=indent
 
+" Search
+set hlsearch
+
 " Settings for ctrlp plugin
 set wildignore+=*/vendor/*,*/node_modules/*,*/tmp/*,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\vendor\\*,*\\node_modules\\*,*\\tmp\\*,.swp,*.zip,*.exe  " Windows
