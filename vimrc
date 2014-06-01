@@ -43,6 +43,8 @@ set backspace=indent,eol,start
 set foldlevelstart=10
 set foldmethod=indent
 
+let g:mustache_abbreviations = 1
+
 " Search
 set hlsearch
 
