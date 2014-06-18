@@ -46,6 +46,8 @@ set foldmethod=indent
 
 let g:mustache_abbreviations = 1
 
+set noswapfile
+
 " Search
 set hlsearch
 
