@@ -21,7 +21,6 @@ noremap <Right> <NOP>
 " Shortcuts
 imap jj <esc>
 map <C-n> :NERDTree <Enter>
-map <C-a> GVgg
 nnoremap <leader>ff :%!js-beautify -k -s 2 -f -<CR>
 nmap <CR> o<Esc>
 :nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left> 
