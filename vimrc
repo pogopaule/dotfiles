@@ -7,6 +7,12 @@ filetype plugin indent on
 set background=light
 colorscheme solarized
 
+" Under Cygwin: Block cursor in command mode. see http://superuser.com/questions/634326/how-can-i-get-a-block-cursor-in-vim-in-the-cygwin-terminal/
+let &t_ti.="\e[1 q"
+let &t_SI.="\e[5 q"
+let &t_EI.="\e[1 q"
+let &t_te.="\e[0 q"
+
 " Key mappings
 let mapleader=","
 " disable arrow keys
