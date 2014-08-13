@@ -16,3 +16,7 @@ cd dotfiles<br/>
 
 cd dotfiles/vim/bundle/<br/>
 git submodule add git://github.com/mustache/vim-mustache-handlebars.git
+
+##Update vim plugins
+
+git submodule foreach git pull origin master
