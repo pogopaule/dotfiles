@@ -14,8 +14,7 @@ cd dotfiles<br/>
 
 ##Install new vim plugin
 
-cd dotfiles/vim/bundle/<br/>
-git submodule add git://github.com/mustache/vim-mustache-handlebars.git
+git submodule add git://github.com/mustache/vim-mustache-handlebars.git vim/bundle/vim-mustache-handlebars
 
 ##Update vim plugins
 
