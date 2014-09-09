@@ -36,6 +36,11 @@ map <C-n> :NERDTree <Enter>
 nnoremap <leader>ff :%!js-beautify -k -s 2 -f -<CR>
 nmap <CR> o<Esc>
 :nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left> 
+" move between split windows
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 set encoding=utf-8
 set number
