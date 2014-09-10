@@ -9,6 +9,8 @@ colorscheme solarized
 
 set autoread
 set noundofile
+set nowritebackup
+set nobackup
 
 " airline plugin config
 set laststatus=2
