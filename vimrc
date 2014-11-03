@@ -6,6 +6,7 @@ filetype plugin indent on
 
 set background=light
 colorscheme solarized
+set t_Co=256
 
 set autoread
 set noundofile
