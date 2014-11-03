@@ -71,7 +71,11 @@ let g:mustache_abbreviations = 1
 set noswapfile
 
 " Search
+set incsearch
+set ignorecase
+set smartcase
 set hlsearch
+nmap <leader>n :nohlsearch<CR>
 
 " Settings for ctrlp plugin
 set wildignore+=*/vendor/*,*/node_modules/*,*/tmp/*,*.swp,*.zip     " MacOSX/Linux
