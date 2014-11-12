@@ -46,6 +46,3 @@
 [submodule "vim/bundle/editorconfig-vim"]
 	path = vim/bundle/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
-[submodule "vim/bundle/vim-jsbeautify"]
-	path = vim/bundle/vim-jsbeautify
-	url = https://github.com/maksimr/vim-jsbeautify.git
