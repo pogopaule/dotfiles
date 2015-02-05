@@ -12,7 +12,3 @@ alias vss="vagrant ssh"
 alias vb="vagrant box"
 alias vbl="vagrant box list"
 alias vbu="vagrant box update"
-
-# draw line after every command.
-setopt promptsubst
-PS1=$'%U${(r:$COLUMNS:: :)}%u'$PS1
