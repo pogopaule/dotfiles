@@ -2,6 +2,7 @@ alias gll="git log --graph --branches --remotes --tags --pretty=format:'%Cred%h%
 alias gfp="git fetch --prune"
 alias gchanges="git log -p --reverse master..origin/master"
 alias grema="git rebase master"
+alias gcoma="git checkout master"
 
 alias v="vagrant"
 alias vst="vagrant status"
