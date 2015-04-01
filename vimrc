@@ -34,7 +34,7 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 " Shortcuts
-imap jj <esc>
+imap jk <esc>
 map <C-n> :NERDTreeToggle<Enter>
 nnoremap <leader>ff :%!js-beautify -k -s 2 -f -<CR>
 nmap <CR> o<Esc>
