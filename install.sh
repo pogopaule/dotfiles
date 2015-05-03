@@ -9,8 +9,6 @@ ln -s $PWD/agignore ~/.agignore
 ln -s $PWD/my_custom.zsh ~/.oh-my-zsh/custom/my_custom.zsh
 ln -s $PWD/tmux.conf ~/.tmux.conf
 
-npm install -g js-beautify
-
 git submodule init
 git submodule update
 
