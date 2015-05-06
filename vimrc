@@ -43,6 +43,7 @@ nnoremap <leader>ff :%!jscs -x --esnext<CR>
 nmap <CR> o<Esc>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap <Leader>q :wq<CR>
+nmap <C-a> :Ag 
 
 " move between split windows
 nnoremap <C-J> <C-W><C-J>
