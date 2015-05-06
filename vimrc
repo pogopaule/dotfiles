@@ -15,6 +15,7 @@ set autoread
 set noundofile
 set nowritebackup
 set nobackup
+set hidden
 
 " airline plugin config
 set laststatus=2
@@ -44,6 +45,10 @@ nmap <CR> o<Esc>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap <Leader>q :wq<CR>
 nmap <C-a> :Ag 
+nmap <C-w> :w<CR>
+noremap cp yap<S-}>p
+nnoremap <C-t> :tabnew
+nnoremap <C-i> "+p
 
 " move between split windows
 nnoremap <C-J> <C-W><C-J>
