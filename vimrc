@@ -48,7 +48,8 @@ nmap <C-a> :Ag
 nmap <C-w> :w<CR>
 noremap cp yap<S-}>p
 nnoremap <C-t> :tabnew<CR>
-nnoremap <C-i> "+p
+nnoremap <leader>p "+p
+vnoremap <leader>y "+y
 
 " move between split windows
 nnoremap <C-J> <C-W><C-J>
