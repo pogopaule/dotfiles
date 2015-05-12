@@ -39,17 +39,20 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 " Shortcuts
 imap jk <esc>
-map <C-n> :NERDTreeToggle<Enter>
-nnoremap <leader>ff :%!jscs -x --esnext<CR>
-nmap <CR> o<Esc>
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
-nnoremap <Leader>q :wq<CR>
-nmap <C-a> :Ag 
-nmap <C-w> :w<CR>
-noremap cp yap<S-}>p
-nnoremap <C-t> :tabnew<CR>
+nnoremap <C-n> :NERDTreeToggle<Enter>
+nnoremap <leader>n :NERDTreeFind<Enter>
+nnoremap <leader>f :%!jscs -x --esnext<CR>
+nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>p "+p
 vnoremap <leader>y "+y
+nnoremap <leader>a :Ag 
+nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>e :qa<CR>
+nnoremap <leader>d :nohlsearch<CR>
+nmap <CR> o<Esc>
+noremap cp yap<S-}>p
 
 " move between split windows
 nnoremap <C-J> <C-W><C-J>
@@ -87,7 +90,6 @@ set incsearch
 set ignorecase
 set smartcase
 set hlsearch
-nmap <leader>n :nohlsearch<CR>
 
 " Settings for ctrlp plugin
 set wildignore+=*/vendor/*,*/node_modules/*,*/tmp/*,*.swp,*.zip     " MacOSX/Linux
