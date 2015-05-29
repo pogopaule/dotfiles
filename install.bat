@@ -7,4 +7,4 @@ copy %CD%\gitignore_global %HOMEPATH%\.gitignore_global
 copy %CD%\bash_profile %HOMEPATH%\.bash_profile
 copy %CD%\agignore %HOMEPATH%\.agignore
 
-npm install -g js-beautify
+npm install --global instant-markdown-d
