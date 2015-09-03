@@ -8,6 +8,7 @@ ln -s $PWD/bash_profile ~/.bash_profile
 ln -s $PWD/agignore ~/.agignore
 ln -s $PWD/my_custom.zsh ~/.oh-my-zsh/custom/my_custom.zsh
 ln -s $PWD/tmux.conf ~/.tmux.conf
+ln -s $PWD/zshrc ~/.zshrc
 
 sudo npm install --global instant-markdown-d
 
