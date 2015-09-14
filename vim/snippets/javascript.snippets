@@ -34,3 +34,20 @@ snippet log
 # ES6 import statement
 snippet import
 	import ${1} from '${2}';
+# Ember computed property
+snippet epro
+	${1}: Ember.computed(${2}, function() {
+		${3}
+	})
+# Ember computed property with comma
+snippet epro,
+	${1}: Ember.computed(${2}, function() {
+		${3}
+	}),
+# New Ember file
+snippet enew
+	import Ember from 'ember';
+
+	export default Ember.${1}.extend({
+		${2}
+	});
