@@ -62,10 +62,6 @@ nnoremap <C-H> <C-W><C-H>
 " move nicer in wrapped lines
 nmap j gj
 nmap k gk
-" swap . and :
-noremap : .
-noremap . :
-
 
 set encoding=utf-8
 set number
