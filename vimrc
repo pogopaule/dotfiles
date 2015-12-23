@@ -62,6 +62,8 @@ nnoremap <C-H> <C-W><C-H>
 " move nicer in wrapped lines
 nmap j gj
 nmap k gk
+" fold with space
+nnoremap <Space> za
 
 set encoding=utf-8
 set number
