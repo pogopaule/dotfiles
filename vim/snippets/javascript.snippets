@@ -31,6 +31,11 @@ snippet ff;
 # Log to console
 snippet log
 	console.log("${1}");
+# debug statement
+snippet bug
+	debugger;
+snippet =>
+	(${1}) => {${2}}
 # ES6 import statement
 snippet import
 	import ${1} from '${2}';
@@ -50,4 +55,10 @@ snippet enew
 
 	export default Ember.${1}.extend({
 		${2}
+	});
+# Ember test
+snippet etest
+	test('${1}', function(assert) {
+		assert.expect(${2});
+		${3}
 	});
