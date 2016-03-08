@@ -4,9 +4,6 @@ call pathogen#infect()
 syntax enable
 filetype plugin indent on
 
-let g:syntastic_javascript_checkers = ['jscs']
-let g:syntastic_javascript_jscs_args = "--esnext"
-
 set background=light
 colorscheme solarized
 set t_Co=256
