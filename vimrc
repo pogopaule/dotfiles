@@ -41,6 +41,7 @@ nnoremap <leader>n :NERDTreeFind<Enter>
 nnoremap <leader>f :%!jscs -x --esnext<CR>
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>p "+p
+vnoremap <leader>p "+p
 vnoremap <leader>y "+y
 nnoremap <leader>a :Ag 
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
