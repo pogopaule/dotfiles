@@ -24,7 +24,7 @@ let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 
 " Key mappings
-let mapleader=","
+let mapleader="\<Space>"
 " disable arrow keys
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
