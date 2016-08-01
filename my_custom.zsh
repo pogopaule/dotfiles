@@ -2,7 +2,9 @@ alias gll="git log --graph --branches --remotes --tags --pretty=format:'%Cred%h%
 alias grema="git rebase master"
 alias gbd="git branch --delete"
 
-alias v="vagrant"
+alias v="vim"
+
+alias va="vagrant"
 alias vst="vagrant status"
 alias vu="vagrant up"
 alias vd="vagrant destroy"
