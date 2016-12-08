@@ -8,5 +8,6 @@
 [core]
   autocrlf = input
   excludesfile = ~/.gitignore_global
+	editor = /usr/bin/vim
 [branch]
   autosetuprebase = always
