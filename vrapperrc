@@ -17,8 +17,8 @@ noremap <Right> <NOP>
 nmap <CR> o<Esc>
 
 " copy paste from system clipboard
+noremap <leader>p "+p
 vnoremap <leader>y "+y
-vnoremap <leader>p "+p
 
 " shortcuts to write and quit
 nnoremap <leader>q :q<CR>

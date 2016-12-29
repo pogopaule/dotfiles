@@ -92,7 +92,7 @@ imap jk <esc>
 nnoremap <leader>t :tabnew<CR>
 
 " copy paste from system clipboard
-vnoremap <leader>p "+p
+noremap <leader>p "+p
 vnoremap <leader>y "+y
 
 " search and replace
