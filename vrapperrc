@@ -1,0 +1,39 @@
+let mapleader=","
+
+" exit insert mode by pressing jk
+imap jk <esc>
+
+" disable arrow keys
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" enter adds new line in normal mode
+nmap <CR> o<Esc>
+
+" copy paste from system clipboard
+noremap <leader>p "+p
+vnoremap <leader>y "+y
+
+" shortcuts to write and quit
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+
+
+eclipseaction eclipsesearchall org.eclipse.search.ui.openFileSearchPage
+nnoremap <leader>a :eclipsesearchall<CR>
+
+eclipseaction eclipsecorrectindentation org.eclipse.jdt.ui.edit.text.java.indent
+vnoremap = :eclipsecorrectindentation<CR>
+map == :eclipsecorrectindentation<CR>
+
+eclipseaction eclipseopenresource org.eclipse.ui.navigate.openResource
+map <C-P> :eclipseopenresource<cr>
+
+eclipseaction eclipsetogglecomment org.eclipse.jdt.ui.edit.text.java.toggle.comment
+map <leader>c<space> :eclipsetogglecomment<CR>
