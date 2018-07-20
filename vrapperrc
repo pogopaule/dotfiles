@@ -7,7 +7,6 @@ set tabstop=2
 set autoindent
 set smartindent
 set expandtab
-set list listchars=tab:→\ ,trail:·
 
 " show linenumbers
 set number
