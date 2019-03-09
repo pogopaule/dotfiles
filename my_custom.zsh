@@ -14,3 +14,5 @@ alias vss="vagrant ssh"
 alias vb="vagrant box"
 alias vbl="vagrant box list"
 alias vbu="vagrant box update"
+
+bindkey '^R' history-incremental-search-backward
