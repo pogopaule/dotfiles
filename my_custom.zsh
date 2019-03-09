@@ -1,6 +1,7 @@
 alias gll="git log --graph --branches --remotes --tags --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 alias grema="git rebase master"
 alias gbd="git branch --delete"
+alias gnews='git fetch origin "$(git_current_branch)" && git log "$(git_current_branch)"..origin/"$(git_current_branch)"'
 
 alias v="vim"
 
