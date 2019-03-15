@@ -56,8 +56,6 @@ plugins=(git npm gradle vi-mode)
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -82,3 +80,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+source ~/.local_zshrc.zsh
+
+alias gll="git log --graph --branches --remotes --tags --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+alias grema="git rebase master"
+alias gbd="git branch --delete"
+alias gnews='git fetch origin "$(git_current_branch)" && git log "$(git_current_branch)"..origin/"$(git_current_branch)"'
+
+alias v="vim"
+
+bindkey '^R' history-incremental-search-backward
