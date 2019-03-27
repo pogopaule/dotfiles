@@ -1,0 +1,7 @@
+source ~/.vimrc
+
+set sourround
+set multiple-cursors
+
+" like nerdcommenter
+:map ,c<space> :action CommentByLineComment<CR>
