@@ -114,4 +114,9 @@ alias -g T='| tail'
 alias -g G='| grep'
 alias -g L="| less"
 
+# add confirmation
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
 bindkey '^R' history-incremental-search-backward
