@@ -106,4 +106,7 @@ alias v="vim"
 
 alias gdl='gradle'
 
+alias fd='find . -type d -name'
+alias ff='find . -type f -name'
+
 bindkey '^R' history-incremental-search-backward
