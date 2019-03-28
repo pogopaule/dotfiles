@@ -109,4 +109,9 @@ alias gdl='gradle'
 alias fd='find . -type d -name'
 alias ff='find . -type f -name'
 
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g L="| less"
+
 bindkey '^R' history-incremental-search-backward
