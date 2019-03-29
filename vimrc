@@ -35,8 +35,8 @@ set list listchars=tab:→\ ,trail:·
 set backspace=2
 set backspace=indent,eol,start
 
-" show linenumbers
-set number
+" show relative linenumbers
+set number relativenumber
 
 " syntax highlighting
 syntax on

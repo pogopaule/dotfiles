@@ -2,6 +2,7 @@ source ~/.vimrc
 
 set sourround
 set multiple-cursors
+set rnu
 
 " like nerdcommenter
 :map ,c<space> :action CommentByLineComment<CR>
