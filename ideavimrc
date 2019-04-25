@@ -5,4 +5,4 @@ set multiple-cursors
 set rnu
 
 " like nerdcommenter
-:map ,c<space> :action CommentByLineComment<CR>
+:map <leader>c<space> :action CommentByLineComment<CR>
