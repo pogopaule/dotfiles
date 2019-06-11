@@ -113,6 +113,7 @@ alias -g H='| head'
 alias -g T='| tail'
 alias -g G='| grep'
 alias -g L="| less"
+alias -g J="| json_pp"
 
 # add confirmation
 alias rm='rm -i'
