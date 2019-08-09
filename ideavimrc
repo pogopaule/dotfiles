@@ -1,6 +1,6 @@
 source ~/.vimrc
 
-set sourround
+set surround
 set multiple-cursors
 set rnu
 
