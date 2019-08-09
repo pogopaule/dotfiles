@@ -114,6 +114,7 @@ alias -g T='| tail'
 alias -g G='| grep'
 alias -g L="| less"
 alias -g J="| json_pp"
+alias -g Y="| xclip -selection clip"
 
 # add confirmation
 alias rm='rm -i'
