@@ -9,5 +9,6 @@ set rnu
 :map <leader>c<space> :action CommentByLineComment<CR>
 :map <leader>w :action SaveAll<CR>
 :map <leader>a :action FindUsages<CR>
+:map <leader>r :action RunClass<CR>
 
 " reload without restart. :source ~/.ideavimrc
