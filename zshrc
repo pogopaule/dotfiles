@@ -104,8 +104,6 @@ alias gnews='git fetch origin "$(git_current_branch)" && git log "$(git_current_
 
 alias v="vim"
 
-alias gdl='gradle'
-
 alias fd='find . -type d -name'
 alias ff='find . -type f -name'
 

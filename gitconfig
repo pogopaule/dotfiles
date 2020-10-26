@@ -1,13 +1,11 @@
 [user]
   name = pogopaule
-  email = pogopaule@gmx.de
+  email = pogopaule@posteo.de
 [color]
   ui = true
-[alias]
-  l = log --graph --branches --remotes --tags --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 [core]
   autocrlf = input
   excludesfile = ~/.gitignore_global
-	editor = /usr/bin/vim
+  editor = /usr/bin/vim
 [branch]
   autosetuprebase = always
