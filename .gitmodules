@@ -79,3 +79,6 @@
 [submodule "vim/bundle/vim-abolish"]
 	path = vim/bundle/vim-abolish
 	url = git://github.com/tpope/vim-abolish.git
+[submodule "vim/bundle/vim-vue-plugin"]
+	path = vim/bundle/vim-vue-plugin
+	url = git://github.com/leafOfTree/vim-vue-plugin.git
