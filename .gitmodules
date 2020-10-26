@@ -82,3 +82,6 @@
 [submodule "vim/bundle/vim-vue-plugin"]
 	path = vim/bundle/vim-vue-plugin
 	url = git://github.com/leafOfTree/vim-vue-plugin.git
+[submodule "vim/bundle/vim-easymotion"]
+	path = vim/bundle/vim-easymotion
+	url = git://github.com/easymotion/vim-easymotion.git
