@@ -1,8 +1,70 @@
-" Init pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-syntax enable
-filetype plugin indent on
+" Plugins
+" ----------------
+"
+" This vimrc assumes plug being installed as a package manager. See https://github.com/junegunn/vim-plug#unix
+"
+call plug#begin('~/.vim/plugged')
+
+" File Explorer
+Plug 'scrooloose/nerdtree'
+
+" Fuzzy Finder
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Ag Plugin
+Plug 'mileszs/ack.vim'
+
+" Surround quotes, brackets, etc.
+Plug 'tpope/vim-surround'
+
+" Comments
+Plug 'scrooloose/nerdcommenter'
+
+" Insert matching quote, brackets, etc.
+Plug 'jiangmiao/auto-pairs'
+
+" Quick navigation
+Plug 'easymotion/vim-easymotion'
+
+" Solarized colors
+Plug 'altercation/vim-colors-solarized'
+
+" Status bar
+Plug 'vim-airline/vim-airline'
+
+" Seamless jumping between vim and tmux
+Plug 'christoomey/vim-tmux-navigator'
+
+" Substitution...
+Plug 'tpope/vim-abolish'
+
+" Emmet
+Plug 'mattn/emmet-vim'
+
+" Syntax highlighting for vim components
+Plug 'leafOfTree/vim-vue-plugin'
+
+" Handlebars support
+Plug 'mustache/vim-mustache-handlebars'
+
+" Start screen
+Plug 'mhinz/vim-startify'
+
+" Tabularize
+Plug 'godlygeek/tabular'
+
+" Syntax checker
+Plug 'scrooloose/syntastic'
+
+" Markdown
+Plug 'plasticboy/vim-markdown'
+
+" Not sure if i need those...
+"Plug 'MarcWeber/vim-addon-mw-utils'
+"Plug 'tomtom/tlib_vim'
+
+" Initialize plugin system
+call plug#end()
 
 " General Settings
 " ----------------
