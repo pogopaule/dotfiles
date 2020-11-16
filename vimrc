@@ -5,6 +5,12 @@
 "
 call plug#begin('~/.vim/plugged')
 
+" More text objects
+Plug 'wellle/targets.vim'
+
+" Smooth scrolling
+Plug 'psliwka/vim-smoothie'
+
 " File Explorer
 Plug 'scrooloose/nerdtree'
 
