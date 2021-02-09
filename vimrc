@@ -2,8 +2,18 @@
 " ----------------
 "
 " This vimrc assumes plug being installed as a package manager. See https://github.com/junegunn/vim-plug#unix
-"
+
 call plug#begin('~/.vim/plugged')
+
+" Arduino
+Plug 'stevearc/vim-arduino'
+
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Markdown preview. Needs 'npm -g install instant-markdown-d'
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 " More text objects
 Plug 'wellle/targets.vim'
@@ -13,12 +23,6 @@ Plug 'psliwka/vim-smoothie'
 
 " File Explorer
 Plug 'scrooloose/nerdtree'
-
-" Fuzzy Finder
-Plug 'ctrlpvim/ctrlp.vim'
-
-" Ag Plugin
-Plug 'mileszs/ack.vim'
 
 " Surround quotes, brackets, etc.
 Plug 'tpope/vim-surround'
@@ -164,7 +168,7 @@ noremap <leader>p "+p
 vnoremap <leader>y "+y
 
 " search and replace
-nnoremap <leader>a :Ag
+nnoremap <leader>a :Rg 
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " write and quit shortcuts
@@ -190,14 +194,12 @@ nnoremap <C-H> <C-W><C-H>
 nmap j gj
 nmap k gk
 
+" open fzf :Files
+nnoremap <C-P> :Files<CR>
 
 
 " Plugins
 " -------
-
-" CTRL-P
-set wildignore+=*/vendor/*,*/node_modules/*,*/tmp/*,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\vendor\\*,*\\node_modules\\*,*\\tmp\\*,.swp,*.zip,*.exe  " Windows
 
 " airline
 set laststatus=2

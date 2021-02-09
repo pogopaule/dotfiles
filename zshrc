@@ -119,4 +119,14 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
+alias sai='sudo apt-get install'
+
 bindkey '^R' history-incremental-search-backward
+
+# https://github.com/junegunn/fzf#using-linux-package-managers
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+
+EDITOR='vim'
