@@ -18,6 +18,9 @@ Plug 'junegunn/fzf.vim'
 " Markdown preview. Needs 'npm -g install instant-markdown-d'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
+" Exchange text
+Plug 'tommcdo/vim-exchange'
+
 " More text objects
 Plug 'wellle/targets.vim'
 
