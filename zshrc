@@ -62,7 +62,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm gradle z)
+plugins=(git docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -130,3 +130,6 @@ source /usr/share/doc/fzf/examples/completion.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
 EDITOR='vim'
+
+# https://github.com/seebi/dircolors-solarized
+eval `dircolors ~/.dir_colors/dircolors`
