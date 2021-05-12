@@ -5,6 +5,9 @@
 
 call plug#begin('~/.vim/plugged')
 
+" Git
+Plug 'tpope/vim-fugitive'
+
 " Arduino
 Plug 'stevearc/vim-arduino'
 
@@ -51,7 +54,7 @@ Plug 'tpope/vim-abolish'
 " Emmet
 Plug 'mattn/emmet-vim'
 
-" Syntax highlighting for vim components
+" Syntax highlighting for vue components
 Plug 'leafOfTree/vim-vue-plugin'
 
 " Handlebars support
@@ -63,8 +66,8 @@ Plug 'mhinz/vim-startify'
 " Tabularize
 Plug 'godlygeek/tabular'
 
-" Syntax checker
-Plug 'scrooloose/syntastic'
+" Linting
+Plug 'dense-analysis/ale'
 
 " Markdown
 Plug 'plasticboy/vim-markdown'
@@ -82,7 +85,7 @@ call plug#end()
 " configure color scheme
 set background=light
 colorscheme solarized
-set t_Co=256
+"let g:solarized_termcolors=256
 
 " omni completion http://vim.wikia.com/wiki/Omni_completion
 filetype plugin on
@@ -133,14 +136,6 @@ set ignorecase
 set smartcase
 set hlsearch
 
-" MacVim
-if has("gui_running")
-  " GUI is running or is about to start.
-  " Maximize gvim window.
-  set lines=999 columns=999
-endif
-
-
 
 " Keymappings
 " -----------
@@ -168,7 +163,7 @@ noremap <leader>p "+p
 vnoremap <leader>y "+y
 
 " search and replace
-nnoremap <leader>a :Rg 
+nnoremap <leader>a :Rg<Space>
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " write and quit shortcuts
@@ -210,3 +205,24 @@ let g:mustache_abbreviations = 1
 " NERDTree settings
 nnoremap <C-n> :NERDTreeToggle<Enter>
 nnoremap <leader>n :NERDTreeFind<Enter>
+
+" Spell, Grammar and Thesaurus
+" https://www.vimfromscratch.com/articles/spell-and-grammar-vim/
+set thesaurus+=~/.vim/thesaurii.txt
+autocmd FileType markdown setlocal spell
+
+" ALE
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['black'],
+\}
+
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
+
+"let g:ale_fix_on_save = 1
+
+" vim-startify
+let g:startify_change_to_vcs_root = 1
+let g:startify_custom_header =[]      " Disable startify header
