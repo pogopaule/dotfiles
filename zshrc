@@ -62,7 +62,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose)
+plugins=(git docker docker-compose gradle vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,6 +101,8 @@ alias gll="git log --graph --branches --remotes --tags --pretty=format:'%Cred%h%
 alias grema="git rebase master"
 alias gbd="git branch --delete"
 alias gnews='git fetch origin "$(git_current_branch)" && git log "$(git_current_branch)"..origin/"$(git_current_branch)"'
+alias gscope="git log --pretty=oneline | sed -E 's/^.*\((.*)\):.*$/\1/' | sed '/[0-9a-f]* .*/d' | sort | uniq"
+alias gtype="git log --pretty=oneline | sed -E 's/[0-9a-f]{40} (.*)\(.*/\1/' | sed '/[0-9a-f]* .*/d' | sort | uniq"
 
 alias v="vim"
 
@@ -119,8 +121,6 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias sai='sudo apt-get install'
-
 bindkey '^R' history-incremental-search-backward
 
 # https://github.com/junegunn/fzf#using-linux-package-managers
@@ -133,3 +133,13 @@ EDITOR='vim'
 
 # https://github.com/seebi/dircolors-solarized
 eval `dircolors ~/.dir_colors/dircolors`
+
+# vagrant
+alias vs='vagrant ssh'
+alias vu='vagrant up'
+alias vh='vagrant halt'
+alias vdd='vagrant destroy'
+
+alias gw='./gradlew'
+
+bindkey 'jk' vi-cmd-mode
