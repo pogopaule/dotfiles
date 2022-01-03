@@ -1,11 +1,19 @@
 # dotfiles
 
-## Mac and Linux
+## Install on new system
 
 ```
+sudo apt install -y zsh
+
+# install oh-my-zsh https://github.com/ohmyzsh/ohmyzsh#basic-installation
+
+# install Plug for vim https://github.com/junegunn/vim-plug#unix
+# then in vim type command `:PlugInstall`
+
 git clone git://github.com/pogopaule/dotfiles.git
 cd dotfiles
 ./install.sh
+
 ```
 
 ## Install new vim plugin
