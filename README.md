@@ -1,14 +1,12 @@
 # dotfiles
 
-## Windows
-
-`git clone git://github.com/pogopaule/dotfiles.git`<br/>
-`cd dotfiles`<br/>
-`install.bat`<br/>
-
 ## Mac and Linux
 
-`git clone git://github.com/pogopaule/dotfiles.git; cd dotfiles; ./install.sh`
+```
+git clone git://github.com/pogopaule/dotfiles.git
+cd dotfiles
+./install.sh
+```
 
 ## Install new vim plugin
 
