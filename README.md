@@ -14,6 +14,9 @@ git clone git://github.com/pogopaule/dotfiles.git
 cd dotfiles
 ./install.sh
 
+sudo apt install -y fd-find
+sudo apt install -y bat
+sudo apt install -y fzf
 ```
 
 ## Install new vim plugin
