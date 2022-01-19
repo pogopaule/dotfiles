@@ -112,9 +112,7 @@ alias gscope="git log --pretty=oneline | sed -E 's/^.*\((.*)\):.*$/\1/' | sed '/
 alias gtype="git log --pretty=oneline | sed -E 's/[0-9a-f]{40} (.*)\(.*/\1/' | sed '/[0-9a-f]* .*/d' | sort | uniq"
 
 alias v="vim"
-
-alias fd='find . -type d -name'
-alias ff='find . -type f -name'
+alias fd="fdfind"
 
 alias -g H='| head'
 alias -g T='| tail'
@@ -134,7 +132,8 @@ bindkey '^R' history-incremental-search-backward
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
-export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 EDITOR='vim'
 
@@ -150,3 +149,17 @@ alias vdd='vagrant destroy'
 alias gw='./gradlew'
 
 bindkey 'jk' vi-cmd-mode
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# WSL 2 specific settings.
+if grep -q "microsoft" /proc/version &>/dev/null; then
+  # Requires: https://sourceforge.net/projects/vcxsrv/ (or alternative)
+  export DISPLAY="$(/sbin/ip route | awk '/default/ { print $3  }'):0"
+fi

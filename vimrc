@@ -87,7 +87,7 @@ call plug#end()
 
 " configure color scheme
 set background=light
-"colorscheme solarized
+colorscheme solarized
 "let g:solarized_termcolors=256
 
 " omni completion http://vim.wikia.com/wiki/Omni_completion
@@ -138,6 +138,8 @@ set incsearch
 set ignorecase
 set smartcase
 set hlsearch
+
+set clipboard=unnamedplus
 
 
 " Keymappings
