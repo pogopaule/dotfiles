@@ -17,6 +17,7 @@ cd dotfiles
 sudo apt install -y fd-find
 sudo apt install -y bat
 sudo apt install -y fzf
+sudo apt install -y ripgrep
 ```
 
 ## Install new vim plugin
