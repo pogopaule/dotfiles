@@ -17,7 +17,7 @@ call plug#begin('~/.vim/plugged')
 " LSP support
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
-" Plug 'glepnir/lspsaga.nvim'
+Plug 'tami5/lspsaga.nvim'
 
 " Lua functions
 Plug 'nvim-lua/plenary.nvim'
@@ -220,10 +220,6 @@ nnoremap <leader>n :NvimTreeFindFile<Enter>
 
 " Plugin Configurations {{{
 
-" " glepnir/lspsaga.nvim {{{
-" lua require('lspsaga').init_lsp_saga()
-" " }}}
-
 " lewis6991/gitsigns.nvim {{{
 lua require('gitsigns').setup()
 " }}}
@@ -299,14 +295,6 @@ EOF
 
 " neovim/lspconfig {{{
 lua <<EOF
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 'pyright', 'tsserver' }
@@ -324,10 +312,7 @@ nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gh    <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gca   <cmd>:Telescope lsp_code_actions<CR>
 nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
-"nnoremap <silent><leader>fo <cmd>lua vim.lsp.buf.formatting()<CR>
 " }}}
 
 " hrsh7th/nvim-cmp {{{
@@ -405,4 +390,8 @@ let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header =[]      " Disable startify header
 " }}}
 
+" tami5/lspsaga.nvim {{{
+lua require('lspsaga').setup()
 
+nnoremap <silent> <leader>cr <cmd>Lspsaga rename<CR>
+" }}}
