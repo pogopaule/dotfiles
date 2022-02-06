@@ -1,6 +1,6 @@
 #! /bin/bash
 
-ln -s $PWD/vimrc ~/.vimrc
+# ln -s $PWD/vimrc ~/.vimrc
 ln -s $PWD/vrapperrc ~/.vrapperrc
 ln -s $PWD/gitconfig ~/.gitconfig
 ln -s $PWD/gitignore_global ~/.gitignore_global
