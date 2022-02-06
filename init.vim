@@ -9,9 +9,16 @@ call plug#begin('~/.vim/plugged')
 " LSP support
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
+" Plug 'glepnir/lspsaga.nvim'
 
 " Lua functions
 Plug 'nvim-lua/plenary.nvim'
+
+" git decoration for buffers
+Plug 'lewis6991/gitsigns.nvim'
+
+" Git
+Plug 'tpope/vim-fugitive'
 
 " completion engine
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -25,21 +32,24 @@ Plug 'hrsh7th/vim-vsnip'
 " Find, Filter, Preview, Pick
 Plug 'nvim-telescope/telescope.nvim'
 
+" Highlight, list and search todo comments
+Plug 'folke/todo-comments.nvim'
+
 " Nvim Treesitter configurations and abstraction layer
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Smooth scrolling
 Plug 'psliwka/vim-smoothie'
 
-" File Explorer
-Plug 'scrooloose/nerdtree'
+" open file in github
+Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
 
 " Surround quotes, brackets, etc.
 Plug 'tpope/vim-surround'
 
 " Comments
-" TODO check if nvim plugin exists
-Plug 'scrooloose/nerdcommenter'
+Plug 'numToStr/Comment.nvim'
 
 " Colorize hex colors
 Plug 'norcalli/nvim-colorizer.lua'
@@ -76,34 +86,42 @@ Plug 'godlygeek/tabular'
 "Plug 'dense-analysis/ale'
 
 " Markdown
-Plug 'plasticboy/vim-markdown'
+Plug 'preservim/vim-markdown'
+
+" File Explorer
+Plug 'kyazdani42/nvim-tree.lua'
+
+" Start screen
+Plug 'mhinz/vim-startify'
+
 
 " Initialize plugin system
 call plug#end()
 "}}}
 
-" General Settings
-" ----------------
+" General Settings {{{
 
-" configure color scheme
-"colorscheme solarized
+" configure color scheme {{
 colorscheme one
 "set background=dark " for the dark version
 set background=light " for the light version
 set termguicolors
+"}}
 
-" filehandling
+" filehandling {{
 set noundofile
 set nowritebackup
 set nobackup
 set noswapfile
+"}}
 
-" indentation
+" indentation {{
 set shiftwidth=2
 set tabstop=2
 set smartindent
 set expandtab
 set backspace=2
+"}}
 
 " show relative linenumbers
 set number relativenumber
@@ -111,19 +129,16 @@ set number relativenumber
 " folding {{{
 set foldlevelstart=10
 " fold with space
-nnoremap <Space> za
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
 " }}}
 
-" search
+" search {{
 set ignorecase
 set smartcase
+"}}
 
-set clipboard=unnamedplus
+"}}}
 
-" Keymappings
-" -----------
+" Keymappings {{{
 
 let mapleader=","
 
@@ -148,13 +163,11 @@ noremap <leader>p "+p
 vnoremap <leader>y "+y
 
 " search and replace
-nnoremap <leader>a :Rg<Space>
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " write and quit shortcuts
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
-nnoremap <leader>e :qa<CR>
 
 " remove search highlight
 nnoremap <leader>d :nohlsearch<CR>
@@ -172,31 +185,56 @@ nnoremap <C-H> <C-W><C-H>
 nmap j gj
 nmap k gk
 
-" nvim-telescope/telescope.nvim {{{
-"nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+" nvim-telescope/telescope.nvim {{
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>ft <cmd>TodoTelescope<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles()<cr>
+" }}
+
+" tyru/open-browser-github.vim {{{
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+nmap gxx <cmd>OpenGithubFile<cr>
 " }}}
+
+" scrooloose/nerdtree {{{
+nnoremap <C-n> :NvimTreeToggle<Enter>
+nnoremap <leader>n :NvimTreeFindFile<Enter>
+"}}}
+
+
+"}}}
 
 
 " Plugin Configurations {{{
 
+" " glepnir/lspsaga.nvim {{{
+" lua require('lspsaga').init_lsp_saga()
+" " }}}
+
+" lewis6991/gitsigns.nvim {{{
+lua require('gitsigns').setup()
+" }}}
+
+" nvim-tree {{{
+lua require'nvim-tree'.setup()
+" }}}
+
+" numToStr/Comment.nvim {{{
+lua require('Comment').setup()
+"}}}
+
+" folke/todo-comments.nvim {{{
+lua require("todo-comments").setup()
+" }}}
+
 " kyazdani42/nvim-web-devicons {{{
 lua <<EOF
 require'nvim-web-devicons'.setup {
- -- your personnal icons can go here (to override)
- -- you can specify color or cterm_color instead of specifying both of them
- -- DevIcon will be appended to `name`
- override = {
-  zsh = {
-    icon = "",
-    color = "#428850",
-    cterm_color = "65",
-    name = "Zsh"
-  }
- };
  -- globally enable default icons (default to false)
  -- will get overriden by `get_icons` option
  default = true;
@@ -205,20 +243,17 @@ EOF
 "}}}
 
 " nvim-lualine/lualine.nvim {{{
-lua << END
-require('lualine').setup()
-END
+lua require('lualine').setup()
 " }}}
 
 " nvim-colorizer.lua {{{
-lua <<EOF
-require'colorizer'.setup()
-EOF
+lua require('colorizer').setup()
 " }}}
 
 " nvim-treesitter/nvim-treesitter {{{
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
   highlight = {
     enable = true,
   },
@@ -236,7 +271,8 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 EOF
-
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 "}}}
 
 " williamboman/nvim-lsp-installer {{{
@@ -247,15 +283,6 @@ local lsp_installer = require("nvim-lsp-installer")
 -- or if the server is already installed).
 lsp_installer.on_server_ready(function(server)
     local opts = {}
-
-    -- (optional) Customize the options passed to the server
-    -- if server.name == "tsserver" then
-    --     opts.root_dir = function() ... end
-    -- end
-
-    -- This setup() function will take the provided server configuration and decorate it with the necessary properties
-    -- before passing it onwards to lspconfig.
-    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     server:setup(opts)
 end)
 
@@ -358,27 +385,16 @@ lua <<EOF
 EOF
 "}}}
 
-" scrooloose/nerdtree {{{
-nnoremap <C-n> :NERDTreeToggle<Enter>
-nnoremap <leader>n :NERDTreeFind<Enter>
-"}}}
-
 " Spell, Grammar and Thesaurus
 " https://www.vimfromscratch.com/articles/spell-and-grammar-vim/
 set thesaurus+=~/.vim/thesaurii.txt
 autocmd FileType markdown setlocal spell
 
-" ALE
-" TODO
-"let g:ale_fixers = {
-"\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-"\   'python': ['black'],
-"\}
-
-"let g:ale_linters = {
-"\   'python': ['flake8'],
-"\}
-
-"let g:ale_fix_on_save = 1
-
 "}}}
+
+" mhinz/vim-startify {{{
+let g:startify_change_to_vcs_root = 1
+let g:startify_custom_header =[]      " Disable startify header
+" }}}
+
+
