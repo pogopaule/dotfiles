@@ -11,7 +11,8 @@ sudo apt install -y zsh
 
 # install the nerd font Hack (includes symbols) for the terminal https://www.nerdfonts.com/font-downloads
 # install Plug for vim https://github.com/junegunn/vim-plug#unix
-# then in nvim type command `:PlugInstall`
+# then in nvim type command `:PlugInstall` to install all plugins
+# and `:LspInstall <langauge>` to install desired language servers
 
 git clone git://github.com/pogopaule/dotfiles.git
 cd dotfiles

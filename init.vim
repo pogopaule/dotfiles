@@ -6,6 +6,14 @@ let &packpath = &runtimepath
 
 call plug#begin('~/.vim/plugged')
 
+" TODO checkout plugins
+"https://github.com/tamago324/nlsp-settings.nvim
+"https://github.com/ahmedkhalf/project.nvim
+"https://github.com/romgrk/barbar.nvim
+"https://github.com/mfussenegger/nvim-dap
+"https://github.com/Pocco81/DAPInstall.nvim
+"https://github.com/b0o/schemastore.nvim
+
 " LSP support
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
