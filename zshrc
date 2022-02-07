@@ -70,7 +70,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose gradle vi-mode)
+plugins=(git docker docker-compose gradle vi-mode npm ssh-agent)
+
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#lazy
+zstyle :omz:plugins:ssh-agent lazy yes
 
 source $ZSH/oh-my-zsh.sh
 
@@ -132,7 +135,7 @@ bindkey '^R' history-incremental-search-backward
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
-export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git node_modules'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 EDITOR='vim'
@@ -147,6 +150,13 @@ alias vh='vagrant halt'
 alias vdd='vagrant destroy'
 
 alias gw='./gradlew'
+
+# docker
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+
+# npm
+alias nr='npm run'
 
 bindkey 'jk' vi-cmd-mode
 

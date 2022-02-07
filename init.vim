@@ -13,11 +13,19 @@ call plug#begin('~/.vim/plugged')
 "https://github.com/mfussenegger/nvim-dap
 "https://github.com/Pocco81/DAPInstall.nvim
 "https://github.com/b0o/schemastore.nvim
+"https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils
+"https://github.com/ray-x/lsp_signature.nvim
+"https://github.com/folke/trouble.nvim
 
 " LSP support
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'tami5/lspsaga.nvim'
+Plug 'onsails/lspkind-nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+
+" Symbol outline
+Plug 'simrat39/symbols-outline.nvim'
 
 " Lua functions
 Plug 'nvim-lua/plenary.nvim'
@@ -25,8 +33,17 @@ Plug 'nvim-lua/plenary.nvim'
 " git decoration for buffers
 Plug 'lewis6991/gitsigns.nvim'
 
+" fixes problems when escaping with jk
+Plug 'max397574/better-escape.nvim'
+
 " Git
 Plug 'tpope/vim-fugitive'
+
+" Run tests
+Plug 'vim-test/vim-test'
+
+" Changes Vim working directory to project root
+Plug 'airblade/vim-rooter'
 
 " completion engine
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -97,7 +114,7 @@ Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 
 " File Explorer
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-tree.lua', { 'tag': '1.6.7' }
 
 " Start screen
 Plug 'mhinz/vim-startify'
@@ -200,6 +217,8 @@ nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles()<cr>
+nnoremap <leader>fm <cmd>lua require('telescope.builtin').marks()<cr>
+nnoremap <leader>fr <cmd>lua require('telescope.builtin').lsp_references()<cr>
 " }}
 
 " tyru/open-browser-github.vim {{{
@@ -297,7 +316,7 @@ EOF
 lua <<EOF
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'tsserver' }
+local servers = { 'pyright', 'tsserver', 'jsonls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     flags = {
@@ -308,11 +327,7 @@ for _, lsp in pairs(servers) do
 end
 EOF
 
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gh    <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gca   <cmd>:Telescope lsp_code_actions<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 " }}}
 
 " hrsh7th/nvim-cmp {{{
@@ -321,8 +336,15 @@ set completeopt=menu,menuone,noselect
 lua <<EOF
   -- Setup nvim-cmp.
   local cmp = require'cmp'
+  local lspkind = require('lspkind')
 
   cmp.setup({
+      formatting = {
+        format = lspkind.cmp_format({
+        mode = 'symbol_text', -- show only symbol annotations
+        maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      })
+    },
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
@@ -394,4 +416,49 @@ let g:startify_custom_header =[]      " Disable startify header
 lua require('lspsaga').setup()
 
 nnoremap <silent> <leader>cr <cmd>Lspsaga rename<CR>
+nnoremap <silent> <leader>ca <cmd>Lspsaga code_action<CR>
+nnoremap <silent> <leader>cd <cmd>Lspsaga hover_doc<CR>
+nnoremap <silent> <leader>cp <cmd>Lspsaga preview_definition<CR>
+nnoremap <silent> <leader>cf <cmd>lua vim.lsp.buf.formatting()<CR>
+" }}}
+
+" max397574/better-escape.nvim {{{
+lua <<EOF
+require("better_escape").setup {
+    mapping = {"jk"}, -- a table with mappings to use
+    timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+    clear_empty_lines = false, -- clear line after escaping if there is only whitespace
+    keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
+    -- example
+    -- keys = function()
+    --   return vim.fn.col '.' - 2 >= 1 and '<esc>l' or '<esc>'
+    -- end,
+}
+EOF
+" }}}
+
+" jose-elias-alvarez/null-ls.nvim {{{
+lua <<EOF
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.formatting.eslint,
+        require("null-ls").builtins.diagnostics.eslint,
+    },
+})
+EOF
+" }}}
+
+" simrat39/symbols-outline.nvim {{{
+lua <<EOF
+vim.g.symbols_outline = {
+    highlight_hovered_item = false,
+    auto_preview = false,
+    width = 30,
+    symbol_blacklist = {
+      "Property", "Constructor", "Enum", "Interface", "Function", "Variable",
+      "Constant", "String", "Number", "Boolean", "Array", "Object", "Key", "Null",
+      "EnumMember", "Struct", "Event", "Operator", "TypeParameter"
+      },
+}
+EOF
 " }}}
