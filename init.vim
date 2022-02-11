@@ -7,6 +7,7 @@ let &packpath = &runtimepath
 call plug#begin('~/.vim/plugged')
 
 " TODO checkout plugins
+"https://github.com/rcarriga/nvim-notify
 "https://github.com/tamago324/nlsp-settings.nvim
 "https://github.com/ahmedkhalf/project.nvim
 "https://github.com/romgrk/barbar.nvim
@@ -14,18 +15,25 @@ call plug#begin('~/.vim/plugged')
 "https://github.com/Pocco81/DAPInstall.nvim
 "https://github.com/b0o/schemastore.nvim
 "https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils
-"https://github.com/ray-x/lsp_signature.nvim
 "https://github.com/folke/trouble.nvim
 
 " LSP support
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
+
+" The neovim language-server-client UI
 Plug 'tami5/lspsaga.nvim'
+
+" vscode-like pictograms for neovim lsp completion items
 Plug 'onsails/lspkind-nvim'
+
+" LSP bridge for linters and others
 Plug 'jose-elias-alvarez/null-ls.nvim'
 
-" Symbol outline
-Plug 'simrat39/symbols-outline.nvim'
+" Easy installation of LSP servers
+Plug 'williamboman/nvim-lsp-installer'
+
+" LSP signature hint as you type
+Plug 'ray-x/lsp_signature.nvim'
 
 " Lua functions
 Plug 'nvim-lua/plenary.nvim'
@@ -51,8 +59,12 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+
+" snippets
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'rafamadriz/friendly-snippets'
 
 " Find, Filter, Preview, Pick
 Plug 'nvim-telescope/telescope.nvim'
@@ -85,9 +97,6 @@ Plug 'jiangmiao/auto-pairs'
 " Quick navigation
 Plug 'easymotion/vim-easymotion'
 
-" Solarized colors
-Plug 'altercation/vim-colors-solarized'
-
 " One theme
 Plug 'rakr/vim-one'
 
@@ -98,17 +107,11 @@ Plug 'kyazdani42/nvim-web-devicons'
 " Seamless jumping between vim and tmux
 Plug 'christoomey/vim-tmux-navigator'
 
-" Substitution...
-Plug 'tpope/vim-abolish'
-
 " Emmet
 Plug 'mattn/emmet-vim'
 
 " Tabularize
 Plug 'godlygeek/tabular'
-
-" Linting
-"Plug 'dense-analysis/ale'
 
 " Markdown
 Plug 'preservim/vim-markdown'
@@ -118,6 +121,9 @@ Plug 'kyazdani42/nvim-tree.lua', { 'tag': '1.6.7' }
 
 " Start screen
 Plug 'mhinz/vim-startify'
+
+" Show unwanted whitespaces
+Plug 'ntpeters/vim-better-whitespace'
 
 
 " Initialize plugin system
@@ -160,8 +166,6 @@ set foldlevelstart=10
 set ignorecase
 set smartcase
 "}}
-
-"}}}
 
 " Keymappings {{{
 
@@ -233,6 +237,34 @@ nnoremap <C-n> :NvimTreeToggle<Enter>
 nnoremap <leader>n :NvimTreeFindFile<Enter>
 "}}}
 
+" hrsh7th/vim-vsnip {{{
+
+" Expand
+imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+" Expand or jump
+imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
+" See https://github.com/hrsh7th/vim-vsnip/pull/50
+nmap        s   <Plug>(vsnip-select-text)
+xmap        s   <Plug>(vsnip-select-text)
+nmap        S   <Plug>(vsnip-cut-text)
+xmap        S   <Plug>(vsnip-cut-text)
+
+" If you want to use snippet for multiple filetypes, you can `g:vsnip_filetypes` for it.
+let g:vsnip_filetypes = {}
+let g:vsnip_filetypes.javascriptreact = ['javascript']
+let g:vsnip_filetypes.typescriptreact = ['typescript']
+" }}}
 
 "}}}
 
@@ -319,6 +351,14 @@ lua <<EOF
 local servers = { 'pyright', 'tsserver', 'jsonls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
+    on_attach = function(client, buffer)
+      require "lsp_signature".on_attach({
+        bind = true, -- This is mandatory, otherwise border config won't get registered.
+        handler_opts = {
+          border = "rounded"
+        }
+      }, bufnr)
+      end,
     flags = {
       -- This will be the default in neovim 0.7+
       debounce_text_changes = 150,
@@ -448,17 +488,7 @@ require("null-ls").setup({
 EOF
 " }}}
 
-" simrat39/symbols-outline.nvim {{{
-lua <<EOF
-vim.g.symbols_outline = {
-    highlight_hovered_item = false,
-    auto_preview = false,
-    width = 30,
-    symbol_blacklist = {
-      "Property", "Constructor", "Enum", "Interface", "Function", "Variable",
-      "Constant", "String", "Number", "Boolean", "Array", "Object", "Key", "Null",
-      "EnumMember", "Struct", "Event", "Operator", "TypeParameter"
-      },
-}
-EOF
+" ray-x/lsp_signature.nvim {{{
+lua require "lsp_signature".setup()
 " }}}
+
