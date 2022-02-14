@@ -66,7 +66,7 @@ map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', opts)
 map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>', opts)
 
 -- neovim/lspconfig
-map('n', '<leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 
 -- tami5/lspsaga.nvim
 map('n', '<leader>cr', '<cmd>Lspsaga rename<CR>', opts)
@@ -82,6 +82,15 @@ let g:netrw_nogx = 1 " disable netrw's gx mapping.
 map('n', 'gx', '<cmd>OpenBrowserSmartSearch<CR>', opts)
 map('v', 'gx', '<cmd>OpenBrowserSmartSearch<CR>', opts)
 map('n', 'gxx', '<cmd>OpenGithubFile<CR>', opts)
+
+-- lewis6991/gitsigns.nvim
+map('n', '<leader>gr', '<cmd>Gitsigns reset_hunk<CR>', opts)
+map('n', '<leader>gb', '<cmd>Gitsigns blame_line<CR>', opts)
+map('n', '<leader>gp', '<cmd>Gitsigns preview_hunk<CR>', opts)
+
+-- akinsho/bufferline.nvim
+map('n', '<A-h>', '<cmd>BufferLineCyclePrev<CR>', opts)
+map('n', '<A-l>', '<cmd>BufferLineCycleNext<CR>', opts)
 
 -- TODO
 --" hrsh7th/vim-vsnip

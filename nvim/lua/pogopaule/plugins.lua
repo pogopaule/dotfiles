@@ -58,12 +58,13 @@ return packer.startup(function(use)
   use 'nvim-lua/plenary.nvim'                                 -- Lua functions
 
   -- layout / windows
-  use {'kyazdani42/nvim-tree.lua', tag = '1.6.7' }           -- File Explorer
+  use {'kyazdani42/nvim-tree.lua' }                           -- File Explorer
   use 'mhinz/vim-startify'                                    -- Start screen
   use 'nvim-lualine/lualine.nvim'                             -- Status bar
   use 'kyazdani42/nvim-web-devicons'                          -- Icon font
   use 'rakr/vim-one'                                          -- One theme
   use 'nvim-telescope/telescope.nvim'                         -- Find, Filter, Preview, Pick
+  use {'akinsho/bufferline.nvim'}                             -- A bufferline
 
   -- misc
   use 'godlygeek/tabular'                                     -- Tabularize
