@@ -49,6 +49,8 @@ packer.init {
 -- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils
 -- https://github.com/folke/trouble.nvim
 -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+-- https://github.com/ms-jpq/coq_nvim
+-- https://github.com/ms-jpq/chadtree
 
 -- TODO add lazy loading for some plugins?
 return packer.startup(function(use)
@@ -98,6 +100,7 @@ return packer.startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim'                       -- LSP bridge for linters and others
   use 'williamboman/nvim-lsp-installer'                       -- Easy installation of LSP servers
   use 'ray-x/lsp_signature.nvim'                              -- LSP signature hint as you type
+  use 'b0o/schemastore.nvim'                                  -- JSON schema awareness
 
   -- git
   use 'lewis6991/gitsigns.nvim'                               -- git decoration for buffers

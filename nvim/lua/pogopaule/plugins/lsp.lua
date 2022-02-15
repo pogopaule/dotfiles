@@ -21,9 +21,17 @@ for _, lsp in pairs(servers) do
       debounce_text_changes = 150,
     },
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-
   }
 end
+
+require('lspconfig').jsonls.setup {
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+    },
+  },
+}
+
 
 -- jose-elias-alvarez/null-ls.nvim
 -- local null_ls = require("null-ls")
