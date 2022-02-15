@@ -88,6 +88,7 @@ return packer.startup(function(use)
   use 'mattn/emmet-vim'                                       -- Emmet
   use 'folke/todo-comments.nvim'                              -- Highlight, list and search todo comments
   use 'preservim/vim-markdown'                                -- Markdown
+  use 'ThePrimeagen/refactoring.nvim'                         -- Refactoring
 
   -- LSP
   use 'neovim/nvim-lspconfig'                                 -- LSP support

@@ -6,10 +6,18 @@ require('colorizer').setup()         -- nvim-colorizer.lua
 require('lsp_signature').setup()     -- ray-x/lsp_signature.nvim
 require('lspsaga').setup()           -- tami5/lspsaga.nvim
 require('nvim-web-devicons').setup() -- kyazdani42/nvim-web-devicons
+require('refactoring').setup()       -- ThePrimeagen/refactoring.nvim
 
 require('nvim-tree').setup({
   filters = {
     dotfiles = true,
+  },
+  view = {
+    mappings = {
+      list = {
+        { key = {"<C-c>"}, action = "cd" },
+      }
+    }
   }
 })
 vim.g.nvim_tree_special_files = {}

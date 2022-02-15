@@ -26,12 +26,15 @@ for _, lsp in pairs(servers) do
 end
 
 -- jose-elias-alvarez/null-ls.nvim
-local null_ls = require("null-ls")
-null_ls.setup({
-  sources = {
-    null_ls.builtins.formatting.eslint,
-    null_ls.builtins.diagnostics.eslint,
-  },
-})
-
--- Setup lspconfig.
+-- local null_ls = require("null-ls")
+-- local formatting = null_ls.builtins.formatting
+-- local diagnostics = null_ls.builtins.diagnostics
+-- null_ls.setup({
+--   sources = {
+--     formatting.prettier,
+--     formatting.black.with({extra_args = {"--fast"}}),
+--     diagnostics.eslint,
+--     diagnostics.flake8,
+--     null_ls.builtins.code_actions.refactoring
+--   },
+-- })

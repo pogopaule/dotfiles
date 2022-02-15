@@ -73,7 +73,11 @@ map('n', '<leader>cr', '<cmd>Lspsaga rename<CR>', opts)
 map('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', opts)
 map('n', '<leader>cd', '<cmd>Lspsaga hover_doc<CR>', opts)
 map('n', '<leader>cp', '<cmd>Lspsaga preview_definition<CR>', opts)
+
 map('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+map('v', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', {})
+map('l', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', {})
+map('x', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', {})
 
 -- tyru/open-browser-github.vim
 vim.cmd([[
@@ -91,6 +95,13 @@ map('n', '<leader>gp', '<cmd>Gitsigns preview_hunk<CR>', opts)
 -- akinsho/bufferline.nvim
 map('n', '<A-h>', '<cmd>BufferLineCyclePrev<CR>', opts)
 map('n', '<A-l>', '<cmd>BufferLineCycleNext<CR>', opts)
+
+-- ThePrimeagen/refactoring.nvim
+map('v', '<Leader>re', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", opts)
+map('v', '<Leader>rf', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", opts)
+map('v', '<Leader>rv', "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", opts)
+map('n', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
+map('v', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
 
 -- TODO
 --" hrsh7th/vim-vsnip
