@@ -1,5 +1,6 @@
 vim.cmd [[set iskeyword+=-]]        -- e.g. delete foo-bar with daw
-vim.cmd "colorscheme one"
+vim.cmd 'colorscheme tokyonight'
+vim.g.tokyonight_style="night"     -- storm, night or day
 
 local options = {
   shiftwidth    = 2,                -- number of spaces for indentation
@@ -15,7 +16,7 @@ local options = {
   smartcase     = true,
 
   termguicolors = true,
-  background    = 'light',
+  -- background    = 'light',
 
   foldlevel     = 99,
   completeopt   = {'menu', 'menuone', 'noselect'}

@@ -62,7 +62,8 @@ return packer.startup(function(use)
   use 'mhinz/vim-startify'                                    -- Start screen
   use 'nvim-lualine/lualine.nvim'                             -- Status bar
   use 'kyazdani42/nvim-web-devicons'                          -- Icon font
-  use 'rakr/vim-one'                                          -- One theme
+  -- use 'rakr/vim-one'                                          -- One theme
+  use 'folke/tokyonight.nvim'                                 -- Tokyonight theme
   use 'nvim-telescope/telescope.nvim'                         -- Find, Filter, Preview, Pick
   use {'akinsho/bufferline.nvim'}                             -- A bufferline
 
