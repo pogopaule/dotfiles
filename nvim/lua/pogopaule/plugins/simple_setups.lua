@@ -1,12 +1,11 @@
-require('gitsigns').setup()          -- lewis6991/gitsigns.nvim
-require('Comment').setup()           -- numToStr/Comment.nvim
-require('todo-comments').setup()     -- folke/todo-comments.nvim
-require('lualine').setup()           -- nvim-lualine/lualine.nvim
-require('colorizer').setup()         -- nvim-colorizer.lua
-require('lsp_signature').setup()     -- ray-x/lsp_signature.nvim
-require('lspsaga').setup()           -- tami5/lspsaga.nvim
-require('nvim-web-devicons').setup() -- kyazdani42/nvim-web-devicons
-require('refactoring').setup()       -- ThePrimeagen/refactoring.nvim
+require('gitsigns').setup()               -- lewis6991/gitsigns.nvim
+require('Comment').setup()                -- numToStr/Comment.nvim
+require('todo-comments').setup()          -- folke/todo-comments.nvim
+require('lualine').setup()                -- nvim-lualine/lualine.nvim
+require('colorizer').setup()              -- nvim-colorizer.lua
+require('lsp_signature').setup()          -- ray-x/lsp_signature.nvim
+require('nvim-web-devicons').setup()      -- kyazdani42/nvim-web-devicons
+require('refactoring').setup()            -- ThePrimeagen/refactoring.nvim
 
 require('nvim-tree').setup({
   filters = {
@@ -15,7 +14,7 @@ require('nvim-tree').setup({
   view = {
     mappings = {
       list = {
-        { key = {"<C-c>"}, action = "cd" },
+        { key = {'cd'}, action = 'cd' },
       }
     }
   }
