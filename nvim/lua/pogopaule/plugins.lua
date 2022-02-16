@@ -45,7 +45,6 @@ packer.init {
 -- https://github.com/romgrk/barbar.nvim
 -- https://github.com/mfussenegger/nvim-dap
 -- https://github.com/Pocco81/DAPInstall.nvim
--- https://github.com/b0o/schemastore.nvim
 -- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils
 -- https://github.com/folke/trouble.nvim
 -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects

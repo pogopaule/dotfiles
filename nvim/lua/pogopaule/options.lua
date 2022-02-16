@@ -1,6 +1,6 @@
 vim.cmd [[set iskeyword+=-]]        -- e.g. delete foo-bar with daw
 vim.cmd 'colorscheme tokyonight'
-vim.g.tokyonight_style="night"     -- storm, night or day
+vim.g.tokyonight_style="day"     -- storm, night or day
 
 local options = {
   shiftwidth    = 2,                -- number of spaces for indentation
@@ -15,8 +15,10 @@ local options = {
   ignorecase    = true,             -- ignore case in search patterns
   smartcase     = true,
 
+  updatetime = 300,                 -- faster completion and word highlighting (4000ms default)
+
   termguicolors = true,
-  -- background    = 'light',
+  background    = 'light',
 
   foldlevel     = 99,
   completeopt   = {'menu', 'menuone', 'noselect'}

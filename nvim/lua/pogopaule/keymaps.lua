@@ -71,9 +71,12 @@ map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 -- tami5/lspsaga.nvim
 map('n', '<leader>cr', '<cmd>Lspsaga rename<CR>', opts)
 map('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', opts)
-map('n', '<leader>cd', '<cmd>Lspsaga hover_doc<CR>', opts)
+map('n', '<leader>K', '<cmd>Lspsaga hover_doc<CR>', opts)
 map('n', '<leader>cp', '<cmd>Lspsaga preview_definition<CR>', opts)
+map('n', '<leader>cd', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
 
+-- map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+map('n', 'ci', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 map('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 map('v', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', {})
 map('l', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', {})
