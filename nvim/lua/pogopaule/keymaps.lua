@@ -49,7 +49,9 @@ map('v', '>', '>gv', opts)
 
 
 
-
+-- kazhala/close-buffers.nvim
+map('n', '<A-t>', "<cmd>lua require('close_buffers').delete({ type = 'this' })<cr>", opts)
+map('n', '<A-o>', "<cmd>lua require('close_buffers').delete({ type = 'other' })<cr>", opts)
 
 -- nvim-telescope/telescope.nvim
 map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
@@ -82,11 +84,12 @@ map('n', '<leader>cp', '<cmd>Lspsaga preview_definition<CR>', opts)
 map('n', '<leader>cd', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
 
 -- tyru/open-browser-github.vim
+-- disable netrw's gx mapping.
 vim.cmd([[
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
+let g:netrw_nogx = 1
 ]])
-map('n', 'gx', '<cmd>OpenBrowserSmartSearch<CR>', opts)
-map('v', 'gx', '<cmd>OpenBrowserSmartSearch<CR>', opts)
+map('n', 'gx', '<plug>(openbrowser-smart-search)', opts)
+map('v', 'gx', '<plug>(openbrowser-smart-search)', opts)
 map('n', 'gxx', '<cmd>OpenGithubFile<CR>', opts)
 
 -- lewis6991/gitsigns.nvim
@@ -105,7 +108,7 @@ map('v', '<Leader>rv', "<Esc><Cmd>lua require('refactoring').refactor('Extract V
 map('n', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
 map('v', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
 
--- TODO
+-- TODO:
 --" hrsh7th/vim-vsnip
 --
 --" Expand

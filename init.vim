@@ -227,8 +227,8 @@ nnoremap <leader>fr <cmd>lua require('telescope.builtin').lsp_references()<cr>
 
 " tyru/open-browser-github.vim {{{
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
+nmap gx <cmd>OpenBrowserSmartSearch<cr>
+vmap gx <cmd>OpenBrowserSmartSearch<cr>
 nmap gxx <cmd>OpenGithubFile<cr>
 " }}}
 

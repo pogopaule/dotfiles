@@ -38,20 +38,18 @@ packer.init {
   },
 }
 
--- TODO checkout plugins
--- https://github.com/rcarriga/nvim-notify
--- https://github.com/tamago324/nlsp-settings.nvim
+-- TODO: checkout plugins
 -- https://github.com/ahmedkhalf/project.nvim
--- https://github.com/romgrk/barbar.nvim
--- https://github.com/mfussenegger/nvim-dap
+-- https://github.com/romgrk/barbar.nvim alternative to bufferline?
+-- https://github.com/mfussenegger/nvim-dap install when debugging is needed
 -- https://github.com/Pocco81/DAPInstall.nvim
--- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils
--- https://github.com/folke/trouble.nvim
--- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
--- https://github.com/ms-jpq/coq_nvim
--- https://github.com/ms-jpq/chadtree
+-- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils additional lsp features for typescript, mainly imports related
+-- https://github.com/folke/trouble.nvim diagnostics tooling
+-- https://github.com/ms-jpq/coq_nvim alternative to vim-cmp?
+-- https://github.com/ms-jpq/chadtree alternative to nvim-tree?
+-- https://github.com/danymat/neogen generate annotations and documentation
 
--- TODO add lazy loading for some plugins?
+-- TODO: add lazy loading for some plugins?
 return packer.startup(function(use)
   -- basics
   use 'wbthomason/packer.nvim'                                -- Have packer manage itself
@@ -66,7 +64,8 @@ return packer.startup(function(use)
   -- use 'rakr/vim-one'                                          -- One theme
   use 'folke/tokyonight.nvim'                                 -- Tokyonight theme
   use 'nvim-telescope/telescope.nvim'                         -- Find, Filter, Preview, Pick
-  use {'akinsho/bufferline.nvim'}                             -- A bufferline
+  use 'akinsho/bufferline.nvim'                               -- A bufferline
+  use 'kazhala/close-buffers.nvim'                            -- helpers to close buffers
 
   -- misc
   use 'godlygeek/tabular'                                     -- Tabularize
@@ -75,22 +74,25 @@ return packer.startup(function(use)
   use 'max397574/better-escape.nvim'                          -- fixes problems when escaping with jk
   use 'airblade/vim-rooter'                                   -- Changes Vim working directory to project root
   use 'psliwka/vim-smoothie'                                  -- Smooth scrolling
-  use 'easymotion/vim-easymotion'                             -- Quick navigation
+  -- use 'easymotion/vim-easymotion'                             -- Quick navigation
+  use 'ggandor/lightspeed.nvim'
 
   -- coding
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Nvim Treesitter configurations and abstraction layer
   use 'p00f/nvim-ts-rainbow'                                  -- rainbow parantheses
   use 'vim-test/vim-test'                                     -- Run tests
   use 'tpope/vim-surround'                                    -- Surround quotes, brackets, etc.
+  use 'tpope/vim-repeat'                                      -- repeat surround with .
   use 'numToStr/Comment.nvim'                                 -- Comments
   use 'JoosepAlviste/nvim-ts-context-commentstring'           -- Context aware comments
   use 'norcalli/nvim-colorizer.lua'                           -- Colorize hex colors
-  -- TODO replace with nvim-autopairs...has wraping
+  -- TODO: replace with nvim-autopairs...has wraping
   use 'jiangmiao/auto-pairs'                                  -- Insert matching quote, brackets, etc.
   use 'mattn/emmet-vim'                                       -- Emmet
   use 'folke/todo-comments.nvim'                              -- Highlight, list and search todo comments
   use 'preservim/vim-markdown'                                -- Markdown
   use 'ThePrimeagen/refactoring.nvim'                         -- Refactoring
+  use 'nvim-treesitter/nvim-treesitter-textobjects'          -- Text objects like functions and variables
 
   -- LSP
   use 'neovim/nvim-lspconfig'                                 -- LSP support
@@ -100,6 +102,7 @@ return packer.startup(function(use)
   use 'williamboman/nvim-lsp-installer'                       -- Easy installation of LSP servers
   use 'ray-x/lsp_signature.nvim'                              -- LSP signature hint as you type
   use 'b0o/schemastore.nvim'                                  -- JSON schema awareness
+  use 'j-hui/fidget.nvim'                                     -- Show LSP progress
 
   -- git
   use 'lewis6991/gitsigns.nvim'                               -- git decoration for buffers

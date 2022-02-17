@@ -6,6 +6,8 @@ require('colorizer').setup()              -- nvim-colorizer.lua
 require('lsp_signature').setup()          -- ray-x/lsp_signature.nvim
 require('nvim-web-devicons').setup()      -- kyazdani42/nvim-web-devicons
 require('refactoring').setup()            -- ThePrimeagen/refactoring.nvim
+require('close_buffers').setup()          -- kazhala/close-buffers.nvim
+require('fidget').setup()                 -- j-hui/fidget.nvim
 
 require('nvim-tree').setup({
   filters = {
@@ -16,7 +18,8 @@ require('nvim-tree').setup({
       list = {
         { key = {'cd'}, action = 'cd' },
       }
-    }
+    },
+    width = 50,
   }
 })
 vim.g.nvim_tree_special_files = {}
