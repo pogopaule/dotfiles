@@ -79,7 +79,7 @@ return packer.startup(function(use)
 
   -- coding
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Nvim Treesitter configurations and abstraction layer
-  use {'p00f/nvim-ts-rainbow'}                                -- rainbow parantheses
+  use 'p00f/nvim-ts-rainbow'                                  -- rainbow parantheses
   use 'vim-test/vim-test'                                     -- Run tests
   use 'tpope/vim-surround'                                    -- Surround quotes, brackets, etc.
   use 'numToStr/Comment.nvim'                                 -- Comments
