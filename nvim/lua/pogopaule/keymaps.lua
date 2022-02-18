@@ -49,10 +49,6 @@ map('v', '>', '>gv', opts)
 
 
 
--- kazhala/close-buffers.nvim
-map('n', '<A-t>', "<cmd>lua require('close_buffers').delete({ type = 'this' })<cr>", opts)
-map('n', '<A-o>', "<cmd>lua require('close_buffers').delete({ type = 'other' })<cr>", opts)
-
 -- nvim-telescope/telescope.nvim
 map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
 map('n', '<leader>ft', "<cmd>TodoTelescope<cr>", opts)
@@ -67,21 +63,29 @@ map('n', '<leader>fr', "<cmd>lua require('telescope.builtin').lsp_references()<c
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', opts)
 map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>', opts)
 
+-- ThePrimeagen/refactoring.nvim
+map('v', '<Leader>re', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", opts)
+map('v', '<Leader>rf', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", opts)
+map('v', '<Leader>rv', "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", opts)
+map('n', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
+map('v', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
+
 -- neovim/lspconfig
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
--- map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-map('n', '<leader>ci', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-map('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-map('v', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', {})
-map('l', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', {})
-map('x', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', {})
+map('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+
+map('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+map('v', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+map('l', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+map('x', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
 -- tami5/lspsaga.nvim
-map('n', '<leader>cr', '<cmd>Lspsaga rename<CR>', opts)
+map('n', '<leader>rr', '<cmd>Lspsaga rename<CR>', opts)
 map('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', opts)
-map('n', '<leader>K', '<cmd>Lspsaga hover_doc<CR>', opts)
 map('n', '<leader>cp', '<cmd>Lspsaga preview_definition<CR>', opts)
 map('n', '<leader>cd', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
+map('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
+map('n', '<leader>cs', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
 
 -- tyru/open-browser-github.vim
 -- disable netrw's gx mapping.
@@ -93,20 +97,17 @@ map('v', 'gx', '<plug>(openbrowser-smart-search)', opts)
 map('n', 'gxx', '<cmd>OpenGithubFile<CR>', opts)
 
 -- lewis6991/gitsigns.nvim
-map('n', '<leader>gr', '<cmd>Gitsigns reset_hunk<CR>', opts)
-map('n', '<leader>gb', '<cmd>Gitsigns blame_line<CR>', opts)
-map('n', '<leader>gp', '<cmd>Gitsigns preview_hunk<CR>', opts)
+map('n', '<leader>vr', '<cmd>Gitsigns reset_hunk<CR>', opts)
+map('n', '<leader>vb', '<cmd>Gitsigns blame_line<CR>', opts)
+map('n', '<leader>vp', '<cmd>Gitsigns preview_hunk<CR>', opts)
 
 -- akinsho/bufferline.nvim
 map('n', '<A-h>', '<cmd>BufferLineCyclePrev<CR>', opts)
 map('n', '<A-l>', '<cmd>BufferLineCycleNext<CR>', opts)
 
--- ThePrimeagen/refactoring.nvim
-map('v', '<Leader>re', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", opts)
-map('v', '<Leader>rf', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", opts)
-map('v', '<Leader>rv', "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", opts)
-map('n', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
-map('v', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
+-- kazhala/close-buffers.nvim
+map('n', '<A-t>', "<cmd>lua require('close_buffers').delete({ type = 'this' })<cr>", opts)
+map('n', '<A-o>', "<cmd>lua require('close_buffers').delete({ type = 'other' })<cr>", opts)
 
 -- TODO:
 --" hrsh7th/vim-vsnip
