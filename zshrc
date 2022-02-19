@@ -1,3 +1,6 @@
+# uncomment following line and line at bottom of this file to profile startup time of oh-my-zsh
+# zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -65,12 +68,18 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Only load nvm when needed since it slows down the start of zsh
+# export NVM_LAZY=1
+
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux#configuration-variables
+export ZSH_TMUX_AUTOSTART=true
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose gradle vi-mode npm ssh-agent)
+plugins=(tmux httpie ripgrep fd git docker docker-compose gradle vi-mode npm ssh-agent nvm)
 
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#lazy
 zstyle :omz:plugins:ssh-agent lazy yes
@@ -94,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+export EDITOR='vim'
 
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -105,8 +115,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source ~/.local_zshrc.zsh
-
+# git
 alias gll="git log --graph --branches --remotes --tags --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 alias grema="git rebase master"
 alias gbd="git branch --delete"
@@ -114,9 +123,7 @@ alias gnews='git fetch origin "$(git_current_branch)" && git log "$(git_current_
 alias gscope="git log --pretty=oneline | sed -E 's/^.*\((.*)\):.*$/\1/' | sed '/[0-9a-f]* .*/d' | sort | uniq"
 alias gtype="git log --pretty=oneline | sed -E 's/[0-9a-f]{40} (.*)\(.*/\1/' | sed '/[0-9a-f]* .*/d' | sort | uniq"
 
-alias v="vim"
-alias fd="fdfind"
-
+# append aliases
 alias -g H='| head'
 alias -g T='| tail'
 alias -g G='| grep'
@@ -129,27 +136,11 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-bindkey '^R' history-incremental-search-backward
-
-# https://github.com/junegunn/fzf#using-linux-package-managers
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-
-export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git node_modules'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-EDITOR='vim'
-
-# https://github.com/seebi/dircolors-solarized
-eval `dircolors ~/.dir_colors/dircolors`
-
 # vagrant
 alias vs='vagrant ssh'
 alias vu='vagrant up'
 alias vh='vagrant halt'
 alias vdd='vagrant destroy'
-
-alias gw='./gradlew'
 
 # docker
 alias dps='docker ps'
@@ -158,15 +149,28 @@ alias dpsa='docker ps -a'
 # npm
 alias nr='npm run'
 
+# misc
+alias gw='./gradlew'
+alias v="vim"
+alias fd="fdfind"
+
+bindkey '^R' history-incremental-search-backward
 bindkey 'jk' vi-cmd-mode
 
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
+# configure FZF
+# https://github.com/junegunn/fzf#using-linux-package-managers
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
+export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git node_modules'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# configure BAT
+export BAT_THEME=ansi-light
+
+# configure vi-mode plugin https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vi-mode#settings
+export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+export VI_MODE_SET_CURSOR=true
 
 # WSL 2 specific settings.
 if grep -q "microsoft" /proc/version &>/dev/null; then
@@ -174,8 +178,8 @@ if grep -q "microsoft" /proc/version &>/dev/null; then
   export DISPLAY="$(/sbin/ip route | awk '/default/ { print $3  }'):0"
 fi
 
-export BAT_THEME=ansi-light
+# zsh settings that should not be comitted to git
+source ~/.local_zshrc.zsh
 
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vi-mode#settings
-export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-export VI_MODE_SET_CURSOR=true
+# uncomment following line and line at the very top of this file to profile startup time of oh-my-zsh
+# zprof
