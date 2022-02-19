@@ -66,6 +66,7 @@ return packer.startup(function(use)
   use 'nvim-telescope/telescope.nvim'                         -- Find, Filter, Preview, Pick
   use 'akinsho/bufferline.nvim'                               -- A bufferline
   use 'kazhala/close-buffers.nvim'                            -- helpers to close buffers
+  use 'rmagatti/auto-session'                                 -- save/restore session
 
   -- misc
   use 'godlygeek/tabular'                                     -- Tabularize

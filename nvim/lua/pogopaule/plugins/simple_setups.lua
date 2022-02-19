@@ -24,6 +24,11 @@ require('nvim-tree').setup({
 })
 vim.g.nvim_tree_special_files = {}
 
+-- rmagatti/auto-session
+require('auto-session').setup {
+  log_level = 'info',
+}
+
 -- mhinz/vim-startify
 vim.cmd([[
 let g:startify_custom_header =[]
