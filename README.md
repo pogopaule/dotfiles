@@ -22,6 +22,11 @@ sudo apt install -y fd-find
 sudo apt install -y bat
 sudo apt install -y fzf
 sudo apt install -y ripgrep
+
+sudo apt install -y tmux
+# install tpm (tmux plugin manager) https://github.com/tmux-plugins/tpm#installation
+# install tmux plugins https://github.com/tmux-plugins/tpm#installing-plugins
+# install tmuxinator https://github.com/tmuxinator/tmuxinator#installation
 ```
 
 ## Install new vim plugin
