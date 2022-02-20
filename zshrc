@@ -69,10 +69,7 @@ ZSH_THEME="robbyrussell"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Only load nvm when needed since it slows down the start of zsh
-# export NVM_LAZY=1
-
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux#configuration-variables
-export ZSH_TMUX_AUTOSTART=true
+export NVM_LAZY=1
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
