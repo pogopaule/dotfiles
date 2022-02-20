@@ -76,7 +76,7 @@ export NVM_LAZY=1
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmux httpie ripgrep fd git docker docker-compose gradle vi-mode npm ssh-agent nvm)
+plugins=(tmux httpie ripgrep fd git docker docker-compose gradle vi-mode npm ssh-agent nvm tmuxinator)
 
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#lazy
 zstyle :omz:plugins:ssh-agent lazy yes
