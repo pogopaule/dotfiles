@@ -28,7 +28,6 @@ vim.g.nvim_tree_special_files = {}
 local nightfox = require('nightfox')
 nightfox.setup({
   fox = "dayfox",
-  alt_nc = true,
   styles = {
     comments = "italic", -- change style of comments to be italic
   },
