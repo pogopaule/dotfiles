@@ -26,6 +26,10 @@ local function init_lsp_signature(buffer)
 end
 
 M.on_attach = function(client, buffer)
+  if client.name == "tsserver" then
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+  end
   lsp_highlight_document(client)
   init_lsp_signature(buffer)
 end
