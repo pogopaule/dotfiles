@@ -1,7 +1,6 @@
 require('gitsigns').setup()               -- lewis6991/gitsigns.nvim
 require('Comment').setup()                -- numToStr/Comment.nvim
 require('todo-comments').setup()          -- folke/todo-comments.nvim
-require('lualine').setup()                -- nvim-lualine/lualine.nvim
 require('colorizer').setup()              -- nvim-colorizer.lua
 require('lsp_signature').setup()          -- ray-x/lsp_signature.nvim
 require('nvim-web-devicons').setup()      -- kyazdani42/nvim-web-devicons
@@ -23,6 +22,28 @@ require('nvim-tree').setup({
   }
 })
 vim.g.nvim_tree_special_files = {}
+
+
+-- EdenEast/nightfox.nvim
+local nightfox = require('nightfox')
+nightfox.setup({
+  fox = "dayfox",
+  alt_nc = true,
+  styles = {
+    comments = "italic", -- change style of comments to be italic
+  },
+  inverse = {
+    match_paren = true, -- inverse the highlighting of match_parens
+  },
+})
+nightfox.load()
+
+-- nvim-lualine/lualine.nvim
+require('lualine').setup({
+  options = {
+    theme = "nightfox"
+  }
+})
 
 -- rmagatti/auto-session
 require('auto-session').setup {
