@@ -109,31 +109,37 @@ map('n', '<A-l>', '<cmd>BufferLineCycleNext<CR>', opts)
 map('n', '<A-t>', "<cmd>lua require('close_buffers').delete({ type = 'this' })<cr>", opts)
 map('n', '<A-o>', "<cmd>lua require('close_buffers').delete({ type = 'other' })<cr>", opts)
 
--- TODO:
---" hrsh7th/vim-vsnip
---
---" Expand
---imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
---smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
---
---" Expand or jump
---imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
---smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
---
---" Jump forward or backward
---imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
---smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
---imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
---smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
---
---" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
---" See https://github.com/hrsh7th/vim-vsnip/pull/50
---nmap        s   <Plug>(vsnip-select-text)
---xmap        s   <Plug>(vsnip-select-text)
---nmap        S   <Plug>(vsnip-cut-text)
---xmap        S   <Plug>(vsnip-cut-text)
---
---" If you want to use snippet for multiple filetypes, you can `g:vsnip_filetypes` for it.
---let g:vsnip_filetypes = {}
---let g:vsnip_filetypes.javascriptreact = ['javascript']
---let g:vsnip_filetypes.typescriptreact = ['typescript']
+-- mfussenegger/nvim-dap
+map('n', '<leader>db', '<cmd>lua require("dap").toggle_breakpoint()<CR>', opts)
+map('n', '<leader>dc', '<cmd>lua require("dap").continue()<CR>', opts)
+map('n', '<leader>di', '<cmd>lua require("dap").step_into()<CR>', opts)
+map('n', '<leader>dw', '<cmd>lua require("dap").repl.open()<CR>', opts)
+
+-- hrsh7th/vim-vsnip
+vim.api.nvim_exec([[
+" Expand
+imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+" Expand or jump
+imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
+" See https://github.com/hrsh7th/vim-vsnip/pull/50
+"nmap        s   <Plug>(vsnip-select-text)
+"xmap        s   <Plug>(vsnip-select-text)
+nmap        <C-s>   <Plug>(vsnip-cut-text)
+xmap        <C-s>   <Plug>(vsnip-cut-text)
+
+" If you want to use snippet for multiple filetypes, you can `g:vsnip_filetypes` for it.
+let g:vsnip_filetypes = {}
+let g:vsnip_filetypes.javascriptreact = ['javascript']
+let g:vsnip_filetypes.typescriptreact = ['typescript']
+]], true)
