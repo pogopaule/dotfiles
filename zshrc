@@ -150,6 +150,7 @@ alias nr='npm run'
 alias gw='./gradlew'
 alias v="vim"
 alias fd="fdfind"
+alias cat='bat'
 
 bindkey '^R' history-incremental-search-backward
 bindkey 'jk' vi-cmd-mode

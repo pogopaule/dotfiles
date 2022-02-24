@@ -5,7 +5,6 @@ vim.cmd [[set iskeyword+=-]]        -- e.g. delete foo-bar with daw
 
 local options = {
   shiftwidth    = 2,                -- number of spaces for indentation
-  tabstop       = 2,                -- number of spaces a tab counts for
   smartindent   = true,
   expandtab     = true,             -- convert tabs to spaces
 

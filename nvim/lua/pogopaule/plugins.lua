@@ -88,8 +88,7 @@ return packer.startup(function(use)
   use 'numToStr/Comment.nvim'                                 -- Comments
   use 'JoosepAlviste/nvim-ts-context-commentstring'           -- Context aware comments
   use 'norcalli/nvim-colorizer.lua'                           -- Colorize hex colors
-  -- TODO: replace with nvim-autopairs...has wraping
-  use 'jiangmiao/auto-pairs'                                  -- Insert matching quote, brackets, etc.
+  use 'windwp/nvim-autopairs'                                 -- Insert matching quote, brackets, etc.
   use 'mattn/emmet-vim'                                       -- Emmet
   use 'folke/todo-comments.nvim'                              -- Highlight, list and search todo comments
   use 'preservim/vim-markdown'                                -- Markdown
