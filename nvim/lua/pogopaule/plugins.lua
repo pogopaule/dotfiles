@@ -57,6 +57,7 @@ packer.init {
 --https://github.com/folke/twilight.nvim
 --https://github.com/folke/zen-mode.nvim
 --https://github.com/TimUntersberger/neogit
+--https://github.com/vigoux/LanguageTool.nvim
 
 -- TODO: add lazy loading for some plugins?
 return packer.startup(function(use)
