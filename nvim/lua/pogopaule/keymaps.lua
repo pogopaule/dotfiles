@@ -92,8 +92,8 @@ map('n', '<leader>cs', "<cmd>lua require('lspsaga.signaturehelp').signature_help
 vim.cmd([[
 let g:netrw_nogx = 1
 ]])
-map('n', 'gx', '<plug>(openbrowser-smart-search)', opts)
-map('v', 'gx', '<plug>(openbrowser-smart-search)', opts)
+map('n', 'gx', '<plug>(openbrowser-smart-search)', {})
+map('v', 'gx', '<plug>(openbrowser-smart-search)', {})
 map('n', 'gxx', '<cmd>OpenGithubFile<CR>', opts)
 
 -- lewis6991/gitsigns.nvim

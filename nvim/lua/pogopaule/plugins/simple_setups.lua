@@ -53,7 +53,8 @@ local nightfox = require('nightfox')
 nightfox.setup({
   fox = "dayfox",
   styles = {
-    comments = "italic", -- change style of comments to be italic
+    comments = "italic",
+    keywords = "bold",
   },
   inverse = {
     match_paren = true, -- inverse the highlighting of match_parens
