@@ -9,3 +9,4 @@ ln -s $PWD/agignore ~/.agignore
 ln -s $PWD/tmux.conf ~/.tmux.conf
 ln -s $PWD/zshrc ~/.zshrc
 ln -s $PWD/init.vim ~/.config/nvim/init.vim
+ln -s $PWD/alacritty/alacritty.yml ~/.alacritty.yml

@@ -3,6 +3,9 @@
 ## Install on new system
 
 ```
+# install terminal alacritty
+# install Hack Nerd Font
+
 sudo apt install -y zsh
 
 # install nvim via appimage https://gist.github.com/opchav/5ba865c9e6415c2af825bad153f876f7
