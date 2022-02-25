@@ -91,7 +91,7 @@ return packer.startup(function(use)
 
   -- coding
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Nvim Treesitter configurations and abstraction layer
-  use 'p00f/nvim-ts-rainbow'                                  -- rainbow parantheses
+  use 'andymass/vim-matchup'                                  -- extends %
   use 'vim-test/vim-test'                                     -- Run tests
   use 'tpope/vim-surround'                                    -- Surround quotes, brackets, etc.
   use 'tpope/vim-repeat'                                      -- repeat surround with .

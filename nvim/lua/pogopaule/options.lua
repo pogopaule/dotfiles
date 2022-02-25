@@ -12,6 +12,9 @@ local options = {
   number        = true,             -- show absolute linenumbers
   cursorline    = true,             -- mark current line
 
+  backup        = false,
+  swapfile      = false,
+
   ignorecase    = true,             -- ignore case in search patterns
   smartcase     = true,
 

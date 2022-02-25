@@ -56,9 +56,6 @@ nightfox.setup({
     comments = "italic",
     keywords = "bold",
   },
-  inverse = {
-    match_paren = true, -- inverse the highlighting of match_parens
-  },
 })
 nightfox.load()
 
