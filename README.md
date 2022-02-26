@@ -33,12 +33,3 @@ sudo apt install -y tmux
 
 # install starship https://starship.rs/guide/#%F0%9F%9A%80-installation
 ```
-
-## Install new vim plugin
-
-1. Add to init.vim
-2. Run `:PlugInstall` in nvim
-
-## Update vim plugins
-
-Run `:PlugUpdate` in nvim
