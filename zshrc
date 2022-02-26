@@ -123,9 +123,9 @@ alias gtype="git log --pretty=oneline | sed -E 's/[0-9a-f]{40} (.*)\(.*/\1/' | s
 # append aliases
 alias -g H='| head'
 alias -g T='| tail'
-alias -g G='| grep'
+alias -g F='| fzf'
 alias -g L="| less"
-alias -g J="| json_pp"
+alias -g J="| jq"
 alias -g Y="| xclip -selection clip"
 
 # add confirmation

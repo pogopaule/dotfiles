@@ -31,6 +31,7 @@ sudo apt install -y lnav # log viewer
 sudo apt install -y exa # better ls
 # install diff-so-fancy https://github.com/so-fancy/diff-so-fancy#install
 pip install glances # better top/htop
+sudo apt install jq # json processor
 
 
 sudo apt install -y tmux
