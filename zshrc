@@ -146,11 +146,17 @@ alias dpsa='docker ps -a'
 # npm
 alias nr='npm run'
 
+# better cli
+alias fd="fdfind"
+alias cat='bat'
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias ls="exa --oneline --icons"
+alias tree="exa --tree --long --level=2"
+
 # misc
 alias gw='./gradlew'
 alias v="vim"
-alias fd="fdfind"
-alias cat='bat'
+
 
 bindkey '^R' history-incremental-search-backward
 bindkey 'jk' vi-cmd-mode

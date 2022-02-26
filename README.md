@@ -21,10 +21,17 @@ git clone git://github.com/pogopaule/dotfiles.git
 cd dotfiles
 ./create_links.sh
 
-sudo apt install -y fd-find
-sudo apt install -y bat
-sudo apt install -y fzf
+sudo apt install -y fd-find # better find
+sudo apt install -y bat # better cat
+sudo apt install -y fzf # better ctrl+r
 sudo apt install -y ripgrep
+sudo apt install -y ncdu # better du
+sudo apt install -y tldr # simplified man
+sudo apt install -y lnav # log viewer
+sudo apt install -y exa # better ls
+# install diff-so-fancy https://github.com/so-fancy/diff-so-fancy#install
+pip install glances # better top/htop
+
 
 sudo apt install -y tmux
 # install tpm (tmux plugin manager) https://github.com/tmux-plugins/tpm#installation
