@@ -11,7 +11,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell" # commented out in favour of starship
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -181,3 +181,6 @@ source ~/.local_zshrc.zsh
 
 # uncomment following line and line at the very top of this file to profile startup time of oh-my-zsh
 # zprof
+
+# https://starship.rs/guide/#%F0%9F%9A%80-installation
+eval "$(starship init zsh)"
