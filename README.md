@@ -4,22 +4,22 @@
 
 ```
 # install terminal alacritty
-# install Hack Nerd Font
 
 sudo apt install -y zsh
 
 # install nvim via appimage https://gist.github.com/opchav/5ba865c9e6415c2af825bad153f876f7
+# install packer for nvim https://github.com/wbthomason/packer.nvim#quickstart
 
 # install oh-my-zsh https://github.com/ohmyzsh/ohmyzsh#basic-installation
 
 # install the nerd font Hack (includes symbols) for the terminal https://www.nerdfonts.com/font-downloads
-# install Plug for vim https://github.com/junegunn/vim-plug#unix
-# then in nvim type command `:PlugInstall` to install all plugins
-# and `:LspInstall <langauge>` to install desired language servers
+
 
 git clone git://github.com/pogopaule/dotfiles.git
 cd dotfiles
 ./create_links.sh
+
+# `:LspInstall <langauge>` to install desired language servers
 
 sudo apt install -y fd-find # better find
 sudo apt install -y bat # better cat
