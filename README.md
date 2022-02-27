@@ -29,9 +29,11 @@ sudo apt install -y ncdu # better du
 sudo apt install -y tldr # simplified man
 sudo apt install -y lnav # log viewer
 sudo apt install -y exa # better ls
+sudo apt install -y jq # json processor
+sudo apt install -y httpie
+# install gh for github https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian-ubuntu-linux-raspberry-pi-os-apt
 # install diff-so-fancy https://github.com/so-fancy/diff-so-fancy#install
 pip install glances # better top/htop
-sudo apt install jq # json processor
 
 
 sudo apt install -y tmux
