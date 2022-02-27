@@ -69,7 +69,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Only load nvm when needed since it slows down the start of zsh
-export NVM_LAZY=1
+# export NVM_LAZY=1
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -185,8 +185,9 @@ fi
 # zsh settings that should not be comitted to git
 source ~/.local_zshrc.zsh
 
+# https://starship.rs/guide/#%F0%9F%9A%80-installation
+eval "$(starship init zsh)"
+
 # uncomment following line and line at the very top of this file to profile startup time of oh-my-zsh
 # zprof
 
-# https://starship.rs/guide/#%F0%9F%9A%80-installation
-eval "$(starship init zsh)"
