@@ -152,6 +152,7 @@ alias cat='bat'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias ls="exa --oneline --icons"
 alias tree="exa --tree --long --level=2"
+alias lg="lazygit"
 
 # misc
 alias gw='./gradlew'

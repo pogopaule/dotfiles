@@ -34,6 +34,7 @@ sudo apt install -y httpie
 # install gh for github https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian-ubuntu-linux-raspberry-pi-os-apt
 # install diff-so-fancy https://github.com/so-fancy/diff-so-fancy#install
 pip install glances # better top/htop
+# install lazygit https://github.com/jesseduffield/lazygit
 
 
 sudo apt install -y tmux
