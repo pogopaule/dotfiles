@@ -163,13 +163,6 @@ bindkey '^R' history-incremental-search-backward
 bindkey 'jk' vi-cmd-mode
 
 
-# configure FZF
-# https://github.com/junegunn/fzf#using-linux-package-managers
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git node_modules'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 # configure BAT
 export BAT_THEME=ansi-light
 
@@ -189,6 +182,11 @@ source ~/.local_zshrc.zsh
 # https://starship.rs/guide/#%F0%9F%9A%80-installation
 eval "$(starship init zsh)"
 
+# https://github.com/ajeetdsouza/zoxide#step-2-add-zoxide-to-your-shell
+eval "$(zoxide init zsh)"
+
+# https://github.com/junegunn/fzf#using-git
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # uncomment following line and line at the very top of this file to profile startup time of oh-my-zsh
 # zprof
 

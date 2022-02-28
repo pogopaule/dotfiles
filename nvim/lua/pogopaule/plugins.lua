@@ -114,6 +114,7 @@ return packer.startup(function(use)
   use 'ray-x/lsp_signature.nvim'                              -- LSP signature hint as you type
   use 'b0o/schemastore.nvim'                                  -- JSON schema awareness
   use 'j-hui/fidget.nvim'                                     -- Show LSP progress
+  use 'folke/trouble.nvim'                                    -- Nicer diagnostics
 
   -- git
   use 'lewis6991/gitsigns.nvim'                               -- git decoration for buffers

@@ -84,6 +84,9 @@ require("better_escape").setup {
     keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
 }
 
+-- folke/trouble.nvim
+require("trouble").setup {}
+
 -- akinsho/bufferline.nvim
 require('bufferline').setup({
   options = {
