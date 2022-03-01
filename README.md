@@ -37,7 +37,7 @@ pip install glances # better top/htop
 # install lazygit https://github.com/jesseduffield/lazygit
 
 
-sudo apt install -y tmux
+# install tmux either `sudo apt install -y tmux` or newer version https://github.com/nelsonenzo/tmux-appimage
 # install tpm (tmux plugin manager) https://github.com/tmux-plugins/tpm#installation
 # install tmux plugins https://github.com/tmux-plugins/tpm#installing-plugins
 # install tmuxinator https://github.com/tmuxinator/tmuxinator#installation

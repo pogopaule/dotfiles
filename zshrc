@@ -183,7 +183,7 @@ source ~/.local_zshrc.zsh
 eval "$(starship init zsh)"
 
 # https://github.com/ajeetdsouza/zoxide#step-2-add-zoxide-to-your-shell
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
 
 # https://github.com/junegunn/fzf#using-git
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
