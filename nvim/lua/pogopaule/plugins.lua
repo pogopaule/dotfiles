@@ -119,6 +119,8 @@ return packer.startup(function(use)
   -- git
   use 'lewis6991/gitsigns.nvim'                               -- git decoration for buffers
   use 'tpope/vim-fugitive'                                    -- Git
+  use 'tpope/vim-rhubarb'                                     -- Adds Gbrowse
+  use 'junegunn/gv.vim'                                       -- browse git history
 
   -- completion
   use 'hrsh7th/nvim-cmp'
@@ -135,7 +137,6 @@ return packer.startup(function(use)
 
   -- open file in github
   use 'tyru/open-browser.vim'
-  use 'tyru/open-browser-github.vim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

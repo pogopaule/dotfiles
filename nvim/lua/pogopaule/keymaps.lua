@@ -94,7 +94,7 @@ let g:netrw_nogx = 1
 ]])
 map('n', 'gx', '<plug>(openbrowser-smart-search)', {})
 map('v', 'gx', '<plug>(openbrowser-smart-search)', {})
-map('n', 'gxx', '<cmd>OpenGithubFile<CR>', opts)
+map('n', 'gxx', '<cmd>GBrowse<CR>', opts)
 
 -- lewis6991/gitsigns.nvim
 map('n', '<leader>vr', '<cmd>Gitsigns reset_hunk<CR>', opts)
