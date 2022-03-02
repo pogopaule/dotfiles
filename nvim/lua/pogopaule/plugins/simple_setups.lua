@@ -51,7 +51,7 @@ vim.g.nvim_tree_special_files = {}
 -- EdenEast/nightfox.nvim
 local nightfox = require('nightfox')
 nightfox.setup({
-  fox = "dayfox",
+  fox = 'dayfox',
   styles = {
     comments = "italic",
     keywords = "bold",
