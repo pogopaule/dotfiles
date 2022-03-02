@@ -58,21 +58,21 @@ map('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>", 
 map('n', '<leader>fo', "<cmd>lua require('telescope.builtin').oldfiles()<cr>", opts)
 map('n', '<leader>fm', "<cmd>lua require('telescope.builtin').marks()<cr>", opts)
 map('n', '<leader>fr', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
+map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", opts)
 
 -- scrooloose/nerdtree
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', opts)
 map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>', opts)
 
 -- ThePrimeagen/refactoring.nvim
-map('v', '<Leader>re', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", opts)
-map('v', '<Leader>rf', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", opts)
+map('v', '<Leader>rf', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", opts)
+map('v', '<Leader>re', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", opts)
 map('v', '<Leader>rv', "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", opts)
 map('n', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
 map('v', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
 
 -- neovim/lspconfig
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-map('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 
 map('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 map('v', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
