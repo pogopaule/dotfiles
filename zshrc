@@ -171,6 +171,17 @@ export BAT_THEME=ansi-light
 export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 export VI_MODE_SET_CURSOR=true
 
+# configure FZF
+export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --no-ignore --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fdfind --type d --hidden --follow --no-ignore --exclude .git'
+_fzf_compgen_path() {
+  fdfind --hidden --follow --no-ignore --exclude ".git" . "$1"
+}
+_fzf_compgen_dir() {
+  fdfind --type d --hidden --follow --no-ignore --exclude ".git" . "$1"
+}
+
 # WSL 2 specific settings.
 if grep -q "microsoft" /proc/version &>/dev/null; then
   # Requires: https://sourceforge.net/projects/vcxsrv/ (or alternative)
