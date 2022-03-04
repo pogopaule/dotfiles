@@ -16,8 +16,6 @@ map('n', '<Right>', 'NOP', opts)
 
 map('i', 'jk', '<ESC>', opts) -- exit insert mode by pressing jk
 
-map('n', '<leader>t', ':tabnew<CR>', opts)
-
 -- copy paste from system clipboard
 map('n', '<leader>p', '"+p', opts)
 map('v', '<leader>y', '"+y', opts)
@@ -50,15 +48,14 @@ map('v', '>', '>gv', opts)
 
 
 -- nvim-telescope/telescope.nvim
-map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
-map('n', '<leader>ft', "<cmd>TodoTelescope<cr>", opts)
-map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
-map('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
-map('n', '<leader>fo', "<cmd>lua require('telescope.builtin').oldfiles()<cr>", opts)
-map('n', '<leader>fm', "<cmd>lua require('telescope.builtin').marks()<cr>", opts)
-map('n', '<leader>fr', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
-map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", opts)
+map('n', '<leader><leader>f', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+map('n', '<leader><leader>t', "<cmd>TodoTelescope<cr>", opts)
+map('n', '<leader><leader>g', "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+map('n', '<leader><leader>b', "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
+map('n', '<leader><leader>o', "<cmd>lua require('telescope.builtin').oldfiles()<cr>", opts)
+map('n', '<leader><leader>m', "<cmd>lua require('telescope.builtin').marks()<cr>", opts)
+map('n', '<leader><leader>r', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
+map('n', '<leader><leader>i', "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", opts)
 
 -- scrooloose/nerdtree
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', opts)
@@ -66,7 +63,6 @@ map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>', opts)
 
 -- ThePrimeagen/refactoring.nvim
 map('v', '<Leader>rf', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", opts)
-map('v', '<Leader>re', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", opts)
 map('v', '<Leader>rv', "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", opts)
 map('n', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
 map('v', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
@@ -81,9 +77,9 @@ map('x', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
 -- tami5/lspsaga.nvim
 map('n', '<leader>rr', '<cmd>Lspsaga rename<CR>', opts)
-map('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', opts)
+map('n', '<leader><leader>a', '<cmd>Lspsaga code_action<CR>', opts)
 map('n', '<leader>cp', '<cmd>Lspsaga preview_definition<CR>', opts)
-map('n', '<leader>cd', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
+map('n', '<leader><leader>d', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
 map('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
 map('n', '<leader>cs', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
 
@@ -97,9 +93,11 @@ map('v', 'gx', '<plug>(openbrowser-smart-search)', {})
 map('n', 'gxx', '<cmd>GBrowse<CR>', opts)
 
 -- lewis6991/gitsigns.nvim
-map('n', '<leader>vr', '<cmd>Gitsigns reset_hunk<CR>', opts)
-map('n', '<leader>vb', '<cmd>Gitsigns blame_line<CR>', opts)
-map('n', '<leader>vp', '<cmd>Gitsigns preview_hunk<CR>', opts)
+map('n', '<leader>gr', '<cmd>Gitsigns reset_hunk<CR>', opts)
+map('n', '<leader>gb', '<cmd>Gitsigns blame_line<CR>', opts)
+map('n', '<leader>gp', '<cmd>Gitsigns preview_hunk<CR>', opts)
+map('n', '<leader>gn', '<cmd>Gitsigns next_hunk<CR>', opts)
+map('n', '<leader>gN', '<cmd>Gitsigns prev_hunk<CR>', opts)
 
 -- akinsho/bufferline.nvim
 map('n', '<A-h>', '<cmd>BufferLineCyclePrev<CR>', opts)
@@ -108,12 +106,6 @@ map('n', '<A-l>', '<cmd>BufferLineCycleNext<CR>', opts)
 -- kazhala/close-buffers.nvim
 map('n', '<A-t>', "<cmd>lua require('close_buffers').delete({ type = 'this' })<cr>", opts)
 map('n', '<A-o>', "<cmd>lua require('close_buffers').delete({ type = 'other' })<cr>", opts)
-
--- mfussenegger/nvim-dap
-map('n', '<leader>db', '<cmd>lua require("dap").toggle_breakpoint()<CR>', opts)
-map('n', '<leader>dc', '<cmd>lua require("dap").continue()<CR>', opts)
-map('n', '<leader>di', '<cmd>lua require("dap").step_into()<CR>', opts)
-map('n', '<leader>dw', '<cmd>lua require("dap").repl.open()<CR>', opts)
 
 -- hrsh7th/vim-vsnip
 vim.api.nvim_exec([[

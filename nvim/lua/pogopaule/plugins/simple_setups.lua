@@ -12,7 +12,7 @@ require('fidget').setup()                 -- j-hui/fidget.nvim
 -- windwp/nvim-autopairs
 require('nvim-autopairs').setup({
   fast_wrap = {
-    map = '<M-e>',
+    map = '<A-e>',
     chars = { '{', '[', '(', '"', "'" },
     pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
     offset = 0,
