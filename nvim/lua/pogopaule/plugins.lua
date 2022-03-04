@@ -103,7 +103,7 @@ return packer.startup(function(use)
   use 'folke/todo-comments.nvim'                              -- Highlight, list and search todo comments
   use 'preservim/vim-markdown'                                -- Markdown
   use 'ThePrimeagen/refactoring.nvim'                         -- Refactoring
-  use 'nvim-treesitter/nvim-treesitter-textobjects'          -- Text objects like functions and variables
+  use 'nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables
 
   -- LSP
   use 'neovim/nvim-lspconfig'                                 -- LSP support

@@ -30,3 +30,6 @@ local options = {
 for key, value in pairs(options) do
   vim.opt[key] = value
 end
+
+-- https://github.com/vim-test/vim-test#strategies
+-- vim.cmd [[let test#strategy = "neovim"]]
