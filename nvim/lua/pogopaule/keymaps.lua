@@ -23,6 +23,7 @@ map('v', '<leader>y', '"+y', opts)
 map('n', '<leader>s', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true }) -- search and replace in buffer
 
 map('n', '<leader>q', ':quit<CR>', opts)
+map('n', '<leader>qa', ':quitall<CR>', opts)
 map('n', '<leader>w', ':write<CR>', opts)
 
 map('n', '<leader>d', ':nohlsearch<CR>', opts) -- remove search highlight
