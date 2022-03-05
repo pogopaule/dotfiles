@@ -23,7 +23,7 @@ map('v', '<leader>y', '"+y', opts)
 map('n', '<leader>s', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true }) -- search and replace in buffer
 
 map('n', '<leader>q', ':quit<CR>', opts)
-map('n', '<leader>qa', ':quitall<CR>', opts)
+map('n', '<leader>Q', ':quitall<CR>', opts)
 map('n', '<leader>w', ':write<CR>', opts)
 
 map('n', '<leader>d', ':nohlsearch<CR>', opts) -- remove search highlight
@@ -73,7 +73,7 @@ map('v', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Va
 -- neovim/lspconfig
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 
-map('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+map('n', '<C-f>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 map('v', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 map('l', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 map('x', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)

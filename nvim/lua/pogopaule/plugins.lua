@@ -49,15 +49,8 @@ packer.init {
 -- https://github.com/ms-jpq/chadtree alternative to nvim-tree?
 -- https://github.com/danymat/neogen generate annotations and documentation
 --
---https://github.com/mrjones2014/legendary.nvim
---https://github.com/vuki656/package-info.nvim
---https://github.com/stevearc/dressing.nvim
---https://github.com/ruifm/gitlinker.nvim
---https://github.com/lewis6991/impatient.nvim
---https://github.com/folke/twilight.nvim
---https://github.com/folke/zen-mode.nvim
---https://github.com/TimUntersberger/neogit
---https://github.com/vigoux/LanguageTool.nvim
+-- https://github.com/lewis6991/impatient.nvim
+-- https://github.com/TimUntersberger/neogit
 
 -- TODO: add lazy loading for some plugins?
 return packer.startup(function(use)
@@ -86,7 +79,6 @@ return packer.startup(function(use)
   use 'max397574/better-escape.nvim'                          -- fixes problems when escaping with jk
   use 'airblade/vim-rooter'                                   -- Changes Vim working directory to project root
   use 'psliwka/vim-smoothie'                                  -- Smooth scrolling
-  -- use 'easymotion/vim-easymotion'                             -- Quick navigation
   use 'ggandor/lightspeed.nvim'
 
   -- coding
