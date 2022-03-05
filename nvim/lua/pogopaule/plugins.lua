@@ -44,15 +44,11 @@ packer.init {
 -- https://github.com/mfussenegger/nvim-dap install when debugging is needed
 -- https://github.com/Pocco81/DAPInstall.nvim
 -- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils additional lsp features for typescript, mainly imports related
--- https://github.com/folke/trouble.nvim diagnostics tooling
 -- https://github.com/ms-jpq/coq_nvim alternative to vim-cmp?
 -- https://github.com/ms-jpq/chadtree alternative to nvim-tree?
 -- https://github.com/danymat/neogen generate annotations and documentation
---
--- https://github.com/lewis6991/impatient.nvim
--- https://github.com/TimUntersberger/neogit
+-- https://github.com/TimUntersberger/neogit magit for vim
 
--- TODO: add lazy loading for some plugins?
 return packer.startup(function(use)
   -- basics
   use 'wbthomason/packer.nvim'                                -- Have packer manage itself
