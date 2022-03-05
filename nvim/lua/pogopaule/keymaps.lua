@@ -18,6 +18,7 @@ map('i', 'jk', '<ESC>', opts) -- exit insert mode by pressing jk
 
 -- copy paste from system clipboard
 map('n', '<leader>p', '"+p', opts)
+map('v', '<leader>p', '"+p', opts)
 map('v', '<leader>y', '"+y', opts)
 
 map('n', '<leader>s', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true }) -- search and replace in buffer

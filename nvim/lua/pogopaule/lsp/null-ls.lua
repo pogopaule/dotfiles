@@ -22,7 +22,8 @@ null_ls.setup({
     code_actions.eslint_d,
 
     diagnostics.vale.with({
-      filetypes = { "markdown", "text", "gitcommit"}
+      filetypes = { "markdown", "text", "gitcommit"},
+      args = { "--no-exit", "--output=JSON", "$FILENAME", "--minAlertLevel=suggestion" },
     }),
   },
 })
