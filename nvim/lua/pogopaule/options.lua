@@ -18,7 +18,9 @@ local options = {
   ignorecase    = true,             -- ignore case in search patterns
   smartcase     = true,
 
-  updatetime = 300,                 -- faster completion and word highlighting (4000ms default)
+  updatetime    = 300,              -- faster completion and word highlighting (4000ms default)
+
+  signcolumn    = 'yes',            -- avoid jumping leftmost column when lsp hint appear
 
   termguicolors = true,
   background    = 'light',
