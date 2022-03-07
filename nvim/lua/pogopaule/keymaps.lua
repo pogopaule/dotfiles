@@ -50,29 +50,28 @@ map('v', '>', '>gv', opts)
 
 
 -- nvim-telescope/telescope.nvim
-map('n', '<leader><leader>f', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
-map('n', '<leader><leader>t', "<cmd>TodoTelescope<cr>", opts)
-map('n', '<leader><leader>g', "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-map('n', '<leader><leader>gg', "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
-map('v', '<leader><leader>gg', "\"zy:Telescope grep_string search=<C-r>z<cr>", opts)
-map('n', '<leader><leader>b', "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
-map('n', '<leader><leader>o', "<cmd>lua require('telescope.builtin').oldfiles()<cr>", opts)
-map('n', '<leader><leader>m', "<cmd>lua require('telescope.builtin').marks()<cr>", opts)
-map('n', '<leader><leader>r', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
-map('n', '<leader><leader>i', "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", opts)
+map('n', '<leader>f', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+map('n', '<leader>t', "<cmd>TodoTelescope<cr>", opts)
+map('n', '<leader>g', "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+map('n', '<leader>G', "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
+map('v', '<leader>G', "\"zy:Telescope grep_string search=<C-r>z<cr>", opts)
+map('n', '<leader>r', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
+map('n', '<leader>i', "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", opts)
 
 -- scrooloose/nerdtree
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', opts)
 map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>', opts)
 
 -- ThePrimeagen/refactoring.nvim
-map('v', '<Leader>rf', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", opts)
-map('v', '<Leader>rv', "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", opts)
-map('n', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
-map('v', '<Leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
+map('v', '<leader>rf', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", opts)
+map('v', '<leader>rv', "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", opts)
+map('n', '<leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
+map('v', '<leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
 
 -- neovim/lspconfig
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+map('n', '<leader>xn', '<cmd>lua vim.diagnostic.goto_next({float = false})<CR>', opts)
+map('n', '<leader>xp', '<cmd>lua vim.diagnostic.goto_prev({float = false})<CR>', opts)
 
 map('n', '<C-f>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 map('v', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
@@ -81,9 +80,9 @@ map('x', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
 -- tami5/lspsaga.nvim
 map('n', '<leader>rr', '<cmd>Lspsaga rename<CR>', opts)
-map('n', '<leader><leader>a', '<cmd>Lspsaga code_action<CR>', opts)
+map('n', '<leader>a', '<cmd>Lspsaga code_action<CR>', opts)
 map('n', '<leader>cp', '<cmd>Lspsaga preview_definition<CR>', opts)
-map('n', '<leader><leader>d', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
+map('n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
 map('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
 map('n', '<leader>cs', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
 
@@ -142,9 +141,6 @@ autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 
 -- folke/trouble.nvim
-vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble document_diagnostics<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", opts)
 vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)

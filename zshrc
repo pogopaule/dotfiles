@@ -158,6 +158,7 @@ alias la="exa -la --icons"
 # misc
 alias gw='./gradlew'
 alias v="vim"
+alias clr="clear"
 
 
 bindkey '^R' history-incremental-search-backward
