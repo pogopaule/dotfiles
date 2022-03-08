@@ -67,9 +67,9 @@ require('lualine').setup({
 })
 
 -- -- rmagatti/auto-session
-require('auto-session').setup {
-  log_level = 'info',
-}
+-- require('auto-session').setup {
+--   log_level = 'info',
+-- }
 
 -- mhinz/vim-startify
 vim.cmd([[
