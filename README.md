@@ -44,5 +44,7 @@ pip install glances # better top/htop
 # tmuxinator-fzf-start is used in tmux.conf
 wget --output-document ~/.local/bin/tmuxinator-fzf-start.sh https://raw.githubusercontent.com/camspiers/tmuxinator-fzf-start/f1e7200df793da093f2b04f732e1554453940074/tmuxinator-fzf-start.sh && chmod +x ~/.local/bin/tmuxinator-fzf-start.sh
 
+# install fzf-tab https://github.com/Aloxaf/fzf-tab#oh-my-zsh
+
 # install starship https://starship.rs/guide/#%F0%9F%9A%80-installation
 ```

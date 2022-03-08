@@ -71,12 +71,26 @@ export ZSH="$HOME/.oh-my-zsh"
 # Only load nvm when needed since it slows down the start of zsh
 # export NVM_LAZY=1
 
+# https://github.com/Aloxaf/fzf-tab#configure
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
+
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmux httpie ripgrep fd git docker docker-compose gradle vi-mode npm ssh-agent nvm tmuxinator gh)
+plugins=(tmux httpie ripgrep fd git docker docker-compose gradle vi-mode npm ssh-agent nvm tmuxinator gh fzf-tab)
 
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#lazy
 zstyle :omz:plugins:ssh-agent lazy yes
