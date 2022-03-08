@@ -50,13 +50,13 @@ map('v', '>', '>gv', opts)
 
 
 -- nvim-telescope/telescope.nvim
-map('n', '<leader>f', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
-map('n', '<leader>t', "<cmd>TodoTelescope<cr>", opts)
-map('n', '<leader>g', "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-map('n', '<leader>G', "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
-map('v', '<leader>G', "\"zy:Telescope grep_string search=<C-r>z<cr>", opts)
-map('n', '<leader>r', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
-map('n', '<leader>i', "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", opts)
+map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+map('n', '<leader>ft', "<cmd>TodoTelescope<cr>", opts)
+map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+map('n', '<leader>fG', "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
+map('v', '<leader>fG', "\"zy:Telescope grep_string search=<C-r>z<cr>", opts)
+map('n', '<leader>fr', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
+map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", opts)
 
 -- scrooloose/nerdtree
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', opts)
