@@ -195,9 +195,6 @@ source ~/.local_zshrc.zsh
 # https://starship.rs/guide/#%F0%9F%9A%80-installation
 eval "$(starship init zsh)"
 
-# https://github.com/ajeetdsouza/zoxide#step-2-add-zoxide-to-your-shell
-# eval "$(zoxide init zsh)"
-
 # https://github.com/junegunn/fzf#using-git
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # uncomment following line and line at the very top of this file to profile startup time of oh-my-zsh
