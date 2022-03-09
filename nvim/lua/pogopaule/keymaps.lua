@@ -107,7 +107,7 @@ map('n', '<A-h>', '<cmd>BufferLineCyclePrev<CR>', opts)
 map('n', '<A-l>', '<cmd>BufferLineCycleNext<CR>', opts)
 
 -- kazhala/close-buffers.nvim
-map('n', '<A-t>', "<cmd>lua require('close_buffers').delete({ type = 'this' })<cr>", opts)
+map('n', '<C-w>', "<cmd>lua require('close_buffers').delete({ type = 'this' })<cr>", opts)
 map('n', '<A-o>', "<cmd>lua require('close_buffers').delete({ type = 'other' })<cr>", opts)
 
 -- hrsh7th/vim-vsnip
