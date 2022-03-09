@@ -41,7 +41,7 @@ null_ls.setup({
     formatting.prettier.with(prettierConfig),
 
     diagnostics.vale.with({
-      filetypes = { "markdown", "text", "gitcommit"},
+      filetypes = { "markdown", "text", "gitcommit", "asciidoc"},
       args = { "--no-exit", "--output=JSON", "$FILENAME", "--minAlertLevel=suggestion" },
     }),
   },

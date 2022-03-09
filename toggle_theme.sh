@@ -16,8 +16,10 @@ sed -i "s/$OLD_THEME/$NEW_THEME/" ./tmux/tmux.conf
 if [ "$NEW_THEME" == "dayfox" ]
 then
   sed -i "s/ansi\-dark/ansi\-light/" ./zshrc
+  sed -i "s/033\[37m/033[30m/" ./zshrc
 else
   sed -i "s/ansi\-light/ansi\-dark/" ./zshrc
+  sed -i "s/033\[30m/033[37m/" ./zshrc
 fi
 
 
