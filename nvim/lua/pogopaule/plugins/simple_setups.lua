@@ -98,3 +98,12 @@ require('bufferline').setup({
     }}
   }
 })
+
+-- nvim-neorg/neorg
+require('neorg').setup {
+  load = {
+    ["core.defaults"] = {},
+    ["core.integrations.nvim-cmp"] = {},
+    ["core.norg.concealer"] = {},
+  }
+}
