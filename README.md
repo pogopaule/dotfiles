@@ -2,49 +2,21 @@
 
 ## Install on new system
 
+- [alacritty](https://github.com/alacritty/alacritty#installation) 
+- [brew](https://brew.sh/)
+- `brew bundle Brewfile`
+- [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh#basic-installation)
+- [hack nerd font](https://www.nerdfonts.com/font-downloads)
+
 ```
-# install terminal alacritty
-
-sudo apt install -y zsh
-
-# install nvim via appimage https://gist.github.com/opchav/5ba865c9e6415c2af825bad153f876f7
-# install packer for nvim https://github.com/wbthomason/packer.nvim#quickstart
-
-# install oh-my-zsh https://github.com/ohmyzsh/ohmyzsh#basic-installation
-
-# install the nerd font Hack (includes symbols) for the terminal https://www.nerdfonts.com/font-downloads
-
-
+cd ~
 git clone git://github.com/pogopaule/dotfiles.git
 cd dotfiles
 ./create_links.sh
-
-# `:LspInstall <langauge>` to install desired language servers
-
-sudo apt install -y fd-find # better find
-sudo apt install -y bat # better cat
-sudo apt install -y fzf # better ctrl+r
-sudo apt install -y ripgrep
-sudo apt install -y ncdu # better du
-sudo apt install -y tldr # simplified man
-sudo apt install -y lnav # log viewer
-sudo apt install -y exa # better ls
-sudo apt install -y jq # json processor
-sudo apt install -y httpie
-# install gh for github https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian-ubuntu-linux-raspberry-pi-os-apt
-# install diff-so-fancy https://github.com/so-fancy/diff-so-fancy#install
-pip install glances # better top/htop
-# install lazygit https://github.com/jesseduffield/lazygit
-
-
-# install tmux either `sudo apt install -y tmux` or newer version https://github.com/nelsonenzo/tmux-appimage
-# install tpm (tmux plugin manager) https://github.com/tmux-plugins/tpm#installation
-# install tmux plugins https://github.com/tmux-plugins/tpm#installing-plugins
-# install tmuxinator https://github.com/tmuxinator/tmuxinator#installation
-# tmuxinator-fzf-start is used in tmux.conf
-wget --output-document ~/.local/bin/tmuxinator-fzf-start.sh https://raw.githubusercontent.com/camspiers/tmuxinator-fzf-start/f1e7200df793da093f2b04f732e1554453940074/tmuxinator-fzf-start.sh && chmod +x ~/.local/bin/tmuxinator-fzf-start.sh
-
-# install fzf-tab https://github.com/Aloxaf/fzf-tab#oh-my-zsh
-
-# install starship https://starship.rs/guide/#%F0%9F%9A%80-installation
 ```
+
+- [tpm](https://github.com/tmux-plugins/tpm#installation)
+- run `tmux` and press `ctrl-a I` to install tmux plugins
+- install `tmuxinator-fzf-start` with `wget --output-document ~/.local/bin/tmuxinator-fzf-start.sh https://raw.githubusercontent.com/camspiers/tmuxinator-fzf-start/f1e7200df793da093f2b04f732e1554453940074/tmuxinator-fzf-start.sh && chmod +x ~/.local/bin/tmuxinator-fzf-start.sh`
+- [fzf-tab](https://github.com/Aloxaf/fzf-tab#oh-my-zsh) 
+- `:LspInstall <langauge>` to install desired language servers inside vim
