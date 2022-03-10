@@ -1,7 +1,8 @@
+[include]
+  path = ~/.gitconfig.local
 [color]
   ui = true
 [core]
-  autocrlf = input
   excludesfile = ~/.gitignore_global
   editor = /usr/bin/vim
   pager = diff-so-fancy | less --tabs=4 -RFX
