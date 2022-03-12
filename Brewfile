@@ -1,17 +1,19 @@
-brew "zsh"
+# modern unix tools
+brew "ripgrep" # grep
+brew "bat"     # cat
+brew "ncdu"    # du
+brew "tldr"    # man
+brew "exa"     # ls
+brew "httpie"  # curl
+brew "fd"      # find
+brew "sd"      # sed
+
 brew "neovim"
-brew "ripgrep"
 brew "fzf"
-brew "bat"
-brew "ncdu"
-brew "tldr"
 brew "lnav"
-brew "exa"
 brew "jq"
-brew "httpie"
 brew "gh"
 brew "diff-so-fancy"
-brew "fd"
 brew "tmux"
 brew "tmuxinator"
 brew "starship"

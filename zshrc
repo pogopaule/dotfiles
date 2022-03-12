@@ -206,7 +206,7 @@ if grep -q "microsoft" /proc/version &>/dev/null; then
 fi
 
 # zsh settings that should not be comitted to git
-source ~/.local_zshrc.zsh
+source ~/.zshrc.local
 
 # https://starship.rs/guide/#%F0%9F%9A%80-installation
 eval "$(starship init zsh)"
