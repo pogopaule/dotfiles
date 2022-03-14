@@ -92,7 +92,7 @@ zstyle ':fzf-tab:*' default-color $'\033[30m'
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmux httpie ripgrep fd git docker docker-compose gradle vi-mode npm ssh-agent nvm tmuxinator gh fzf-tab)
+plugins=(tmux httpie ripgrep fd git docker docker-compose gradle vi-mode npm ssh-agent nvm tmuxinator gh fzf-tab taskwarrior)
 
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#lazy
 zstyle :omz:plugins:ssh-agent lazy yes
