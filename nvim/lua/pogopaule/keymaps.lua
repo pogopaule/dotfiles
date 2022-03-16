@@ -21,7 +21,9 @@ map('n', '<leader>p', '"+p', opts)
 map('v', '<leader>p', '"+p', opts)
 map('v', '<leader>y', '"+y', opts)
 
-map('n', '<leader>s', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true }) -- search and replace in buffer
+-- search and replace in buffer
+map('n', '<leade>s', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true })
+map('v', '<leader>s', '"hy:%s/<C-r>h//g<left><left>', { noremap = true })
 
 map('n', '<leader>q', ':quit<CR>', opts)
 map('n', '<leader>Q', ':quitall<CR>', opts)
