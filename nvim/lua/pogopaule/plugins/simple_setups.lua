@@ -48,23 +48,21 @@ require('nvim-tree').setup({
 vim.g.nvim_tree_special_files = {}
 
 
+
 -- EdenEast/nightfox.nvim
 local nightfox = require('nightfox')
 nightfox.setup({
-  fox = 'dayfox',
-  styles = {
-    comments = "italic",
-    keywords = "bold",
-  },
-})
-nightfox.load()
-
--- nvim-lualine/lualine.nvim
-require('lualine').setup({
   options = {
-    theme = "nightfox"
+    styles = {
+      comments = "italic",
+      keywords = "bold",
+    },
   }
 })
+vim.cmd("colorscheme dayfox")
+
+-- nvim-lualine/lualine.nvim
+require('lualine').setup()
 
 -- -- rmagatti/auto-session
 -- require('auto-session').setup {

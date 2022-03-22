@@ -22,8 +22,7 @@ else
   sed -i "s/033\[30m/033[37m/" ./zshrc
 fi
 
-
-sed -i "s/fox = '$OLD_THEME'/fox = '$NEW_THEME'/" ./nvim/lua/pogopaule/plugins/simple_setups.lua
+sed -i "s/colorscheme '$OLD_THEME'/colorscheme '$NEW_THEME'/" ./nvim/lua/pogopaule/plugins/simple_setups.lua
 
 if grep -q microsoft /proc/version; then
   sed -i "s/colors: \*$OLD_THEME/colors: \*$NEW_THEME/" /mnt/c/Users/SFA/AppData/Roaming/alacritty/alacritty.yml
