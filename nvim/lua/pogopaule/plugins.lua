@@ -76,7 +76,7 @@ return packer.startup(function(use)
   use 'airblade/vim-rooter'                                   -- Changes Vim working directory to project root
   use 'psliwka/vim-smoothie'                                  -- Smooth scrolling
   use 'ggandor/lightspeed.nvim'                               -- quick navigation
-  use 'gpanders/editorconfig.nvim'                            -- editorconfig integration
+  use 'editorconfig/editorconfig-vim'                         -- editorconfig integration
 
   -- coding
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Nvim Treesitter configurations and abstraction layer
