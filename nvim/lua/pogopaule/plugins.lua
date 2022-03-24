@@ -94,6 +94,7 @@ return packer.startup(function(use)
   use 'ThePrimeagen/refactoring.nvim'                         -- Refactoring
   use 'nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables
   use 'davidgranstrom/nvim-markdown-preview'                  -- Preview markdown, requires live-preview and pandoc to be installed
+  use 'jpalardy/vim-slime'
 
   -- LSP
   use 'neovim/nvim-lspconfig'                                 -- LSP support
