@@ -19,10 +19,10 @@ then
   sed -i "s/033\[37m/033[36m/" ./zshrc
 else
   sed -i "s/ansi\-light/ansi\-dark/" ./zshrc
-  sed -i "s/033\[30m/033[37m/" ./zshrc
+  sed -i "s/033\[36m/033[37m/" ./zshrc
 fi
 
-sed -i "s/colorscheme '$OLD_THEME'/colorscheme '$NEW_THEME'/" ./nvim/lua/pogopaule/plugins/simple_setups.lua
+sed -i "s/colorscheme $OLD_THEME/colorscheme $NEW_THEME/" ./nvim/lua/pogopaule/plugins/simple_setups.lua
 
 if grep -q microsoft /proc/version; then
   sed -i "s/colors: \*$OLD_THEME/colors: \*$NEW_THEME/" /mnt/c/Users/SFA/AppData/Roaming/alacritty/alacritty.yml
