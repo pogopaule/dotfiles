@@ -25,9 +25,10 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = { -- the order below defines the order in the completion popup
-    { name = 'nvim_lsp' },
     { name = 'vsnip' },
+    { name = 'nvim_lsp' },
     { name = 'buffer' },
+    { name = 'tmux' },
     { name = 'path' },
   },
   documentation = {
