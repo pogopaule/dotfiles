@@ -172,3 +172,9 @@ map('n', "<leader>za", "<cmd>lua require('telekasten').show_tags()<CR>", opts)
 map('n', "<leader>z#", "<cmd>lua require('telekasten').show_tags()<CR>", opts)
 map('n', "<leader>zr", "<cmd>lua require('telekasten').rename_note()<CR>", opts)
 map('n', "<leader>z",  "<cmd>lua require('telekasten').panel()<CR>", opts) --  on hesitation, bring up the panel
+
+
+-- jpalardy/vim-slime
+vim.cmd[[let g:slime_no_mappings = 1]]
+map('x', "<C-s>", "<Plug>SlimeRegionSend", {})
+map('n', "<C-s>", "<Plug>SlimeParagraphSend", {})
