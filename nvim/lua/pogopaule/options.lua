@@ -33,5 +33,15 @@ for key, value in pairs(options) do
   vim.opt[key] = value
 end
 
+
+-- highlight yanked region
+vim.cmd[[
+  augroup highlight_yank
+  autocmd!
+  au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Substitute", timeout=200})
+  augroup END
+]]
+
+
 -- https://github.com/vim-test/vim-test#strategies
 -- vim.cmd [[let test#strategy = "neovim"]]
