@@ -17,9 +17,13 @@ if [ "$NEW_THEME" == "dayfox" ]
 then
   sed -i "s/ansi\-dark/ansi\-light/" ./zshrc
   sed -i "s/033\[37m/033[36m/" ./zshrc
+  sd "#export FZF_DEFAULT_OPTS='--color light'" "export FZF_DEFAULT_OPTS='--color light'" ./zshrc
+  sd "#zstyle ':fzf-tab:*' fzf-flags --color=light" "export FZF_DEFAULT_OPTS='--color light'" ./zshrc
 else
   sed -i "s/ansi\-light/ansi\-dark/" ./zshrc
   sed -i "s/033\[36m/033[37m/" ./zshrc
+  sd "export FZF_DEFAULT_OPTS='--color light'" "#export FZF_DEFAULT_OPTS='--color light'" ./zshrc
+  sd "zstyle ':fzf-tab:*' fzf-flags --color=light" "#export FZF_DEFAULT_OPTS='--color light'" ./zshrc
 fi
 
 sed -i "s/colorscheme $OLD_THEME/colorscheme $NEW_THEME/" ./nvim/lua/pogopaule/plugins/simple_setups.lua

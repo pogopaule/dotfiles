@@ -83,7 +83,10 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 # text color
-zstyle ':fzf-tab:*' default-color $'\033[36m'
+# see https://github.com/Aloxaf/fzf-tab/wiki/Configuration#default-color
+zstyle ':fzf-tab:*' default-color $'\033[30m'
+# see https://man.archlinux.org/man/fzf.1.en#color=
+zstyle ':fzf-tab:*' fzf-flags --color=light
 
 
 
@@ -192,6 +195,7 @@ export VI_MODE_SET_CURSOR=true
 export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --no-ignore --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fdfind --type d --hidden --follow --no-ignore --exclude .git'
+export FZF_DEFAULT_OPTS='--color light'
 _fzf_compgen_path() {
   fdfind --hidden --follow --no-ignore --exclude ".git" . "$1"
 }
