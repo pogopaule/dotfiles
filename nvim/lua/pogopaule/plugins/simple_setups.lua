@@ -72,6 +72,12 @@ require('lualine').setup()
 -- mhinz/vim-startify
 vim.cmd([[
 let g:startify_custom_header =[]
+let g:startify_lists = [
+        \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+        \ { 'type': 'files',     'header': ['   MRU']            },
+        \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+        \ { 'type': 'commands',  'header': ['   Commands']       },
+        \ ]
 ]])
 
 -- max397574/better-escape.nvim
