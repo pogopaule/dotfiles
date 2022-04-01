@@ -88,14 +88,15 @@ zstyle ':fzf-tab:*' default-color $'\033[30m'
 # see https://man.archlinux.org/man/fzf.1.en#color=
 zstyle ':fzf-tab:*' fzf-flags --color=light
 
-
+# https://github.com/ohmyzsh/ohmyzsh/tree/masterplugins/web-search
+export ZSH_WEB_SEARCH_ENGINES=(jira "https://enersis.atlassian.net/browse/")
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmux httpie ripgrep fd git docker docker-compose gradle vi-mode npm ssh-agent nvm tmuxinator gh fzf-tab taskwarrior web-search)
+plugins=(tmux httpie ripgrep fd git docker docker-compose gradle vi-mode npm ssh-agent nvm tmuxinator gh fzf-tab taskwarrior web-search aws)
 
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#lazy
 zstyle :omz:plugins:ssh-agent lazy yes

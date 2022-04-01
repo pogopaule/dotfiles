@@ -22,7 +22,7 @@ map('v', '<leader>p', '"+p', opts)
 map('v', '<leader>y', '"+y', opts)
 
 -- search and replace in buffer
-map('n', '<leade>s', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true })
+map('n', '<leader>s', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true })
 map('v', '<leader>s', '"hy:%s/<C-r>h//g<left><left>', { noremap = true })
 
 map('n', '<leader>q', ':quit<CR>', opts)
@@ -95,7 +95,8 @@ let g:netrw_nogx = 1
 ]])
 map('n', 'gx', '<plug>(openbrowser-smart-search)', {})
 map('v', 'gx', '<plug>(openbrowser-smart-search)', {})
-map('n', 'gxx', '<cmd>GBrowse<CR>', opts)
+
+map('n', '<leader>gg', '<cmd>GBrowse<CR>', opts)
 
 -- lewis6991/gitsigns.nvim
 map('n', '<leader>gr', '<cmd>Gitsigns reset_hunk<CR>', opts)
@@ -107,6 +108,8 @@ map('n', '<leader>gN', '<cmd>Gitsigns prev_hunk<CR>', opts)
 -- akinsho/bufferline.nvim
 map('n', '<A-h>', '<cmd>BufferLineCyclePrev<CR>', opts)
 map('n', '<A-l>', '<cmd>BufferLineCycleNext<CR>', opts)
+map('n', '<A-H>', '<cmd>BufferLineMovePrev<CR>', opts)
+map('n', '<A-L>', '<cmd>BufferLineMoveNext<CR>', opts)
 
 -- kazhala/close-buffers.nvim
 map('n', '<C-w>', "<cmd>lua require('close_buffers').delete({ type = 'this' })<cr>", opts)
@@ -132,8 +135,8 @@ smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-T
 " See https://github.com/hrsh7th/vim-vsnip/pull/50
 "nmap        s   <Plug>(vsnip-select-text)
 "xmap        s   <Plug>(vsnip-select-text)
-nmap        <C-s>   <Plug>(vsnip-cut-text)
-xmap        <C-s>   <Plug>(vsnip-cut-text)
+nmap        <C-x>   <Plug>(vsnip-cut-text)
+xmap        <C-x>   <Plug>(vsnip-cut-text)
 ]], true)
 
 -- make enter work in quickfix list
