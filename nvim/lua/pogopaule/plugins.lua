@@ -72,7 +72,6 @@ return packer.startup(function(use)
   use 'godlygeek/tabular'                                     -- Tabularize
   use 'ntpeters/vim-better-whitespace'                        -- Show unwanted whitespaces
   use 'christoomey/vim-tmux-navigator'                        -- Seamless jumping between vim and tmux
-  use 'max397574/better-escape.nvim'                          -- fixes problems when escaping with jk
   use 'airblade/vim-rooter'                                   -- Changes Vim working directory to project root
   use 'psliwka/vim-smoothie'                                  -- Smooth scrolling
   use 'ggandor/lightspeed.nvim'                               -- quick navigation
