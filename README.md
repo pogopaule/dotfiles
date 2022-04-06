@@ -4,6 +4,7 @@
 
 - `sudo apt install -y git curl gcc gnome-tweaks zsh` `gnome-tweaks` to map caps-lock to ctrl
 - `git clone git://github.com/pogopaule/dotfiles.git ~/dotfiles`
+- [asdf](http://asdf-vm.com/guide/getting-started.html#_2-download-asdf)
 - [alacritty](https://github.com/alacritty/alacritty#installation) 
 - [brew](https://brew.sh/) ([on linux](https://docs.brew.sh/Homebrew-on-Linux))
 - `brew bundle install --file=Brewfile`

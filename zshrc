@@ -68,9 +68,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Only load nvm when needed since it slows down the start of zsh
-# export NVM_LAZY=1
-
 # https://github.com/Aloxaf/fzf-tab#configure
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
@@ -96,7 +93,7 @@ export ZSH_WEB_SEARCH_ENGINES=(jira "https://enersis.atlassian.net/browse/")
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmux httpie ripgrep fd git docker docker-compose gradle vi-mode npm ssh-agent nvm tmuxinator gh fzf-tab taskwarrior web-search aws)
+plugins=(tmux httpie ripgrep fd git docker docker-compose gradle vi-mode npm ssh-agent tmuxinator gh fzf-tab taskwarrior web-search aws asdf)
 
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#lazy
 zstyle :omz:plugins:ssh-agent lazy yes
