@@ -76,6 +76,7 @@ return packer.startup(function(use)
   use 'psliwka/vim-smoothie'                                  -- Smooth scrolling
   use 'ggandor/lightspeed.nvim'                               -- quick navigation
   use 'editorconfig/editorconfig-vim'                         -- editorconfig integration
+  use 'mbbill/undotree'
 
   -- coding
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Nvim Treesitter configurations and abstraction layer
