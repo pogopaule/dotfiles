@@ -213,6 +213,10 @@ source ~/.zshrc.local
 # https://starship.rs/guide/#%F0%9F%9A%80-installation
 eval "$(starship init zsh)"
 
+# Separate each command by horizontal line https://superuser.com/a/846133/1684299
+setopt promptsubst
+export PS1=$'${(r:$COLUMNS::\u2500:)}'$PS1
+
 # https://github.com/junegunn/fzf#using-git
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # uncomment following line and line at the very top of this file to profile startup time of oh-my-zsh
