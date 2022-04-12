@@ -15,5 +15,4 @@
 - `cd ~/dotfiles && ./create_links.sh`
 - [tpm](https://github.com/tmux-plugins/tpm#installation)
 - run `tmux` and press `ctrl-a I` to install tmux plugins
-- install `tmuxinator-fzf-start` with `wget --output-document ~/.local/bin/tmuxinator-fzf-start.sh https://raw.githubusercontent.com/camspiers/tmuxinator-fzf-start/f1e7200df793da093f2b04f732e1554453940074/tmuxinator-fzf-start.sh && chmod +x ~/.local/bin/tmuxinator-fzf-start.sh`
 - `:LspInstall <langauge>` to install desired language servers inside vim
