@@ -31,9 +31,9 @@ cmp.setup({
     { name = 'tmux' },
     { name = 'path' },
   },
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  },
+  window = {
+    documentation = cmp.config.window.bordered(),
+  }
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
