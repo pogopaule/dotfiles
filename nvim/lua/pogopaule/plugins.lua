@@ -82,6 +82,12 @@ return packer.startup(function(use)
   use 'ggandor/lightspeed.nvim'                               -- quick navigation
   use 'editorconfig/editorconfig-vim'                         -- editorconfig integration
   use 'mbbill/undotree'
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {}
+    end
+  }
 
   -- coding
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Nvim Treesitter configurations and abstraction layer
