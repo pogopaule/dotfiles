@@ -48,6 +48,11 @@ packer.init {
 -- https://github.com/ms-jpq/chadtree alternative to nvim-tree?
 -- https://github.com/danymat/neogen generate annotations and documentation
 -- https://github.com/TimUntersberger/neogit magit for vim
+-- https://github.com/nvim-neotest/neotest test runner
+-- https://who.ldelossa.is/posts/gh-nvim/ github in vim
+-- https://github.com/anuvyklack/hydra.nvim some keybinding stuff
+-- https://github.com/ggandor/leap.nvim replaces lightspeed
+-- https://github.com/wellle/targets.vim more text objects
 
 return packer.startup(function(use)
   -- basics
