@@ -61,16 +61,17 @@ return packer.startup(function(use)
   use 'nvim-lua/plenary.nvim'                                 -- Lua functions
 
   -- layout / windows
-  use {'kyazdani42/nvim-tree.lua' }                           -- File Explorer
+  use 'kyazdani42/nvim-tree.lua'                            -- File Explorer
   use 'mhinz/vim-startify'                                    -- Start screen
   use 'nvim-lualine/lualine.nvim'                             -- Status bar
   use 'kyazdani42/nvim-web-devicons'                          -- Icon font
   use 'EdenEast/nightfox.nvim'                                -- nightfox theme
   use 'akinsho/bufferline.nvim'                               -- A bufferline
   use 'kazhala/close-buffers.nvim'                            -- helpers to close buffers
+  use 'nvim-telescope/telescope.nvim'                         -- Find, Filter, Preview, Pick
+  use 'nvim-telescope/telescope-ui-select.nvim'               -- use telescope to select options
 
   -- misc
-  use 'nvim-telescope/telescope.nvim'                         -- Find, Filter, Preview, Pick
   use 'godlygeek/tabular'                                     -- Tabularize
   use 'ntpeters/vim-better-whitespace'                        -- Show unwanted whitespaces
   use 'christoomey/vim-tmux-navigator'                        -- Seamless jumping between vim and tmux
