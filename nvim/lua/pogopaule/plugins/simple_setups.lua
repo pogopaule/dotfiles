@@ -9,6 +9,7 @@ require('close_buffers').setup()          -- kazhala/close-buffers.nvim
 require('fidget').setup()                 -- j-hui/fidget.nvim
 require('leap').set_default_keymaps()     -- ggandor/leap.nvim
 require('nvim-surround').setup()          -- kylechui/nvim-surround
+require("which-key").setup()              -- folke/which-key.nvim
 
 
 -- windwp/nvim-autopairs

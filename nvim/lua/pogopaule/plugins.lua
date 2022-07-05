@@ -65,37 +65,30 @@ return packer.startup(function(use)
   use 'mhinz/vim-startify'                                    -- Start screen
   use 'nvim-lualine/lualine.nvim'                             -- Status bar
   use 'kyazdani42/nvim-web-devicons'                          -- Icon font
-  -- use 'rakr/vim-one'                                          -- One theme
-  -- use 'folke/tokyonight.nvim'                                 -- Tokyonight theme
   use 'EdenEast/nightfox.nvim'                                -- nightfox theme
-  use 'nvim-telescope/telescope.nvim'                         -- Find, Filter, Preview, Pick
   use 'akinsho/bufferline.nvim'                               -- A bufferline
   use 'kazhala/close-buffers.nvim'                            -- helpers to close buffers
-  -- use 'rmagatti/auto-session'                                 -- save/restore session
 
   -- misc
+  use 'nvim-telescope/telescope.nvim'                         -- Find, Filter, Preview, Pick
   use 'godlygeek/tabular'                                     -- Tabularize
   use 'ntpeters/vim-better-whitespace'                        -- Show unwanted whitespaces
   use 'christoomey/vim-tmux-navigator'                        -- Seamless jumping between vim and tmux
   use 'airblade/vim-rooter'                                   -- Changes Vim working directory to project root
   use 'psliwka/vim-smoothie'                                  -- Smooth scrolling
-  -- use 'ggandor/lightspeed.nvim'                               -- quick navigation
-  use 'ggandor/leap.nvim'
-  use 'editorconfig/editorconfig-vim'                         -- editorconfig integration
-  use 'mbbill/undotree'
-  use {
-    "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup {}
-    end
+  use 'ggandor/leap.nvim'                                     -- Jump in text
+  use 'mbbill/undotree'                                       -- show undotree
+  use 'folke/which-key.nvim'                                  -- shows what to type after a prefix
+  use { 'renerocksai/telekasten.nvim',                         -- zettelkasten
+    requires = { { 'renerocksai/calendar-vim' } }
   }
 
+
   -- coding
+  use 'editorconfig/editorconfig-vim'                         -- editorconfig integration
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Nvim Treesitter configurations and abstraction layer
   use 'andymass/vim-matchup'                                  -- extends %
-  use 'vim-test/vim-test'                                     -- Run tests
-  use 'kylechui/nvim-surround'
-  use 'tpope/vim-repeat'                                      -- repeat surround with .
+  use 'kylechui/nvim-surround'                                -- easily surround with brackets
   use 'numToStr/Comment.nvim'                                 -- Comments
   use 'JoosepAlviste/nvim-ts-context-commentstring'           -- Context aware comments
   use 'norcalli/nvim-colorizer.lua'                           -- Colorize hex colors
@@ -124,6 +117,10 @@ return packer.startup(function(use)
   use 'tpope/vim-fugitive'                                    -- Git
   use 'tpope/vim-rhubarb'                                     -- Adds Gbrowse
   use 'junegunn/gv.vim'                                       -- browse git history
+  use {
+    'ldelossa/gh.nvim',                                       -- Code reviews in vim
+    requires = { { 'ldelossa/litee.nvim' } }
+  }
 
   -- completion
   use 'hrsh7th/nvim-cmp'
@@ -141,9 +138,6 @@ return packer.startup(function(use)
 
   -- open file in github
   use 'tyru/open-browser.vim'
-
-  use 'renerocksai/telekasten.nvim'
-  use 'renerocksai/calendar-vim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
