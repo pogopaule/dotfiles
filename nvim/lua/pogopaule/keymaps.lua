@@ -49,7 +49,8 @@ map('v', 'p', '"_dP', opts) -- do not overwrite yanked when pasting in visual mo
 map('v', '<', '<gv', opts)
 map('v', '>', '>gv', opts)
 
-
+-- paste visual selection at bottom of it
+map('v', 'D', 'ygv<Esc>p', opts)
 
 -- nvim-telescope/telescope.nvim
 map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
