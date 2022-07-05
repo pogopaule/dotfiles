@@ -7,6 +7,8 @@ require('nvim-web-devicons').setup()      -- kyazdani42/nvim-web-devicons
 require('refactoring').setup()            -- ThePrimeagen/refactoring.nvim
 require('close_buffers').setup()          -- kazhala/close-buffers.nvim
 require('fidget').setup()                 -- j-hui/fidget.nvim
+require('leap').set_default_keymaps()     -- ggandor/leap.nvim
+require('nvim-surround').setup()          -- kylechui/nvim-surround
 
 
 -- windwp/nvim-autopairs

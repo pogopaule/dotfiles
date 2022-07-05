@@ -79,7 +79,8 @@ return packer.startup(function(use)
   use 'christoomey/vim-tmux-navigator'                        -- Seamless jumping between vim and tmux
   use 'airblade/vim-rooter'                                   -- Changes Vim working directory to project root
   use 'psliwka/vim-smoothie'                                  -- Smooth scrolling
-  use 'ggandor/lightspeed.nvim'                               -- quick navigation
+  -- use 'ggandor/lightspeed.nvim'                               -- quick navigation
+  use 'ggandor/leap.nvim'
   use 'editorconfig/editorconfig-vim'                         -- editorconfig integration
   use 'mbbill/undotree'
   use {
@@ -93,7 +94,7 @@ return packer.startup(function(use)
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Nvim Treesitter configurations and abstraction layer
   use 'andymass/vim-matchup'                                  -- extends %
   use 'vim-test/vim-test'                                     -- Run tests
-  use 'tpope/vim-surround'                                    -- Surround quotes, brackets, etc.
+  use 'kylechui/nvim-surround'
   use 'tpope/vim-repeat'                                      -- repeat surround with .
   use 'numToStr/Comment.nvim'                                 -- Comments
   use 'JoosepAlviste/nvim-ts-context-commentstring'           -- Context aware comments
