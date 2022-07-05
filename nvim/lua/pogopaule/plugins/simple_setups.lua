@@ -11,7 +11,6 @@ require('leap').set_default_keymaps()     -- ggandor/leap.nvim
 require('nvim-surround').setup()          -- kylechui/nvim-surround
 require("which-key").setup()              -- folke/which-key.nvim
 
-
 -- windwp/nvim-autopairs
 require('nvim-autopairs').setup({
   fast_wrap = {
