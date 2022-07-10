@@ -5,14 +5,14 @@ local map = vim.api.nvim_set_keymap
 vim.g.mapleader = ","
 
 -- disable arrow keys
-map('i', '<Up>', 'NOP', opts)
-map('i', '<Down>', 'NOP', opts)
-map('i', '<Left>', 'NOP', opts)
-map('i', '<Right>', 'NOP', opts)
-map('n', '<Up>', 'NOP', opts)
-map('n', '<Down>', 'NOP', opts)
-map('n', '<Left>', 'NOP', opts)
-map('n', '<Right>', 'NOP', opts)
+map('i', '<Up>', ':resize -4<CR>', opts)
+map('i', '<Down>', ':resize +4<CR>', opts)
+map('i', '<Left>', ':vertical resize -4<CR>', opts)
+map('i', '<Right>', ':vertical resize +4<CR>', opts)
+map('n', '<Up>', ':resize -4<CR>', opts)
+map('n', '<Down>', ':resize +4<CR>', opts)
+map('n', '<Left>', ':vertical resize -4<CR>', opts)
+map('n', '<Right>', ':vertical resize +4<CR>', opts)
 
 map('i', 'jk', '<ESC>', opts) -- exit insert mode by pressing jk
 
