@@ -41,7 +41,6 @@ packer.init {
 -- TODO: checkout plugins
 -- https://github.com/ahmedkhalf/project.nvim
 -- https://github.com/romgrk/barbar.nvim alternative to bufferline?
--- https://github.com/mfussenegger/nvim-dap install when debugging is needed
 -- https://github.com/Pocco81/DAPInstall.nvim
 -- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils additional lsp features for typescript, mainly imports related
 -- https://github.com/ms-jpq/coq_nvim alternative to vim-cmp?
@@ -101,6 +100,12 @@ return packer.startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables
   use 'davidgranstrom/nvim-markdown-preview'                  -- Preview markdown, requires live-preview and pandoc to be installed
   use 'jpalardy/vim-slime'                                    -- Send line to tmux
+
+  -- debugging
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
+  use 'nvim-telescope/telescope-dap.nvim'
+-- https://github.com/theHamsta/nvim-dap-virtual-text
 
   -- LSP
   use 'neovim/nvim-lspconfig'                                 -- LSP support
