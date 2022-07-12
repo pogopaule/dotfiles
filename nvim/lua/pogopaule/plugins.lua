@@ -39,19 +39,14 @@ packer.init {
 }
 
 -- TODO: checkout plugins
--- https://github.com/ahmedkhalf/project.nvim
 -- https://github.com/romgrk/barbar.nvim alternative to bufferline?
 -- https://github.com/Pocco81/DAPInstall.nvim
--- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils additional lsp features for typescript, mainly imports related
+-- https://github.com/jose-elias-alvarez/typescript.nvim additional lsp features for typescript, mainly imports related
 -- https://github.com/ms-jpq/coq_nvim alternative to vim-cmp?
 -- https://github.com/ms-jpq/chadtree alternative to nvim-tree?
 -- https://github.com/danymat/neogen generate annotations and documentation
--- https://github.com/TimUntersberger/neogit magit for vim
 -- https://github.com/nvim-neotest/neotest test runner
--- https://who.ldelossa.is/posts/gh-nvim/ github in vim
 -- https://github.com/anuvyklack/hydra.nvim some keybinding stuff
--- https://github.com/ggandor/leap.nvim replaces lightspeed
--- https://github.com/wellle/targets.vim more text objects
 
 return packer.startup(function(use)
   -- basics
