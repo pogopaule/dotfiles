@@ -100,7 +100,7 @@ return packer.startup(function(use)
   use 'mfussenegger/nvim-dap'
   use 'rcarriga/nvim-dap-ui'
   use 'nvim-telescope/telescope-dap.nvim'
--- https://github.com/theHamsta/nvim-dap-virtual-text
+  use 'theHamsta/nvim-dap-virtual-text'
 
   -- LSP
   use 'neovim/nvim-lspconfig'                                 -- LSP support

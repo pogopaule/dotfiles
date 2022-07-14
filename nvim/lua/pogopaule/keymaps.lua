@@ -29,7 +29,7 @@ map('n', '<leader>q', ':quit<CR>', opts)
 map('n', '<leader>Q', ':quitall<CR>', opts)
 map('n', '<leader>w', ':write<CR>', opts)
 
-map('n', '<leader>d', ':nohlsearch<CR>', opts) -- remove search highlight
+map('n', '<leader>dd', ':nohlsearch<CR>', opts) -- remove search highlight
 
 map('n', '<CR>', 'o<ESC>', opts) -- enter adds new line in normal mode
 
@@ -176,11 +176,11 @@ map('x', "<C-s>", "<Plug>SlimeRegionSend", {})
 map('n', "<C-s>", "<Plug>SlimeParagraphSend", {})
 
 -- mfussenegger/nvim-dap
-map('n', '<F5>', "<Cmd>lua require'dap'.continue()<CR>", opts)
-map('n', '<F10>', "<Cmd>lua require'dap'.step_over()<CR>", opts)
-map('n', '<F11>', "<Cmd>lua require'dap'.step_into()<CR>", opts)
-map('n', '<F12>', "<Cmd>lua require'dap'.step_out()<CR>", opts)
-map('n', '<Leader>b', "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+map('n', '<leader>dc', "<Cmd>lua require'dap'.continue()<CR>", opts)
+map('n', '<leader>dv', "<Cmd>lua require'dap'.step_over()<CR>", opts)
+map('n', '<leader>di', "<Cmd>lua require'dap'.step_into()<CR>", opts)
+map('n', '<leader>du', "<Cmd>lua require'dap'.step_out()<CR>", opts)
+map('n', '<leader>db', "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
 -- map('n', '<Leader>B', "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
 -- map('n', '<Leader>lp', "<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
 -- map('n', '<Leader>dr', "<Cmd>lua require'dap'.repl.open()<CR>", opts)
