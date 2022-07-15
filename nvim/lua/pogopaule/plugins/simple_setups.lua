@@ -86,21 +86,11 @@ vim.cmd("colorscheme dayfox")
 -- nvim-lualine/lualine.nvim
 require('lualine').setup()
 
--- -- rmagatti/auto-session
--- require('auto-session').setup {
---   log_level = 'info',
--- }
+-- goolord/alpha-nvim
+require'alpha'.setup(require'alpha.themes.startify'.config)
 
--- mhinz/vim-startify
-vim.cmd([[
-let g:startify_custom_header =[]
-let g:startify_lists = [
-        \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
-        \ { 'type': 'files',     'header': ['   MRU']            },
-        \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-        \ { 'type': 'commands',  'header': ['   Commands']       },
-        \ ]
-]])
+-- karb94/neoscroll.nvim
+require('neoscroll').setup()
 
 -- folke/trouble.nvim
 require("trouble").setup {}

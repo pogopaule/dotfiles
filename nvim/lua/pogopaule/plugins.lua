@@ -39,14 +39,16 @@ packer.init {
 }
 
 -- TODO: checkout plugins
--- https://github.com/romgrk/barbar.nvim alternative to bufferline?
+-- https://github.com/nvim-neotest/neotest test runner
+-- https://github.com/jamestthompson3/nvim-remote-containers remote developing like in vscode
+-- https://github.com/pwntester/octo.nvim github
 -- https://github.com/Pocco81/DAPInstall.nvim
 -- https://github.com/jose-elias-alvarez/typescript.nvim additional lsp features for typescript, mainly imports related
 -- https://github.com/ms-jpq/coq_nvim alternative to vim-cmp?
 -- https://github.com/ms-jpq/chadtree alternative to nvim-tree?
 -- https://github.com/danymat/neogen generate annotations and documentation
--- https://github.com/nvim-neotest/neotest test runner
 -- https://github.com/anuvyklack/hydra.nvim some keybinding stuff
+-- https://github.com/ThePrimeagen/harpoon naviage favorite locations
 
 return packer.startup(function(use)
   -- basics
@@ -55,8 +57,8 @@ return packer.startup(function(use)
   use 'nvim-lua/plenary.nvim'                                 -- Lua functions
 
   -- layout / windows
-  use 'kyazdani42/nvim-tree.lua'                            -- File Explorer
-  use 'mhinz/vim-startify'                                    -- Start screen
+  use 'kyazdani42/nvim-tree.lua'                              -- File Explorer
+  use 'goolord/alpha-nvim'                                    -- Start screen
   use 'nvim-lualine/lualine.nvim'                             -- Status bar
   use 'kyazdani42/nvim-web-devicons'                          -- Icon font
   use 'EdenEast/nightfox.nvim'                                -- nightfox theme
@@ -70,13 +72,14 @@ return packer.startup(function(use)
   use 'ntpeters/vim-better-whitespace'                        -- Show unwanted whitespaces
   use 'christoomey/vim-tmux-navigator'                        -- Seamless jumping between vim and tmux
   use 'airblade/vim-rooter'                                   -- Changes Vim working directory to project root
-  use 'psliwka/vim-smoothie'                                  -- Smooth scrolling
+  use 'karb94/neoscroll.nvim'                                 -- smooth scrolling
   use 'ggandor/leap.nvim'                                     -- Jump in text
   use 'mbbill/undotree'                                       -- show undotree
   use 'folke/which-key.nvim'                                  -- shows what to type after a prefix
-  use { 'renerocksai/telekasten.nvim',                         -- zettelkasten
+  use { 'renerocksai/telekasten.nvim',                        -- zettelkasten
     requires = { { 'renerocksai/calendar-vim' } }
   }
+  use 'dbeniamine/cheat.sh-vim'
 
 
   -- coding
