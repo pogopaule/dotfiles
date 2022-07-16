@@ -55,6 +55,7 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'                                -- Have packer manage itself
   use 'nvim-lua/popup.nvim'                                   -- Popup API from vim in neovim
   use 'nvim-lua/plenary.nvim'                                 -- Lua functions
+  use 'antoinemadec/FixCursorHold.nvim'
 
   -- layout / windows
   use 'kyazdani42/nvim-tree.lua'                              -- File Explorer
@@ -98,6 +99,10 @@ return packer.startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables
   use 'davidgranstrom/nvim-markdown-preview'                  -- Preview markdown, requires live-preview and pandoc to be installed
   use 'jpalardy/vim-slime'                                    -- Send line to tmux
+
+  -- testing
+  use 'nvim-neotest/neotest'
+  use 'nvim-neotest/neotest-python'
 
   -- debugging
   use 'mfussenegger/nvim-dap'
