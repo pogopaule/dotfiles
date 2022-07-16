@@ -10,6 +10,7 @@ require('fidget').setup()                 -- j-hui/fidget.nvim
 require('leap').set_default_keymaps()     -- ggandor/leap.nvim
 require('nvim-surround').setup()          -- kylechui/nvim-surround
 require("which-key").setup()              -- folke/which-key.nvim
+require('octo').setup()                   -- pwntester/octo.nvim
 
 -- nvim-telescope/telescope-ui-select.nvim
 require("telescope").setup {

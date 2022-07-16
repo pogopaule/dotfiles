@@ -40,7 +40,6 @@ packer.init {
 
 -- TODO: checkout plugins
 -- https://github.com/jamestthompson3/nvim-remote-containers remote developing like in vscode
--- https://github.com/pwntester/octo.nvim github
 -- https://github.com/Pocco81/DAPInstall.nvim
 -- https://github.com/jose-elias-alvarez/typescript.nvim additional lsp features for typescript, mainly imports related
 -- https://github.com/ms-jpq/coq_nvim alternative to vim-cmp?
@@ -129,6 +128,7 @@ return packer.startup(function(use)
     'ldelossa/gh.nvim',                                       -- Code reviews in vim
     requires = { { 'ldelossa/litee.nvim' } }
   }
+  use  'pwntester/octo.nvim'                                  -- github integration
 
   -- completion
   use 'hrsh7th/nvim-cmp'
