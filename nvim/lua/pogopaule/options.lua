@@ -1,8 +1,5 @@
 vim.cmd [[set iskeyword+=-]]        -- e.g. delete foo-bar with daw
 
--- vim.cmd 'colorscheme tokyonight'
--- vim.g.tokyonight_style="day"     -- storm, night or day
-
 local options = {
   shiftwidth    = 2,                -- number of spaces for indentation
   smartindent   = true,
