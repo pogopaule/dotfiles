@@ -39,7 +39,6 @@ packer.init {
 }
 
 -- TODO: checkout plugins
--- https://github.com/nvim-neotest/neotest test runner
 -- https://github.com/jamestthompson3/nvim-remote-containers remote developing like in vscode
 -- https://github.com/pwntester/octo.nvim github
 -- https://github.com/Pocco81/DAPInstall.nvim
