@@ -59,7 +59,7 @@ return packer.startup(function(use)
   use 'goolord/alpha-nvim'                                    -- Start screen
   use 'nvim-lualine/lualine.nvim'                             -- Status bar
   use 'kyazdani42/nvim-web-devicons'                          -- Icon font
-  use 'EdenEast/nightfox.nvim'                                -- nightfox theme
+  use { "EdenEast/nightfox.nvim", run = ":NightfoxCompile", } -- nightfox theme
   use 'akinsho/bufferline.nvim'                               -- A bufferline
   use 'kazhala/close-buffers.nvim'                            -- helpers to close buffers
   use 'nvim-telescope/telescope.nvim'                         -- Find, Filter, Preview, Pick
@@ -78,6 +78,7 @@ return packer.startup(function(use)
     requires = { { 'renerocksai/calendar-vim' } }
   }
   use 'dbeniamine/cheat.sh-vim'
+  use 'dstein64/vim-startuptime'
 
 
   -- coding
