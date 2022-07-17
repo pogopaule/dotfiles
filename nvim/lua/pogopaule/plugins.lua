@@ -39,7 +39,6 @@ packer.init {
 }
 
 -- TODO: checkout plugins
--- https://github.com/jamestthompson3/nvim-remote-containers remote developing like in vscode
 -- https://github.com/Pocco81/DAPInstall.nvim
 -- https://github.com/jose-elias-alvarez/typescript.nvim additional lsp features for typescript, mainly imports related
 -- https://github.com/ms-jpq/coq_nvim alternative to vim-cmp?
@@ -97,6 +96,7 @@ return packer.startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables
   use 'davidgranstrom/nvim-markdown-preview'                  -- Preview markdown, requires live-preview and pandoc to be installed
   use 'jpalardy/vim-slime'                                    -- Send line to tmux
+  use 'https://github.com/jamestthompson3/nvim-remote-containers'
 
   -- testing
   use 'nvim-neotest/neotest'
