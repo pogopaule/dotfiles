@@ -75,10 +75,10 @@ map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 map('n', '<leader>xn', '<cmd>lua vim.diagnostic.goto_next({float = false})<CR>', opts)
 map('n', '<leader>xp', '<cmd>lua vim.diagnostic.goto_prev({float = false})<CR>', opts)
 
-map('n', '<C-f>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-map('v', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
-map('l', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
-map('x', '<C-f>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+map('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+map('v', '<leader>cf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+map('l', '<leader>cf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+map('x', '<leader>cf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
 -- tami5/lspsaga.nvim
 map('n', '<leader>rr', '<cmd>Lspsaga rename<CR>', opts)
