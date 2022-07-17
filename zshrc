@@ -215,7 +215,7 @@ eval "$(starship init zsh)"
 
 # Separate each command by horizontal line https://superuser.com/a/846133/1684299
 setopt promptsubst
-export PS1=$'${(r:$COLUMNS::\u2500:)}'$PS1
+export PS1=$'${(r:$COLUMNS::\u00b7:)}'$PS1
 
 # https://github.com/junegunn/fzf#using-git
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
