@@ -10,3 +10,6 @@ require 'pogopaule.plugins.comment'
 require 'pogopaule.plugins.telekasten'
 require 'pogopaule.plugins.gh'
 require 'pogopaule.plugins.dap'
+
+-- for awesome-sustainability-jobs
+vim.api.nvim_create_user_command('PasteGeo', 'normal "+p0f:lldf@f,f,DF,xDj0$p', {})
