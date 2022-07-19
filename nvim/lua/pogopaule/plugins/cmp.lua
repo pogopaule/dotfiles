@@ -1,5 +1,6 @@
 local cmp = require'cmp'
 local lspkind = require('lspkind')
+local luasnip = require("luasnip")
 
 cmp.setup({
   formatting = {
@@ -10,7 +11,7 @@ cmp.setup({
   },
   snippet = {
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = cmp.mapping.preset.insert({
@@ -21,7 +22,7 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   sources = { -- the order below defines the order in the completion popup
-    { name = 'vsnip' },
+    { name = 'luasnip' },
     { name = 'nvim_lsp' },
     { name = 'buffer' },
     { name = 'tmux' },

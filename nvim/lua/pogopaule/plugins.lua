@@ -140,9 +140,8 @@ return packer.startup(function(use)
   use 'andersevenrud/cmp-tmux'
 
   -- snippets
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
-  use 'hrsh7th/vim-vsnip-integ'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
   use 'rafamadriz/friendly-snippets'
 
   -- open file in github

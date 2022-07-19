@@ -115,29 +115,31 @@ map('n', '<A-L>', '<cmd>BufferLineMoveNext<CR>', opts)
 map('n', '<C-w>', "<cmd>lua require('close_buffers').delete({ type = 'this' })<cr>", opts)
 map('n', '<A-o>', "<cmd>lua require('close_buffers').delete({ type = 'other' })<cr>", opts)
 
--- hrsh7th/vim-vsnip
-vim.api.nvim_exec([[
-" Expand
-imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+-- L3MON4D3/LuaSnip
+local ls = require('luasnip')
+-- this will expand the current item or jump to the next item within the snippet
+vim.keymap.set({ "i", "s" }, "<tab>", function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, { silent = true })
 
-" Expand or jump
-imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+-- this always moves to the previous item within the snippet
+vim.keymap.set({ "i", "s" }, "<s-tab>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true })
 
-" Jump forward or backward
-imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+-- selecting within a list of options
+vim.keymap.set({'i', 's'}, "<c-e>", function()
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end)
 
-" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
-" See https://github.com/hrsh7th/vim-vsnip/pull/50
-"nmap        s   <Plug>(vsnip-select-text)
-"xmap        s   <Plug>(vsnip-select-text)
-nmap        <C-x>   <Plug>(vsnip-cut-text)
-xmap        <C-x>   <Plug>(vsnip-cut-text)
-]], true)
+vim.keymap.set("i", "<c-u>", require "luasnip.extras.select_choice")
+
 
 -- make enter work in quickfix list
 vim.api.nvim_exec([[
