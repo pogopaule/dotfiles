@@ -59,6 +59,8 @@ map('n', '<leader>fG', "<cmd>lua require('telescope.builtin').grep_string()<cr>"
 map('v', '<leader>fG', "\"zy:Telescope grep_string search=<C-r>z<cr>", opts)
 map('n', '<leader>fr', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
 map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", opts)
+map('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
+map('n', '<leader>fo', "<cmd>lua require('telescope.builtin').oldfiles()<cr>", opts)
 
 -- scrooloose/nerdtree
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', opts)
