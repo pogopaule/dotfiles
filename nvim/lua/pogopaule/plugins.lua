@@ -65,13 +65,16 @@ return packer.startup(function(use)
   use 'nvim-telescope/telescope.nvim'                         -- Find, Filter, Preview, Pick
   use 'nvim-telescope/telescope-ui-select.nvim'               -- use telescope to select options
 
+  -- moving around
+  use 'ggandor/leap.nvim'                                     -- Jump in text
+  use 'nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables
+
   -- misc
   use 'godlygeek/tabular'                                     -- Tabularize
   use 'ntpeters/vim-better-whitespace'                        -- Show unwanted whitespaces
   use 'christoomey/vim-tmux-navigator'                        -- Seamless jumping between vim and tmux
   use 'airblade/vim-rooter'                                   -- Changes Vim working directory to project root
   use 'karb94/neoscroll.nvim'                                 -- smooth scrolling
-  use 'ggandor/leap.nvim'                                     -- Jump in text
   use 'mbbill/undotree'                                       -- show undotree
   use 'folke/which-key.nvim'                                  -- shows what to type after a prefix
   use { 'renerocksai/telekasten.nvim',                        -- zettelkasten
@@ -94,7 +97,6 @@ return packer.startup(function(use)
   use 'folke/todo-comments.nvim'                              -- Highlight, list and search todo comments
   use 'preservim/vim-markdown'                                -- Markdown
   use 'ThePrimeagen/refactoring.nvim'                         -- Refactoring
-  use 'nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables
   use 'davidgranstrom/nvim-markdown-preview'                  -- Preview markdown, requires live-preview and pandoc to be installed
   use 'jpalardy/vim-slime'                                    -- Send line to tmux
   use 'https://github.com/jamestthompson3/nvim-remote-containers'
