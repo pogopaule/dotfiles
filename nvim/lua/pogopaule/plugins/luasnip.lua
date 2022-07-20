@@ -1,9 +1,20 @@
 require("luasnip.loaders.from_vscode").lazy_load()
 
 local ls = require"luasnip"
+local types = require("luasnip.util.types")
+
+ls.config.setup({
+  ext_opts = {
+    [types.choiceNode] = {
+      active = {
+        virt_text = {{"🔶"}}
+      }
+    },
+  },
+})
+
 local s = ls.snippet
 local sn = ls.snippet_node
-
 local isn = ls.indent_snippet_node
 local t = ls.text_node
 local i = ls.insert_node
