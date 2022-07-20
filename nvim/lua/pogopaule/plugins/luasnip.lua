@@ -73,9 +73,66 @@ ls.add_snippets("all", {
         i(9), i(10), i(11), i(11)
       })
   ),
-  postfix(".foo", {
-    f(function(_, parent)
-      return "[" .. parent.snippet.env.POSTFIX_MATCH .. "]"
-    end, {}),
-  })
 })
+
+ls.add_snippets("lua", {
+  postfix(".pr", {
+    f(function(_, parent)
+      return "print(" .. parent.snippet.env.POSTFIX_MATCH .. ")"
+    end, {}),
+  }),
+})
+
+ls.add_snippets("javascript", {
+  postfix(".log", {
+    f(function(_, parent)
+      return "console.log(" .. parent.snippet.env.POSTFIX_MATCH .. ")"
+    end, {}),
+  }),
+  postfix({ trig = ".fn", match_pattern = "[%w(){}]+$"}, {
+    d(1, function (_, parent)
+      return sn(nil, {i(1), t("(" .. parent.env.POSTFIX_MATCH .. ")"), i(0)})
+    end)
+  }),
+})
+
+
+-- TODO: figure out how to open choice node in telescope; first tests below
+
+-- local pickers = require "telescope.pickers"
+-- local finders = require "telescope.finders"
+-- local conf = require("telescope.config").values
+-- local themes = require("telescope.themes")
+-- local actions = require "telescope.actions"
+-- local action_state = require "telescope.actions.state"
+--
+-- choices_picker = function(opts, choice_node)
+--   opts = opts or {}
+--   pickers.new(opts, {
+--     finder = finders.new_table {
+--       results = { "red", "green", "blue" }
+--     },
+--     sorter = conf.generic_sorter(opts),
+--     attach_mappings = function(prompt_bufnr, map)
+--       actions.select_default:replace(function()
+--         actions.close(prompt_bufnr)
+--         local selection = action_state.get_selected_entry()
+--         -- print(vim.inspect(selection))
+--         -- vim.api.nvim_put({ selection[1] }, "", false, true)
+--         require('luasnip').set_choice(2)
+--       end)
+--       return true
+--     end,
+--   }):find()
+-- end
+--
+-- choices_picker(themes.get_dropdown())
+--
+-- vim.cmd([[
+-- augroup choice_popup
+-- au!
+-- au User LuasnipChangeChoice lua choices_picker({}, require("luasnip").session.event_node)
+-- " au User LuasnipChoiceNodeLeave lua choice_popup_close()
+-- " au User LuasnipChangeChoice lua update_choice_popup(require("luasnip").session.event_node)
+-- augroup END
+-- ]])
