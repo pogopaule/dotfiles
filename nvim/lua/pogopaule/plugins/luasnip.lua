@@ -29,11 +29,50 @@ local m = require("luasnip.extras").m
 local lambda = require("luasnip.extras").l
 local postfix = require("luasnip.extras.postfix").postfix
 
+local function get_existing_fields(position, field)
+  return d(position, function()
+    local nodes = {}
+    local already_seen = {}
+
+    local current_buffer = vim.api.nvim_buf_get_lines(0,0,-1,false)
+    for _, line in ipairs(current_buffer) do
+    local match = line:match('%s*'.. field ..': (.*)$')
+      if match then
+        if(not already_seen[match]) then
+          table.insert(nodes, t(match))
+          already_seen[match] = true
+        end
+      end
+    end
+    return sn(nil, c(1, nodes))
+  end, {})
+end
+
 ls.add_snippets("all", {
-  s("ternary", {
-    -- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
-    i(1, "cond"), t(" ? "), i(2, "then"), t(" : "), i(3, "else"),
-  }),
+  s("entry",
+    fmt([[
+  - name: {}
+    website: {}
+    jobs: {}
+    description: {}
+    remote: {}
+    speculative: {}
+    field: {}
+    geo:
+      - country: {}
+        lat: {}
+        long: {}
+    review: {}
+    rating: {}
+    ]], {
+        i(1), i(2), i(3), i(4),
+        c(5, {t "true", t "false"}),
+        c(6, {t "true", t "false"}),
+        get_existing_fields(7, 'field'),
+        get_existing_fields(8, 'country'),
+        i(9), i(10), i(11), i(11)
+      })
+  ),
   postfix(".foo", {
     f(function(_, parent)
       return "[" .. parent.snippet.env.POSTFIX_MATCH .. "]"
