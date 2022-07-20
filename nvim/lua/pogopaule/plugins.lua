@@ -93,7 +93,7 @@ return packer.startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'           -- Context aware comments
   use 'norcalli/nvim-colorizer.lua'                           -- Colorize hex colors
   use 'windwp/nvim-autopairs'                                 -- Insert matching quote, brackets, etc.
-  use 'mattn/emmet-vim'                                       -- Emmet
+  -- use 'mattn/emmet-vim'                                       -- Emmet
   use 'folke/todo-comments.nvim'                              -- Highlight, list and search todo comments
   use 'preservim/vim-markdown'                                -- Markdown
   use 'ThePrimeagen/refactoring.nvim'                         -- Refactoring
