@@ -119,22 +119,6 @@ map('n', '<A-o>', "<cmd>lua require('close_buffers').delete({ type = 'other' })<
 
 -- L3MON4D3/LuaSnip
 local ls = require('luasnip')
--- this will expand the current item or jump to the next item within the snippet
-vim.keymap.set({ "i", "s" }, "<tab>", function()
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
-  else
-    -- TODO: implement 'insert tab'
-  end
-end, opts)
-
--- this always moves to the previous item within the snippet
-vim.keymap.set({ "i", "s" }, "<s-tab>", function()
-  if ls.jumpable(-1) then
-    ls.jump(-1)
-  end
-end, opts)
-
 -- selecting within a list of options
 vim.keymap.set({'i', 's'}, "<c-e>", function()
   if ls.choice_active() then
