@@ -12,6 +12,26 @@ require('nvim-surround').setup()          -- kylechui/nvim-surround
 require("which-key").setup()              -- folke/which-key.nvim
 require('octo').setup()                   -- pwntester/octo.nvim
 
+
+-- zakharykaplan/nvim-retrail
+require("retrail").setup {
+  -- Highlight group to use for trailing whitespace.
+  hlgroup = "Substitute",
+  -- Enabled filetypes.
+  filetype = {
+    -- Excluded filetype list. Overrides `include` list.
+    exclude = {
+      "help",
+      "alpha"
+    },
+  },
+  -- Trim on write behaviour.
+  trim = {
+    -- Final blank (i.e. whitespace only) lines.
+    blanklines = true,
+  }
+}
+
 -- nvim-telescope/telescope-ui-select.nvim
 require("telescope").setup {
   extensions = {
