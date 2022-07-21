@@ -118,7 +118,29 @@ map('n', '<C-w>', "<cmd>lua require('close_buffers').delete({ type = 'this' })<c
 map('n', '<A-o>', "<cmd>lua require('close_buffers').delete({ type = 'other' })<cr>", opts)
 
 -- L3MON4D3/LuaSnip
+
+-- TODO: use pure lua. need to figure out how to express the 'else <Tab>' case
+vim.api.nvim_exec([[
+" press <Tab> to expand or jump in a snippet. These can also be mapped separately
+" via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+]], true)
+
 local ls = require('luasnip')
+
+vim.keymap.set({ "s" }, "<s-tab>", function()
+  if ls.jumpable(1) then
+    ls.jump(1)
+  end
+end, { silent = true })
+
+-- this always moves to the previous item within the snippet
+vim.keymap.set({ "i", "s" }, "<s-tab>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true })
+
 -- selecting within a list of options
 vim.keymap.set({'i', 's'}, "<c-e>", function()
   if ls.choice_active() then
