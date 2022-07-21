@@ -48,7 +48,7 @@ local function get_existing_fields(position, field)
   end, {})
 end
 
-ls.add_snippets("all", {
+ls.add_snippets("yaml", {
   s("entry",
     fmt([[
   - name: {}
