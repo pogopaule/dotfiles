@@ -16,6 +16,7 @@ require('octo').setup()                   -- pwntester/octo.nvim
 -- zakharykaplan/nvim-retrail
 require("retrail").setup {
   -- Highlight group to use for trailing whitespace.
+  -- list all hlgroups with `:so $VIMRUNTIME/syntax/hitest.vim`
   hlgroup = "Substitute",
   -- Enabled filetypes.
   filetype = {
