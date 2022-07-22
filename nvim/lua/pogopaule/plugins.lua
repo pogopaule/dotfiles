@@ -65,8 +65,6 @@ return packer.startup(function(use)
 
   use 'https://github.com/dbeniamine/cheat.sh-vim'                               -- cheat.sh integration
   use  'pwntester/octo.nvim'                                                     -- github integration
-  -- TODO: whats this?
-  use 'https://github.com/junegunn/gv.vim'                                       -- browse git history
   use 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables
   -- use 'https://github.com/editorconfig/editorconfig-vim'                         -- editorconfig integration
   -- use 'https://github.com/jamestthompson3/nvim-remote-containers'                -- use vscode's container definitions in nvim
