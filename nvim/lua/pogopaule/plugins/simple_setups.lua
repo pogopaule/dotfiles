@@ -150,3 +150,6 @@ require('neotest').setup({
     }),
   },
 })
+
+-- haringsrob/nvim_context_vt
+require('nvim_context_vt').setup()
