@@ -90,13 +90,14 @@ map('n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
 map('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
 map('n', '<leader>cs', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
 
--- tyru/open-browser-github.vim
+-- tyru/open-browser.vim
+-- FIXME: make xdg-open work, until then this is deactivated
 -- disable netrw's gx mapping.
-vim.cmd([[
-let g:netrw_nogx = 1
-]])
-map('n', 'gx', '<plug>(openbrowser-smart-search)', {})
-map('v', 'gx', '<plug>(openbrowser-smart-search)', {})
+-- vim.cmd([[
+-- let g:netrw_nogx = 1
+-- ]])
+-- map('n', 'gx', '<plug>(openbrowser-smart-search)', {})
+-- map('v', 'gx', '<plug>(openbrowser-smart-search)', {})
 
 map('n', '<leader>gg', '<cmd>GBrowse<CR>', opts)
 
