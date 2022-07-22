@@ -17,17 +17,17 @@ local function lsp_highlight_document(client)
 end
 
 local function init_lsp_signature(buffer)
-  require("lsp_signature").on_attach({
+  require('lsp_signature').on_attach({
     bind = true, -- This is mandatory, otherwise border config won't get registered.
     handler_opts = {
-      border = "rounded"
+      border = 'rounded'
     },
     hint_enable = false,
   }, buffer)
 end
 
 M.on_attach = function(client, buffer)
-  if client.name == "tsserver" then
+  if client.name == 'tsserver' then
     client.resolved_capabilities.document_formatting = false
     client.resolved_capabilities.document_range_formatting = false
   end
@@ -37,7 +37,7 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 if not status_ok then
   return
 end

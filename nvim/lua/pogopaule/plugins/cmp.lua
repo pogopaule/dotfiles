@@ -1,6 +1,6 @@
 local cmp = require'cmp'
 local lspkind = require('lspkind')
-local luasnip = require("luasnip")
+local luasnip = require('luasnip')
 
 
 cmp.setup({
@@ -43,7 +43,7 @@ cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
     { name = 'path' }
   }, {
-    { name = 'cmdline' }
-  }),
+      { name = 'cmdline' }
+    }),
   mapping = cmp.mapping.preset.cmdline({}),
 })
