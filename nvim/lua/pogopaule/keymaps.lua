@@ -61,6 +61,7 @@ map('n', '<leader>fr', "<cmd>lua require('telescope.builtin').lsp_references()<c
 map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", opts)
 map('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
 map('n', '<leader>fo', "<cmd>lua require('telescope.builtin').oldfiles()<cr>", opts)
+map('n', '<leader>fk', "<cmd>lua require('telescope.builtin').keymaps()<cr>", opts)
 
 -- scrooloose/nerdtree
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', opts)
