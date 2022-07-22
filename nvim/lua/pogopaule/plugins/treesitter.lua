@@ -7,9 +7,9 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     keymaps = {
       init_selection = "<A-s>",
-      node_incremental = "<A-e>",
+      node_incremental = "<A-d>",
       -- scope_incremental = "grc",
-      node_decremental = "<A-d>",
+      node_decremental = "<A-e>",
     },
   },
   indent = {
