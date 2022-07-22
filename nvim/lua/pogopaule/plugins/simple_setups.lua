@@ -9,15 +9,22 @@ require('close_buffers').setup()          -- kazhala/close-buffers.nvim
 require('fidget').setup()                 -- j-hui/fidget.nvim
 require('leap').set_default_keymaps()     -- ggandor/leap.nvim
 require('nvim-surround').setup()          -- kylechui/nvim-surround
-require("which-key").setup()              -- folke/which-key.nvim
+require('which-key').setup()              -- folke/which-key.nvim
 require('octo').setup()                   -- pwntester/octo.nvim
+require('neoscroll').setup()              -- karb94/neoscroll.nvim
+require('trouble').setup()                -- folke/trouble.nvim
+require('lualine').setup()                -- nvim-lualine/lualine.nvim
+require('nvim_context_vt').setup()        -- haringsrob/nvim_context_vt
 
+-- goolord/alpha-nvim
+local alpha_config = require('alpha.themes.startify').config
+require('alpha').setup(alpha_config)
 
 -- zakharykaplan/nvim-retrail
-require("retrail").setup {
+require('retrail').setup {
   -- Highlight group to use for trailing whitespace.
   -- list all hlgroups with `:so $VIMRUNTIME/syntax/hitest.vim`
-  hlgroup = "Substitute",
+  hlgroup = 'Substitute',
   -- Enabled filetypes.
   filetype = {
     -- Strictly enable only on `include`ed filetypes. When false, only disabled
@@ -27,9 +34,9 @@ require("retrail").setup {
     include = {},
     -- Excluded filetype list. Overrides `include` list.
     exclude = {
-      "",
-      "alpha",
-      "help"
+      '',
+      'alpha',
+      'help'
     },
   },
   -- Trim on write behaviour.
@@ -39,21 +46,23 @@ require("retrail").setup {
   }
 }
 
+
 -- nvim-telescope/telescope-ui-select.nvim
-require("telescope").setup {
+require('telescope').setup {
   extensions = {
-    ["ui-select"] = {
-      require("telescope.themes").get_dropdown {
+    ['ui-select'] = {
+      require('telescope.themes').get_dropdown {
         -- even more opts
       }
     }
   }
 }
 -- To get ui-select loaded and working with telescope, you need to call load_extension, somewhere after setup function:
-require("telescope").load_extension("ui-select")
+require('telescope').load_extension('ui-select')
 
 -- https://github.com/nvim-telescope/telescope-dap.nvim#setup
 require('telescope').load_extension('dap')
+
 
 -- windwp/nvim-autopairs
 require('nvim-autopairs').setup({
@@ -78,6 +87,7 @@ cmp.event:on(
   cmp_autopairs.on_confirm_done()
 )
 
+
 -- nvim-tree
 require('nvim-tree').setup({
   filters = {
@@ -98,42 +108,31 @@ require('nvim-tree').setup({
 vim.g.nvim_tree_special_files = {}
 
 
-
 -- EdenEast/nightfox.nvim
 local nightfox = require('nightfox')
 nightfox.setup({
   options = {
     styles = {
-      comments = "italic",
-      keywords = "bold",
+      comments = 'italic',
+      keywords = 'bold',
     },
   }
 })
-vim.cmd("colorscheme dayfox")
+vim.cmd('colorscheme nordfox')
 
--- nvim-lualine/lualine.nvim
-require('lualine').setup()
-
--- goolord/alpha-nvim
-require'alpha'.setup(require'alpha.themes.startify'.config)
-
--- karb94/neoscroll.nvim
-require('neoscroll').setup()
-
--- folke/trouble.nvim
-require("trouble").setup {}
 
 -- akinsho/bufferline.nvim
 require('bufferline').setup({
   options = {
     offsets = {{
-      filetype = "NvimTree",
-      text = "File Explorer",
-      highlight = "Directory",
-      text_align = "left"
+      filetype = 'NvimTree',
+      text = 'File Explorer',
+      highlight = 'Directory',
+      text_align = 'left'
     }}
   }
 })
+
 
 -- jpalardy/vim-slim
 vim.cmd([[
@@ -141,6 +140,7 @@ let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 let g:slime_dont_ask_default = 1
 ]])
+
 
 -- nvim-neotest/neotest
 require('neotest').setup({
@@ -150,6 +150,3 @@ require('neotest').setup({
     }),
   },
 })
-
--- haringsrob/nvim_context_vt
-require('nvim_context_vt').setup()
