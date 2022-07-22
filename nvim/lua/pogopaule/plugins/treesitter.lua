@@ -16,11 +16,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   },
   matchup = {
-    enable = true, -- mandatory, false will disable the whole extension
-  },
-  context_commentstring = {
     enable = true,
-    enable_autocmd = false,
   },
   textobjects = {
     select = {
