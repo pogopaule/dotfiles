@@ -139,7 +139,7 @@ return packer.startup(function(use)
 
   -- LSP
   use 'https://github.com/neovim/nvim-lspconfig'                                 -- LSP support
-  use 'https://github.com/tami5/lspsaga.nvim'                                    -- The neovim language-server-client UI
+  use 'https://github.com/glepnir/lspsaga.nvim'                                  -- The neovim language-server-client UI
   use 'https://github.com/onsails/lspkind-nvim'                                  -- vscode-like pictograms for neovim lsp completion items
   use 'https://github.com/jose-elias-alvarez/null-ls.nvim'                       -- LSP bridge for linters and others
   use 'https://github.com/williamboman/nvim-lsp-installer'                       -- Easy installation of LSP servers

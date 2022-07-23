@@ -77,8 +77,6 @@ map('n', '<leader>ft', "<cmd>TodoTelescope<cr>", opts)
 map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
 map('n', '<leader>fG', "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
 map('v', '<leader>fG', "\"zy:Telescope grep_string search=<C-r>z<cr>", opts)
-map('n', '<leader>fr', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
-map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", opts)
 map('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
 map('n', '<leader>fo', "<cmd>lua require('telescope.builtin').oldfiles()<cr>", opts)
 map('n', '<leader>fk', "<cmd>lua require('telescope.builtin').keymaps()<cr>", opts)
@@ -107,13 +105,14 @@ map('l', '<leader>cf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 map('x', '<leader>cf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
 
--- tami5/lspsaga.nvim
+-- glepnir/lspsaga.nvim
 map('n', '<leader>rr', '<cmd>Lspsaga rename<CR>', opts)
 map('n', '<leader>a', '<cmd>Lspsaga code_action<CR>', opts)
 map('n', '<leader>cp', '<cmd>Lspsaga preview_definition<CR>', opts)
 map('n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
 map('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
 map('n', '<leader>cs', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
+map("n", "<leader>fr", '<cmd>lua require("lspsaga.finder").lsp_finder()<CR>', opts)
 
 -- tyru/open-browser.vim
 -- FIXME: make xdg-open work, until then this is deactivated

@@ -5,7 +5,7 @@ end
 
 require('pogopaule.lsp.lsp-installer')
 require('pogopaule.lsp.null-ls')
-require('lspsaga').setup() -- tami5/lspsaga.nvim
+require('lspsaga').init_lsp_saga() -- https://github.com/glepnir/lspsaga.nvim
 
 -- disable virtual text for diagnostics
 vim.diagnostic.config({
