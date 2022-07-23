@@ -93,7 +93,7 @@ export ZSH_WEB_SEARCH_ENGINES=(jira "https://enersis.atlassian.net/browse/")
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmux httpie ripgrep fd git docker docker-compose gradle vi-mode npm ssh-agent tmuxinator gh fzf-tab web-search aws asdf)
+plugins=(tmux httpie ripgrep fd git docker docker-compose gradle vi-mode npm ssh-agent tmuxinator gh fzf-tab web-search aws asdf zoxide)
 
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#lazy
 zstyle :omz:plugins:ssh-agent lazy yes
@@ -176,10 +176,12 @@ alias la="exa -la --icons"
 alias gw='./gradlew'
 alias v="vim"
 alias clr="clear"
+alias cd="echo 'Use zoxide!'"
 
 
 bindkey '^R' history-incremental-search-backward
 bindkey 'jk' vi-cmd-mode
+bindkey -s '^F' "zi\n"
 
 
 # configure BAT
@@ -221,4 +223,3 @@ export PS1=$'${(r:$COLUMNS::\u00b7:)}'$PS1
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # uncomment following line and line at the very top of this file to profile startup time of oh-my-zsh
 # zprof
-

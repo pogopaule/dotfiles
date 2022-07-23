@@ -7,6 +7,7 @@ brew "exa"     # ls
 brew "httpie"  # curl
 brew "fd"      # find
 brew "sd"      # sed
+brew "zoxide"  # cd
 
 brew "neovim"
 brew "fzf"
