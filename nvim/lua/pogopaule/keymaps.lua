@@ -108,7 +108,7 @@ map('x', '<leader>cf', vim.lsp.buf.range_formatting, opts)
 
 -- glepnir/lspsaga.nvim
 map('n', '<leader>rr', '<cmd>Lspsaga rename<CR>', opts)
-map('n', '<leader>a', require('lspsaga.code_action').code_action, opts)
+map('n', '<leader>a', require('lspsaga.codeaction').code_action, opts)
 map('n', '<leader>cp', '<cmd>Lspsaga preview_definition<CR>', opts)
 map('n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
 map('n', 'K', require('lspsaga.hover').render_hover_doc, opts)
