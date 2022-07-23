@@ -1,5 +1,5 @@
 local opts = { noremap = true, silent = true }
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 
 vim.g.mapleader = ','
 
@@ -68,18 +68,19 @@ local function smart_dd()
     return "dd"
   end
 end
-vim.keymap.set( "n", "dd", smart_dd, { noremap = true, expr = true } )
+map( "n", "dd", smart_dd, { noremap = true, expr = true } )
 
 
 -- nvim-telescope/telescope.nvim
-map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+local telescope_builtin = require('telescope.builtin')
+map('n', '<leader>ff', telescope_builtin.find_files, opts)
 map('n', '<leader>ft', "<cmd>TodoTelescope<cr>", opts)
-map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-map('n', '<leader>fG', "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
+map('n', '<leader>fg', telescope_builtin.live_grep, opts)
+map('n', '<leader>fG', telescope_builtin.grep_string, opts)
 map('v', '<leader>fG', "\"zy:Telescope grep_string search=<C-r>z<cr>", opts)
-map('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
-map('n', '<leader>fo', "<cmd>lua require('telescope.builtin').oldfiles()<cr>", opts)
-map('n', '<leader>fk', "<cmd>lua require('telescope.builtin').keymaps()<cr>", opts)
+map('n', '<leader>fh', telescope_builtin.help_tags, opts)
+map('n', '<leader>fo', telescope_builtin.oldfiles, opts)
+map('n', '<leader>fk', telescope_builtin.keymaps, opts)
 
 
 -- scrooloose/nerdtree
@@ -88,21 +89,21 @@ map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>', opts)
 
 
 -- ThePrimeagen/refactoring.nvim
-map('v', '<leader>rf', "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", opts)
-map('v', '<leader>rv', "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", opts)
-map('n', '<leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
-map('v', '<leader>ri', "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
+map('v', '<leader>rf', "<Esc><cmd>lua require('refactoring').refactor('Extract Function')<CR>", opts)
+map('v', '<leader>rv', "<Esc><cmd>lua require('refactoring').refactor('Extract Variable')<CR>", opts)
+map('n', '<leader>ri', "<Esc><cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
+map('v', '<leader>ri', "<Esc><cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
 
 
 -- neovim/lspconfig
-map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+map('n', 'gd', vim.lsp.buf.definition, opts)
 map('n', '<leader>xn', '<cmd>lua vim.diagnostic.goto_next({float = false})<CR>', opts)
 map('n', '<leader>xp', '<cmd>lua vim.diagnostic.goto_prev({float = false})<CR>', opts)
 
-map('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-map('v', '<leader>cf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
-map('l', '<leader>cf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
-map('x', '<leader>cf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+map('n', '<leader>cf', vim.lsp.buf.formatting, opts)
+map('v', '<leader>cf', vim.lsp.buf.range_formatting, opts)
+map('l', '<leader>cf', vim.lsp.buf.range_formatting, opts)
+map('x', '<leader>cf', vim.lsp.buf.range_formatting, opts)
 
 
 -- glepnir/lspsaga.nvim
@@ -110,9 +111,9 @@ map('n', '<leader>rr', '<cmd>Lspsaga rename<CR>', opts)
 map('n', '<leader>a', '<cmd>Lspsaga code_action<CR>', opts)
 map('n', '<leader>cp', '<cmd>Lspsaga preview_definition<CR>', opts)
 map('n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
-map('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
-map('n', '<leader>cs', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
-map("n", "<leader>fr", '<cmd>lua require("lspsaga.finder").lsp_finder()<CR>', opts)
+map('n', 'K', require('lspsaga.hover').render_hover_doc, opts)
+map('n', '<leader>cs', require('lspsaga.signaturehelp').signature_help, opts)
+map("n", "<leader>fr", require("lspsaga.finder").lsp_finder, opts)
 
 -- tyru/open-browser.vim
 -- FIXME: make xdg-open work, until then this is deactivated
@@ -192,21 +193,22 @@ vim.api.nvim_set_keymap('n', 'gR', '<cmd>Trouble lsp_references<cr>', opts)
 
 
 -- renerocksai/telekasten.nvim
-map('n', '<leader>zf', "<cmd>lua require('telekasten').find_notes()<CR>", opts)
-map('n', '<leader>zd', "<cmd>lua require('telekasten').find_daily_notes()<CR>", opts)
-map('n', '<leader>zg', "<cmd>lua require('telekasten').search_notes()<CR>", opts)
-map('n', '<leader>zz', "<cmd>lua require('telekasten').follow_link()<CR>", opts)
-map('n', '<leader>zT', "<cmd>lua require('telekasten').goto_today()<CR>", opts)
-map('n', '<leader>zn', "<cmd>lua require('telekasten').new_note()<CR>", opts)
-map('n', '<leader>zN', "<cmd>lua require('telekasten').new_templated_note()<CR>", opts)
-map('n', '<leader>zc', "<cmd>lua require('telekasten').show_calendar()<CR>", opts)
-map('n', '<leader>zi', "<cmd>lua require('telekasten').insert_link()<CR>", opts)
-map('n', '<leader>zt', "<cmd>lua require('telekasten').toggle_todo()<CR>", opts)
-map('n', '<leader>zb', "<cmd>lua require('telekasten').show_backlinks()<CR>", opts)
-map('n', '<leader>zF', "<cmd>lua require('telekasten').find_friends()<CR>", opts)
-map('n', '<leader>z#', "<cmd>lua require('telekasten').show_tags()<CR>", opts)
-map('n', '<leader>zr', "<cmd>lua require('telekasten').rename_note()<CR>", opts)
-map('n', '<leader>z',  "<cmd>lua require('telekasten').panel()<CR>", opts) --  on hesitation, bring up the panel
+local telekasten = require('telekasten')
+map('n', '<leader>zf', telekasten.find_notes, opts)
+map('n', '<leader>zd', telekasten.find_daily_notes, opts)
+map('n', '<leader>zg', telekasten.search_notes, opts)
+map('n', '<leader>zz', telekasten.follow_link, opts)
+map('n', '<leader>zT', telekasten.goto_today, opts)
+map('n', '<leader>zn', telekasten.new_note, opts)
+map('n', '<leader>zN', telekasten.new_templated_note, opts)
+map('n', '<leader>zc', telekasten.show_calendar, opts)
+map('n', '<leader>zi', telekasten.insert_link, opts)
+map('n', '<leader>zt', telekasten.toggle_todo, opts)
+map('n', '<leader>zb', telekasten.show_backlinks, opts)
+map('n', '<leader>zF', telekasten.find_friends, opts)
+map('n', '<leader>z#', telekasten.show_tags, opts)
+map('n', '<leader>zr', telekasten.rename_note, opts)
+map('n', '<leader>z',  telekasten.panel, opts) --  on hesitation, bring up the panel
 
 
 -- jpalardy/vim-slime
@@ -216,11 +218,12 @@ map('n', '<C-s>', '<Plug>SlimeParagraphSend', {})
 
 
 -- mfussenegger/nvim-dap
-map('n', '<leader>dc', "<Cmd>lua require'dap'.continue()<CR>", opts)
-map('n', '<leader>dv', "<Cmd>lua require'dap'.step_over()<CR>", opts)
-map('n', '<leader>di', "<Cmd>lua require'dap'.step_into()<CR>", opts)
-map('n', '<leader>du', "<Cmd>lua require'dap'.step_out()<CR>", opts)
-map('n', '<leader>db', "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+local dap = require('dap')
+map('n', '<leader>dc', dap.continue, opts)
+map('n', '<leader>dv', dap.step_over, opts)
+map('n', '<leader>di', dap.step_into, opts)
+map('n', '<leader>du', dap.step_out, opts)
+map('n', '<leader>db', dap.toggle_breakpoint, opts)
 -- map('n', '<Leader>B', "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
 -- map('n', '<Leader>lp', "<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
 -- map('n', '<Leader>dr', "<Cmd>lua require'dap'.repl.open()<CR>", opts)
