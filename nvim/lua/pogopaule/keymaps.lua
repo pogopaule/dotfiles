@@ -60,6 +60,16 @@ map('v', '>', '>gv', opts)
 -- paste visual selection at bottom of it
 map('v', 'D', 'ygv<Esc>p', opts)
 
+-- do not put single empty line in yank register
+local function smart_dd()
+  if vim.api.nvim_get_current_line():match("^%s*$") then
+    return "\"_dd"
+  else
+    return "dd"
+  end
+end
+vim.keymap.set( "n", "dd", smart_dd, { noremap = true, expr = true } )
+
 
 -- nvim-telescope/telescope.nvim
 map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
