@@ -70,7 +70,7 @@ ls.add_snippets('yaml', {
         c(6, {t 'true', t 'false'}),
         get_existing_fields(7, 'field'),
         get_existing_fields(8, 'country'),
-        i(9), i(10), i(11), i(11)
+        i(9), i(10), i(11), i(12)
       })
   ),
 })
