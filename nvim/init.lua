@@ -1,3 +1,5 @@
+require('impatient')
+
 require 'pogopaule.options'
 require 'pogopaule.keymaps'
 require 'pogopaule.plugins'

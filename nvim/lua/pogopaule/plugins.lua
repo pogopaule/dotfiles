@@ -55,7 +55,6 @@ packer.init {
 
 
 return packer.startup(function(use)
-
   -- INCUBATOR: not sure if these plugins should be kept
   use 'https://github.com/nvim-treesitter/playground'                            -- treesitter playground, show syntax tree
   use { 'https://github.com/ldelossa/gh.nvim',                                   -- Code reviews in vim
@@ -107,6 +106,7 @@ return packer.startup(function(use)
   }
   -- FIXME: make xdg-open work
   use 'https://github.com/tyru/open-browser.vim'                                 -- open url or word as search in browser
+  use 'lewis6991/impatient.nvim'                                                 -- speed up startup
 
 
   -- coding
