@@ -13,8 +13,16 @@ require('which-key').setup()              -- folke/which-key.nvim
 require('octo').setup()                   -- pwntester/octo.nvim
 require('neoscroll').setup()              -- karb94/neoscroll.nvim
 require('trouble').setup()                -- folke/trouble.nvim
-require('lualine').setup()                -- nvim-lualine/lualine.nvim
 require('nvim_context_vt').setup()        -- haringsrob/nvim_context_vt
+
+-- nvim-lualine/lualine.nvim
+require('lualine').setup({
+  options = {
+    disabled_filetypes = {
+      statusline = { 'NvimTree'},
+    },
+  },
+})
 
 -- goolord/alpha-nvim
 local alpha_config = require('alpha.themes.startify').config
