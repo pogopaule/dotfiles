@@ -2,7 +2,7 @@ require('mason').setup()
 require('mason-lspconfig').setup {
     ensure_installed = { 'sumneko_lua', 'jsonls', 'pylsp', 'tsserver' },
 }
-local lspconfig = require("lspconfig")
+local lspconfig = require('lspconfig')
 
 local function on_attach(client, buffer)
   -- TODO: Not sure why this was added
