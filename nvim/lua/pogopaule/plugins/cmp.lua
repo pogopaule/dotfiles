@@ -22,7 +22,7 @@ cmp.setup({
     { name = 'luasnip' },
     { name = 'nvim_lsp' },
     { name = 'buffer' },
-    { name = 'tmux' },
+    -- { name = 'tmux' }, disable, causes too much problems
     { name = 'path' },
   },
   window = {

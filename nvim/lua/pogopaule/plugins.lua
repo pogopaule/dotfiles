@@ -161,7 +161,7 @@ return packer.startup(function(use)
   use 'https://github.com/hrsh7th/cmp-buffer'
   use 'https://github.com/hrsh7th/cmp-path'
   use 'https://github.com/hrsh7th/cmp-cmdline'
-  use 'https://github.com/andersevenrud/cmp-tmux'
+  -- use 'https://github.com/andersevenrud/cmp-tmux'
 
 
   -- snippets
