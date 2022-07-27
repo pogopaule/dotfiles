@@ -48,7 +48,7 @@ map('n', 'j', 'gj', opts)
 map('n', 'k', 'gk', opts)
 
 
- -- do not overwrite yanked when pasting in visual mode
+-- do not overwrite yanked when pasting in visual mode
 map('v', 'p', '"_dP', opts)
 
 
@@ -68,7 +68,8 @@ local function smart_dd()
     return "dd"
   end
 end
-map( "n", "dd", smart_dd, { noremap = true, expr = true } )
+
+map("n", "dd", smart_dd, { noremap = true, expr = true })
 
 
 -- nvim-telescope/telescope.nvim
@@ -172,7 +173,7 @@ vim.keymap.set({ "i", "s" }, "<s-tab>", function()
 end, { silent = true })
 
 -- selecting within a list of options
-vim.keymap.set({'i', 's'}, "<c-e>", function()
+vim.keymap.set({ 'i', 's' }, "<c-e>", function()
   if ls.choice_active() then
     ls.change_choice(1)
   end
@@ -208,11 +209,11 @@ map('n', '<leader>zb', telekasten.show_backlinks, opts)
 map('n', '<leader>zF', telekasten.find_friends, opts)
 map('n', '<leader>z#', telekasten.show_tags, opts)
 map('n', '<leader>zr', telekasten.rename_note, opts)
-map('n', '<leader>z',  telekasten.panel, opts) --  on hesitation, bring up the panel
+map('n', '<leader>z', telekasten.panel, opts) --  on hesitation, bring up the panel
 
 
 -- jpalardy/vim-slime
-vim.cmd[[let g:slime_no_mappings = 1]]
+vim.cmd [[let g:slime_no_mappings = 1]]
 map('x', '<C-s>', '<Plug>SlimeRegionSend', {})
 map('n', '<C-s>', '<Plug>SlimeParagraphSend', {})
 
