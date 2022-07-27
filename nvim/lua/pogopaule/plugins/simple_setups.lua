@@ -43,7 +43,8 @@ require('retrail').setup {
     exclude = {
       '',
       'alpha',
-      'help'
+      'help',
+      'mason.nvim',
     },
   },
   -- Trim on write behaviour.
