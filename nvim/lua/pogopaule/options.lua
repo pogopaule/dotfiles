@@ -32,13 +32,5 @@ end
 
 
 -- highlight yanked region
-vim.cmd[[
-  augroup highlight_yank
-  autocmd!
-  au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Substitute", timeout=200})
-  augroup END
-]]
-
-
--- https://github.com/vim-test/vim-test#strategies
--- vim.cmd [[let test#strategy = "neovim"]]
+local group = vim.api.nvim_create_augroup('highlight_yank', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', { command = 'lua vim.highlight.on_yank({higroup="Substitute", timeout=200})', group = group, })

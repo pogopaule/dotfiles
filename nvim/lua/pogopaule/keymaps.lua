@@ -182,9 +182,8 @@ end, opts)
 vim.keymap.set('i', '<c-u>', require 'luasnip.extras.select_choice')
 
 -- make enter work in quickfix list
-vim.api.nvim_exec([[
-autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
-]], true)
+local group = vim.api.nvim_create_augroup('enter_in_quickfix', { clear = true })
+vim.api.nvim_create_autocmd('BufReadPost', { pattern = 'quickfix', command = 'nnoremap <buffer> <CR> <CR>', group = group, })
 
 
 -- folke/trouble.nvim
