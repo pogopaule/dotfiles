@@ -1,13 +1,13 @@
 require('luasnip.loaders.from_vscode').lazy_load()
 
-local ls = require'luasnip'
+local ls = require 'luasnip'
 local types = require('luasnip.util.types')
 
 ls.config.setup({
   ext_opts = {
     [types.choiceNode] = {
       active = {
-        virt_text = {{'🔶'}}
+        virt_text = { { '🔶' } }
       }
     },
   },
@@ -34,11 +34,11 @@ local function get_existing_fields(position, field)
     local nodes = {}
     local already_seen = {}
 
-    local current_buffer = vim.api.nvim_buf_get_lines(0,0,-1,false)
+    local current_buffer = vim.api.nvim_buf_get_lines(0, 0, -1, false)
     for _, line in ipairs(current_buffer) do
-      local match = line:match('%s*'.. field ..': (.*)$')
+      local match = line:match('%s*' .. field .. ': (.*)$')
       if match then
-        if(not already_seen[match]) then
+        if (not already_seen[match]) then
           table.insert(nodes, t(match))
           already_seen[match] = true
         end
@@ -47,6 +47,13 @@ local function get_existing_fields(position, field)
     return sn(nil, c(1, nodes))
   end, {})
 end
+
+ls.add_snippets('all', {
+  s({ trig = 'epoch', dscr = 'current time as unix timestamp' }, f(
+    function()
+      return tostring(os.time())
+    end))
+})
 
 ls.add_snippets('yaml', {
   s('entry',
@@ -65,13 +72,13 @@ ls.add_snippets('yaml', {
     review: {}
     rating: {}
     ]], {
-        i(1), i(2), i(3), i(4),
-        c(5, {t 'true', t 'false'}),
-        c(6, {t 'true', t 'false'}),
-        get_existing_fields(7, 'field'),
-        get_existing_fields(8, 'country'),
-        i(9), i(10), i(11), i(12)
-      })
+      i(1), i(2), i(3), i(4),
+      c(5, { t 'true', t 'false' }),
+      c(6, { t 'true', t 'false' }),
+      get_existing_fields(7, 'field'),
+      get_existing_fields(8, 'country'),
+      i(9), i(10), i(11), i(12)
+    })
   ),
 })
 
@@ -89,9 +96,9 @@ ls.add_snippets('javascript', {
       return 'console.log(' .. parent.snippet.env.POSTFIX_MATCH .. ')'
     end, {}),
   }),
-  postfix({ trig = '.fn', match_pattern = '[%w(){}]+$'}, {
-    d(1, function (_, parent)
-      return sn(nil, {i(1), t('(' .. parent.env.POSTFIX_MATCH .. ')'), i(0)})
+  postfix({ trig = '.fn', match_pattern = '[%w(){}]+$' }, {
+    d(1, function(_, parent)
+      return sn(nil, { i(1), t('(' .. parent.env.POSTFIX_MATCH .. ')'), i(0) })
     end)
   }),
 })
