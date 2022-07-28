@@ -59,8 +59,6 @@ return packer.startup(function(use)
   use { 'https://github.com/ldelossa/gh.nvim',                                   -- Code reviews in vim
     requires = { { 'https://github.com/ldelossa/litee.nvim' } }
   }
-  use 'https://github.com/haringsrob/nvim_context_vt'                            -- Shows virtual text after functions, methods, statements, etc.
-
   use 'https://github.com/dbeniamine/cheat.sh-vim'                               -- cheat.sh integration
   use 'pwntester/octo.nvim'                                                     -- github integration
   use 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables

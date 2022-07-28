@@ -12,7 +12,6 @@ require('which-key').setup()              -- folke/which-key.nvim
 require('octo').setup()                   -- pwntester/octo.nvim
 require('neoscroll').setup()              -- karb94/neoscroll.nvim
 require('trouble').setup()                -- folke/trouble.nvim
-require('nvim_context_vt').setup()        -- haringsrob/nvim_context_vt
 
 -- nvim-lualine/lualine.nvim
 require('lualine').setup({
