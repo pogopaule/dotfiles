@@ -43,6 +43,7 @@ require('retrail').setup {
       'alpha',
       'help',
       'mason.nvim',
+      'WhichKey',
     },
   },
   -- Trim on write behaviour.
