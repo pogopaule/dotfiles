@@ -7,7 +7,6 @@ require('refactoring').setup()            -- ThePrimeagen/refactoring.nvim
 require('close_buffers').setup()          -- kazhala/close-buffers.nvim
 require('fidget').setup()                 -- j-hui/fidget.nvim
 require('leap').set_default_keymaps()     -- ggandor/leap.nvim
-require('nvim-surround').setup()          -- kylechui/nvim-surround
 require('which-key').setup()              -- folke/which-key.nvim
 require('octo').setup()                   -- pwntester/octo.nvim
 require('neoscroll').setup()              -- karb94/neoscroll.nvim
@@ -155,5 +154,21 @@ require('neotest').setup({
     require('neotest-python')({
       -- dap = { justMyCode = false },
     }),
+  },
+})
+
+-- kylechui/nvim-surround
+require('nvim-surround').setup({
+  delimiters = {
+    pairs = {
+      ["f"] = function()
+        return {
+          vim.fn.input({
+            prompt = "function name: "
+          }) .. "(",
+          ")",
+        }
+      end,
+    },
   },
 })
