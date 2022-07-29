@@ -1,0 +1,3 @@
+(array
+  (identifier) @foobarx
+)

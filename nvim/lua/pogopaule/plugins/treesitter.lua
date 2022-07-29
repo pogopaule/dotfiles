@@ -36,6 +36,7 @@ require'nvim-treesitter.configs'.setup {
         ['ip'] = '@parameter.inner',
         ['ac'] = '@call.outer',
         ['ic'] = '@call.inner',
+        ['ai'] = '@item',
       },
     },
   },
