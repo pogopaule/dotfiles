@@ -1,16 +1,17 @@
-require('gitsigns').setup()               -- lewis6991/gitsigns.nvim
-require('Comment').setup()                -- numToStr/Comment.nvim
-require('todo-comments').setup()          -- folke/todo-comments.nvim
-require('colorizer').setup()              -- nvim-colorizer.lua
-require('nvim-web-devicons').setup()      -- kyazdani42/nvim-web-devicons
-require('refactoring').setup()            -- ThePrimeagen/refactoring.nvim
-require('close_buffers').setup()          -- kazhala/close-buffers.nvim
-require('fidget').setup()                 -- j-hui/fidget.nvim
-require('leap').set_default_keymaps()     -- ggandor/leap.nvim
-require('which-key').setup()              -- folke/which-key.nvim
-require('octo').setup()                   -- pwntester/octo.nvim
-require('neoscroll').setup()              -- karb94/neoscroll.nvim
-require('trouble').setup()                -- folke/trouble.nvim
+require('gitsigns').setup()            -- https://github.com/lewis6991/gitsigns.nvim
+require('Comment').setup()             -- https://github.com/numToStr/Comment.nvim
+require('todo-comments').setup()       -- https://github.com/folke/todo-comments.nvim
+require('colorizer').setup()           -- https://github.com/nvim-colorizer.lua
+require('nvim-web-devicons').setup()   -- https://github.com/kyazdani42/nvim-web-devicons
+require('refactoring').setup()         -- https://github.com/ThePrimeagen/refactoring.nvim
+require('close_buffers').setup()       -- https://github.com/kazhala/close-buffers.nvim
+require('fidget').setup()              -- https://github.com/j-hui/fidget.nvim
+require('leap').set_default_keymaps()  -- https://github.com/ggandor/leap.nvim
+require('which-key').setup()           -- https://github.com/folke/which-key.nvim
+require('octo').setup()                -- https://github.com/pwntester/octo.nvim
+require('neoscroll').setup()           -- https://github.com/karb94/neoscroll.nvim
+require('trouble').setup()             -- https://github.com/folke/trouble.nvim
+require('gitlinker').setup()           -- https://github.com/ruifm/gitlinker.nvim
 
 -- nvim-lualine/lualine.nvim
 require('lualine').setup({

@@ -150,6 +150,7 @@ return packer.startup(function(use)
   use 'https://github.com/lewis6991/gitsigns.nvim'                               -- git decoration for buffers
   use 'https://github.com/tpope/vim-fugitive'                                    -- Git
   use 'https://github.com/tpope/vim-rhubarb'                                     -- Adds Github to futitive, e.g. Gbrowse
+  use 'https://github.com/ruifm/gitlinker.nvim'                                  -- create github permalink via <leader>gy
 
 
   -- completion
