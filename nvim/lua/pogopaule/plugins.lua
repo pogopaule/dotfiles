@@ -51,6 +51,7 @@ packer.init {
 -- https://github.com/danymat/neogen generate annotations and documentation
 -- https://github.com/anuvyklack/hydra.nvim some keybinding stuff
 -- https://github.com/ThePrimeagen/harpoon naviage favorite locations
+-- https://github.com/kevinhwang91/nvim-ufo nicer folds
 
 
 return packer.startup(function(use)
