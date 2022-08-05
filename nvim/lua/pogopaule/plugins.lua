@@ -144,6 +144,7 @@ return packer.startup(function(use)
   use 'https://github.com/ray-x/lsp_signature.nvim'                              -- LSP signature hint as you type
   use 'https://github.com/j-hui/fidget.nvim'                                     -- Show LSP progress
   use 'https://github.com/folke/trouble.nvim'                                    -- Nicer diagnostics
+  use 'https://github.com/mfussenegger/nvim-jdtls'                               -- LSP and DAP for java
 
 
   -- git
