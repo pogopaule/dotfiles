@@ -120,6 +120,7 @@ return packer.startup(function(use)
   use 'https://github.com/davidgranstrom/nvim-markdown-preview'                  -- Preview markdown, requires live-preview and pandoc to be installed
   use 'https://github.com/jpalardy/vim-slime'                                    -- Send line to tmux
   use 'https://github.com/b0o/schemastore.nvim'                                  -- JSON schema awareness, gives LSP completions for e.g. package.json
+  use 'https://github.com/lukas-reineke/indent-blankline.nvim'                   -- indent lines
 
 
   -- testing
