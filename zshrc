@@ -212,6 +212,9 @@ fi
 # zsh settings that should not be comitted to git
 source ~/.zshrc.local
 
+# https://github.com/halcyon/asdf-java#install-1
+source ~/.asdf/plugins/java/set-java-home.zsh
+
 # https://starship.rs/guide/#%F0%9F%9A%80-installation
 eval "$(starship init zsh)"
 
