@@ -36,16 +36,6 @@ require('retrail').setup {
     -- Strictly enable only on `include`ed filetypes. When false, only disabled
     -- on an `exclude`ed filetype.
     strict = false,
-    -- Included filetype list.
-    include = {},
-    -- Excluded filetype list. Overrides `include` list.
-    exclude = {
-      '',
-      'alpha',
-      'help',
-      'mason.nvim',
-      'WhichKey',
-    },
   },
   -- Trim on write behaviour.
   trim = {
