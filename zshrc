@@ -171,6 +171,7 @@ alias ls="exa --oneline --icons"
 alias tree="exa --tree --long --level=2"
 alias lg="lazygit"
 alias la="exa -la --icons"
+alias lt="exa -la --tree --icons"
 
 # misc
 alias gw='./gradlew'
