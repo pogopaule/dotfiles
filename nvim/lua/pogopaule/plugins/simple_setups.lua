@@ -150,20 +150,7 @@ require('neotest').setup({
 })
 
 -- kylechui/nvim-surround
-require('nvim-surround').setup({
-  delimiters = {
-    pairs = {
-      ["f"] = function()
-        return {
-          vim.fn.input({
-            prompt = "function name: "
-          }) .. "(",
-          ")",
-        }
-      end,
-    },
-  },
-})
+require('nvim-surround').setup()
 
 -- lukas-reineke/indent-blankline.nvim
 require("indent_blankline").setup {
