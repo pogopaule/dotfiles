@@ -52,6 +52,7 @@ packer.init {
 -- https://github.com/anuvyklack/hydra.nvim some keybinding stuff
 -- https://github.com/ThePrimeagen/harpoon naviage favorite locations
 -- https://github.com/kevinhwang91/nvim-ufo nicer folds
+-- https://github.com/mizlan/iswap.nvim swapping powered by treesitter
 
 
 return packer.startup(function(use)
