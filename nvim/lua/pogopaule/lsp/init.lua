@@ -5,7 +5,15 @@ end
 
 require('pogopaule.lsp.mason')
 require('pogopaule.lsp.null-ls')
-require('lspsaga').init_lsp_saga() -- https://github.com/glepnir/lspsaga.nvim
+require('lspsaga').init_lsp_saga({
+  code_action_lightbulb = {
+    enable = true,
+    sign = false,
+    enable_in_insert = true,
+    sign_priority = 20,
+    virtual_text = true,
+  },
+}) -- https://github.com/glepnir/lspsaga.nvimlspinit
 
 
 local sign = function(opts)
