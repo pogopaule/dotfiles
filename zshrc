@@ -225,5 +225,11 @@ export PS1=$'${(r:$COLUMNS::\u00b7:)}'$PS1
 
 # https://github.com/junegunn/fzf#using-git
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# https://github.com/junegunn/fzf/wiki/Configuring-fuzzy-completion#zsh
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion
+
 # uncomment following line and line at the very top of this file to profile startup time of oh-my-zsh
 # zprof
