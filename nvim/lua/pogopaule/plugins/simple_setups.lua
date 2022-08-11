@@ -9,7 +9,6 @@ require('fidget').setup()              -- https://github.com/j-hui/fidget.nvim
 require('leap').set_default_keymaps()  -- https://github.com/ggandor/leap.nvim
 require('which-key').setup()           -- https://github.com/folke/which-key.nvim
 require('octo').setup()                -- https://github.com/pwntester/octo.nvim
-require('neoscroll').setup()           -- https://github.com/karb94/neoscroll.nvim
 require('trouble').setup()             -- https://github.com/folke/trouble.nvim
 require('gitlinker').setup()           -- https://github.com/ruifm/gitlinker.nvim
 
@@ -157,3 +156,8 @@ require("indent_blankline").setup {
     show_current_context = true,
     -- show_current_context_start = true,
 }
+
+-- https://github.com/karb94/neoscroll.nvim
+require('neoscroll').setup({
+  mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+})

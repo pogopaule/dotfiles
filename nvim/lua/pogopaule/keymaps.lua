@@ -101,10 +101,10 @@ map('n', 'gd', vim.lsp.buf.definition, opts)
 map('n', '<leader>xn', '<cmd>lua vim.diagnostic.goto_next({float = false})<CR>', opts)
 map('n', '<leader>xp', '<cmd>lua vim.diagnostic.goto_prev({float = false})<CR>', opts)
 
-map('n', '<leader>cf', vim.lsp.buf.formatting, opts)
-map('v', '<leader>cf', vim.lsp.buf.range_formatting, opts)
-map('l', '<leader>cf', vim.lsp.buf.range_formatting, opts)
-map('x', '<leader>cf', vim.lsp.buf.range_formatting, opts)
+map('n', '<C-F>', vim.lsp.buf.formatting, opts)
+map('v', '<C-F>', vim.lsp.buf.range_formatting, opts)
+map('s', '<C-F>', vim.lsp.buf.range_formatting, opts)
+map('x', '<C-F>', vim.lsp.buf.range_formatting, opts)
 
 
 -- glepnir/lspsaga.nvim
