@@ -173,4 +173,6 @@ let g:openbrowser_browser_commands = [
 \  "args": ["{browser}", "{uri}"]},
 \]
 
+let g:openbrowser_default_search = 'duckduckgo'
+
 ]])
