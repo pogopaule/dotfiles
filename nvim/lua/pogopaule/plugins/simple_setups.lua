@@ -161,3 +161,16 @@ require("indent_blankline").setup {
 require('neoscroll').setup({
   mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
 })
+
+-- tyru/open-browser.vim
+vim.cmd([[
+" disable netrw's gx mapping.
+let g:netrw_nogx = 1
+
+" xdg-open which is the default does not work
+let g:openbrowser_browser_commands = [
+\ {"name": "x-www-browser",
+\  "args": ["{browser}", "{uri}"]},
+\]
+
+]])

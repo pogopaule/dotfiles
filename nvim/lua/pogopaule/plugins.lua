@@ -103,7 +103,6 @@ return packer.startup(function(use)
   use { 'https://github.com/renerocksai/telekasten.nvim',                        -- zettelkasten
     requires = { { 'https://github.com/renerocksai/calendar-vim' } }
   }
-  -- FIXME: make xdg-open work
   use 'https://github.com/tyru/open-browser.vim'                                 -- open url or word as search in browser
   use 'lewis6991/impatient.nvim'                                                 -- speed up startup
 

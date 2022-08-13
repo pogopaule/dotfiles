@@ -117,13 +117,8 @@ map('n', '<leader>cs', require('lspsaga.signaturehelp').signature_help, opts)
 map('n', '<leader>fr', require('lspsaga.finder').lsp_finder, opts)
 
 -- tyru/open-browser.vim
--- FIXME: make xdg-open work, until then this is deactivated
--- disable netrw's gx mapping.
--- vim.cmd([[
--- let g:netrw_nogx = 1
--- ]])
--- map('n', 'gx', '<plug>(openbrowser-smart-search)', {})
--- map('v', 'gx', '<plug>(openbrowser-smart-search)', {})
+map('n', 'gx', '<plug>(openbrowser-smart-search)', {})
+map('v', 'gx', '<plug>(openbrowser-smart-search)', {})
 
 map('n', '<leader>gg', '<cmd>GBrowse<CR>', opts)
 
