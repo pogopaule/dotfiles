@@ -223,3 +223,13 @@ map('n', '<leader>db', dap.toggle_breakpoint, opts)
 -- map('n', '<Leader>lp', "<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
 -- map('n', '<Leader>dr', "<Cmd>lua require'dap'.repl.open()<CR>", opts)
 -- map('n', '<Leader>dl', "<Cmd>lua require'dap'.run_last()<CR>", opts)
+
+
+-- https://github.com/monaqa/dial.nvim
+local dial = require('dial.map')
+map('n', '<A-+>', dial.inc_normal(), opts)
+map('n', '<A-->', dial.dec_normal(), opts)
+map('v', '<A-+>', dial.inc_visual(), opts)
+map('v', '<A-->', dial.dec_visual(), opts)
+map('v', 'g<A-+>', dial.inc_gvisual(), opts)
+map('v', 'g<A-->', dial.dec_gvisual(), opts)
