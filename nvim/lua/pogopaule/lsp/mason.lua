@@ -5,12 +5,6 @@ require('mason-lspconfig').setup {
 local lspconfig = require('lspconfig')
 
 local function on_attach(client, buffer)
-  -- TODO: Not sure why this was added
-  -- if client.name == 'tsserver' then
-  --   client.resolved_capabilities.document_formatting = false
-  --   client.resolved_capabilities.document_range_formatting = false
-  -- end
-
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
     local group = vim.api.nvim_create_augroup('lsp_document_highlight', { clear = true })
