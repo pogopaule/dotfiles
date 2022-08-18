@@ -85,6 +85,7 @@ return packer.startup(function(use)
     run = ':NightfoxCompile', }
   use 'https://github.com/akinsho/bufferline.nvim'                               -- buffers as tabs
   use 'https://github.com/kazhala/close-buffers.nvim'                            -- helpers to close buffers, used by bufferline
+  use 'https://github.com/rcarriga/nvim-notify'                                  -- popup messages
 
 
   -- moving around

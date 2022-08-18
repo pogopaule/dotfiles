@@ -1,3 +1,6 @@
+-- https://github.com/rcarriga/nvim-notify
+vim.notify = require("notify")
+
 require('gitsigns').setup()            -- https://github.com/lewis6991/gitsigns.nvim
 require('Comment').setup()             -- https://github.com/numToStr/Comment.nvim
 require('todo-comments').setup()       -- https://github.com/folke/todo-comments.nvim
