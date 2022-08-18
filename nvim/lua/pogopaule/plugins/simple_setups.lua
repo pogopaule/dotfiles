@@ -15,7 +15,7 @@ require('octo').setup()                -- https://github.com/pwntester/octo.nvim
 require('trouble').setup()             -- https://github.com/folke/trouble.nvim
 require('gitlinker').setup()           -- https://github.com/ruifm/gitlinker.nvim
 
--- nvim-lualine/lualine.nvim
+-- https://github.com/nvim-lualine/lualine.nvim
 require('lualine').setup({
   options = {
     disabled_filetypes = {
@@ -24,11 +24,11 @@ require('lualine').setup({
   },
 })
 
--- goolord/alpha-nvim
+-- https://github.com/goolord/alpha-nvim
 local alpha_config = require('alpha.themes.startify').config
 require('alpha').setup(alpha_config)
 
--- zakharykaplan/nvim-retrail
+-- https://github.com/zakharykaplan/nvim-retrail
 require('retrail').setup {
   -- Highlight group to use for trailing whitespace.
   -- list all hlgroups with `:so $VIMRUNTIME/syntax/hitest.vim`
@@ -47,7 +47,7 @@ require('retrail').setup {
 }
 
 
--- nvim-telescope/telescope-ui-select.nvim
+-- https://github.com/nvim-telescope/telescope-ui-select.nvim
 require('telescope').setup {
   extensions = {
     ['ui-select'] = {
@@ -64,7 +64,7 @@ require('telescope').load_extension('ui-select')
 require('telescope').load_extension('dap')
 
 
--- windwp/nvim-autopairs
+-- https://github.com/windwp/nvim-autopairs
 require('nvim-autopairs').setup({
   fast_wrap = {
     map = '<A-e>',
@@ -108,7 +108,7 @@ require('nvim-tree').setup({
 vim.g.nvim_tree_special_files = {}
 
 
--- EdenEast/nightfox.nvim
+-- https://github.com/EdenEast/nightfox.nvim
 local nightfox = require('nightfox')
 nightfox.setup({
   options = {
@@ -121,7 +121,7 @@ nightfox.setup({
 vim.cmd('colorscheme nordfox')
 
 
--- akinsho/bufferline.nvim
+-- https://github.com/akinsho/bufferline.nvim
 require('bufferline').setup({
   options = {
     offsets = {{
@@ -134,7 +134,7 @@ require('bufferline').setup({
 })
 
 
--- jpalardy/vim-slim
+-- https://github.com/jpalardy/vim-slim
 vim.cmd([[
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
@@ -142,7 +142,7 @@ let g:slime_dont_ask_default = 1
 ]])
 
 
--- nvim-neotest/neotest
+-- https://github.com/nvim-neotest/neotest
 require('neotest').setup({
   adapters = {
     require('neotest-python')({
@@ -151,10 +151,10 @@ require('neotest').setup({
   },
 })
 
--- kylechui/nvim-surround
+-- https://github.com/kylechui/nvim-surround
 require('nvim-surround').setup()
 
--- lukas-reineke/indent-blankline.nvim
+-- https://github.com/lukas-reineke/indent-blankline.nvim
 require("indent_blankline").setup {
     show_current_context = true,
     -- show_current_context_start = true,
@@ -165,7 +165,7 @@ require('neoscroll').setup({
   mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
 })
 
--- tyru/open-browser.vim
+-- https://github.com/tyru/open-browser.vim
 vim.cmd([[
 " disable netrw's gx mapping.
 let g:netrw_nogx = 1
