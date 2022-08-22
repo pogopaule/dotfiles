@@ -124,6 +124,7 @@ return packer.startup(function(use)
   use 'https://github.com/jpalardy/vim-slime'                                    -- Send line to tmux
   use 'https://github.com/b0o/schemastore.nvim'                                  -- JSON schema awareness, gives LSP completions for e.g. package.json
   use 'https://github.com/lukas-reineke/indent-blankline.nvim'                   -- indent lines
+  use 'https://github.com/andrewferrier/debugprint.nvim'                         -- print() debugging
 
 
   -- testing

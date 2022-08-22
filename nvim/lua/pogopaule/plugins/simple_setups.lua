@@ -14,6 +14,7 @@ require('which-key').setup()           -- https://github.com/folke/which-key.nvi
 require('octo').setup()                -- https://github.com/pwntester/octo.nvim
 require('trouble').setup()             -- https://github.com/folke/trouble.nvim
 require('gitlinker').setup()           -- https://github.com/ruifm/gitlinker.nvim
+require('debugprint').setup()          -- https://github.com/andrewferrier/debugprint.nvim
 
 -- https://github.com/nvim-lualine/lualine.nvim
 require('lualine').setup({
