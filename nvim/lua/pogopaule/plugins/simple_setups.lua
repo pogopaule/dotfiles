@@ -119,7 +119,7 @@ nightfox.setup({
     },
   }
 })
-vim.cmd('colorscheme nordfox')
+vim.cmd('colorscheme dayfox')
 
 
 -- https://github.com/akinsho/bufferline.nvim
