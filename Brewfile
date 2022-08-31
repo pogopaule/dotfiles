@@ -8,6 +8,7 @@ brew "httpie"  # curl
 brew "fd"      # find
 brew "sd"      # sed
 brew "zoxide"  # cd
+brew "duf"     # du & df
 
 brew "neovim"
 brew "fzf"
