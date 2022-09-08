@@ -119,7 +119,11 @@ nightfox.setup({
     },
   }
 })
-vim.cmd('colorscheme dayfox')
+if os.getenv("THEME") == "light" then
+  vim.cmd('colorscheme dayfox')
+else
+  vim.cmd('colorscheme nordfox')
+end
 
 
 -- https://github.com/akinsho/bufferline.nvim
