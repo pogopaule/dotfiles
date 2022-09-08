@@ -15,15 +15,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
-
-  # Enable swap on luks
-  boot.initrd.luks.devices."luks-d814ff90-a86e-4dce-85f0-d5e4900fdf25".device = "/dev/disk/by-uuid/d814ff90-a86e-4dce-85f0-d5e4900fdf25";
-  boot.initrd.luks.devices."luks-d814ff90-a86e-4dce-85f0-d5e4900fdf25".keyFile = "/crypto_keyfile.bin";
-
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
