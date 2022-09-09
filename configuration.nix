@@ -2,6 +2,10 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
+# TODO
+# - enable kde night colors
+# - ff extensions like vimium and ublock
+# - naturalScrolling does not work for mouse, only works for touchpad
 { config, pkgs, ... }:
 
 {
