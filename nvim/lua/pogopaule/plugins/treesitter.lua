@@ -1,8 +1,8 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
-    'bash', 'clojure', 'cmake', 'css', 'dockerfile', 'fennel', 'gitattributes', 'gitignore', 'go', 'graphql', 'haskell', 'html', 'http',
-    'java', 'javascript', 'jsdoc', 'json', 'json5', 'JSON', 'kotlin', 'lua', 'make', 'markdown', 'markdown_inline', 'nix', 'python',
-    'Tree-sitter', 'regex', 'ruby', 'rust', 'scss', 'sql', 'svelte', 'todotxt', 'toml', 'tsx', 'typescript', 'vim', 'vue', 'yaml',
+    'bash', 'clojure', 'cmake', 'css', 'dockerfile', 'fennel', 'gitignore', 'go', 'graphql', 'haskell', 'html', 'http',
+    'java', 'javascript', 'jsdoc', 'json', 'json5', 'kotlin', 'lua', 'make', 'markdown', 'markdown_inline', 'nix', 'python',
+    'regex', 'ruby', 'rust', 'scss', 'sql', 'svelte', 'todotxt', 'toml', 'tsx', 'typescript', 'vim', 'vue', 'yaml',
   },
   highlight = {
     enable = true,
