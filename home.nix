@@ -50,8 +50,8 @@ in
 
     fzf = rec {
       enable = true;
-      changeDirWidgetCommand = "fdfind --type d --hidden --follow --no-ignore --exclude .git";
-      defaultCommand = "fdfind --type f --hidden --follow --no-ignore --exclude .git";
+      changeDirWidgetCommand = "fd --type d --hidden --follow --no-ignore --exclude .git";
+      defaultCommand = "fd --type f --hidden --follow --no-ignore --exclude .git";
       fileWidgetCommand = defaultCommand;
       defaultOptions =
         if darkTheme then [ "--color dark" ]
@@ -308,10 +308,10 @@ in
 
           # https://github.com/junegunn/fzf#settings
           _fzf_compgen_path() {
-            fdfind --hidden --follow --no-ignore --exclude ".git" . "$1"
+            fd --hidden --follow --no-ignore --exclude ".git" . "$1"
           }
           _fzf_compgen_dir() {
-            fdfind --type d --hidden --follow --no-ignore --exclude ".git" . "$1"
+            fd --type d --hidden --follow --no-ignore --exclude ".git" . "$1"
           }
 
           bindkey 'jk' vi-cmd-mode
@@ -399,10 +399,5 @@ in
   };
 
   fonts.fontconfig.enable = true; # for Hack Nerdfont
-
-  xdg.configFile.nvim = {
-    source = ~/dotfiles/nvim;
-    recursive = true;
-  };
 
 }
