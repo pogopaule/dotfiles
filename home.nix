@@ -30,6 +30,13 @@ in
       xclip
       gnupg
       curl
+      unzip
+      git-secret
+
+      sumneko-lua-language-server
+      rnix-lsp
+      nodePackages.yaml-language-server
+      python310Packages.python-lsp-server
 
       signal-desktop
       thunderbird
@@ -46,7 +53,11 @@ in
     zoxide.enable = true;
     jq.enable = true;
     gh.enable = true;
-    ssh.enable = true;
+
+    ssh = {
+      enable = true;
+      extraConfig = "AddKeysToAgent yes";
+    };
 
     fzf = rec {
       enable = true;
