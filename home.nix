@@ -305,6 +305,12 @@ in
         { name = "fzf-tab"; src= "${pkgs.zsh-fzf-tab}/share/fzf-tab";}
       ];
       initExtra = ''
+        # https://github.com/junegunn/fzf/wiki/Configuring-fuzzy-completion#zsh
+        export FZF_COMPLETION_TRIGGER=""
+        bindkey '^T' fzf-completion
+        bindkey '^I' $fzf_default_completion
+
+
         # https://github.com/Aloxaf/fzf-tab#configure
         # disable sort when completing `git checkout`
         zstyle ':completion:*:git-checkout:*' sort false
@@ -340,12 +346,6 @@ in
           bindkey 'jk' vi-cmd-mode
           bindkey -s '^F' "zi\n"
 
-
-          # TODO make this work in nix
-          # https://github.com/junegunn/fzf/wiki/Configuring-fuzzy-completion#zsh
-          # export FZF_COMPLETION_TRIGGER=""
-          # bindkey '^T' fzf-completion
-          # bindkey '^I' $fzf_default_completion
 
           # configure vi-mode plugin https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vi-mode#settings
           export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
