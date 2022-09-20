@@ -28,7 +28,6 @@ in
       cloc
       gcc
       xclip
-      gnupg
       curl
       unzip
       git-secret
@@ -44,6 +43,11 @@ in
     ];
   };
 
+  services.gpg-agent = {
+    enable = true;
+    pinentryFlavor = "curses";
+  };
+
   programs = {
     home-manager.enable = true;
     firefox.enable = true;
@@ -53,6 +57,10 @@ in
     zoxide.enable = true;
     jq.enable = true;
     gh.enable = true;
+
+    gpg = {
+      enable = true;
+    };
 
     ssh = {
       enable = true;
