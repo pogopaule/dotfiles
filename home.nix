@@ -16,7 +16,6 @@ in
     packages = with pkgs; [
       (nerdfonts.override { fonts = [ "Hack" ]; })
       neovim
-      zsh-fzf-tab
       tldr
       httpie
       ripgrep
@@ -40,6 +39,7 @@ in
       signal-desktop
       thunderbird
       todoist-electron
+      libreoffice
     ];
   };
 
@@ -301,28 +301,32 @@ in
       sessionVariables = {
         THEME = if darkTheme then "dark" else "light";
       };
+      plugins = [
+        { name = "fzf-tab"; src= "${pkgs.zsh-fzf-tab}/share/fzf-tab";}
+      ];
+      initExtra = ''
+        # https://github.com/Aloxaf/fzf-tab#configure
+        # disable sort when completing `git checkout`
+        zstyle ':completion:*:git-checkout:*' sort false
+        # set descriptions format to enable group support
+        zstyle ':completion:*:descriptions' format '[%d]'
+        # set list-colors to enable filename colorizing
+        zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+        # preview directory's content with exa when completing cd
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+        # switch group using `,` and `.`
+        zstyle ':fzf-tab:*' switch-group ',' '.'
+        # text color
+        # see https://github.com/Aloxaf/fzf-tab/wiki/Configuration#default-color
+        zstyle ':fzf-tab:*' default-color $'\033[30m'
+        # see https://man.archlinux.org/man/fzf.1.en#color=
+        zstyle ':fzf-tab:*' fzf-flags ${ if darkTheme then "--color=dark" else "--color=light"}
+      '';
       oh-my-zsh = {
         enable = true;
         extraConfig = ''
           # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#lazy
           zstyle :omz:plugins:ssh-agent lazy yes
-
-          # https://github.com/Aloxaf/fzf-tab#configure
-          # disable sort when completing `git checkout`
-          zstyle ':completion:*:git-checkout:*' sort false
-          # set descriptions format to enable group support
-          zstyle ':completion:*:descriptions' format '[%d]'
-          # set list-colors to enable filename colorizing
-          zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
-          # preview directory's content with exa when completing cd
-          zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
-          # switch group using `,` and `.`
-          zstyle ':fzf-tab:*' switch-group ',' '.'
-          # text color
-          # see https://github.com/Aloxaf/fzf-tab/wiki/Configuration#default-color
-          zstyle ':fzf-tab:*' default-color $'\033[30m'
-          # see https://man.archlinux.org/man/fzf.1.en#color=
-          zstyle ':fzf-tab:*' fzf-flags ${ if darkTheme then "--color=dark" else "--color=light"}
 
 
           # https://github.com/junegunn/fzf#settings
