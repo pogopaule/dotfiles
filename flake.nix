@@ -19,16 +19,31 @@
     };
 
     lib = nixpkgs.lib;
+
+    darkTheme = true;
+
   in {
     homeManagerConfigurations = {
-      pogopaule = home-manager.lib.homeManagerConfiguration {
+      noDesktop = home-manager.lib.homeManagerConfiguration {
         inherit system pkgs;
         username = "pogopaule";
         stateVersion = "22.05";
         homeDirectory = "/home/pogopaule";
         configuration = {
           imports = [
-            ./home.nix
+            ( import ./home-core.nix { config = {}; inherit pkgs darkTheme; })
+          ];
+        };
+      };
+      desktop = home-manager.lib.homeManagerConfiguration {
+        inherit system pkgs;
+        username = "pogopaule";
+        stateVersion = "22.05";
+        homeDirectory = "/home/pogopaule";
+        configuration = {
+          imports = [
+            ( import ./home-core.nix { config = {}; inherit pkgs darkTheme; })
+            ( import ./home-desktop.nix { config = {}; inherit pkgs darkTheme; })
           ];
         };
       };
