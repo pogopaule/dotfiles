@@ -40,6 +40,8 @@ in
       thunderbird
       todoist-electron
       libreoffice
+      pcloud
+      keepassxc
     ];
   };
 
