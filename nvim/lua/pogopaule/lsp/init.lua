@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-require('pogopaule.lsp.mason')
+require('pogopaule.lsp.lspconfig')
 require('pogopaule.lsp.null-ls')
 require('lspsaga').init_lsp_saga({
   code_action_lightbulb = {

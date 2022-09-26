@@ -1,7 +1,3 @@
-require('mason').setup()
-require('mason-lspconfig').setup {
-  ensure_installed = { 'sumneko_lua', 'jsonls', 'pylsp', 'tsserver', 'yamlls' },
-}
 local lspconfig = require('lspconfig')
 
 local function on_attach(client, buffer)
@@ -54,6 +50,11 @@ lspconfig.tsserver.setup({
 })
 
 lspconfig.yamlls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.rnix.setup({
   on_attach = on_attach,
   capabilities = capabilities,
 })
