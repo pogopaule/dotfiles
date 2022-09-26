@@ -114,7 +114,6 @@ map('n', '<leader>cp', '<cmd>Lspsaga preview_definition<CR>', opts)
 map('n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
 map('n', 'K', require('lspsaga.hover').render_hover_doc, opts)
 map('n', '<leader>cs', vim.lsp.buf.signature_help, opts)
-map('n', '<leader>fr', require('lspsaga.finder').lsp_finder, opts)
 
 -- tyru/open-browser.vim
 map('n', 'gx', '<plug>(openbrowser-smart-search)', {})
