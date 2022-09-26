@@ -1,8 +1,0 @@
-*.class
-*.ipr
-*.iml
-*.iws
-.gradle
-*.swp
-*~
-.DS_Store*
