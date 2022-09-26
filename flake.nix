@@ -31,7 +31,7 @@
         homeDirectory = "/home/pogopaule";
         configuration = {
           imports = [
-            ( import ./home-core.nix { config = {}; inherit pkgs darkTheme; })
+            ( import ./home-core.nix { inherit pkgs darkTheme; })
           ];
         };
       };
@@ -42,8 +42,8 @@
         homeDirectory = "/home/pogopaule";
         configuration = {
           imports = [
-            ( import ./home-core.nix { config = {}; inherit pkgs darkTheme; })
-            ( import ./home-desktop.nix { config = {}; inherit pkgs darkTheme; })
+            ( import ./home-core.nix { inherit pkgs darkTheme; })
+            ( import ./home-desktop.nix { inherit pkgs darkTheme; })
           ];
         };
       };
