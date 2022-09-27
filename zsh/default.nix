@@ -61,7 +61,7 @@
         # WSL 2 specific settings.
         if grep -q "microsoft" /proc/version &>/dev/null; then
           # Requires: https://sourceforge.net/projects/vcxsrv/ (or alternative)
-          export DISPLAY="$(/sbin/ip route | awk '/default/ { print $3  }'):0"
+          export DISPLAY="$(ip route | awk '/default/ { print $3  }'):0"
         fi
 
       '';
