@@ -175,12 +175,6 @@ vim.cmd([[
 " disable netrw's gx mapping.
 let g:netrw_nogx = 1
 
-" xdg-open which is the default does not work
-let g:openbrowser_browser_commands = [
-\ {"name": "x-www-browser",
-\  "args": ["{browser}", "{uri}"]},
-\]
-
 let g:openbrowser_default_search = 'duckduckgo'
 
 ]])
