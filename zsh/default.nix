@@ -6,7 +6,7 @@
       THEME = if darkTheme then "dark" else "light";
     };
     plugins = [
-      { name = "fzf-tab"; src= "${pkgs.zsh-fzf-tab}/share/fzf-tab";}
+      { name = "fzf-tab"; src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";}
     ];
     initExtra = ''
       # https://github.com/junegunn/fzf/wiki/Configuring-fuzzy-completion#zsh
