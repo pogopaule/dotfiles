@@ -1,7 +1,9 @@
-require('luasnip.loaders.from_vscode').lazy_load()
-
 local ls = require 'luasnip'
 local types = require('luasnip.util.types')
+
+ls.cleanup() -- used for re-sourcing this file, otherwise you get snippet duplicates
+
+require('luasnip.loaders.from_vscode').lazy_load()
 
 ls.config.setup({
   ext_opts = {

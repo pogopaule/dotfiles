@@ -153,6 +153,8 @@ imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-o
 
 local ls = require('luasnip')
 
+map('n', '<F5>', '<CMD>source ~/dotfiles/nvim/lua/pogopaule/plugins/luasnip.lua<CR><CMD>lua require("notify")("Snippets reloaded")<CR>')
+
 map('s', '<s-tab>', function()
   if ls.jumpable(1) then
     ls.jump(1)
