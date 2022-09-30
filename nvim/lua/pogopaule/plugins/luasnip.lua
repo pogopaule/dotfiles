@@ -114,3 +114,12 @@ ls.add_snippets('javascript', {
     end)
   }),
 })
+
+ls.add_snippets('nix', {
+  s('attrset', fmt([[
+    {1} = {{
+      {2} = {3};
+    }};
+  ]], {i(1), i(2), i(3)})
+  )
+})
