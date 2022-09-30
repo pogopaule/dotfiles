@@ -16,6 +16,12 @@ require('trouble').setup()             -- https://github.com/folke/trouble.nvim
 require('gitlinker').setup()           -- https://github.com/ruifm/gitlinker.nvim
 require('debugprint').setup()          -- https://github.com/andrewferrier/debugprint.nvim
 
+-- https://github.com/ja-ford/delaytrain.nvim
+require('delaytrain').setup({
+  delay_ms = 2000,
+  grace_period = 2,
+})
+
 -- https://github.com/nvim-lualine/lualine.nvim
 require('lualine').setup({
   options = {

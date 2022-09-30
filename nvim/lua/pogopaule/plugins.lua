@@ -73,6 +73,7 @@ return packer.startup(function(use)
   use 'https://github.com/ggandor/leap.nvim'                                     -- Jump in text
   use 'https://github.com/nvim-telescope/telescope.nvim'                         -- Find, Filter, Preview, Pick
   use 'https://github.com/nvim-telescope/telescope-ui-select.nvim'               -- use telescope to select options
+  use 'ja-ford/delaytrain.nvim'                                                  -- Delay repeat execution of certain keys
 
 
   -- misc
