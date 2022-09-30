@@ -153,27 +153,27 @@ imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-o
 
 local ls = require('luasnip')
 
-vim.keymap.set({ "s" }, "<s-tab>", function()
+map('s', '<s-tab>', function()
   if ls.jumpable(1) then
     ls.jump(1)
   end
 end, { silent = true })
 
 -- this always moves to the previous item within the snippet
-vim.keymap.set({ "i", "s" }, "<s-tab>", function()
+map({'i', 's' }, '<s-tab>', function()
   if ls.jumpable(-1) then
     ls.jump(-1)
   end
 end, { silent = true })
 
 -- selecting within a list of options
-vim.keymap.set({ 'i', 's' }, "<c-e>", function()
+map({ 'i', 's' }, '<c-e>', function()
   if ls.choice_active() then
     ls.change_choice(1)
   end
 end, opts)
 
-vim.keymap.set('i', '<c-u>', require 'luasnip.extras.select_choice')
+map('i', '<c-u>', require 'luasnip.extras.select_choice')
 
 -- make enter work in quickfix list
 local group = vim.api.nvim_create_augroup('enter_in_quickfix', { clear = true })
