@@ -105,9 +105,6 @@ ls.add_snippets('yaml', {
   ),
 })
 
-ls.add_snippets('lua', {
-})
-
 ls.add_snippets('javascript', {
   postfix({ trig = '.fn', match_pattern = '[%w(){}]+$' }, {
     d(1, function(_, parent)
