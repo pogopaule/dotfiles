@@ -5,7 +5,7 @@ local options = {
   smartindent   = true,
   expandtab     = true,             -- convert tabs to spaces
 
-  -- relativenumber = true,            -- show relative linenumbers
+  relativenumber = true,            -- show relative linenumbers
   number        = true,             -- show absolute linenumbers
   cursorline    = true,             -- mark current line
 

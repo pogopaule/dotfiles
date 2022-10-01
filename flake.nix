@@ -42,17 +42,18 @@
         homeDirectory = "/home/pogopaule";
         configuration = {
           imports = [
-            ( import ./home-core.nix { inherit pkgs darkTheme; })
+            ( import ./home-core.ix { inherit pkgs darkTheme; })
             ( import ./home-desktop.nix { inherit pkgs darkTheme; })
           ];
         };
       };
     };
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      silverback = lib.nixosSystem {
         inherit system;
         modules = [
-          ./configuration.nix
+          ./configuration-core.nix
+          ./configuration-silverback.nix
         ];
       };
     };
