@@ -49,7 +49,14 @@
       };
     };
     nixosConfigurations = {
-      silverback = lib.nixosSystem {
+      panther = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./configuration-core.nix
+          ./configuration-panther.nix
+        ];
+      };
+     silverback = lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration-core.nix
