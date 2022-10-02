@@ -81,7 +81,6 @@
         "gh"
         "web-search"
         "aws"
-        "asdf"
         "zoxide"
       ];
     };

@@ -1,5 +1,4 @@
 {
-
   description = "pogopaule's system config";
 
   inputs = {
@@ -34,7 +33,7 @@
         homeDirectory = "/home/pogopaule";
         configuration = {
           imports = [
-            ( import ./home-core.nix { inherit pkgs pkgs-master darkTheme; })
+            ( import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme; })
           ];
         };
       };
@@ -45,8 +44,8 @@
         homeDirectory = "/home/pogopaule";
         configuration = {
           imports = [
-            ( import ./home-core.nix { inherit pkgs pkgs-master darkTheme; })
-            ( import ./home-desktop.nix { inherit pkgs darkTheme; })
+            ( import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme; })
+            ( import ./nix/home-desktop.nix { inherit pkgs darkTheme; })
           ];
         };
       };
@@ -55,15 +54,15 @@
       panther = pkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./configuration-core.nix
-          ./configuration-panther.nix
+          ./nix/configuration-core.nix
+          ./nix/configuration-panther.nix
         ];
       };
      silverback = pkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./configuration-core.nix
-          ./configuration-silverback.nix
+          ./nix/configuration-core.nix
+          ./nix/configuration-silverback.nix
         ];
       };
     };
