@@ -4,21 +4,24 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-22.05";
+    nixpkgs-master.url = "nixpkgs/master";
     home-manager = {
       url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-master, home-manager, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
     };
-
-    lib = nixpkgs.lib;
+    pkgs-master = import nixpkgs-master {
+      inherit system;
+      config.allowUnfree = true;
+    };
 
     darkTheme = true;
 
@@ -31,7 +34,7 @@
         homeDirectory = "/home/pogopaule";
         configuration = {
           imports = [
-            ( import ./home-core.nix { inherit pkgs darkTheme; })
+            ( import ./home-core.nix { inherit pkgs pkgs-master darkTheme; })
           ];
         };
       };
@@ -42,21 +45,21 @@
         homeDirectory = "/home/pogopaule";
         configuration = {
           imports = [
-            ( import ./home-core.ix { inherit pkgs darkTheme; })
+            ( import ./home-core.nix { inherit pkgs pkgs-master darkTheme; })
             ( import ./home-desktop.nix { inherit pkgs darkTheme; })
           ];
         };
       };
     };
     nixosConfigurations = {
-      panther = lib.nixosSystem {
+      panther = pkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration-core.nix
           ./configuration-panther.nix
         ];
       };
-     silverback = lib.nixosSystem {
+     silverback = pkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration-core.nix

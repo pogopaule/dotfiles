@@ -1,4 +1,4 @@
-{ pkgs, darkTheme, ... }:
+{ pkgs, pkgs-master, darkTheme, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -16,7 +16,6 @@
       EDITOR = "nvim";
     };
     packages = with pkgs; [
-      neovim
       tldr
       httpie
       ripgrep
@@ -36,7 +35,7 @@
       rnix-lsp
       nodePackages.yaml-language-server
       python310Packages.python-lsp-server
-    ];
+    ] ++ [pkgs-master.neovim];
   };
 
   services.gpg-agent = {
