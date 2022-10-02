@@ -27,9 +27,9 @@
         '';
       }
     ];
-    extraConfig = builtins.readFile ./tmux.config + (
-      if darkTheme then builtins.readFile ./nordfox.config
-      else builtins.readFile ./dayfox.config
+    extraConfig = builtins.readFile ./tmux.conf + (
+      if darkTheme then builtins.readFile ./nordfox.conf
+      else builtins.readFile ./dayfox.conf
     );
   };
 }
