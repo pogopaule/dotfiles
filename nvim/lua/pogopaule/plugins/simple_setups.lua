@@ -20,6 +20,9 @@ require('debugprint').setup()          -- https://github.com/andrewferrier/debug
 require('delaytrain').setup({
   delay_ms = 2000,
   grace_period = 2,
+  keys = {
+    ['nv'] = {'h', 'j', 'k', 'l'},
+  },
 })
 
 -- https://github.com/nvim-lualine/lualine.nvim
