@@ -65,6 +65,13 @@
           ./nix/configuration-silverback.nix
         ];
       };
+     haflinger = pkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./nix/configuration-core.nix
+          ./nix/configuration-haflinger.nix
+        ];
+      };
     };
   };
 }
