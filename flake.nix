@@ -51,21 +51,21 @@
       };
     };
     nixosConfigurations = {
-      panther = pkgs.lib.nixosSystem {
+      panther = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./nix/configuration-core.nix
           ./nix/configuration-panther.nix
         ];
       };
-     silverback = pkgs.lib.nixosSystem {
+     silverback = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./nix/configuration-core.nix
           ./nix/configuration-silverback.nix
         ];
       };
-     haflinger = pkgs.lib.nixosSystem {
+     haflinger = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./nix/configuration-core.nix
