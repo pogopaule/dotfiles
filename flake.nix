@@ -68,8 +68,7 @@
      haflinger = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./nix/configuration-core.nix
-          ./nix/configuration-haflinger.nix
+          /etc/nixos/configuration.nix
         ];
       };
     };
