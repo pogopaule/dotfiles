@@ -16,7 +16,7 @@
   fonts.fontconfig.enable = true; # for Hack Nerdfont
 
   imports = [
-    ( import ./alacritty { inherit darkTheme; })
+    ( import ../alacritty { inherit darkTheme; })
   ];
 
   programs = {
