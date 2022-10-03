@@ -62,7 +62,10 @@
   console.keyMap = "de";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [pkgs.gutenprint];
+  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
