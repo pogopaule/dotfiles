@@ -121,5 +121,27 @@ ls.add_snippets('nix', {
       {2} = {3};
     }};
   ]], {i(1), i(2), i(3)})
+  ),
+  s('devflake', fmt([[
+    {{
+      inputs = {{
+        nixpkgs.url = "github:nixos/nixpkgs";
+        flake-utils.url = "github:numtide/flake-utils";
+      }};
+
+      outputs = {{ self, nixpkgs, flake-utils }}:
+        flake-utils.lib.eachDefaultSystem (system:
+          let
+            pkgs = nixpkgs.legacyPackages.${{system}};
+          in
+          {{
+            devShell = pkgs.mkShell {{
+              buildInputs = with pkgs; [
+                {1}
+              ];
+            }};
+          }});
+    }}
+  ]], {i(1)})
   )
 })
