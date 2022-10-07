@@ -1,7 +1,6 @@
 # TODO
 # - enable kde night colors
 # - ff extensions like vimium and ublock
-# - naturalScrolling does not work for mouse, only works for touchpad
 { config, pkgs, ... }:
 {
   # activate flakes
@@ -52,10 +51,6 @@
     layout = "de";
     xkbVariant = "";
     xkbOptions = "ctrl:swapcaps";
-    libinput = {
-      touchpad.naturalScrolling = true;
-      mouse.naturalScrolling = true;
-    };
   };
 
   # Configure console keymap
