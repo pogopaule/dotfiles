@@ -4,8 +4,8 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ( import ../tmux { inherit pkgs darkTheme; })
-    ( import ../zsh { inherit pkgs darkTheme; })
+    (import ../tmux { inherit pkgs darkTheme; })
+    (import ../zsh { inherit pkgs darkTheme; })
   ];
 
   home = {
@@ -35,7 +35,7 @@
       rnix-lsp
       nodePackages.yaml-language-server
       python310Packages.python-lsp-server
-    ] ++ [pkgs-master.neovim];
+    ] ++ [ pkgs-master.neovim ];
   };
 
   services.gpg-agent = {
