@@ -23,7 +23,7 @@ local options = {
   background    = 'light',
 
   foldlevel     = 99,
-  completeopt   = {'menu', 'menuone', 'noselect'}
+  completeopt   = {'menu', 'menuone', 'noselect'},
 }
 
 for key, value in pairs(options) do

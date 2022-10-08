@@ -44,8 +44,11 @@ return packer.startup(function(use)
     requires = { { 'https://github.com/ldelossa/litee.nvim' } }
   }
   use 'https://github.com/dbeniamine/cheat.sh-vim'                               -- cheat.sh integration
-  use 'pwntester/octo.nvim'                                                     -- github integration
+  use 'https://github.com/pwntester/octo.nvim'                                   -- github integration
   use 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables
+  use 'https://github.com/ja-ford/delaytrain.nvim'                               -- Delay repeat execution of certain keys
+  use 'https://github.com/potamides/pantran.nvim'                                -- translate text
+  use 'https://github.com/monaqa/dial.nvim'                                      -- enhanced inc/dec
   -- use 'https://github.com/editorconfig/editorconfig-vim'                         -- editorconfig integration
   -- use 'https://github.com/jamestthompson3/nvim-remote-containers'                -- use vscode's container definitions in nvim
   -- use 'https://github.com/dstein64/vim-startuptime'                              -- measure startup time
@@ -74,7 +77,6 @@ return packer.startup(function(use)
   use 'https://github.com/ggandor/leap.nvim'                                     -- Jump in text
   use 'https://github.com/nvim-telescope/telescope.nvim'                         -- Find, Filter, Preview, Pick
   use 'https://github.com/nvim-telescope/telescope-ui-select.nvim'               -- use telescope to select options
-  use 'ja-ford/delaytrain.nvim'                                                  -- Delay repeat execution of certain keys
 
 
   -- misc
@@ -88,9 +90,7 @@ return packer.startup(function(use)
     requires = { { 'https://github.com/renerocksai/calendar-vim' } }
   }
   use 'https://github.com/tyru/open-browser.vim'                                 -- open url or word as search in browser
-  use 'lewis6991/impatient.nvim'                                                 -- speed up startup
-  use 'https://github.com/monaqa/dial.nvim'                                      -- enhanced inc/dec
-  use 'https://github.com/potamides/pantran.nvim'                                -- translate text
+  use 'http://github.com/lewis6991/impatient.nvim'                               -- speed up startup
 
 
   -- coding
