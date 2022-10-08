@@ -82,6 +82,7 @@ map('v', '<leader>fG', "\"zy:Telescope grep_string search=<C-r>z<cr>", opts)
 map('n', '<leader>fh', telescope_builtin.help_tags, opts)
 map('n', '<leader>fo', telescope_builtin.oldfiles, opts)
 map('n', '<leader>fk', telescope_builtin.keymaps, opts)
+map('n', '<leader>fs', telescope_builtin.spell_suggest, opts)
 
 
 -- scrooloose/nerdtree
