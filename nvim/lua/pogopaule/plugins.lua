@@ -89,6 +89,7 @@ return packer.startup(function(use)
   use 'https://github.com/tyru/open-browser.vim'                                 -- open url or word as search in browser
   use 'lewis6991/impatient.nvim'                                                 -- speed up startup
   use 'https://github.com/monaqa/dial.nvim'                                      -- enhanced inc/dec
+  use 'https://github.com/potamides/pantran.nvim'                                -- translate text
 
 
   -- coding
