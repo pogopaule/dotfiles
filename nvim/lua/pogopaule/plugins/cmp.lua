@@ -21,7 +21,7 @@ cmp.setup({
   sources = { -- the order below defines the order in the completion popup
     { name = 'luasnip' },
     { name = 'nvim_lsp' },
-    { name = 'buffer' },
+    { name = 'buffer', option = { keyword_pattern = [[\k\+]]} },
     -- { name = 'tmux' }, disable, causes too much problems
     { name = 'path' },
   },
