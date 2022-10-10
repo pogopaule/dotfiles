@@ -64,6 +64,8 @@
           export DISPLAY="$(ip route | awk '/default/ { print $3  }'):0"
         fi
 
+        source ~/.zshrc.local
+
       '';
 
       plugins = [
