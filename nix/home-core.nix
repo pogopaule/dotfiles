@@ -29,7 +29,8 @@
       xclip
       curl
       unzip
-      git-secret
+      git-crypt
+      nb
 
       sumneko-lua-language-server
       rnix-lsp

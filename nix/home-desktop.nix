@@ -10,6 +10,7 @@
       libreoffice
       pcloud
       keepassxc
+      spotify
     ];
   };
 
