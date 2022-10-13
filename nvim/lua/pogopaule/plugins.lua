@@ -86,9 +86,6 @@ return packer.startup(function(use)
   use 'https://github.com/airblade/vim-rooter'                                   -- Changes Vim working directory to project root
   use 'https://github.com/karb94/neoscroll.nvim'                                 -- smooth scrolling
   use 'https://github.com/folke/which-key.nvim'                                  -- shows what to type after a prefix
-  use { 'https://github.com/renerocksai/telekasten.nvim',                        -- zettelkasten
-    requires = { { 'https://github.com/renerocksai/calendar-vim' } }
-  }
   use 'https://github.com/tyru/open-browser.vim'                                 -- open url or word as search in browser
   use 'http://github.com/lewis6991/impatient.nvim'                               -- speed up startup
 

@@ -189,25 +189,6 @@ vim.api.nvim_set_keymap('n', '<leader>xw', '<cmd>Trouble workspace_diagnostics<c
 vim.api.nvim_set_keymap('n', 'gR', '<cmd>Trouble lsp_references<cr>', opts)
 
 
--- renerocksai/telekasten.nvim
-local telekasten = require('telekasten')
-map('n', '<leader>zf', telekasten.find_notes, opts)
-map('n', '<leader>zd', telekasten.find_daily_notes, opts)
-map('n', '<leader>zg', telekasten.search_notes, opts)
-map('n', '<leader>zz', telekasten.follow_link, opts)
-map('n', '<leader>zT', telekasten.goto_today, opts)
-map('n', '<leader>zn', telekasten.new_note, opts)
-map('n', '<leader>zN', telekasten.new_templated_note, opts)
-map('n', '<leader>zc', telekasten.show_calendar, opts)
-map('n', '<leader>zi', telekasten.insert_link, opts)
-map('n', '<leader>zt', telekasten.toggle_todo, opts)
-map('n', '<leader>zb', telekasten.show_backlinks, opts)
-map('n', '<leader>zF', telekasten.find_friends, opts)
-map('n', '<leader>z#', telekasten.show_tags, opts)
-map('n', '<leader>zr', telekasten.rename_note, opts)
-map('n', '<leader>z', telekasten.panel, opts) --  on hesitation, bring up the panel
-
-
 -- jpalardy/vim-slime
 vim.cmd [[let g:slime_no_mappings = 1]]
 map('x', '<C-s>', '<Plug>SlimeRegionSend', {})
