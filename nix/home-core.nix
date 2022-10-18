@@ -31,6 +31,7 @@
       unzip
       git-crypt
       nb
+      python3
 
       sumneko-lua-language-server
       rnix-lsp

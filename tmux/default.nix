@@ -9,7 +9,6 @@
     shell = "${pkgs.zsh}/bin/zsh";
     tmuxinator.enable = true;
     plugins = with pkgs.tmuxPlugins; [
-      prefix-highlight
       yank
       {
         plugin = yank;
