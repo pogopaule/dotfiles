@@ -110,10 +110,10 @@ map('x', '<C-F>', vim.lsp.buf.range_formatting, opts)
 
 -- glepnir/lspsaga.nvim
 map('n', '<leader>rr', '<cmd>Lspsaga rename<CR>', opts)
-map('n', '<leader>a', require('lspsaga.codeaction').code_action, opts)
-map('n', '<leader>cp', '<cmd>Lspsaga preview_definition<CR>', opts)
+map('n', '<leader>a', '<cmd>Lspsaga code_action<CR>', opts)
+map('n', '<leader>cp', '<cmd>Lspsaga peek_definition<CR>', opts)
 map('n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
-map('n', 'K', require('lspsaga.hover').render_hover_doc, opts)
+map('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
 map('n', '<leader>cs', vim.lsp.buf.signature_help, opts)
 
 -- tyru/open-browser.vim
