@@ -39,6 +39,7 @@ packer.init {
 
 return packer.startup(function(use)
   -- INCUBATOR: not sure if these plugins should be kept
+  use 'https://github.com/dkarter/bullets.vim'                                   -- fixes indentation problems with bullet lists
   use 'https://github.com/nvim-treesitter/playground'                            -- treesitter playground, show syntax tree
   use { 'https://github.com/ldelossa/gh.nvim',                                   -- Code reviews in vim
     requires = { { 'https://github.com/ldelossa/litee.nvim' } }
