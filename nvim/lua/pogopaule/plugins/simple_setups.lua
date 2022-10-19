@@ -22,6 +22,15 @@ require('delaytrain').setup({
     ['nv'] = {'h', 'j', 'k', 'l'},
   },
 })
+-- see https://github.com/ja-ford/delaytrain.nvim/issues/2
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"NvimTree*"},
+  command = "DelayTrainDisable",
+})
+vim.api.nvim_create_autocmd({"BufLeave", "BufWinLeave"}, {
+  pattern = {"NvimTree*"},
+  command = "DelayTrainEnable",
+})
 
 -- https://github.com/nvim-lualine/lualine.nvim
 require('lualine').setup({
