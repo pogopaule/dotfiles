@@ -55,29 +55,6 @@ ls.add_snippets('all', {
     function()
       return tostring(os.time())
     end)),
-
-  postfix({ trig = '.var', match_pattern = '[^%s%c]+$' }, {
-    d(1, function(_, parent)
-      local keyword = '' -- python
-      local ft = vim.bo.filetype
-      if ft == 'javascript' then
-        keyword = 'let '
-      elseif ft == 'lua' then
-        keyword = 'local '
-      end
-      return sn(nil, { t(keyword), i(1), t(' = ' .. parent.env.POSTFIX_MATCH) })
-    end)
-  }),
-
-  postfix({ trig = '.log', match_pattern = '[^%s%c]+$'}, {
-    f(function(_, parent)
-      local func = 'print' -- lua, python
-      if vim.bo.filetype == 'javascript' then
-        func = 'console.log'
-      end
-      return func .. '(' .. parent.snippet.env.POSTFIX_MATCH .. ')'
-    end, {}),
-  }),
 })
 
 ls.add_snippets('yaml', {
@@ -113,7 +90,49 @@ ls.add_snippets('javascript', {
       return sn(nil, { i(1), t('(' .. parent.env.POSTFIX_MATCH .. ')'), i(0) })
     end)
   }),
+
+  postfix({ trig = '.var', match_pattern = '[^%s%c]+$' }, {
+    d(1, function(_, parent)
+      return sn(nil, { t('let '), i(1), t(' = ' .. parent.env.POSTFIX_MATCH) })
+    end)
+  }),
+
+  postfix({ trig = '.log', match_pattern = '[^%s%c]+$'}, {
+    f(function(_, parent)
+      return 'console.log(' .. parent.snippet.env.POSTFIX_MATCH .. ')'
+    end, {}),
+  }),
 })
+
+ls.add_snippets('python', {
+  postfix({ trig = '.var', match_pattern = '[^%s%c]+$' }, {
+    d(1, function(_, parent)
+      return sn(nil, { i(1), t(' = ' .. parent.env.POSTFIX_MATCH) })
+    end)
+  }),
+
+  postfix({ trig = '.log', match_pattern = '[^%s%c]+$'}, {
+    f(function(_, parent)
+      return 'print(' .. parent.snippet.env.POSTFIX_MATCH .. ')'
+    end, {}),
+  }),
+})
+
+ls.add_snippets('lua', {
+  postfix({ trig = '.var', match_pattern = '[^%s%c]+$' }, {
+    d(1, function(_, parent)
+      return sn(nil, { t('local '), i(1), t(' = ' .. parent.env.POSTFIX_MATCH) })
+    end)
+  }),
+
+  postfix({ trig = '.log', match_pattern = '[^%s%c]+$'}, {
+    f(function(_, parent)
+      return 'print(' .. parent.snippet.env.POSTFIX_MATCH .. ')'
+    end, {}),
+  }),
+})
+
+
 
 ls.add_snippets('nix', {
   s('attrset', fmt([[
