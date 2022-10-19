@@ -4,8 +4,8 @@ local function on_attach(client, buffer)
   -- Set autocommands conditional on server_capabilities
   if client.server_capabilities.document_highlight then
     local group = vim.api.nvim_create_augroup('lsp_document_highlight', { clear = true })
-    vim.api.nvim_create_autocmd('CursorHold', { buffer=buffer, callback = vim.lsp.buf.document_highlight, group = group, })
-    vim.api.nvim_create_autocmd('CursorMoved', { buffer=buffer, callback = vim.lsp.buf.clear_references, group = group, })
+    vim.api.nvim_create_autocmd('CursorHold', { buffer = buffer, callback = vim.lsp.buf.document_highlight, group = group, })
+    vim.api.nvim_create_autocmd('CursorMoved', { buffer = buffer, callback = vim.lsp.buf.clear_references, group = group, })
   end
 
   require('lsp_signature').on_attach({
@@ -14,7 +14,7 @@ local function on_attach(client, buffer)
   }, buffer)
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 lspconfig.sumneko_lua.setup({
   on_attach = on_attach,
