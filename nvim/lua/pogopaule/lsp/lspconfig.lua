@@ -47,6 +47,12 @@ lspconfig.pylsp.setup({
 lspconfig.tsserver.setup({
   on_attach = on_attach,
   capabilities = capabilities,
+  cmd = { -- see https://github.com/typescript-language-server/typescript-language-server/issues/411
+    'typescript-language-server',
+    '--stdio',
+    '--tsserver-path',
+    'tsserver'
+  },
 })
 
 lspconfig.yamlls.setup({

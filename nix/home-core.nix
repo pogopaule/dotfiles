@@ -36,6 +36,7 @@
       sumneko-lua-language-server
       rnix-lsp
       nodePackages.yaml-language-server
+      nodePackages.typescript-language-server
       python310Packages.python-lsp-server
     ] ++ [ pkgs-master.neovim ];
   };
