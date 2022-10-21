@@ -13,14 +13,17 @@ if not status_ok then
   return
 end
 
+local packer_util = require('packer.util')
 
 -- Have packer use a popup window
 packer.init {
   display = {
     open_fn = function()
-      return require('packer.util').float { border = 'rounded' }
+      return packer_util.float { border = 'rounded' }
     end,
   },
+  snapshot = 'current_packer_snapshot.json',
+  snapshot_path = vim.fn.stdpath('config'),
 }
 
 
