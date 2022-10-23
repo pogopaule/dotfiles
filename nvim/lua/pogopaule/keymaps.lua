@@ -202,6 +202,8 @@ map('n', '<leader>dv', dap.step_over, opts)
 map('n', '<leader>di', dap.step_into, opts)
 map('n', '<leader>du', dap.step_out, opts)
 map('n', '<leader>db', dap.toggle_breakpoint, opts)
+map('n', '<leader>dt', require('dapui').toggle, opts)
+
 -- map('n', '<Leader>B', "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
 -- map('n', '<Leader>lp', "<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
 -- map('n', '<Leader>dr', "<Cmd>lua require'dap'.repl.open()<CR>", opts)

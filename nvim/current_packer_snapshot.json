@@ -8,6 +8,9 @@
   "nvim-dap": {
     "commit": "3d0d731"
   },
+  "nvim-dap-vscode-js": {
+    "commit": "079d0f3"
+  },
   "FixCursorHold.nvim": {
     "commit": "70a9516"
   },
@@ -130,6 +133,9 @@
   },
   "LuaSnip": {
     "commit": "663d544"
+  },
+  "vscode-js-debug": {
+    "commit": "7594d05"
   },
   "nvim-retrail": {
     "commit": "68cef1d"

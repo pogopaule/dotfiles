@@ -32,6 +32,7 @@
       git-crypt
       nb
       python3
+      nodejs
 
       sumneko-lua-language-server
       rnix-lsp

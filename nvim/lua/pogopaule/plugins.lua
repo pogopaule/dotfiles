@@ -123,6 +123,13 @@ return packer.startup(function(use)
   use 'https://github.com/nvim-telescope/telescope-dap.nvim'
   use 'https://github.com/theHamsta/nvim-dap-virtual-text'
 
+  use 'https://github.com/mxsdev/nvim-dap-vscode-js'
+  use {
+    'microsoft/vscode-js-debug',
+    opt = true,
+    run = "npm install --legacy-peer-deps && npm run compile"
+  }
+
 
   -- LSP
   use 'https://github.com/neovim/nvim-lspconfig'                                 -- LSP support
