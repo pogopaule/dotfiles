@@ -207,3 +207,13 @@ require("dial.config").augends:register_group{
     augend.constant.alias.bool,
   },
 }
+
+-- https://github.com/potamides/pantran.nvim
+require('pantran').setup{
+  default_engine = 'deepl',
+  engines = {
+    deepl = {
+      default_target = 'de',
+    },
+  },
+}
