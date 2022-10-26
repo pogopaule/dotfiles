@@ -1,5 +1,5 @@
 #!/bin/sh
 
 pushd ~/dotfiles
-sudo nixos-rebuild switch --flake .#haflinger
+sudo nixos-rebuild switch --flake .#haflinger --impure
 popd
