@@ -37,6 +37,7 @@
       sumneko-lua-language-server
       rnix-lsp
       nodePackages.yaml-language-server
+      nodePackages.eslint_d
       nodePackages.typescript-language-server
       nodePackages.vscode-langservers-extracted
       python310Packages.python-lsp-server
