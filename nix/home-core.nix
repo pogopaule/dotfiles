@@ -42,6 +42,7 @@
       nodePackages.prettier
       nodePackages.typescript-language-server
       nodePackages.vscode-langservers-extracted
+      nodePackages.eslint_d
       python310Packages.python-lsp-server
     ] ++ [ pkgs-master.neovim ];
   };
