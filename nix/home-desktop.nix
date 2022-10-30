@@ -11,6 +11,8 @@
       pcloud
       keepassxc
       spotify
+      libimobiledevice
+      ifuse
     ];
   };
 

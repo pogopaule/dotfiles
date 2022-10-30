@@ -15,4 +15,7 @@
   # Enable swap on luks
   boot.initrd.luks.devices."luks-3c670b0c-d629-4222-93f8-90cae8e078ac".device = "/dev/disk/by-uuid/3c670b0c-d629-4222-93f8-90cae8e078ac";
   boot.initrd.luks.devices."luks-3c670b0c-d629-4222-93f8-90cae8e078ac".keyFile = "/crypto_keyfile.bin";
+
+  # see https://nixos.wiki/wiki/IOS
+  services.usbmuxd.enable = true;
 }
