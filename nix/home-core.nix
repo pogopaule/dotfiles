@@ -33,7 +33,6 @@
       nb
       python3
       nodejs
-      gnumake
 
       sumneko-lua-language-server
       rnix-lsp

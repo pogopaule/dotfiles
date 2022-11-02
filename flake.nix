@@ -37,6 +37,18 @@
           ];
         };
       };
+      haflinger = home-manager.lib.homeManagerConfiguration {
+        inherit system pkgs;
+        username = "pogopaule";
+        stateVersion = "22.05";
+        homeDirectory = "/home/pogopaule";
+        configuration = {
+          imports = [
+            ( import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme; })
+            ( import ./nix/home-haflinger.nix { inherit pkgs pkgs-master darkTheme; })
+          ];
+        };
+      };
       desktop = home-manager.lib.homeManagerConfiguration {
         inherit system pkgs;
         username = "pogopaule";
