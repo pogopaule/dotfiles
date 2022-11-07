@@ -112,6 +112,7 @@
       lt="exa -la --tree --icons";
 
       # misc
+      h="http";
       clr="clear";
       cd="z";
 
