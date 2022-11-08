@@ -40,6 +40,7 @@ packer.init {
 -- https://github.com/Vonr/align.nvim replace Tabularize?
 -- https://github.com/lukas-reineke/headlines.nvim better markdown headline highlights
 -- https://github.com/jakewvincent/mkdnflow.nvim
+-- https://github.com/andythigpen/nvim-coverage display test coverage
 
 
 return packer.startup(function(use)
