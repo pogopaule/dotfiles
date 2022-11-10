@@ -18,4 +18,7 @@
 
   # see https://nixos.wiki/wiki/IOS
   services.usbmuxd.enable = true;
+
+  # https://nixos.wiki/wiki/Docker
+  virtualisation.docker.enable = true;
 }
