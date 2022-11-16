@@ -84,6 +84,29 @@ ls.add_snippets('yaml', {
   ),
 })
 
+ls.add_snippets('typescript', {
+  s('describe',
+    fmt([[
+      describe('{}', () => {{
+        test('{}', () => {{
+          {}
+        }});
+      }});
+    ]], {
+      i(1), i(2), i(0)
+    })
+  ),
+  s('test',
+    fmt([[
+      test('{}', () => {{
+        {}
+      }});
+    ]], {
+      i(1), i(0)
+    })
+  ),
+})
+
 ls.add_snippets('javascript', {
   postfix({ trig = '.fn', match_pattern = '[%w(){}]+$' }, {
     d(1, function(_, parent)
@@ -97,7 +120,7 @@ ls.add_snippets('javascript', {
     end)
   }),
 
-  postfix({ trig = '.log', match_pattern = '[^%s%c]+$'}, {
+  postfix({ trig = '.log', match_pattern = '[^%s%c]+$' }, {
     f(function(_, parent)
       return 'console.log(' .. parent.snippet.env.POSTFIX_MATCH .. ')'
     end, {}),
@@ -111,7 +134,7 @@ ls.add_snippets('python', {
     end)
   }),
 
-  postfix({ trig = '.log', match_pattern = '[^%s%c]+$'}, {
+  postfix({ trig = '.log', match_pattern = '[^%s%c]+$' }, {
     f(function(_, parent)
       return 'print(' .. parent.snippet.env.POSTFIX_MATCH .. ')'
     end, {}),
@@ -125,21 +148,19 @@ ls.add_snippets('lua', {
     end)
   }),
 
-  postfix({ trig = '.log', match_pattern = '[^%s%c]+$'}, {
+  postfix({ trig = '.log', match_pattern = '[^%s%c]+$' }, {
     f(function(_, parent)
       return 'print(' .. parent.snippet.env.POSTFIX_MATCH .. ')'
     end, {}),
   }),
 })
 
-
-
 ls.add_snippets('nix', {
   s('attrset', fmt([[
     {1} = {{
       {2} = {3};
     }};
-  ]], {i(1), i(2), i(3)})
+  ]], { i(1), i(2), i(3) })
   ),
   s('devflake', fmt([[
     {{
@@ -161,6 +182,6 @@ ls.add_snippets('nix', {
             }};
           }});
     }}
-  ]], {i(1)})
+  ]], { i(1) })
   )
 })
