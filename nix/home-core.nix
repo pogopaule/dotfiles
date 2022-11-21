@@ -33,6 +33,7 @@
       nb
       python3
       nodejs
+      lazydocker
 
       sumneko-lua-language-server
       rnix-lsp
