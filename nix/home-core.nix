@@ -34,6 +34,8 @@
       python3
       nodejs
       lazydocker
+      docker-compose
+      entr
 
       sumneko-lua-language-server
       rnix-lsp
