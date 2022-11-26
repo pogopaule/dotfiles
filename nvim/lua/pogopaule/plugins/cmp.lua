@@ -15,9 +15,7 @@ cmp.setup({
       luasnip.lsp_expand(args.body)
     end,
   },
-  mapping = cmp.mapping.preset.insert({
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-  }),
+  mapping = cmp.mapping.preset.insert(),
   sources = { -- the order below defines the order in the completion popup
     { name = 'luasnip' },
     { name = 'nvim_lsp' },

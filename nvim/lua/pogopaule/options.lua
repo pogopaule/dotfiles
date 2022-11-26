@@ -23,7 +23,7 @@ local options = {
   background    = 'light',
 
   foldlevel     = 99,
-  completeopt   = {'menu', 'menuone', 'noselect'},
+  completeopt   = {'menu', 'menuone', 'noselect'}, -- https://github.com/hrsh7th/nvim-cmp#setup
 }
 
 for key, value in pairs(options) do
