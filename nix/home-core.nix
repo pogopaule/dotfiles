@@ -36,6 +36,7 @@
       lazydocker
       docker-compose
       entr
+      pv
 
       sumneko-lua-language-server
       rnix-lsp
