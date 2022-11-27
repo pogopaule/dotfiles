@@ -9,10 +9,14 @@ map('i', '<Up>', '<NOP>', opts)
 map('i', '<Down>', '<NOP>', opts)
 map('i', '<Left>', '<NOP>', opts)
 map('i', '<Right>', '<NOP>', opts)
+
+
+-- resize splits with arrow keys
 map('n', '<Up>', ':resize -4<CR>', opts)
 map('n', '<Down>', ':resize +4<CR>', opts)
 map('n', '<Left>', ':vertical resize -4<CR>', opts)
 map('n', '<Right>', ':vertical resize +4<CR>', opts)
+
 
 -- exit insert mode by pressing jk
 map('i', 'jk', '<ESC>', opts)
@@ -31,9 +35,13 @@ map('n', '<leader>q', ':quit<CR>', opts)
 map('n', '<leader>Q', ':quitall<CR>', opts)
 map('n', '<leader>w', ':write<CR>', opts)
 
-map('n', '<leader>dd', ':nohlsearch<CR>', opts) -- remove search highlight
 
-map('n', '<CR>', 'o<ESC>', opts) -- enter adds new line in normal mode
+-- remove search highlight
+map('n', '<leader>dd', ':nohlsearch<CR>', opts)
+
+
+-- enter adds new line in normal mode
+map('n', '<CR>', 'o<ESC>', opts)
 
 
 -- move between split windows
@@ -52,7 +60,7 @@ map('n', 'k', 'gk', opts)
 map('v', 'p', '"_dP', opts)
 
 
--- stay in indent mode
+-- stay in indent mode when indenting
 map('v', '<', '<gv', opts)
 map('v', '>', '>gv', opts)
 
@@ -179,6 +187,7 @@ map({ 'i', 's' }, '<c-e>', function()
 end, opts)
 
 map('i', '<c-u>', require 'luasnip.extras.select_choice')
+
 
 -- make enter work in quickfix list
 local group = vim.api.nvim_create_augroup('enter_in_quickfix', { clear = true })
