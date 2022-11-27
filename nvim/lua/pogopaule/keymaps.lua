@@ -134,6 +134,8 @@ map('n', '<leader>gN', '<cmd>Gitsigns prev_hunk<CR>', opts)
 -- akinsho/bufferline.nvim
 map('n', '<A-h>', '<cmd>BufferLineCyclePrev<CR>', opts)
 map('n', '<A-l>', '<cmd>BufferLineCycleNext<CR>', opts)
+map('i', '<A-h>', '<cmd>BufferLineCyclePrev<CR>', opts)
+map('i', '<A-l>', '<cmd>BufferLineCycleNext<CR>', opts)
 map('n', '<A-H>', '<cmd>BufferLineMovePrev<CR>', opts)
 map('n', '<A-L>', '<cmd>BufferLineMoveNext<CR>', opts)
 
