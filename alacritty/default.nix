@@ -23,6 +23,10 @@
           background = "0x2e3440";
           foreground = "0xcdcecf";
         };
+        cursor = {
+          text = "0xffffff";
+          cursor = "0xff00ff";
+        };
         normal = {
           black = "0x3b4252";
           red = "0xbf616a";
@@ -59,6 +63,10 @@
         primary = {
           background = "0xeaeaea";
           foreground = "0x1d344f";
+        };
+        cursor = {
+          text = "0xffffff";
+          cursor = "0x000000";
         };
         normal = {
           black = "0x1d344f";
