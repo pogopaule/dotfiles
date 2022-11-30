@@ -13,6 +13,7 @@
       spotify
       libimobiledevice
       ifuse
+      vlc
     ];
   };
 
