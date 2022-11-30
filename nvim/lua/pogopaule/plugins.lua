@@ -51,7 +51,6 @@ return packer.startup(function(use)
   }
   use 'https://github.com/dbeniamine/cheat.sh-vim'                               -- cheat.sh integration
   use 'https://github.com/pwntester/octo.nvim'                                   -- github integration
-  use 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables
   use 'https://github.com/potamides/pantran.nvim'                                -- translate text
   use 'https://github.com/monaqa/dial.nvim'                                      -- enhanced inc/dec
   -- use 'https://github.com/editorconfig/editorconfig-vim'                         -- editorconfig integration
@@ -98,6 +97,7 @@ return packer.startup(function(use)
   -- coding
   use { 'https://github.com/nvim-treesitter/nvim-treesitter',                    -- Nvim Treesitter configurations and abstraction layer
     run = ':TSUpdate' }
+  use 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables
   use 'https://github.com/andymass/vim-matchup'                                  -- extends %
   use 'https://github.com/kylechui/nvim-surround'                                -- easily surround with brackets
   use 'https://github.com/numToStr/Comment.nvim'                                 -- Comments
