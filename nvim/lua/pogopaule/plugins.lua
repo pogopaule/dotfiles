@@ -52,7 +52,6 @@ return packer.startup(function(use)
   use 'https://github.com/dbeniamine/cheat.sh-vim'                               -- cheat.sh integration
   use 'https://github.com/pwntester/octo.nvim'                                   -- github integration
   use 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables
-  use 'https://github.com/ja-ford/delaytrain.nvim'                               -- Delay repeat execution of certain keys
   use 'https://github.com/potamides/pantran.nvim'                                -- translate text
   use 'https://github.com/monaqa/dial.nvim'                                      -- enhanced inc/dec
   -- use 'https://github.com/editorconfig/editorconfig-vim'                         -- editorconfig integration
