@@ -1,20 +1,6 @@
 -- https://github.com/rcarriga/nvim-notify
 vim.notify = require("notify")
 
-require('Comment').setup()
-require('todo-comments').setup()       -- https://github.com/folke/todo-comments.nvim
-require('colorizer').setup()           -- https://github.com/nvim-colorizer.lua
-require('nvim-web-devicons').setup()   -- https://github.com/kyazdani42/nvim-web-devicons
-require('refactoring').setup()         -- https://github.com/ThePrimeagen/refactoring.nvim
-require('close_buffers').setup()       -- https://github.com/kazhala/close-buffers.nvim
-require('fidget').setup()              -- https://github.com/j-hui/fidget.nvim
-require('leap').set_default_keymaps()  -- https://github.com/ggandor/leap.nvim
-require('which-key').setup()           -- https://github.com/folke/which-key.nvim
-require('octo').setup()                -- https://github.com/pwntester/octo.nvim
-require('trouble').setup()             -- https://github.com/folke/trouble.nvim
-require('gitlinker').setup()           -- https://github.com/ruifm/gitlinker.nvim
-require('debugprint').setup()          -- https://github.com/andrewferrier/debugprint.nvim
-
 -- https://github.com/nvim-lualine/lualine.nvim
 require('lualine').setup({
   options = {
