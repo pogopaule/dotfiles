@@ -1,8 +1,7 @@
 -- https://github.com/rcarriga/nvim-notify
 vim.notify = require("notify")
 
-require('gitsigns').setup()            -- https://github.com/lewis6991/gitsigns.nvim
-require('Comment').setup()             -- https://github.com/numToStr/Comment.nvim
+require('Comment').setup()
 require('todo-comments').setup()       -- https://github.com/folke/todo-comments.nvim
 require('colorizer').setup()           -- https://github.com/nvim-colorizer.lua
 require('nvim-web-devicons').setup()   -- https://github.com/kyazdani42/nvim-web-devicons

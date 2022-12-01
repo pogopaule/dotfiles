@@ -100,7 +100,7 @@ return packer.startup(function(use)
   use 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables
   use 'https://github.com/andymass/vim-matchup'                                  -- extends %
   use 'https://github.com/kylechui/nvim-surround'                                -- easily surround with brackets
-  use 'https://github.com/numToStr/Comment.nvim'                                 -- Comments
+  use { 'https://github.com/numToStr/Comment.nvim', config = require('Comment').setup() }                                 -- Comments
   use 'https://github.com/norcalli/nvim-colorizer.lua'                           -- Colorize hex colors
   use 'https://github.com/windwp/nvim-autopairs'                                 -- Insert matching quote, brackets, etc.
   use 'https://github.com/folke/todo-comments.nvim'                              -- Highlight, list and search todo comments
@@ -144,7 +144,9 @@ return packer.startup(function(use)
 
 
   -- git
-  use 'https://github.com/lewis6991/gitsigns.nvim'                               -- git decoration for buffers
+
+  -- git decoration for buffers
+  use { 'https://github.com/lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
   use 'https://github.com/tpope/vim-fugitive'                                    -- Git
   use 'https://github.com/tpope/vim-rhubarb'                                     -- Adds Github to futitive, e.g. Gbrowse
   use 'https://github.com/ruifm/gitlinker.nvim'                                  -- create github permalink via <leader>gy
