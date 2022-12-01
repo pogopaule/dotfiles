@@ -44,73 +44,73 @@ packer.init {
 
 return packer.startup(function(use)
   -- INCUBATOR: not sure if these plugins should be kept
-  use 'https://github.com/dkarter/bullets.vim'                                   -- fixes indentation problems with bullet lists
-  use 'https://github.com/nvim-treesitter/playground'                            -- treesitter playground, show syntax tree
-  use { 'https://github.com/ldelossa/gh.nvim',                                   -- Code reviews in vim
+  use 'https://github.com/dkarter/bullets.vim' -- fixes indentation problems with bullet lists
+  use 'https://github.com/nvim-treesitter/playground' -- treesitter playground, show syntax tree
+  use { 'https://github.com/ldelossa/gh.nvim', -- Code reviews in vim
     requires = { { 'https://github.com/ldelossa/litee.nvim' } }
   }
-  use 'https://github.com/dbeniamine/cheat.sh-vim'                               -- cheat.sh integration
-  use 'https://github.com/pwntester/octo.nvim'                                   -- github integration
-  use 'https://github.com/potamides/pantran.nvim'                                -- translate text
-  use 'https://github.com/monaqa/dial.nvim'                                      -- enhanced inc/dec
+  use 'https://github.com/dbeniamine/cheat.sh-vim' -- cheat.sh integration
+  use 'https://github.com/pwntester/octo.nvim' -- github integration
+  use 'https://github.com/potamides/pantran.nvim' -- translate text
+  use 'https://github.com/monaqa/dial.nvim' -- enhanced inc/dec
   -- use 'https://github.com/editorconfig/editorconfig-vim'                         -- editorconfig integration
   -- use 'https://github.com/jamestthompson3/nvim-remote-containers'                -- use vscode's container definitions in nvim
   -- use 'https://github.com/dstein64/vim-startuptime'                              -- measure startup time
 
 
   -- basics
-  use 'https://github.com/wbthomason/packer.nvim'                                -- Have packer manage itself
-  use 'https://github.com/nvim-lua/popup.nvim'                                   -- Popup API from vim in neovim
-  use 'https://github.com/nvim-lua/plenary.nvim'                                 -- Lua functions
-  use 'https://github.com/antoinemadec/FixCursorHold.nvim'                       -- fix CursorHold performance
+  use 'https://github.com/wbthomason/packer.nvim' -- Have packer manage itself
+  use 'https://github.com/nvim-lua/popup.nvim' -- Popup API from vim in neovim
+  use 'https://github.com/nvim-lua/plenary.nvim' -- Lua functions
+  use 'https://github.com/antoinemadec/FixCursorHold.nvim' -- fix CursorHold performance
 
 
   -- layout / windows
-  use 'https://github.com/kyazdani42/nvim-tree.lua'                              -- File Explorer
-  use 'https://github.com/goolord/alpha-nvim'                                    -- Start screen
-  use 'https://github.com/nvim-lualine/lualine.nvim'                             -- Status bar
-  use 'https://github.com/kyazdani42/nvim-web-devicons'                          -- Icon font
-  use { 'https://github.com/EdenEast/nightfox.nvim',                             -- nightfox theme
+  use 'https://github.com/kyazdani42/nvim-tree.lua' -- File Explorer
+  use 'https://github.com/goolord/alpha-nvim' -- Start screen
+  use 'https://github.com/nvim-lualine/lualine.nvim' -- Status bar
+  use 'https://github.com/kyazdani42/nvim-web-devicons' -- Icon font
+  use { 'https://github.com/EdenEast/nightfox.nvim', -- nightfox theme
     run = ':NightfoxCompile', }
-  use 'https://github.com/akinsho/bufferline.nvim'                               -- buffers as tabs
-  use 'https://github.com/kazhala/close-buffers.nvim'                            -- helpers to close buffers, used by bufferline
-  use 'https://github.com/rcarriga/nvim-notify'                                  -- popup messages
+  use 'https://github.com/akinsho/bufferline.nvim' -- buffers as tabs
+  use 'https://github.com/kazhala/close-buffers.nvim' -- helpers to close buffers, used by bufferline
+  use 'https://github.com/rcarriga/nvim-notify' -- popup messages
 
 
   -- moving around
-  use 'https://github.com/ggandor/leap.nvim'                                     -- Jump in text
-  use 'https://github.com/nvim-telescope/telescope.nvim'                         -- Find, Filter, Preview, Pick
-  use 'https://github.com/nvim-telescope/telescope-ui-select.nvim'               -- use telescope to select options
+  use 'https://github.com/ggandor/leap.nvim' -- Jump in text
+  use 'https://github.com/nvim-telescope/telescope.nvim' -- Find, Filter, Preview, Pick
+  use 'https://github.com/nvim-telescope/telescope-ui-select.nvim' -- use telescope to select options
 
 
   -- misc
-  use 'https://github.com/godlygeek/tabular'                                     -- Tabularize
-  use 'https://github.com/zakharykaplan/nvim-retrail'                            -- Show and remove unwanted whitespaces
-  use 'https://github.com/christoomey/vim-tmux-navigator'                        -- Seamless jumping between vim and tmux
-  use 'https://github.com/airblade/vim-rooter'                                   -- Changes Vim working directory to project root
-  use 'https://github.com/karb94/neoscroll.nvim'                                 -- smooth scrolling
-  use 'https://github.com/folke/which-key.nvim'                                  -- shows what to type after a prefix
-  use 'https://github.com/tyru/open-browser.vim'                                 -- open url or word as search in browser
-  use 'http://github.com/lewis6991/impatient.nvim'                               -- speed up startup
+  use 'https://github.com/godlygeek/tabular' -- Tabularize
+  use 'https://github.com/zakharykaplan/nvim-retrail' -- Show and remove unwanted whitespaces
+  use 'https://github.com/christoomey/vim-tmux-navigator' -- Seamless jumping between vim and tmux
+  use 'https://github.com/airblade/vim-rooter' -- Changes Vim working directory to project root
+  use 'https://github.com/karb94/neoscroll.nvim' -- smooth scrolling
+  use 'https://github.com/folke/which-key.nvim' -- shows what to type after a prefix
+  use 'https://github.com/tyru/open-browser.vim' -- open url or word as search in browser
+  use 'http://github.com/lewis6991/impatient.nvim' -- speed up startup
 
 
   -- coding
-  use { 'https://github.com/nvim-treesitter/nvim-treesitter',                    -- Nvim Treesitter configurations and abstraction layer
+  use { 'https://github.com/nvim-treesitter/nvim-treesitter', -- Nvim Treesitter configurations and abstraction layer
     run = ':TSUpdate' }
-  use 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'           -- Text objects like functions and variables
-  use 'https://github.com/andymass/vim-matchup'                                  -- extends %
-  use 'https://github.com/kylechui/nvim-surround'                                -- easily surround with brackets
-  use { 'https://github.com/numToStr/Comment.nvim', config = require('Comment').setup() }                                 -- Comments
-  use 'https://github.com/norcalli/nvim-colorizer.lua'                           -- Colorize hex colors
-  use 'https://github.com/windwp/nvim-autopairs'                                 -- Insert matching quote, brackets, etc.
-  use 'https://github.com/folke/todo-comments.nvim'                              -- Highlight, list and search todo comments
-  use 'https://github.com/preservim/vim-markdown'                                -- Markdown
-  use 'https://github.com/ThePrimeagen/refactoring.nvim'                         -- Refactoring
-  use 'https://github.com/davidgranstrom/nvim-markdown-preview'                  -- Preview markdown, requires live-preview and pandoc to be installed
-  use 'https://github.com/jpalardy/vim-slime'                                    -- Send line to tmux
-  use 'https://github.com/b0o/schemastore.nvim'                                  -- JSON schema awareness, gives LSP completions for e.g. package.json
-  use 'https://github.com/lukas-reineke/indent-blankline.nvim'                   -- indent lines
-  use 'https://github.com/andrewferrier/debugprint.nvim'                         -- print() debugging
+  use 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects' -- Text objects like functions and variables
+  use 'https://github.com/andymass/vim-matchup' -- extends %
+  use 'https://github.com/kylechui/nvim-surround' -- easily surround with brackets
+  use { 'https://github.com/numToStr/Comment.nvim', config = require('Comment').setup() } -- Comments
+  use 'https://github.com/norcalli/nvim-colorizer.lua' -- Colorize hex colors
+  use 'https://github.com/windwp/nvim-autopairs' -- Insert matching quote, brackets, etc.
+  use 'https://github.com/folke/todo-comments.nvim' -- Highlight, list and search todo comments
+  use 'https://github.com/preservim/vim-markdown' -- Markdown
+  use 'https://github.com/ThePrimeagen/refactoring.nvim' -- Refactoring
+  use 'https://github.com/davidgranstrom/nvim-markdown-preview' -- Preview markdown, requires live-preview and pandoc to be installed
+  use 'https://github.com/jpalardy/vim-slime' -- Send line to tmux
+  use 'https://github.com/b0o/schemastore.nvim' -- JSON schema awareness, gives LSP completions for e.g. package.json
+  use 'https://github.com/lukas-reineke/indent-blankline.nvim' -- indent lines
+  use 'https://github.com/andrewferrier/debugprint.nvim' -- print() debugging
 
 
   -- testing
@@ -133,23 +133,23 @@ return packer.startup(function(use)
 
 
   -- LSP
-  use 'https://github.com/neovim/nvim-lspconfig'                                 -- LSP support
-  use 'https://github.com/glepnir/lspsaga.nvim'                                  -- The neovim language-server-client UI
-  use 'https://github.com/onsails/lspkind-nvim'                                  -- vscode-like pictograms for neovim lsp completion items
-  use 'https://github.com/jose-elias-alvarez/null-ls.nvim'                       -- LSP bridge for linters and others
-  use 'https://github.com/ray-x/lsp_signature.nvim'                              -- LSP signature hint as you type
-  use 'https://github.com/j-hui/fidget.nvim'                                     -- Show LSP progress
-  use 'https://github.com/folke/trouble.nvim'                                    -- Nicer diagnostics
-  use 'https://github.com/mfussenegger/nvim-jdtls'                               -- LSP and DAP for java
+  use 'https://github.com/neovim/nvim-lspconfig' -- LSP support
+  use 'https://github.com/glepnir/lspsaga.nvim' -- The neovim language-server-client UI
+  use 'https://github.com/onsails/lspkind-nvim' -- vscode-like pictograms for neovim lsp completion items
+  use 'https://github.com/jose-elias-alvarez/null-ls.nvim' -- LSP bridge for linters and others
+  use 'https://github.com/ray-x/lsp_signature.nvim' -- LSP signature hint as you type
+  use 'https://github.com/j-hui/fidget.nvim' -- Show LSP progress
+  use 'https://github.com/folke/trouble.nvim' -- Nicer diagnostics
+  use 'https://github.com/mfussenegger/nvim-jdtls' -- LSP and DAP for java
 
 
   -- git
 
   -- git decoration for buffers
   use { 'https://github.com/lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
-  use 'https://github.com/tpope/vim-fugitive'                                    -- Git
-  use 'https://github.com/tpope/vim-rhubarb'                                     -- Adds Github to futitive, e.g. Gbrowse
-  use 'https://github.com/ruifm/gitlinker.nvim'                                  -- create github permalink via <leader>gy
+  use 'https://github.com/tpope/vim-fugitive' -- Git
+  use 'https://github.com/tpope/vim-rhubarb' -- Adds Github to futitive, e.g. Gbrowse
+  use 'https://github.com/ruifm/gitlinker.nvim' -- create github permalink via <leader>gy
 
 
   -- completion
