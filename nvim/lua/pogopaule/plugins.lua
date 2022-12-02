@@ -22,8 +22,8 @@ packer.init {
       return packer_util.float { border = 'rounded' }
     end,
   },
-  snapshot = 'current_packer_snapshot.json',
-  snapshot_path = vim.fn.stdpath('config'),
+  -- snapshot = 'current_packer_snapshot.json',
+  -- snapshot_path = vim.fn.stdpath('config'),
 }
 
 
@@ -128,7 +128,7 @@ return packer.startup(function(use)
   use {
     'microsoft/vscode-js-debug',
     opt = true,
-    run = "npm install --legacy-peer-deps && npm run compile"
+    -- run = "npm install --legacy-peer-deps && npm run compile"
   }
 
 
