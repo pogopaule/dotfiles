@@ -73,12 +73,12 @@ return packer.startup(function(use)
   use { 'https://github.com/EdenEast/nightfox.nvim', -- nightfox theme
     run = ':NightfoxCompile', }
   use 'https://github.com/akinsho/bufferline.nvim' -- buffers as tabs
-  use { 'https://github.com/kazhala/close-buffers.nvim', config = function() require('close-buffers').setup() end } -- helpers to close buffers, used by bufferline
+  use { 'https://github.com/kazhala/close-buffers.nvim', config = function() require('close_buffers').setup() end } -- helpers to close buffers, used by bufferline
   use 'https://github.com/rcarriga/nvim-notify' -- popup messages
 
 
   -- moving around
-  use { 'https://github.com/ggandor/leap.nvim', config = function() require('leap').set_default_keymaps() end } -- Jump in text
+  use { 'https://github.com/ggandor/leap.nvim', config = function() require('leap').add_default_mappings() end } -- Jump in text
   use 'https://github.com/nvim-telescope/telescope.nvim' -- Find, Filter, Preview, Pick
   use 'https://github.com/nvim-telescope/telescope-ui-select.nvim' -- use telescope to select options
 
