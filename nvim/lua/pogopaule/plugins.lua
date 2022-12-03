@@ -66,9 +66,33 @@ return packer.startup(function(use)
 
 
   -- layout / windows
-  use 'https://github.com/kyazdani42/nvim-tree.lua' -- File Explorer
+  use { 'https://github.com/kyazdani42/nvim-tree.lua', config = function() -- File Explorer
+    require('nvim-tree').setup({
+      filters = { dotfiles = true },
+      git = { ignore = false },
+      view = {
+        mappings = {
+          list = {
+            { key = { 'cd' }, action = 'cd' },
+          }
+        },
+        width = 50,
+      }
+    })
+    vim.g.nvim_tree_special_files = {}
+  end
+  }
+
   use 'https://github.com/goolord/alpha-nvim' -- Start screen
-  use 'https://github.com/nvim-lualine/lualine.nvim' -- Status bar
+  use { 'https://github.com/nvim-lualine/lualine.nvim', config = function() -- Status bar
+    require('lualine').setup({
+      options = {
+        disabled_filetypes = {
+          statusline = { 'NvimTree' },
+        },
+      },
+    })
+  end }
   use { 'https://github.com/kyazdani42/nvim-web-devicons', config = function() require('nvim-web-devicons').setup() end } -- Icon font
   use { 'https://github.com/EdenEast/nightfox.nvim', -- nightfox theme
     run = ':NightfoxCompile', }
@@ -85,7 +109,19 @@ return packer.startup(function(use)
 
   -- misc
   use 'https://github.com/godlygeek/tabular' -- Tabularize
-  use 'https://github.com/zakharykaplan/nvim-retrail' -- Show and remove unwanted whitespaces
+
+  use { 'https://github.com/zakharykaplan/nvim-retrail', config = function() -- Show and remove unwanted whitespaces
+    require('retrail').setup {
+      hlgroup = 'Substitute',
+      filetype = {
+        strict = false,
+      },
+      trim = {
+        blanklines = true,
+      }
+    }
+  end
+  }
   use 'https://github.com/christoomey/vim-tmux-navigator' -- Seamless jumping between vim and tmux
   use 'https://github.com/airblade/vim-rooter' -- Changes Vim working directory to project root
   use 'https://github.com/karb94/neoscroll.nvim' -- smooth scrolling

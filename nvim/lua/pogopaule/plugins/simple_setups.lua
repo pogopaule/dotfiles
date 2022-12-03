@@ -2,35 +2,10 @@
 vim.notify = require("notify")
 
 -- https://github.com/nvim-lualine/lualine.nvim
-require('lualine').setup({
-  options = {
-    disabled_filetypes = {
-      statusline = { 'NvimTree'},
-    },
-  },
-})
 
 -- https://github.com/goolord/alpha-nvim
 local alpha_config = require('alpha.themes.startify').config
 require('alpha').setup(alpha_config)
-
--- https://github.com/zakharykaplan/nvim-retrail
-require('retrail').setup {
-  -- Highlight group to use for trailing whitespace.
-  -- list all hlgroups with `:so $VIMRUNTIME/syntax/hitest.vim`
-  hlgroup = 'Substitute',
-  -- Enabled filetypes.
-  filetype = {
-    -- Strictly enable only on `include`ed filetypes. When false, only disabled
-    -- on an `exclude`ed filetype.
-    strict = false,
-  },
-  -- Trim on write behaviour.
-  trim = {
-    -- Final blank (i.e. whitespace only) lines.
-    blanklines = true,
-  }
-}
 
 
 -- https://github.com/nvim-telescope/telescope-ui-select.nvim
@@ -61,7 +36,7 @@ require('nvim-autopairs').setup({
     keys = 'qwertyuiopzxcvbnmasdfghjkl',
     check_comma = true,
     highlight = 'Search',
-    highlight_grey='Comment'
+    highlight_grey = 'Comment'
   },
 })
 -- https://github.com/windwp/nvim-autopairs#you-need-to-add-mapping-cr-on-nvim-cmp-setupcheck-readmemd-on-nvim-cmp-repo
@@ -114,12 +89,12 @@ end
 -- https://github.com/akinsho/bufferline.nvim
 require('bufferline').setup({
   options = {
-    offsets = {{
+    offsets = { {
       filetype = 'NvimTree',
       text = 'File Explorer',
       highlight = 'Directory',
       text_align = 'left'
-    }}
+    } }
   }
 })
 
@@ -146,13 +121,13 @@ require('nvim-surround').setup()
 
 -- https://github.com/lukas-reineke/indent-blankline.nvim
 require("indent_blankline").setup {
-    show_current_context = true,
-    -- show_current_context_start = true,
+  show_current_context = true,
+  -- show_current_context_start = true,
 }
 
 -- https://github.com/karb94/neoscroll.nvim
 require('neoscroll').setup({
-  mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+  mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
 })
 
 -- https://github.com/tyru/open-browser.vim
@@ -166,7 +141,7 @@ let g:openbrowser_default_search = 'duckduckgo'
 
 -- https://github.com/monaqa/dial.nvim
 local augend = require("dial.augend")
-require("dial.config").augends:register_group{
+require("dial.config").augends:register_group {
   default = {
     augend.integer.alias.decimal,
     augend.integer.alias.hex,
@@ -178,7 +153,7 @@ require("dial.config").augends:register_group{
 }
 
 -- https://github.com/potamides/pantran.nvim
-require('pantran').setup{
+require('pantran').setup {
   default_engine = 'deepl',
   engines = {
     deepl = {
