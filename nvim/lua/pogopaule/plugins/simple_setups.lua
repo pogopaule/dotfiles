@@ -49,26 +49,6 @@ cmp.event:on(
 )
 
 
--- nvim-tree
-require('nvim-tree').setup({
-  filters = {
-    dotfiles = true,
-  },
-  git = {
-    ignore = false,
-  },
-  view = {
-    mappings = {
-      list = {
-        { key = {'cd'}, action = 'cd' },
-      }
-    },
-    width = 50,
-  }
-})
-vim.g.nvim_tree_special_files = {}
-
-
 -- https://github.com/EdenEast/nightfox.nvim
 local nightfox = require('nightfox')
 nightfox.setup({
@@ -84,19 +64,6 @@ if os.getenv("THEME") == "light" then
 else
   vim.cmd('colorscheme nordfox')
 end
-
-
--- https://github.com/akinsho/bufferline.nvim
-require('bufferline').setup({
-  options = {
-    offsets = { {
-      filetype = 'NvimTree',
-      text = 'File Explorer',
-      highlight = 'Directory',
-      text_align = 'left'
-    } }
-  }
-})
 
 
 -- https://github.com/jpalardy/vim-slim

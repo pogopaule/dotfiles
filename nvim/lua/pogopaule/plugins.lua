@@ -68,8 +68,12 @@ return packer.startup(function(use)
   -- layout / windows
   use { 'https://github.com/kyazdani42/nvim-tree.lua', config = function() -- File Explorer
     require('nvim-tree').setup({
-      filters = { dotfiles = true },
-      git = { ignore = false },
+      filters = {
+        dotfiles = true,
+      },
+      git = {
+        ignore = false,
+      },
       view = {
         mappings = {
           list = {
@@ -92,11 +96,26 @@ return packer.startup(function(use)
         },
       },
     })
-  end }
+  end
+  }
   use { 'https://github.com/kyazdani42/nvim-web-devicons', config = function() require('nvim-web-devicons').setup() end } -- Icon font
   use { 'https://github.com/EdenEast/nightfox.nvim', -- nightfox theme
     run = ':NightfoxCompile', }
-  use 'https://github.com/akinsho/bufferline.nvim' -- buffers as tabs
+
+  use { 'https://github.com/akinsho/bufferline.nvim', config = function()
+    require('bufferline').setup({ -- buffers as tabs
+      options = {
+        offsets = { {
+          filetype = 'NvimTree',
+          text = 'File Explorer',
+          highlight = 'Directory',
+          text_align = 'left'
+        } }
+      }
+    })
+  end
+  }
+
   use { 'https://github.com/kazhala/close-buffers.nvim', config = function() require('close_buffers').setup() end } -- helpers to close buffers, used by bufferline
   use 'https://github.com/rcarriga/nvim-notify' -- popup messages
 
