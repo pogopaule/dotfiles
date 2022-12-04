@@ -1,13 +1,6 @@
 -- https://github.com/rcarriga/nvim-notify
 vim.notify = require("notify")
 
--- https://github.com/nvim-lualine/lualine.nvim
-
--- https://github.com/goolord/alpha-nvim
-local alpha_config = require('alpha.themes.startify').config
-require('alpha').setup(alpha_config)
-
-
 -- https://github.com/nvim-telescope/telescope-ui-select.nvim
 require('telescope').setup {
   extensions = {
@@ -23,30 +16,6 @@ require('telescope').load_extension('ui-select')
 
 -- https://github.com/nvim-telescope/telescope-dap.nvim#setup
 require('telescope').load_extension('dap')
-
-
--- https://github.com/windwp/nvim-autopairs
-require('nvim-autopairs').setup({
-  fast_wrap = {
-    map = '<A-e>',
-    chars = { '{', '[', '(', '"', "'" },
-    pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
-    offset = 0,
-    end_key = '$',
-    keys = 'qwertyuiopzxcvbnmasdfghjkl',
-    check_comma = true,
-    highlight = 'Search',
-    highlight_grey = 'Comment'
-  },
-})
--- https://github.com/windwp/nvim-autopairs#you-need-to-add-mapping-cr-on-nvim-cmp-setupcheck-readmemd-on-nvim-cmp-repo
--- If you want insert `(` after select function or method item
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local cmp = require('cmp')
-cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
-)
 
 
 -- https://github.com/EdenEast/nightfox.nvim
@@ -66,14 +35,6 @@ else
 end
 
 
--- https://github.com/jpalardy/vim-slim
-vim.cmd([[
-let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
-let g:slime_dont_ask_default = 1
-]])
-
-
 -- https://github.com/nvim-neotest/neotest
 require('neotest').setup({
   adapters = {
@@ -85,46 +46,3 @@ require('neotest').setup({
 
 -- https://github.com/kylechui/nvim-surround
 require('nvim-surround').setup()
-
--- https://github.com/lukas-reineke/indent-blankline.nvim
-require("indent_blankline").setup {
-  show_current_context = true,
-  -- show_current_context_start = true,
-}
-
--- https://github.com/karb94/neoscroll.nvim
-require('neoscroll').setup({
-  mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
-})
-
--- https://github.com/tyru/open-browser.vim
-vim.cmd([[
-" disable netrw's gx mapping.
-let g:netrw_nogx = 1
-
-let g:openbrowser_default_search = 'duckduckgo'
-
-]])
-
--- https://github.com/monaqa/dial.nvim
-local augend = require("dial.augend")
-require("dial.config").augends:register_group {
-  default = {
-    augend.integer.alias.decimal,
-    augend.integer.alias.hex,
-    augend.date.alias["%Y/%m/%d"],
-    augend.constant.alias.alpha,
-    augend.constant.alias.Alpha,
-    augend.constant.alias.bool,
-  },
-}
-
--- https://github.com/potamides/pantran.nvim
-require('pantran').setup {
-  default_engine = 'deepl',
-  engines = {
-    deepl = {
-      default_target = 'de',
-    },
-  },
-}
