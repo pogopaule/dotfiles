@@ -23,7 +23,6 @@ require 'pogopaule.plugins'
 require 'pogopaule.options'
 require 'pogopaule.keymaps'
 
-require 'pogopaule.plugins.simple_setups'
 require 'pogopaule.plugins.cmp'
 require 'pogopaule.plugins.treesitter'
 require 'pogopaule.lsp'

@@ -128,7 +128,22 @@ return packer.startup(function(use)
 
   use { 'https://github.com/kyazdani42/nvim-web-devicons', config = function() require('nvim-web-devicons').setup() end } -- Icon font
 
-  use { 'https://github.com/EdenEast/nightfox.nvim', run = ':NightfoxCompile', } -- nightfox theme
+  use { 'https://github.com/EdenEast/nightfox.nvim', run = ':NightfoxCompile', config = function() -- nightfox theme
+    local nightfox = require('nightfox')
+    nightfox.setup({
+      options = {
+        styles = {
+          comments = 'italic',
+          keywords = 'bold',
+        },
+      }
+    })
+    if os.getenv("THEME") == "light" then
+      vim.cmd('colorscheme dayfox')
+    else
+      vim.cmd('colorscheme nordfox')
+    end
+  end }
 
   use { 'https://github.com/akinsho/bufferline.nvim', config = function()
     require('bufferline').setup({ -- buffers as tabs
@@ -145,7 +160,9 @@ return packer.startup(function(use)
 
   use { 'https://github.com/kazhala/close-buffers.nvim', config = function() require('close_buffers').setup() end } -- helpers to close buffers, used by bufferline
 
-  use 'https://github.com/rcarriga/nvim-notify' -- popup messages
+  use { 'https://github.com/rcarriga/nvim-notify', config = function() -- popup messages
+    vim.notify = require("notify")
+  end }
 
 
 
@@ -154,7 +171,15 @@ return packer.startup(function(use)
 
   use 'https://github.com/nvim-telescope/telescope.nvim' -- Find, Filter, Preview, Pick
 
-  use 'https://github.com/nvim-telescope/telescope-ui-select.nvim' -- use telescope to select options
+  use { 'https://github.com/nvim-telescope/telescope-ui-select.nvim', config = function() -- use telescope to select options
+    require('telescope').setup {
+      extensions = {
+        ['ui-select'] = { require('telescope.themes').get_dropdown {} }
+      }
+    }
+    -- To get ui-select loaded and working with telescope, you need to call load_extension, somewhere after setup function:
+    require('telescope').load_extension('ui-select')
+  end }
 
 
 
@@ -204,7 +229,9 @@ return packer.startup(function(use)
 
   use 'https://github.com/andymass/vim-matchup' -- extends %
 
-  use 'https://github.com/kylechui/nvim-surround' -- easily surround with brackets
+  use { 'https://github.com/kylechui/nvim-surround', config = function() -- easily surround with brackets
+    require('nvim-surround').setup()
+  end }
 
   use { 'https://github.com/numToStr/Comment.nvim', config = require('Comment').setup() } -- Comments
 
@@ -249,10 +276,13 @@ return packer.startup(function(use)
 
 
   -- testing
-  use 'https://github.com/nvim-neotest/neotest'
+  use { 'https://github.com/nvim-neotest/neotest', config = function()
+    require('neotest').setup({
+      adapters = { require('neotest-python')({}) },
+    })
+  end }
 
   use 'https://github.com/nvim-neotest/neotest-python'
-
 
 
   -- debugging
@@ -260,7 +290,9 @@ return packer.startup(function(use)
 
   use 'https://github.com/rcarriga/nvim-dap-ui'
 
-  use 'https://github.com/nvim-telescope/telescope-dap.nvim'
+  use { 'https://github.com/nvim-telescope/telescope-dap.nvim', config = function()
+    require('telescope').load_extension('dap')
+  end }
 
   use 'https://github.com/theHamsta/nvim-dap-virtual-text'
 
