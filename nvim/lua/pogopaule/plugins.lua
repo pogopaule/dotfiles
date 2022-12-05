@@ -12,7 +12,37 @@
 -- https://github.com/jakewvincent/mkdnflow.nvim
 -- https://github.com/andythigpen/nvim-coverage display test coverage
 
-local function incubator(use)
+
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+local group = vim.api.nvim_create_augroup('packer_user_config', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', {
+  command = 'source <afile> | PackerSync',
+  pattern = 'plugins.lua',
+  group = group,
+})
+
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, 'packer')
+if not status_ok then
+  return
+end
+
+local packer_util = require('packer.util')
+
+-- Have packer use a popup window
+packer.init {
+  display = {
+    open_fn = function()
+      return packer_util.float { border = 'rounded' }
+    end,
+  },
+  -- snapshot = 'current_packer_snapshot.json',
+  -- snapshot_path = vim.fn.stdpath('config'),
+}
+
+return packer.startup(function(use)
+  -- Incubator ###############################
+
   -- fixes indentation problems with bullet lists
   use 'https://github.com/dkarter/bullets.vim'
 
@@ -61,9 +91,11 @@ local function incubator(use)
       },
     }
   end }
-end
 
-local function basics(use)
+
+
+  -- Basics #################################
+
   -- Have packer manage itself
   use 'https://github.com/wbthomason/packer.nvim'
 
@@ -75,9 +107,10 @@ local function basics(use)
 
   -- fix CursorHold performance
   use 'https://github.com/antoinemadec/FixCursorHold.nvim'
-end
 
-local function layoutAndWindows(use)
+
+  -- Layout and Windows #####################
+
   -- helpers to close buffers, used by bufferline
   use { 'https://github.com/kazhala/close-buffers.nvim', config = function() require('close_buffers').setup() end }
 
@@ -100,9 +133,11 @@ local function layoutAndWindows(use)
           }
         },
         width = 50,
-      }
+      },
+      renderer = {
+        special_files = {},
+      },
     })
-    vim.g.nvim_tree_special_files = {}
   end }
 
   -- Start screen
@@ -157,9 +192,11 @@ local function layoutAndWindows(use)
   use { 'https://github.com/rcarriga/nvim-notify', config = function()
     vim.notify = require("notify")
   end }
-end
 
-local function movingAround(use)
+
+
+  -- Moving Around ################################
+
   -- Jump in text
   use { 'https://github.com/ggandor/leap.nvim', config = function() require('leap').add_default_mappings() end }
 
@@ -177,9 +214,10 @@ local function movingAround(use)
     require('telescope').load_extension('ui-select')
   end }
 
-end
 
-local function misc(use)
+
+  -- Misc ########################################
+
   -- Tabularize
   use 'https://github.com/godlygeek/tabular'
 
@@ -224,9 +262,10 @@ local function misc(use)
     ]])
   end }
 
-end
 
-local function coding(use)
+
+  -- Coding #########################################
+
   -- Nvim Treesitter configurations and abstraction layer
   use { 'https://github.com/nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
@@ -299,22 +338,11 @@ local function coding(use)
       adapters = { require('neotest-python')({}) },
     })
   end }
-end
 
-local function debugging(use)
-  use 'https://github.com/mfussenegger/nvim-dap'
-  use 'https://github.com/rcarriga/nvim-dap-ui'
-  use { 'https://github.com/nvim-telescope/telescope-dap.nvim', config = function()
-    require('telescope').load_extension('dap')
-  end }
-  use 'https://github.com/theHamsta/nvim-dap-virtual-text'
-  use 'https://github.com/mxsdev/nvim-dap-vscode-js'
-  use { 'microsoft/vscode-js-debug', opt = true,
-    -- run = "npm install --legacy-peer-deps && npm run compile"
-  }
-end
 
-local function lsp(use)
+
+  -- LSP ############################################
+
   -- LSP support
   use 'https://github.com/neovim/nvim-lspconfig'
 
@@ -338,9 +366,26 @@ local function lsp(use)
 
   -- LSP and DAP for java
   use 'https://github.com/mfussenegger/nvim-jdtls'
-end
 
-local function git(use)
+
+
+  -- Debugging ######################################
+
+  use 'https://github.com/mfussenegger/nvim-dap'
+  use 'https://github.com/rcarriga/nvim-dap-ui'
+  use { 'https://github.com/nvim-telescope/telescope-dap.nvim', config = function()
+    require('telescope').load_extension('dap')
+  end }
+  use 'https://github.com/theHamsta/nvim-dap-virtual-text'
+  use 'https://github.com/mxsdev/nvim-dap-vscode-js'
+  use { 'microsoft/vscode-js-debug', opt = true,
+    -- run = "npm install --legacy-peer-deps && npm run compile"
+  }
+
+
+
+  -- Git ############################################
+
   -- git decoration for buffers
   use { 'https://github.com/lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
 
@@ -352,63 +397,28 @@ local function git(use)
 
   -- create github permalink via <leader>gy
   use { 'https://github.com/ruifm/gitlinker.nvim', config = function() require('gitlinker').setup() end }
-end
 
-local function completion(use)
+
+
+  -- Completion ########################################
+
   use 'https://github.com/hrsh7th/nvim-cmp'
   use 'https://github.com/hrsh7th/cmp-nvim-lsp'
   use 'https://github.com/hrsh7th/cmp-buffer'
   use 'https://github.com/hrsh7th/cmp-path'
   use 'https://github.com/hrsh7th/cmp-cmdline'
   -- use 'https://github.com/andersevenrud/cmp-tmux'
-end
 
-local function snippets(use)
+
+
+  -- Snippets ##########################################
+
   use 'https://github.com/L3MON4D3/LuaSnip'
   use 'https://github.com/saadparwaiz1/cmp_luasnip'
   use 'https://github.com/rafamadriz/friendly-snippets'
-end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
---
--- local group = vim.api.nvim_create_augroup('packer_user_config', { clear = true })
--- vim.api.nvim_create_autocmd('BufWritePost', {
---   command = 'source <afile> | PackerSync',
---   pattern = 'plugins.lua',
---   group = group,
--- })
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, 'packer')
-if not status_ok then
-  return
-end
 
-local packer_util = require('packer.util')
-
--- Have packer use a popup window
-packer.init {
-  display = {
-    open_fn = function()
-      return packer_util.float { border = 'rounded' }
-    end,
-  },
-  -- snapshot = 'current_packer_snapshot.json',
-  -- snapshot_path = vim.fn.stdpath('config'),
-}
-
-return packer.startup(function(use)
-  incubator(use)
-  basics(use)
-  layoutAndWindows(use)
-  movingAround(use)
-  misc(use)
-  coding(use)
-  debugging(use)
-  lsp(use)
-  git(use)
-  completion(use)
-  snippets(use)
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
