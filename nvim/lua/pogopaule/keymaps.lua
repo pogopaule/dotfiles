@@ -1,3 +1,4 @@
+local wk = require('which-key')
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 
@@ -82,15 +83,19 @@ map("n", "dd", smart_dd, { noremap = true, expr = true })
 
 -- nvim-telescope/telescope.nvim
 local telescope_builtin = require('telescope.builtin')
-map('n', '<leader>ff', telescope_builtin.find_files, opts)
-map('n', '<leader>ft', "<cmd>TodoTelescope<cr>", opts)
-map('n', '<leader>fg', telescope_builtin.live_grep, opts)
-map('n', '<leader>fG', telescope_builtin.grep_string, opts)
-map('v', '<leader>fG', "\"zy:Telescope grep_string search=<C-r>z<cr>", opts)
-map('n', '<leader>fh', telescope_builtin.help_tags, opts)
-map('n', '<leader>fo', telescope_builtin.oldfiles, opts)
-map('n', '<leader>fk', telescope_builtin.keymaps, opts)
-map('n', '<leader>fs', telescope_builtin.spell_suggest, opts)
+wk.register({
+  f = {
+    name = '+Find',
+    f = { telescope_builtin.find_files, 'Files' },
+    h = { telescope_builtin.help_tags, 'Help' },
+    o = { telescope_builtin.oldfiles, 'Old Files' },
+    k = { telescope_builtin.keymaps, 'Keymaps' },
+    t = { '<cmd>TodoTelescope<CR>', 'Todos' },
+    s = { telescope_builtin.spell_suggest, 'Spelling' },
+    g = { telescope_builtin.live_grep, 'Grep' },
+    G = { telescope_builtin.grep_string, 'Find Word Under Cursor' },
+  },
+}, { prefix = "<leader>" })
 
 
 -- scrooloose/nerdtree
@@ -128,7 +133,10 @@ map('n', '<leader>cs', vim.lsp.buf.signature_help, opts)
 map('n', 'gx', '<plug>(openbrowser-smart-search)', {})
 map('v', 'gx', '<plug>(openbrowser-smart-search)', {})
 
-map('n', '<leader>gg', '<cmd>GBrowse<CR>', opts)
+-- map('n', '<leader>gg', '<cmd>GBrowse<CR>', opts)
+wk.register({
+  gg = { '<cmd>GBrowse<CR>', 'Open buffer in github' },
+}, { prefix = "<leader>" })
 
 
 -- lewis6991/gitsigns.nvim
