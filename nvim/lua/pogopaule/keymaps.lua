@@ -81,8 +81,8 @@ end
 map("n", "dd", smart_dd, { noremap = true, expr = true })
 
 
--- nvim-telescope/telescope.nvim
 local telescope_builtin = require('telescope.builtin')
+local dap = require('dap')
 wk.register({
   f = {
     name = '+Find',
@@ -95,25 +95,45 @@ wk.register({
     g = { telescope_builtin.live_grep, 'Grep' },
     G = { telescope_builtin.grep_string, 'Find Word Under Cursor' },
   },
+  r = {
+    name = '+Refactor',
+    i = { "<ESC><CMD>lua require('refactoring').refactor('Inline Variable')<CR>", 'Inline Variable' },
+    r = { "<ESC><CMD>Lspsaga rename<CR>", 'Rename' },
+  },
+  d = {
+    name = '+Debug',
+    c = { dap.continue, 'Continue' },
+    d = { dap.step_over, 'Step Over' },
+    i = { dap.step_into, 'Step Into' },
+    u = { dap.step_out, 'Step Out' },
+    b = { dap.toggle_breakpoint, 'Toggle Breakpoint' },
+    t = { require('dapui').toggle, 'Toggle DAP UI' },
+  },
+  x = {
+    name = '+Diagnostics',
+    x = { '<CMD>Trouble document_diagnostics<CR>', 'Document' },
+    w = { '<CMD>Trouble workspace_diagnostics<CR>', 'Workspace' },
+    n = { '<CMD>lua vim.diagnostic.goto_next({float = false})<CR>', 'Goto Next' },
+    p = { '<CMD>lua vim.diagnostic.goto_prev({float = false})<CR>', 'Goto Previous' },
+  }
 }, { prefix = "<leader>" })
 
+wk.register({
+  r = {
+    name = '+Refactor',
+    i = { "<ESC><CMD>lua require('refactoring').refactor('Inline Variable')<CR>", 'Inline Variable' },
+    f = { "<ESC><CMD>lua require('refactoring').refactor('Extract Function')<CR>", 'Extract Function' },
+    v = { "<ESC><CMD>lua require('refactoring').refactor('Extract Variable')<CR>", 'Extract Variable' },
+  }
+}, { prefix = '<leader>', mode = 'v' })
 
 -- scrooloose/nerdtree
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', opts)
 map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>', opts)
 
 
--- ThePrimeagen/refactoring.nvim
-map('v', '<leader>rf', "<Esc><cmd>lua require('refactoring').refactor('Extract Function')<CR>", opts)
-map('v', '<leader>rv', "<Esc><cmd>lua require('refactoring').refactor('Extract Variable')<CR>", opts)
-map('n', '<leader>ri', "<Esc><cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
-map('v', '<leader>ri', "<Esc><cmd>lua require('refactoring').refactor('Inline Variable')<CR>", opts)
-
-
 -- neovim/lspconfig
 map('n', 'gd', vim.lsp.buf.definition, opts)
-map('n', '<leader>xn', '<cmd>lua vim.diagnostic.goto_next({float = false})<CR>', opts)
-map('n', '<leader>xp', '<cmd>lua vim.diagnostic.goto_prev({float = false})<CR>', opts)
 
 map('n', '<C-F>', vim.lsp.buf.format, opts)
 map('v', '<C-F>', vim.lsp.buf.format, opts)
@@ -122,7 +142,6 @@ map('x', '<C-F>', vim.lsp.buf.format, opts)
 
 
 -- glepnir/lspsaga.nvim
-map('n', '<leader>rr', '<cmd>Lspsaga rename<CR>', opts)
 map('n', '<leader>a', '<cmd>Lspsaga code_action<CR>', opts)
 map('n', '<leader>cp', '<cmd>Lspsaga peek_definition<CR>', opts)
 map('n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
@@ -138,13 +157,6 @@ wk.register({
   gg = { '<cmd>GBrowse<CR>', 'Open buffer in github' },
 }, { prefix = "<leader>" })
 
-
--- lewis6991/gitsigns.nvim
-map('n', '<leader>gr', '<cmd>Gitsigns reset_hunk<CR>', opts)
-map('n', '<leader>gb', '<cmd>Gitsigns blame_line<CR>', opts)
-map('n', '<leader>gp', '<cmd>Gitsigns preview_hunk<CR>', opts)
-map('n', '<leader>gn', '<cmd>Gitsigns next_hunk<CR>', opts)
-map('n', '<leader>gN', '<cmd>Gitsigns prev_hunk<CR>', opts)
 
 
 -- akinsho/bufferline.nvim
@@ -181,7 +193,7 @@ map('s', '<s-tab>', function()
 end, { silent = true })
 
 -- this always moves to the previous item within the snippet
-map({'i', 's' }, '<s-tab>', function()
+map({ 'i', 's' }, '<s-tab>', function()
   if ls.jumpable(-1) then
     ls.jump(-1)
   end
@@ -203,8 +215,6 @@ vim.api.nvim_create_autocmd('BufReadPost', { pattern = 'quickfix', command = 'nn
 
 
 -- folke/trouble.nvim
-vim.api.nvim_set_keymap('n', '<leader>xx', '<cmd>Trouble document_diagnostics<cr>', opts)
-vim.api.nvim_set_keymap('n', '<leader>xw', '<cmd>Trouble workspace_diagnostics<cr>', opts)
 vim.api.nvim_set_keymap('n', 'gR', '<cmd>Trouble lsp_references<cr>', opts)
 
 
@@ -212,21 +222,6 @@ vim.api.nvim_set_keymap('n', 'gR', '<cmd>Trouble lsp_references<cr>', opts)
 vim.cmd [[let g:slime_no_mappings = 1]]
 map('x', '<C-s>', '<Plug>SlimeRegionSend', {})
 map('n', '<C-s>', '<Plug>SlimeParagraphSend', {})
-
-
--- mfussenegger/nvim-dap
-local dap = require('dap')
-map('n', '<leader>dc', dap.continue, opts)
-map('n', '<leader>dv', dap.step_over, opts)
-map('n', '<leader>di', dap.step_into, opts)
-map('n', '<leader>du', dap.step_out, opts)
-map('n', '<leader>db', dap.toggle_breakpoint, opts)
-map('n', '<leader>dt', require('dapui').toggle, opts)
-
--- map('n', '<Leader>B', "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
--- map('n', '<Leader>lp', "<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
--- map('n', '<Leader>dr', "<Cmd>lua require'dap'.repl.open()<CR>", opts)
--- map('n', '<Leader>dl', "<Cmd>lua require'dap'.run_last()<CR>", opts)
 
 
 -- https://github.com/monaqa/dial.nvim
