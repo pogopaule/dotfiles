@@ -116,6 +116,13 @@ wk.register({
     s = { '<CMD>e ~/dotfiles/nvim/lua/pogopaule/plugins/luasnip.lua<CR>', 'Snippets'},
     n = { '<CMD>e ~/dotfiles/nix/home-core.nix<CR>', 'Nix Home Core'},
   },
+  t = {
+    name = '+Telekasten',
+    f = { '<CMD>lua require("telekasten").find_notes()<CR>', 'Find Notes'},
+    d = { '<CMD>lua require("telekasten").find_daily_notes()<CR>', 'Find Daily Notes'},
+    g = { '<CMD>lua require("telekasten").search_notes()<CR>', 'Grep in Notes'},
+    t = { '<CMD>lua require("telekasten").panel()<CR>', 'Open Panel'},
+  },
   q = { '<CMD>quit<CR>', 'Quit' },
   Q = { '<CMD>quitall<CR>', 'Quit All' },
   w = { '<CMD>write<CR>', 'Write' },

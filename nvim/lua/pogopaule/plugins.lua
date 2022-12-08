@@ -55,6 +55,9 @@ return packer.startup(function(use)
   -- github integration
   use { 'https://github.com/pwntester/octo.nvim', config = function() require('octo').setup() end }
 
+  -- note taking
+  use 'https://github.com/renerocksai/telekasten.nvim'
+
   -- -- editorconfig integration
   -- use 'https://github.com/editorconfig/editorconfig-vim'
 
