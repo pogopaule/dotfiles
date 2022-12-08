@@ -23,24 +23,6 @@ map('n', '<Right>', ':vertical resize +4<CR>', opts)
 map('i', 'jk', '<ESC>', opts)
 
 
--- copy paste from system clipboard
-map('n', '<leader>p', '"+p', opts)
-map('v', '<leader>p', '"+p', opts)
-map('v', '<leader>y', '"+y', opts)
-
-
--- search and replace in buffer
-map('v', '<leader>s', '"hy:%s/<C-r>h//g<left><left>', { noremap = true })
-
-map('n', '<leader>q', ':quit<CR>', opts)
-map('n', '<leader>Q', ':quitall<CR>', opts)
-map('n', '<leader>w', ':write<CR>', opts)
-
-
--- remove search highlight
-map('n', '<leader>dd', ':nohlsearch<CR>', opts)
-
-
 -- enter adds new line in normal mode
 map('n', '<CR>', 'o<ESC>', opts)
 
@@ -90,10 +72,11 @@ wk.register({
     h = { telescope_builtin.help_tags, 'Help' },
     o = { telescope_builtin.oldfiles, 'Old Files' },
     k = { telescope_builtin.keymaps, 'Keymaps' },
-    t = { '<cmd>TodoTelescope<CR>', 'Todos' },
+    t = { '<CMD>TodoTelescope<CR>', 'Todos' },
     s = { telescope_builtin.spell_suggest, 'Spelling' },
     g = { telescope_builtin.live_grep, 'Grep' },
     G = { telescope_builtin.grep_string, 'Find Word Under Cursor' },
+    c = { telescope_builtin.git_commits, 'Git Commits' },
   },
   r = {
     name = '+Refactor',
@@ -103,11 +86,21 @@ wk.register({
   d = {
     name = '+Debug',
     c = { dap.continue, 'Continue' },
-    d = { dap.step_over, 'Step Over' },
+    o = { dap.step_over, 'Step Over' },
     i = { dap.step_into, 'Step Into' },
     u = { dap.step_out, 'Step Out' },
     b = { dap.toggle_breakpoint, 'Toggle Breakpoint' },
     t = { require('dapui').toggle, 'Toggle DAP UI' },
+  },
+  g = {
+    name = '+Git',
+    r = { '<CMD>Gitsigns reset_hunk<CR>', 'Reset Hunk' },
+    b = { '<CMD>Gitsigns blame_line<CR>', 'Blame Line' },
+    p = { '<CMD>Gitsigns preview_hunk<CR>', 'Preview Hunk' },
+    n = { '<CMD>Gitsigns next_hunk<CR>', 'Next Hunk' },
+    N = { '<CMD>Gitsigns prev_hunk<CR>', 'Previous Hunk' },
+    y = { '<CMD>lua require("gitlinker").get_buf_range_url("n")<CR>', 'Github Link' },
+    g = { '<CMD>GBrowse<CR>', 'Open Buffer In Github' },
   },
   x = {
     name = '+Diagnostics',
@@ -115,7 +108,16 @@ wk.register({
     w = { '<CMD>Trouble workspace_diagnostics<CR>', 'Workspace' },
     n = { '<CMD>lua vim.diagnostic.goto_next({float = false})<CR>', 'Goto Next' },
     p = { '<CMD>lua vim.diagnostic.goto_prev({float = false})<CR>', 'Goto Previous' },
-  }
+  },
+  q = { '<CMD>quit<CR>', 'Quit' },
+  Q = { '<CMD>quitall<CR>', 'Quit All' },
+  w = { '<CMD>write<CR>', 'Write' },
+  h = { '<CMD>nohlsearch<CR>', 'Remove Highlight' },
+  p = { '"+p', 'Paste From Clipboard' },
+  N = { '<CMD>NvimTreeToggle<CR>', 'Toggle Nvim Tree' },
+  n = { '<CMD>NvimTreeFindFile<CR>', 'Find File in Nvim Tree' },
+  a = { '<CMD>Lspsaga code_action<CR>', 'LSP Code Action' },
+  e = { '<CMD>Lspsaga show_line_diagnostics<CR>', 'LSP Line Diagnostics' },
 }, { prefix = "<leader>" })
 
 wk.register({
@@ -124,16 +126,18 @@ wk.register({
     i = { "<ESC><CMD>lua require('refactoring').refactor('Inline Variable')<CR>", 'Inline Variable' },
     f = { "<ESC><CMD>lua require('refactoring').refactor('Extract Function')<CR>", 'Extract Function' },
     v = { "<ESC><CMD>lua require('refactoring').refactor('Extract Variable')<CR>", 'Extract Variable' },
-  }
+  },
+  p = { '"+p', 'Paste From Clipboard' },
+  y = { '"+y', 'Yank To Clipboard' },
+  s = { '"hy:%s/<C-r>h//g<left><left>', 'Search Selection', silent = false },
+
 }, { prefix = '<leader>', mode = 'v' })
 
--- scrooloose/nerdtree
-map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', opts)
-map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>', opts)
 
-
--- neovim/lspconfig
+-- LSP
 map('n', 'gd', vim.lsp.buf.definition, opts)
+map('n', 'gR', '<CMD>Trouble lsp_references<CR>', opts)
+map('n', 'K', '<CMD>Lspsaga hover_doc<CR>', opts)
 
 map('n', '<C-F>', vim.lsp.buf.format, opts)
 map('v', '<C-F>', vim.lsp.buf.format, opts)
@@ -141,36 +145,23 @@ map('s', '<C-F>', vim.lsp.buf.format, opts)
 map('x', '<C-F>', vim.lsp.buf.format, opts)
 
 
--- glepnir/lspsaga.nvim
-map('n', '<leader>a', '<cmd>Lspsaga code_action<CR>', opts)
-map('n', '<leader>cp', '<cmd>Lspsaga peek_definition<CR>', opts)
-map('n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
-map('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
-map('n', '<leader>cs', vim.lsp.buf.signature_help, opts)
-
 -- tyru/open-browser.vim
 map('n', 'gx', '<plug>(openbrowser-smart-search)', {})
 map('v', 'gx', '<plug>(openbrowser-smart-search)', {})
 
--- map('n', '<leader>gg', '<cmd>GBrowse<CR>', opts)
-wk.register({
-  gg = { '<cmd>GBrowse<CR>', 'Open buffer in github' },
-}, { prefix = "<leader>" })
-
-
 
 -- akinsho/bufferline.nvim
-map('n', '<A-h>', '<cmd>BufferLineCyclePrev<CR>', opts)
-map('n', '<A-l>', '<cmd>BufferLineCycleNext<CR>', opts)
-map('i', '<A-h>', '<cmd>BufferLineCyclePrev<CR>', opts)
-map('i', '<A-l>', '<cmd>BufferLineCycleNext<CR>', opts)
-map('n', '<A-H>', '<cmd>BufferLineMovePrev<CR>', opts)
-map('n', '<A-L>', '<cmd>BufferLineMoveNext<CR>', opts)
+map('n', '<A-h>', '<CMD>BufferLineCyclePrev<CR>', opts)
+map('n', '<A-l>', '<CMD>BufferLineCycleNext<CR>', opts)
+map('i', '<A-h>', '<CMD>BufferLineCyclePrev<CR>', opts)
+map('i', '<A-l>', '<CMD>BufferLineCycleNext<CR>', opts)
+map('n', '<A-H>', '<CMD>BufferLineMovePrev<CR>', opts)
+map('n', '<A-L>', '<CMD>BufferLineMoveNext<CR>', opts)
 
 
 -- kazhala/close-buffers.nvim
-map('n', '<C-w>', "<cmd>lua require('close_buffers').delete({ type = 'this' })<cr>", opts)
-map('n', '<A-o>', "<cmd>lua require('close_buffers').delete({ type = 'other' })<cr>", opts)
+map('n', '<C-w>', "<CMD>lua require('close_buffers').delete({ type = 'this' })<CR>", opts)
+map('n', '<A-o>', "<CMD>lua require('close_buffers').delete({ type = 'other' })<CR>", opts)
 
 
 -- L3MON4D3/LuaSnip
@@ -212,10 +203,6 @@ map('i', '<c-u>', require 'luasnip.extras.select_choice')
 -- make enter work in quickfix list
 local group = vim.api.nvim_create_augroup('enter_in_quickfix', { clear = true })
 vim.api.nvim_create_autocmd('BufReadPost', { pattern = 'quickfix', command = 'nnoremap <buffer> <CR> <CR>', group = group, })
-
-
--- folke/trouble.nvim
-vim.api.nvim_set_keymap('n', 'gR', '<cmd>Trouble lsp_references<cr>', opts)
 
 
 -- jpalardy/vim-slime
