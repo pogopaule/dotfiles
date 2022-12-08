@@ -109,6 +109,13 @@ wk.register({
     n = { '<CMD>lua vim.diagnostic.goto_next({float = false})<CR>', 'Goto Next' },
     p = { '<CMD>lua vim.diagnostic.goto_prev({float = false})<CR>', 'Goto Previous' },
   },
+  o = {
+    name = '+Open',
+    k = { '<CMD>e ~/dotfiles/nvim/lua/pogopaule/keymaps.lua<CR>', 'Keymaps'},
+    p = { '<CMD>e ~/dotfiles/nvim/lua/pogopaule/plugins.lua<CR>', 'Plugins'},
+    s = { '<CMD>e ~/dotfiles/nvim/lua/pogopaule/plugins/luasnip.lua<CR>', 'Snippets'},
+    n = { '<CMD>e ~/dotfiles/nix/home-core.nix<CR>', 'Nix Home Core'},
+  },
   q = { '<CMD>quit<CR>', 'Quit' },
   Q = { '<CMD>quitall<CR>', 'Quit All' },
   w = { '<CMD>write<CR>', 'Write' },
@@ -136,7 +143,6 @@ wk.register({
 
 -- LSP
 map('n', 'gd', vim.lsp.buf.definition, opts)
-map('n', 'gR', '<CMD>Trouble lsp_references<CR>', opts)
 map('n', 'K', '<CMD>Lspsaga hover_doc<CR>', opts)
 
 map('n', '<C-F>', vim.lsp.buf.format, opts)
