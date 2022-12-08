@@ -304,6 +304,9 @@ return packer.startup(function(use)
   -- print() debugging
   use { 'https://github.com/andrewferrier/debugprint.nvim', config = function() require('debugprint').setup() end }
 
+  -- split or join blocks powered by treesitter
+  use({ 'Wansmer/treesj', config = function() require('treesj').setup({ use_default_keymaps = false }) end })
+
   -- easily surround with brackets
   use { 'https://github.com/kylechui/nvim-surround', config = function()
     require('nvim-surround').setup()

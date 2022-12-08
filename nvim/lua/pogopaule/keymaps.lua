@@ -123,6 +123,12 @@ wk.register({
     g = { '<CMD>lua require("telekasten").search_notes()<CR>', 'Grep in Notes'},
     t = { '<CMD>lua require("telekasten").panel()<CR>', 'Open Panel'},
   },
+  j = {
+    name = '+TSJoin',
+    t = { '<CMD>TSJToggle<CR>', 'Toggle'},
+    j = { '<CMD>TSJJoin<CR>', 'Join'},
+    s = { '<CMD>TSJSplit<CR>', 'Split'},
+  },
   q = { '<CMD>quit<CR>', 'Quit' },
   Q = { '<CMD>quitall<CR>', 'Quit All' },
   w = { '<CMD>write<CR>', 'Write' },
