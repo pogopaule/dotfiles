@@ -30,7 +30,6 @@
       curl
       unzip
       git-crypt
-      nb
       python3
       nodejs
       lazydocker
