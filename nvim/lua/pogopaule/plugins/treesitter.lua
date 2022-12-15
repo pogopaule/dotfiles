@@ -47,5 +47,5 @@ require'nvim-treesitter.configs'.setup {
 }
 
 -- FIXME: folding does not always work, figure out why
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+-- vim.opt.foldmethod = 'expr'
+-- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
