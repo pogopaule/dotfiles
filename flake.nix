@@ -8,9 +8,10 @@
       url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    devenv.url = "github:cachix/devenv/v0.4";
   };
 
-  outputs = { nixpkgs, nixpkgs-master, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-master, home-manager, devenv, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -30,7 +31,7 @@
         noDesktop = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme; })
+            (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme devenv; })
             {
               home = {
                 username = "pogopaule";
@@ -44,7 +45,7 @@
           {
             inherit pkgs;
             modules = [
-              (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme; })
+              (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme devenv; })
               (import ./nix/home-haflinger.nix { inherit pkgs pkgs-master darkTheme; })
               {
                 home = {
@@ -59,7 +60,7 @@
           {
             inherit pkgs;
             modules = [
-              (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme; })
+              (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme devenv; })
               (import ./nix/home-desktop.nix { inherit pkgs darkTheme; })
               {
                 home = {

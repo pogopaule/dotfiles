@@ -1,4 +1,4 @@
-{ pkgs, pkgs-master, darkTheme, ... }:
+{ pkgs, pkgs-master, darkTheme, devenv, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -48,6 +48,7 @@
       python310Packages.python-lsp-server
     ] ++ [
       pkgs-master.neovim
+      devenv.packages.x86_64-linux.devenv
     ];
   };
 
