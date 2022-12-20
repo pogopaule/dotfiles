@@ -2,10 +2,10 @@
   description = "pogopaule's system config";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-22.05";
+    nixpkgs.url = "nixpkgs/nixos-22.11";
     nixpkgs-master.url = "nixpkgs/master";
     home-manager = {
-      url = "github:nix-community/home-manager/release-22.05";
+      url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -29,7 +29,7 @@
       noDesktop = home-manager.lib.homeManagerConfiguration {
         inherit system pkgs;
         username = "pogopaule";
-        stateVersion = "22.05";
+        stateVersion = "22.11";
         homeDirectory = "/home/pogopaule";
         configuration = {
           imports = [
@@ -40,7 +40,7 @@
       haflinger = home-manager.lib.homeManagerConfiguration {
         inherit system pkgs;
         username = "pogopaule";
-        stateVersion = "22.05";
+        stateVersion = "22.11";
         homeDirectory = "/home/pogopaule";
         configuration = {
           imports = [
@@ -52,7 +52,7 @@
       desktop = home-manager.lib.homeManagerConfiguration {
         inherit system pkgs;
         username = "pogopaule";
-        stateVersion = "22.05";
+        stateVersion = "22.11";
         homeDirectory = "/home/pogopaule";
         configuration = {
           imports = [
