@@ -28,40 +28,48 @@
     {
       homeManagerConfigurations = {
         noDesktop = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
-          username = "pogopaule";
-          stateVersion = "22.11";
-          homeDirectory = "/home/pogopaule";
-          configuration = {
-            imports = [
-              (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme; })
-            ];
-          };
+          inherit pkgs;
+          modules = [
+            (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme; })
+            {
+              home = {
+                username = "pogopaule";
+                stateVersion = "22.11";
+                homeDirectory = "/home/pogopaule";
+              };
+            }
+          ];
         };
-        haflinger = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
-          username = "pogopaule";
-          stateVersion = "22.11";
-          homeDirectory = "/home/pogopaule";
-          configuration = {
-            imports = [
+        haflinger = home-manager.lib.homeManagerConfiguration
+          {
+            inherit pkgs;
+            modules = [
               (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme; })
               (import ./nix/home-haflinger.nix { inherit pkgs pkgs-master darkTheme; })
+              {
+                home = {
+                  username = "pogopaule";
+                  stateVersion = "22.11";
+                  homeDirectory = "/home/pogopaule";
+                };
+              }
             ];
           };
-        };
-        desktop = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
-          username = "pogopaule";
-          stateVersion = "22.11";
-          homeDirectory = "/home/pogopaule";
-          configuration = {
-            imports = [
+        desktop = home-manager.lib.homeManagerConfiguration
+          {
+            inherit pkgs;
+            modules = [
               (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme; })
               (import ./nix/home-desktop.nix { inherit pkgs darkTheme; })
+              {
+                home = {
+                  username = "pogopaule";
+                  stateVersion = "22.11";
+                  homeDirectory = "/home/pogopaule";
+                };
+              }
             ];
           };
-        };
       };
       nixosConfigurations = {
         panther = nixpkgs.lib.nixosSystem {
