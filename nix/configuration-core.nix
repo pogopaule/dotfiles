@@ -59,7 +59,7 @@
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
-    drivers = [pkgs.gutenprint];
+    drivers = [ pkgs.gutenprint ];
   };
 
   sound.enable = true;
@@ -84,10 +84,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    firefox
-  ];
 
   system.stateVersion = "22.11"; # Did you read the comment?
 }
