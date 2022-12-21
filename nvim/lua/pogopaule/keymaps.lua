@@ -77,6 +77,7 @@ wk.register({
     g = { telescope_builtin.live_grep, 'Grep' },
     G = { telescope_builtin.grep_string, 'Find Word Under Cursor' },
     c = { telescope_builtin.git_commits, 'Git Commits' },
+    r = { telescope_builtin.lsp_references, 'LSP references' },
   },
   r = {
     name = '+Refactor',
@@ -141,6 +142,11 @@ wk.register({
 }, { prefix = "<leader>" })
 
 wk.register({
+  gd = { vim.lsp.buf.definition, 'Go to LSP definition' },
+  K = { '<CMD>Lspsaga hover_doc<CR>', 'Hover LSP documentation'}
+})
+
+wk.register({
   r = {
     name = '+Refactor',
     i = { "<ESC><CMD>lua require('refactoring').refactor('Inline Variable')<CR>", 'Inline Variable' },
@@ -155,9 +161,6 @@ wk.register({
 
 
 -- LSP
-map('n', 'gd', vim.lsp.buf.definition, opts)
-map('n', 'K', '<CMD>Lspsaga hover_doc<CR>', opts)
-
 map('n', '<C-F>', vim.lsp.buf.format, opts)
 map('v', '<C-F>', vim.lsp.buf.format, opts)
 map('s', '<C-F>', vim.lsp.buf.format, opts)
