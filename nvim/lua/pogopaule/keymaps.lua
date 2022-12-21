@@ -78,6 +78,7 @@ wk.register({
     G = { telescope_builtin.grep_string, 'Find Word Under Cursor' },
     c = { telescope_builtin.git_commits, 'Git Commits' },
     r = { telescope_builtin.lsp_references, 'LSP references' },
+    u = { '<CMD>Telescope undo<CR>', 'Undo' },
   },
   r = {
     name = '+Refactor',

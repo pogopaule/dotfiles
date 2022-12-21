@@ -43,6 +43,12 @@ packer.init {
 return packer.startup(function(use)
   -- Incubator ###############################
 
+  -- undo tree in telescope
+  use {
+    'debugloop/telescope-undo.nvim', config = function()
+      require('telescope').load_extension('undo')
+    end,
+  }
   -- better folding
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', config = function()
 
