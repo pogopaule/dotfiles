@@ -68,7 +68,7 @@ local dap = require('dap')
 wk.register({
   f = {
     name = '+Find',
-    f = { telescope_builtin.find_files, 'Files' },
+    f = { '<CMD>Telescope find_files hidden=true<CR>', 'Files' },
     h = { telescope_builtin.help_tags, 'Help' },
     o = { telescope_builtin.oldfiles, 'Old Files' },
     k = { telescope_builtin.keymaps, 'Keymaps' },
@@ -79,6 +79,7 @@ wk.register({
     c = { telescope_builtin.git_commits, 'Git Commits' },
     r = { telescope_builtin.lsp_references, 'LSP references' },
     u = { '<CMD>Telescope undo<CR>', 'Undo' },
+    n = { '<CMD>lua require("telekasten").find_notes()<CR>', 'Find Notes'},
   },
   r = {
     name = '+Refactor',
@@ -97,7 +98,8 @@ wk.register({
   g = {
     name = '+Git',
     r = { '<CMD>Gitsigns reset_hunk<CR>', 'Reset Hunk' },
-    b = { '<CMD>Gitsigns blame_line<CR>', 'Blame Line' },
+    bl = { '<CMD>Gitsigns blame_line<CR>', 'Blame Line' },
+    bf = { '<CMD>G blame<CR>', 'Blame File' },
     p = { '<CMD>Gitsigns preview_hunk<CR>', 'Preview Hunk' },
     n = { '<CMD>Gitsigns next_hunk<CR>', 'Next Hunk' },
     N = { '<CMD>Gitsigns prev_hunk<CR>', 'Previous Hunk' },
@@ -124,6 +126,7 @@ wk.register({
     d = { '<CMD>lua require("telekasten").find_daily_notes()<CR>', 'Find Daily Notes'},
     g = { '<CMD>lua require("telekasten").search_notes()<CR>', 'Grep in Notes'},
     t = { '<CMD>lua require("telekasten").panel()<CR>', 'Open Panel'},
+    n = { '<CMD>lua require("telekasten").new_note()<CR>', 'Open Panel'},
   },
   j = {
     name = '+TSJoin',
