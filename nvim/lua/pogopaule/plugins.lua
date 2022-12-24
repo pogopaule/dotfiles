@@ -43,6 +43,14 @@ packer.init {
 return packer.startup(function(use)
   -- Incubator ###############################
 
+  -- ChatGPT
+  use({
+    "jackMort/ChatGPT.nvim", config = function() require("chatgpt").setup() end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+    }
+  })
+
   -- undo tree in telescope
   use {
     'debugloop/telescope-undo.nvim', config = function()
