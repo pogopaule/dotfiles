@@ -8,7 +8,7 @@
       url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    devenv.url = "github:cachix/devenv/v0.4";
+    devenv.url = "github:cachix/devenv/v0.5";
   };
 
   outputs = { nixpkgs, nixpkgs-master, home-manager, devenv, ... }:
