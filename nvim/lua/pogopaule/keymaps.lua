@@ -77,6 +77,7 @@ wk.register({
     g = { telescope_builtin.live_grep, 'Grep' },
     G = { telescope_builtin.grep_string, 'Find Word Under Cursor' },
     c = { telescope_builtin.git_commits, 'Git Commits' },
+    b = { telescope_builtin.git_bcommits, 'Git Commits For Buffer' },
     r = { telescope_builtin.lsp_references, 'LSP references' },
     u = { '<CMD>Telescope undo<CR>', 'Undo' },
     n = { '<CMD>lua require("telekasten").find_notes()<CR>', 'Find Notes'},
