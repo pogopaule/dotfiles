@@ -114,6 +114,11 @@ wk.register({
     n = { '<CMD>lua vim.diagnostic.goto_next({float = false})<CR>', 'Goto Next' },
     p = { '<CMD>lua vim.diagnostic.goto_prev({float = false})<CR>', 'Goto Previous' },
   },
+  l = {
+    name = '+Linenumbers',
+    a = { '<CMD>set number!<CR>', 'Toggle Absolute Numbers'},
+    r = { '<CMD>set relativenumber!<CR>', 'Toggle Relative Numbers'},
+  },
   o = {
     name = '+Open',
     k = { '<CMD>e ~/dotfiles/nvim/lua/pogopaule/keymaps.lua<CR>', 'Keymaps'},
