@@ -51,9 +51,19 @@ local function get_existing_fields(position, field)
 end
 
 ls.add_snippets('all', {
-  s({ trig = 'epoch', dscr = 'current time as unix timestamp' }, f(
+  s({ trig = 'timestamp', dscr = 'current time as unix timestamp' }, f(
     function()
       return tostring(os.time())
+    end)),
+  s({ trig = 'uuid', dscr = 'random pseudo uuid' }, f(
+    function()
+      -- taken from https://gist.github.com/jrus/3197011
+      local random = math.random
+      local template = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+      return string.gsub(template, '[xy]', function(c)
+        local v = (c == 'x') and random(0, 0xf) or random(8, 0xb)
+        return string.format('%x', v)
+      end)
     end)),
 })
 
