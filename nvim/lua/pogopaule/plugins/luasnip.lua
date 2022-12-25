@@ -88,21 +88,21 @@ ls.add_snippets('typescript', {
   s('describe',
     fmt([[
       describe('{}', () => {{
-        test('{}', () => {{
+        {}('{}', {}() => {{
           {}
         }});
       }});
     ]], {
-      i(1), i(2), i(0)
+      i(1), c(2, { t 'it', t 'test' }), i(3), c(4, { t 'async ', t '' }), i(0)
     })
   ),
   s('test',
     fmt([[
-      test('{}', () => {{
+      {}('{}', {}() => {{
         {}
       }});
     ]], {
-      i(1), i(0)
+      c(1, { t 'it', t 'test' }), i(2), c(3, { t 'async ', t '' }), i(0)
     })
   ),
 })
