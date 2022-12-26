@@ -9,11 +9,21 @@
       { name = "fzf-tab"; src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";}
     ];
     initExtra = ''
+      # https://github.com/jeffreytse/zsh-vi-mode#nix
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
       # https://github.com/junegunn/fzf/wiki/Configuring-fuzzy-completion#zsh
       export FZF_COMPLETION_TRIGGER=""
       bindkey '^T' fzf-completion
       bindkey '^I' $fzf_default_completion
 
+      # https://github.com/jeffreytse/zsh-vi-mode#custom-escape-key
+      ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+
+      # https://github.com/jeffreytse/zsh-vi-mode/issues/127#issuecomment-1025292052
+      function zvm_after_init() {
+        zvm_bindkey viins '^R' fzf-history-widget
+      }
 
       # https://github.com/Aloxaf/fzf-tab#configure
       # disable sort when completing `git checkout`
@@ -31,9 +41,6 @@
       zstyle ':fzf-tab:*' default-color $'\033[30m'
       # see https://man.archlinux.org/man/fzf.1.en#color=
       zstyle ':fzf-tab:*' fzf-flags ${ if darkTheme then "--color=dark" else "--color=light"}
-
-      # https://github.com/jeffreytse/zsh-vi-mode#nix
-      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
     '';
     oh-my-zsh = {
       enable = true;
@@ -52,9 +59,6 @@
 
         bindkey -s '^F' "zi\n"
 
-        # https://github.com/jeffreytse/zsh-vi-mode#custom-escape-key
-        ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-
         # configure BAT
         export BAT_THEME=${if darkTheme then "OneHalfDark" else "OneHalfLight"}
 
@@ -65,7 +69,6 @@
         fi
 
         source ~/.zshrc.local
-
       '';
 
       plugins = [
