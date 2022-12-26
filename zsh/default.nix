@@ -31,6 +31,9 @@
       zstyle ':fzf-tab:*' default-color $'\033[30m'
       # see https://man.archlinux.org/man/fzf.1.en#color=
       zstyle ':fzf-tab:*' fzf-flags ${ if darkTheme then "--color=dark" else "--color=light"}
+
+      # https://github.com/jeffreytse/zsh-vi-mode#nix
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
     '';
     oh-my-zsh = {
       enable = true;
@@ -47,13 +50,10 @@
           fd --type d --hidden --follow --no-ignore --exclude ".git" . "$1"
         }
 
-        bindkey 'jk' vi-cmd-mode
         bindkey -s '^F' "zi\n"
 
-
-        # configure vi-mode plugin https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vi-mode#settings
-        export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-        export VI_MODE_SET_CURSOR=true
+        # https://github.com/jeffreytse/zsh-vi-mode#custom-escape-key
+        ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
         # configure BAT
         export BAT_THEME=${if darkTheme then "OneHalfDark" else "OneHalfLight"}
@@ -76,7 +76,6 @@
         "docker"
         "docker-compose"
         "gradle"
-        "vi-mode"
         "npm"
         "ssh-agent"
         "tmuxinator"
