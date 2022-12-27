@@ -66,6 +66,7 @@ map("n", "dd", smart_dd, { noremap = true, expr = true })
 local telescope_builtin = require('telescope.builtin')
 local dap = require('dap')
 wk.register({
+  c = { '<CMD>ChatGPT<CR>', 'ChatGPT'},
   f = {
     name = '+Find',
     f = { '<CMD>Telescope find_files hidden=true<CR>', 'Files' },

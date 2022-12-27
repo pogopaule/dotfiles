@@ -45,7 +45,11 @@ return packer.startup(function(use)
 
   -- ChatGPT
   use({
-    "jackMort/ChatGPT.nvim", config = function() require("chatgpt").setup() end,
+    "https://github.com/jackMort/ChatGPT.nvim", config = function()
+      require("chatgpt").setup({
+        welcome_message = "",
+      })
+    end,
     requires = {
       "MunifTanjim/nui.nvim",
     }
