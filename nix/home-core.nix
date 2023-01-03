@@ -66,6 +66,10 @@
     jq.enable = true;
     gh.enable = true;
 
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     gpg = {
       enable = true;
     };
