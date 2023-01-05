@@ -108,9 +108,9 @@ wk.register({
   },
   o = {
     name = '+Open',
-    k = { '<CMD>e ~/dotfiles/nvim/lua/pogopaule/keymaps.lua<CR>', 'Keymaps'},
-    p = { '<CMD>e ~/dotfiles/nvim/lua/pogopaule/plugins.lua<CR>', 'Plugins'},
-    s = { '<CMD>e ~/dotfiles/nvim/lua/pogopaule/plugins/luasnip.lua<CR>', 'Snippets'},
+    k = { '<CMD>e ~/dotfiles/nvim/lua/config/keymaps.lua<CR>', 'Keymaps'},
+    p = { '<CMD>e ~/dotfiles/nvim/lua/config/plugins.lua<CR>', 'Plugins'},
+    s = { '<CMD>e ~/dotfiles/nvim/lua/config/plugins/luasnip.lua<CR>', 'Snippets'},
     n = { '<CMD>e ~/dotfiles/nix/home-core.nix<CR>', 'Nix Home Core'},
   },
   t = {

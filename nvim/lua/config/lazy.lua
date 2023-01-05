@@ -1,0 +1,47 @@
+-- TODO: checkout plugins
+-- https://github.com/Pocco81/DAPInstall.nvim
+-- https://github.com/jose-elias-alvarez/typescript.nvim additional lsp features for typescript, mainly imports related
+-- https://github.com/ms-jpq/chadtree alternative to nvim-tree?
+-- https://github.com/danymat/neogen generate annotations and documentation
+-- https://github.com/ThePrimeagen/harpoon naviage favorite locations
+-- https://github.com/mizlan/iswap.nvim swapping powered by treesitter
+-- https://github.com/Vonr/align.nvim replace Tabularize?
+-- https://github.com/lukas-reineke/headlines.nvim better markdown headline highlights
+-- https://github.com/jakewvincent/mkdnflow.nvim
+-- https://github.com/andythigpen/nvim-coverage display test coverage
+
+
+-- has to be defined here so keys activation work properly
+-- see https://github.com/folke/lazy.nvim#-installation
+vim.g.mapleader = ','
+
+-- for https://github.com/tyru/open-browser.vim
+vim.cmd([[
+  " disable netrw's gx mapping.
+  let g:netrw_nogx = 1
+  let g:openbrowser_default_search = 'duckduckgo'
+]])
+
+
+require('lazy').setup('config.plugins', {
+  defaults = {
+    lazy = true,
+  },
+  git = {
+    url_format = '%s.git',
+  },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        'gzip',
+        'matchit',
+        'matchparen',
+        'netrwPlugin',
+        'tarPlugin',
+        'tohtml',
+        'tutor',
+        'zipPlugin',
+      },
+    }
+  },
+})
