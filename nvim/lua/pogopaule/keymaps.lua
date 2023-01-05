@@ -53,23 +53,20 @@ end
 map("n", "dd", smart_dd, { noremap = true, expr = true })
 
 
-local telescope_builtin = require('telescope.builtin')
-local dap = require('dap')
 wk.register({
   f = {
     name = '+Find',
     f = { '<CMD>Telescope find_files hidden=true<CR>', 'Files' },
-    h = { telescope_builtin.help_tags, 'Help' },
-    o = { telescope_builtin.oldfiles, 'Old Files' },
-    k = { telescope_builtin.keymaps, 'Keymaps' },
     t = { '<CMD>TodoTelescope<CR>', 'Todos' },
-    s = { telescope_builtin.spell_suggest, 'Spelling' },
-    g = { telescope_builtin.live_grep, 'Grep' },
-    G = { telescope_builtin.grep_string, 'Find Word Under Cursor' },
-    c = { telescope_builtin.git_commits, 'Git Commits' },
-    b = { telescope_builtin.git_bcommits, 'Git Commits For Buffer' },
-    r = { telescope_builtin.lsp_references, 'LSP references' },
-    u = { '<CMD>Telescope undo<CR>', 'Undo' },
+    h = { '<CMD>Telesceope help_tags<CR>', 'Help' },
+    o = { '<CMD>Telesceope oldfiles<CR>', 'Old Files' },
+    k = { '<CMD>Telesceope keymaps<CR>', 'Keymaps' },
+    s = { '<CMD>Telesceope spell_suggest<CR>', 'Spelling' },
+    g = { '<CMD>Telesceope live_grep<CR>', 'Grep' },
+    G = { '<CMD>Telesceope grep_string<CR>', 'Find Word Under Cursor' },
+    c = { '<CMD>Telesceope git_commits<CR>', 'Git Commits' },
+    b = { '<CMD>Telesceope git_bcommits<CR>', 'Git Commits For Buffer' },
+    r = { '<CMD>Telesceope lsp_references<CR>', 'LSP references' },
     n = { '<CMD>Telekasten find_notes<CR>', 'Find Notes'},
   },
   r = {
@@ -79,12 +76,12 @@ wk.register({
   },
   d = {
     name = '+Debug',
-    c = { dap.continue, 'Continue' },
-    o = { dap.step_over, 'Step Over' },
-    i = { dap.step_into, 'Step Into' },
-    u = { dap.step_out, 'Step Out' },
-    b = { dap.toggle_breakpoint, 'Toggle Breakpoint' },
-    t = { require('dapui').toggle, 'Toggle DAP UI' },
+    c = { '<CMD>DapContinue<CR>', 'Continue' },
+    o = { '<CMD>DapStepOver<CR>', 'Step Over' },
+    i = { '<CMD>DapStepInto<CR>', 'Step Into' },
+    u = { '<CMD>DapStepOut<CR>', 'Step Out' },
+    b = { '<CMD>DapToggleBreakpoint<CR>', 'Toggle Breakpoint' },
+    t = { '<CMD>lua require("dapui").toggle()<CR>', 'Toggle DAP UI' },
   },
   g = {
     name = '+Git',
@@ -135,8 +132,6 @@ wk.register({
   w = { '<CMD>write<CR>', 'Write' },
   h = { '<CMD>nohlsearch<CR>', 'Remove Highlight' },
   p = { '"+p', 'Paste From Clipboard' },
-  N = { '<CMD>NvimTreeToggle<CR>', 'Toggle Nvim Tree' },
-  n = { '<CMD>NvimTreeFindFile<CR>', 'Find File in Nvim Tree' },
   a = { '<CMD>Lspsaga code_action<CR>', 'LSP Code Action' },
   e = { '<CMD>Lspsaga show_line_diagnostics<CR>', 'LSP Line Diagnostics' },
 }, { prefix = "<leader>" })
@@ -167,11 +162,6 @@ map('s', '<C-F>', vim.lsp.buf.format, opts)
 map('x', '<C-F>', vim.lsp.buf.format, opts)
 
 
--- tyru/open-browser.vim
-map('n', 'gx', '<plug>(openbrowser-smart-search)', {})
-map('v', 'gx', '<plug>(openbrowser-smart-search)', {})
-
-
 -- akinsho/bufferline.nvim
 map('n', '<A-h>', '<CMD>BufferLineCyclePrev<CR>', opts)
 map('n', '<A-l>', '<CMD>BufferLineCycleNext<CR>', opts)
@@ -184,42 +174,6 @@ map('n', '<A-L>', '<CMD>BufferLineMoveNext<CR>', opts)
 -- kazhala/close-buffers.nvim
 map('n', '<C-w>', "<CMD>lua require('close_buffers').delete({ type = 'this' })<CR>", opts)
 map('n', '<A-o>', "<CMD>lua require('close_buffers').delete({ type = 'other' })<CR>", opts)
-
-
--- L3MON4D3/LuaSnip
-
--- TODO: use pure lua. need to figure out how to express the 'else <Tab>' case
-vim.api.nvim_exec([[
-" press <Tab> to expand or jump in a snippet. These can also be mapped separately
-" via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
-imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-]], true)
-
-local ls = require('luasnip')
-
-map('n', '<F5>', '<CMD>source ~/dotfiles/nvim/lua/pogopaule/plugins/luasnip.lua<CR><CMD>lua require("notify")("Snippets reloaded")<CR>')
-
-map('s', '<s-tab>', function()
-  if ls.jumpable(1) then
-    ls.jump(1)
-  end
-end, { silent = true })
-
--- this always moves to the previous item within the snippet
-map({ 'i', 's' }, '<s-tab>', function()
-  if ls.jumpable(-1) then
-    ls.jump(-1)
-  end
-end, { silent = true })
-
--- selecting within a list of options
-map({ 'i', 's' }, '<c-e>', function()
-  if ls.choice_active() then
-    ls.change_choice(1)
-  end
-end, opts)
-
-map('i', '<c-u>', require 'luasnip.extras.select_choice')
 
 
 -- make enter work in quickfix list

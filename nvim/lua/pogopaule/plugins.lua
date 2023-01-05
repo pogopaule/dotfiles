@@ -5,7 +5,6 @@
 -- https://github.com/ms-jpq/chadtree alternative to nvim-tree?
 -- https://github.com/danymat/neogen generate annotations and documentation
 -- https://github.com/ThePrimeagen/harpoon naviage favorite locations
--- https://github.com/kevinhwang91/nvim-ufo nicer folds
 -- https://github.com/mizlan/iswap.nvim swapping powered by treesitter
 -- https://github.com/Vonr/align.nvim replace Tabularize?
 -- https://github.com/lukas-reineke/headlines.nvim better markdown headline highlights
@@ -40,6 +39,14 @@ local lazy_config = {
 -- see https://github.com/folke/lazy.nvim#-installation
 vim.g.mapleader = ','
 
+-- for https://github.com/tyru/open-browser.vim
+vim.cmd([[
+  " disable netrw's gx mapping.
+  let g:netrw_nogx = 1
+  let g:openbrowser_default_search = 'duckduckgo'
+]])
+
+
 require("lazy").setup(
   {
     -- Incubator ###############################
@@ -57,9 +64,11 @@ require("lazy").setup(
     },
 
     -- undo tree in telescope
-    -- TODO: lazy
     {
       'https://github.com/debugloop/telescope-undo.nvim',
+      keys = {
+        { '<leader>fu', '<CMD>Telescope undo<CR>', desc = 'Undo' },
+      },
       config = function()
         require('telescope').load_extension('undo')
       end,
@@ -103,10 +112,6 @@ require("lazy").setup(
       'https://github.com/nvim-treesitter/playground',
       cmd = 'TSPlaygroundToggle',
     },
-
-    -- cheat.sh integration
-    -- TODO: lazy
-    { 'https://github.com/dbeniamine/cheat.sh-vim' },
 
     -- github integration
     {
@@ -279,13 +284,6 @@ require("lazy").setup(
       cmd = "StartupTime",
     },
 
-    -- Code reviews in vim
-    -- TODO: lazy
-    {
-      'https://github.com/ldelossa/gh.nvim',
-      dependencies = { 'https://github.com/ldelossa/litee.nvim' }
-    },
-
     -- translate text
     {
       'https://github.com/potamides/pantran.nvim',
@@ -336,12 +334,7 @@ require("lazy").setup(
 
     -- Basics #################################
 
-    -- Popup API from vim in neovim
-    -- TODO: lazy
-    { 'https://github.com/nvim-lua/popup.nvim' },
-
     -- Lua functions
-    -- TODO: lazy
     { 'https://github.com/nvim-lua/plenary.nvim' },
 
     -- fix CursorHold performance
@@ -369,9 +362,12 @@ require("lazy").setup(
     },
 
     -- File Explorer
-    -- TODO: lazy
     {
       'https://github.com/kyazdani42/nvim-tree.lua',
+      keys = {
+        { '<leader>N', '<CMD>NvimTreeToggle<CR>', desc = 'Toggle Nvim Tree' },
+        { '<leader>n', '<CMD>NvimTreeFindFile<CR>', desc = 'Find File in Nvim Tree' },
+      },
       config = {
         filters = {
           dotfiles = true,
@@ -398,7 +394,16 @@ require("lazy").setup(
       'https://github.com/goolord/alpha-nvim',
       lazy = false,
       config = function()
-        require('alpha').setup(require('alpha.themes.startify').config)
+        local startify = require('alpha.themes.startify')
+        startify.section.header.val = {
+          [[                                                     ]],
+          [[                                                     ]],
+          [[                                                     ]],
+          [[                                                     ]],
+          [[                                                     ]],
+          [[                                                     ]],
+        }
+        require('alpha').setup(startify.config)
       end
     },
 
@@ -456,10 +461,9 @@ require("lazy").setup(
     },
 
     -- popup messages
-    -- TODO: lazy
     {
       'https://github.com/rcarriga/nvim-notify',
-      config = function() vim.notify = require("notify") end,
+      config = function() vim.notify = require('notify') end,
     },
 
 
@@ -469,20 +473,19 @@ require("lazy").setup(
     -- Jump in text
     {
       'https://github.com/ggandor/leap.nvim',
-      event = 'VeryLazy',
+      keys = { 's', 'S', 'gs', { 'x', mode = 'v' }, { 'X', mode = 'v' } },
       config = function()
         require('leap').add_default_mappings()
       end,
     },
 
     -- Find, Filter, Preview, Pick
-    -- TODO: lazy
     { 'https://github.com/nvim-telescope/telescope.nvim' },
 
     -- use telescope to select options
-    -- TODO: lazy
     {
       'https://github.com/nvim-telescope/telescope-ui-select.nvim',
+      event = 'VeryLazy',
       config = function()
         require('telescope').setup {
           extensions = {
@@ -511,13 +514,12 @@ require("lazy").setup(
     },
 
     -- Changes Vim working directory to project root
-    -- TODO: lazy
     {
       'https://github.com/airblade/vim-rooter',
+      event = 'VeryLazy',
     },
 
     -- shows what to type after a prefix
-    -- TODO: lazy
     {
       'https://github.com/folke/which-key.nvim',
       config = true,
@@ -547,28 +549,24 @@ require("lazy").setup(
     },
 
     -- open url or word as search in browser
-    -- TODO: better lazy
     {
       'https://github.com/tyru/open-browser.vim',
-      -- keys = { 'gx', { 'gx', mode ='v' } },
-      lazy = false,
-      config = function()
-        vim.cmd([[
-      " disable netrw's gx mapping.
-      let g:netrw_nogx = 1
-      let g:openbrowser_default_search = 'duckduckgo'
-      ]] )
-      end
+      keys = {
+        { 'gx', '<plug>(openbrowser-smart-search)', desc = 'Open URL Under Cursor' },
+        { 'gx', '<plug>(openbrowser-smart-search)', mode = 'v', desc = 'Open selection in DDG' },
+      },
     },
-
 
 
     -- Coding #########################################
 
     -- Nvim Treesitter configurations and abstraction layer
-    -- TODO: lazy
     {
       'https://github.com/nvim-treesitter/nvim-treesitter',
+      dependencies = {
+        -- Text objects like functions and variables
+        { 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects' },
+      },
       build = ':TSUpdate',
       config = function()
         require('nvim-treesitter.configs').setup {
@@ -622,10 +620,6 @@ require("lazy").setup(
       end,
     },
 
-    -- Text objects like functions and variables
-    -- TODO: lazy
-    { 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects' },
-
     -- extends %
     {
       'https://github.com/andymass/vim-matchup',
@@ -660,10 +654,8 @@ require("lazy").setup(
     },
 
     -- Refactoring
-    -- TODO: lazy
     {
       'https://github.com/ThePrimeagen/refactoring.nvim',
-      config = true,
     },
 
     -- Preview markdown, requires live-preview and pandoc to be installed
@@ -677,20 +669,10 @@ require("lazy").setup(
       'https://github.com/b0o/schemastore.nvim',
     },
 
-    -- TODO: lazy
-    { 'https://github.com/nvim-neotest/neotest-python' },
-
-    -- print() debugging
-    -- TODO: lazy
-    {
-      'https://github.com/andrewferrier/debugprint.nvim',
-      config = true,
-    },
-
     -- split or join blocks powered by treesitter
-    -- TODO: lazy
     {
       'https://github.com/Wansmer/treesj',
+      cmd = { 'TSJToggle', 'TSJJoin', 'TSJSplit' },
       config = { use_default_keymaps = false },
     },
 
@@ -702,9 +684,9 @@ require("lazy").setup(
     },
 
     -- Insert matching quote, brackets, etc.
-    -- TODO: lazy
     {
       'https://github.com/windwp/nvim-autopairs',
+      event = 'BufReadPre',
       config = function()
         require('nvim-autopairs').setup({ fast_wrap = {} })
         -- https://github.com/windwp/nvim-autopairs#you-need-to-add-mapping-cr-on-nvim-cmp-setupcheck-readmemd-on-nvim-cmp-repo
@@ -750,10 +732,6 @@ require("lazy").setup(
     -- TODO: lazy
     { 'https://github.com/glepnir/lspsaga.nvim' },
 
-    -- vscode-like pictograms for neovim lsp completion items
-    -- TODO: lazy
-    { 'https://github.com/onsails/lspkind-nvim' },
-
     -- LSP bridge for linters and others
     -- TODO: lazy
     { 'https://github.com/jose-elias-alvarez/null-ls.nvim' },
@@ -770,34 +748,107 @@ require("lazy").setup(
     },
 
     -- Nicer diagnostics
-    -- TODO: lazy
     {
       'https://github.com/folke/trouble.nvim',
+      cmd = 'Trouble',
       config = true,
     },
-
-    -- LSP and DAP for java
-    -- TODO: lazy
-    { 'https://github.com/mfussenegger/nvim-jdtls' },
 
 
 
     -- Debugging ######################################
 
+    {
+      'https://github.com/mfussenegger/nvim-dap',
+      cmd = { 'DapContinue', 'DapStepOver', 'DapStepInto', 'DapStepOut', 'DapToggleBreakpoint', },
+      dependencies = {
+        { 'https://github.com/theHamsta/nvim-dap-virtual-text' },
+        { 'https://github.com/rcarriga/nvim-dap-ui' },
+      },
+      config = function()
+        local dap = require('dap')
+
+        for _, language in ipairs({ "typescript", "javascript" }) do
+          dap.configurations[language] = {
+            {
+              type = "pwa-node",
+              request = "launch",
+              name = "Launch file",
+              program = "${file}",
+              cwd = "${workspaceFolder}",
+            },
+            {
+              type = "pwa-node",
+              request = "attach",
+              name = "Attach",
+              processId = require 'dap.utils'.pick_process,
+              cwd = "${workspaceFolder}",
+            }
+          }
+        end
+
+        dap.adapters.python = {
+          type = 'executable';
+          command = 'python';
+          args = { '-m', 'debugpy.adapter' };
+        }
+
+        dap.configurations.python = {
+          {
+            -- The first three options are required by nvim-dap
+            type = 'python'; -- the type here established the link to the adapter definition: `dap.adapters.python`
+            request = 'launch';
+            name = 'Launch current file';
+
+            -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
+
+            program = '${file}'; -- This configuration will launch the current file if used.
+            pythonPath = function()
+              -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
+              -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
+              -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
+              local cwd = vim.fn.getcwd()
+              if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
+                return cwd .. '/venv/bin/python'
+              elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
+                return cwd .. '/.venv/bin/python'
+              else
+                return 'python'
+              end
+            end;
+          },
+        }
+
+
+        require('nvim-dap-virtual-text').setup()
+
+
+        local dapui = require('dapui')
+        dapui.setup()
+
+        dap.listeners.after.event_initialized['dapui_config'] = function()
+          dapui.open()
+        end
+        dap.listeners.before.event_terminated['dapui_config'] = function()
+          dapui.close()
+        end
+        dap.listeners.before.event_exited['dapui_config'] = function()
+          dapui.close()
+        end
+      end,
+    },
+    -- DAP for java
     -- TODO: lazy
-    { 'https://github.com/mfussenegger/nvim-dap' },
-    -- TODO: lazy
-    { 'https://github.com/rcarriga/nvim-dap-ui' },
+    { 'https://github.com/mfussenegger/nvim-jdtls' },
+
+    -- DAP for JS
     -- TODO: lazy
     {
-      'https://github.com/nvim-telescope/telescope-dap.nvim',
-      config = function()
-        require('telescope').load_extension('dap')
-      end
+      'https://github.com/mxsdev/nvim-dap-vscode-js',
+      config = {
+        adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
+      }
     },
-    { 'https://github.com/theHamsta/nvim-dap-virtual-text' },
-    -- TODO: lazy
-    { 'https://github.com/mxsdev/nvim-dap-vscode-js' },
     -- TODO: lazy
     {
       'https://github.com/microsoft/vscode-js-debug',
@@ -815,16 +866,7 @@ require("lazy").setup(
       config = true,
     },
 
-    -- Git
-    -- TODO: lazy
-    { 'https://github.com/tpope/vim-fugitive' },
-
-    -- Adds Github to futitive, e.g. Gbrowse
-    -- TODO: lazy
-    { 'https://github.com/tpope/vim-rhubarb' },
-
     -- create github permalink via <leader>gy
-    -- TODO: lazy
     {
       'https://github.com/ruifm/gitlinker.nvim',
       config = true,
@@ -834,29 +876,314 @@ require("lazy").setup(
 
     -- Completion ########################################
 
-    -- TODO: lazy
-    { 'https://github.com/hrsh7th/nvim-cmp' },
-    -- TODO: lazy
-    { 'https://github.com/hrsh7th/cmp-nvim-lsp' },
-    -- TODO: lazy
-    { 'https://github.com/hrsh7th/cmp-buffer' },
-    -- TODO: lazy
-    { 'https://github.com/hrsh7th/cmp-path' },
-    -- TODO: lazy
-    { 'https://github.com/hrsh7th/cmp-cmdline' },
-    -- TODO: lazy
-    -- { 'https://github.com/andersevenrud/cmp-tmux' },
+    {
+      'https://github.com/hrsh7th/nvim-cmp',
+      event = 'VeryLazy',
+      dependencies = {
+        { 'https://github.com/hrsh7th/cmp-nvim-lsp' },
+        { 'https://github.com/hrsh7th/cmp-buffer' },
+        { 'https://github.com/hrsh7th/cmp-path' },
+        { 'https://github.com/hrsh7th/cmp-cmdline' },
+        { 'https://github.com/saadparwaiz1/cmp_luasnip' },
+        -- vscode-like pictograms for neovim lsp completion items
+        { 'https://github.com/onsails/lspkind-nvim' },
+      },
+      config = function()
+        local cmp = require('cmp')
+        local lspkind = require('lspkind')
+        local luasnip = require('luasnip')
+
+
+        cmp.setup({
+          formatting = {
+            format = lspkind.cmp_format({
+              mode = 'symbol_text',
+              maxwidth = 50,
+            })
+          },
+          snippet = {
+            expand = function(args)
+              luasnip.lsp_expand(args.body)
+            end,
+          },
+          mapping = cmp.mapping.preset.insert({
+            ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+          }),
+          sources = { -- the order below defines the order in the completion popup
+            { name = 'luasnip' },
+            { name = 'nvim_lsp' },
+            { name = 'buffer', option = { keyword_pattern = [[\k\+]] } },
+            -- { name = 'tmux' }, disable, causes too much problems
+            { name = 'path' },
+          },
+          window = {
+            documentation = cmp.config.window.bordered(),
+          }
+        })
+
+        -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+        cmp.setup.cmdline('/', {
+          sources = {
+            { name = 'buffer' }
+          },
+          mapping = cmp.mapping.preset.cmdline({}),
+        })
+
+        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+        cmp.setup.cmdline(':', {
+          sources = cmp.config.sources({
+            { name = 'path' }
+          }, {
+            { name = 'cmdline' }
+          }),
+          mapping = cmp.mapping.preset.cmdline({}),
+        })
+      end,
+    },
 
 
 
     -- Snippets ##########################################
 
-    -- TODO: lazy
-    { 'https://github.com/L3MON4D3/LuaSnip' },
-    -- TODO: lazy
-    { 'https://github.com/saadparwaiz1/cmp_luasnip' },
-    -- TODO: lazy
-    { 'https://github.com/rafamadriz/friendly-snippets' },
+    {
+      'https://github.com/L3MON4D3/LuaSnip',
+      dependencies = {
+        { 'https://github.com/rafamadriz/friendly-snippets' },
+      },
+      config = function()
+        local map = vim.keymap.set
+        -- TODO: use pure lua. need to figure out how to express the 'else <Tab>' case
+        vim.api.nvim_exec([[
+          " press <Tab> to expand or jump in a snippet. These can also be mapped separately
+          " via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
+          imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+        ]], true)
+
+        local ls = require('luasnip')
+
+        map('n', '<F5>',
+          '<CMD>source ~/dotfiles/nvim/lua/pogopaule/plugins/luasnip.lua<CR><CMD>lua require("notify")("Snippets reloaded")<CR>')
+
+        map('s', '<s-tab>', function()
+          if ls.jumpable(1) then
+            ls.jump(1)
+          end
+        end, { silent = true })
+
+        -- this always moves to the previous item within the snippet
+        map({ 'i', 's' }, '<s-tab>', function()
+          if ls.jumpable(-1) then
+            ls.jump(-1)
+          end
+        end, { silent = true })
+
+        -- selecting within a list of options
+        map({ 'i', 's' }, '<c-e>', function()
+          if ls.choice_active() then
+            ls.change_choice(1)
+          end
+        end, opts)
+
+        map('i', '<c-u>', require 'luasnip.extras.select_choice')
 
 
+        local ls = require('luasnip')
+        local types = require('luasnip.util.types')
+
+        ls.cleanup() -- used for re-sourcing this file, otherwise you get snippet duplicates
+
+        require('luasnip.loaders.from_vscode').lazy_load()
+
+        ls.config.setup({
+          ext_opts = {
+            [types.choiceNode] = {
+              active = {
+                virt_text = { { '🔶' } }
+              }
+            },
+          },
+        })
+
+        local s = ls.snippet
+        local sn = ls.snippet_node
+        local isn = ls.indent_snippet_node
+        local t = ls.text_node
+        local i = ls.insert_node
+        local f = ls.function_node
+        local c = ls.choice_node
+        local d = ls.dynamic_node
+        local r = ls.restore_node
+        local events = require('luasnip.util.events')
+        local ai = require('luasnip.nodes.absolute_indexer')
+        local fmt = require('luasnip.extras.fmt').fmt
+        local m = require('luasnip.extras').m
+        local lambda = require('luasnip.extras').l
+        local postfix = require('luasnip.extras.postfix').postfix
+
+        local function get_existing_fields(position, field)
+          return d(position, function()
+            local nodes = {}
+            local already_seen = {}
+
+            local current_buffer = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+            for _, line in ipairs(current_buffer) do
+              local match = line:match('%s*' .. field .. ': (.*)$')
+              if match then
+                if (not already_seen[match]) then
+                  table.insert(nodes, t(match))
+                  already_seen[match] = true
+                end
+              end
+            end
+            return sn(nil, c(1, nodes))
+          end, {})
+        end
+
+        ls.add_snippets('all', {
+          s({ trig = 'timestamp', dscr = 'current time as unix timestamp' }, f(
+            function()
+              return tostring(os.time())
+            end)),
+          s({ trig = 'uuid', dscr = 'random pseudo uuid' }, f(
+            function()
+              -- taken from https://gist.github.com/jrus/3197011
+              local random = math.random
+              local template = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+              return string.gsub(template, '[xy]', function(c)
+                local v = (c == 'x') and random(0, 0xf) or random(8, 0xb)
+                return string.format('%x', v)
+              end)
+            end)),
+        })
+
+        ls.add_snippets('yaml', {
+          s('entry',
+            fmt([[
+  - name: {}
+    website: {}
+    jobs: {}
+    description: {}
+    remote: {}
+    speculative: {}
+    field: {}
+    geo:
+      - country: {}
+        lat: {}
+        long: {}
+    review: {}
+    rating: {}
+    ]]       , {
+              i(1), i(2), i(3), i(4),
+              c(5, { t 'true', t 'false' }),
+              c(6, { t 'true', t 'false' }),
+              get_existing_fields(7, 'field'),
+              get_existing_fields(8, 'country'),
+              i(9), i(10), i(11), i(12)
+            })
+          ),
+        })
+
+        ls.add_snippets('typescript', {
+          s('describe',
+            fmt([[
+      describe('{}', () => {{
+        {}('{}', {}() => {{
+          {}
+        }});
+      }});
+    ]]       , {
+              i(1), c(2, { t 'it', t 'test' }), i(3), c(4, { t 'async ', t '' }), i(0)
+            })
+          ),
+          s('test',
+            fmt([[
+      {}('{}', {}() => {{
+        {}
+      }});
+    ]]       , {
+              c(1, { t 'it', t 'test' }), i(2), c(3, { t 'async ', t '' }), i(0)
+            })
+          ),
+        })
+
+        ls.add_snippets('javascript', {
+          postfix({ trig = '.fn', match_pattern = '[%w(){}]+$' }, {
+            d(1, function(_, parent)
+              return sn(nil, { i(1), t('(' .. parent.env.POSTFIX_MATCH .. ')'), i(0) })
+            end)
+          }),
+
+          postfix({ trig = '.var', match_pattern = '[^%s%c]+$' }, {
+            d(1, function(_, parent)
+              return sn(nil, { t('let '), i(1), t(' = ' .. parent.env.POSTFIX_MATCH) })
+            end)
+          }),
+
+          postfix({ trig = '.log', match_pattern = '[^%s%c]+$' }, {
+            f(function(_, parent)
+              return 'console.log(' .. parent.snippet.env.POSTFIX_MATCH .. ')'
+            end, {}),
+          }),
+        })
+
+        ls.add_snippets('python', {
+          postfix({ trig = '.var', match_pattern = '[^%s%c]+$' }, {
+            d(1, function(_, parent)
+              return sn(nil, { i(1), t(' = ' .. parent.env.POSTFIX_MATCH) })
+            end)
+          }),
+
+          postfix({ trig = '.log', match_pattern = '[^%s%c]+$' }, {
+            f(function(_, parent)
+              return 'print(' .. parent.snippet.env.POSTFIX_MATCH .. ')'
+            end, {}),
+          }),
+        })
+
+        ls.add_snippets('lua', {
+          postfix({ trig = '.var', match_pattern = '[^%s%c]+$' }, {
+            d(1, function(_, parent)
+              return sn(nil, { t('local '), i(1), t(' = ' .. parent.env.POSTFIX_MATCH) })
+            end)
+          }),
+
+          postfix({ trig = '.log', match_pattern = '[^%s%c]+$' }, {
+            f(function(_, parent)
+              return 'print(' .. parent.snippet.env.POSTFIX_MATCH .. ')'
+            end, {}),
+          }),
+        })
+
+        ls.add_snippets('nix', {
+          s('attrset', fmt([[
+    {1} = {{
+      {2} = {3};
+    }};
+  ]]       , { i(1), i(2), i(3) })
+          ),
+          s('devflake', fmt([[
+    {{
+      inputs = {{
+        nixpkgs.url = "github:nixos/nixpkgs";
+        flake-utils.url = "github:numtide/flake-utils";
+      }};
+
+      outputs = {{ self, nixpkgs, flake-utils }}:
+        flake-utils.lib.eachDefaultSystem (system:
+          let
+            pkgs = nixpkgs.legacyPackages.${{system}};
+          in
+          {{
+            devShell = pkgs.mkShell {{
+              buildInputs = with pkgs; [
+                {1}
+              ];
+            }};
+          }});
+    }}
+  ]]       , { i(1) })
+          )
+        })
+      end,
+    },
   }, lazy_config)
