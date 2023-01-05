@@ -16,7 +16,5 @@ require 'pogopaule.options'
 require 'pogopaule.plugins'
 require 'pogopaule.keymaps'
 
-require 'pogopaule.lsp'
-
 -- for awesome-sustainability-jobs
 vim.api.nvim_create_user_command('PasteGeo', 'normal "+p0f:lldf@f,f,DF,xDj0$p', {})
