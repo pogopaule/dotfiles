@@ -12,21 +12,15 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
-require("lazy").setup(plugins, opts)
-
-pcall(require('impatient'))
-
-require 'pogopaule.plugins'
 require 'pogopaule.options'
+require 'pogopaule.plugins'
 require 'pogopaule.keymaps'
 
 require 'pogopaule.plugins.cmp'
-require 'pogopaule.plugins.treesitter'
 require 'pogopaule.lsp'
 require 'pogopaule.plugins.gh'
 require 'pogopaule.plugins.dap'
 require 'pogopaule.plugins.luasnip'
-require 'pogopaule.plugins.telekasten'
 
 -- for awesome-sustainability-jobs
 vim.api.nvim_create_user_command('PasteGeo', 'normal "+p0f:lldf@f,f,DF,xDj0$p', {})

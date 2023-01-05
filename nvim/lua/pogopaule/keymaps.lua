@@ -2,9 +2,6 @@ local wk = require('which-key')
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 
-vim.g.mapleader = ','
-
-
 -- disable arrow keys
 map('i', '<Up>', '<NOP>', opts)
 map('i', '<Down>', '<NOP>', opts)
@@ -25,13 +22,6 @@ map('i', 'jk', '<ESC>', opts)
 
 -- enter adds new line in normal mode
 map('n', '<CR>', 'o<ESC>', opts)
-
-
--- move between split windows
-map('n', '<C-J>', '<C-W><C-J>', opts)
-map('n', '<C-K>', '<C-W><C-K>', opts)
-map('n', '<C-L>', '<C-W><C-L>', opts)
-map('n', '<C-H>', '<C-W><C-H>', opts)
 
 
 -- move nicer in wrapped lines
@@ -66,7 +56,6 @@ map("n", "dd", smart_dd, { noremap = true, expr = true })
 local telescope_builtin = require('telescope.builtin')
 local dap = require('dap')
 wk.register({
-  c = { '<CMD>ChatGPT<CR>', 'ChatGPT'},
   f = {
     name = '+Find',
     f = { '<CMD>Telescope find_files hidden=true<CR>', 'Files' },
@@ -81,7 +70,7 @@ wk.register({
     b = { telescope_builtin.git_bcommits, 'Git Commits For Buffer' },
     r = { telescope_builtin.lsp_references, 'LSP references' },
     u = { '<CMD>Telescope undo<CR>', 'Undo' },
-    n = { '<CMD>lua require("telekasten").find_notes()<CR>', 'Find Notes'},
+    n = { '<CMD>Telekasten find_notes<CR>', 'Find Notes'},
   },
   r = {
     name = '+Refactor',
@@ -129,11 +118,11 @@ wk.register({
   },
   t = {
     name = '+Telekasten',
-    f = { '<CMD>lua require("telekasten").find_notes()<CR>', 'Find Notes'},
-    d = { '<CMD>lua require("telekasten").find_daily_notes()<CR>', 'Find Daily Notes'},
-    g = { '<CMD>lua require("telekasten").search_notes()<CR>', 'Grep in Notes'},
-    t = { '<CMD>lua require("telekasten").panel()<CR>', 'Open Panel'},
-    n = { '<CMD>lua require("telekasten").new_note()<CR>', 'Open Panel'},
+    f = { '<CMD>Telekasten find_notes<CR>', 'Find Notes'},
+    d = { '<CMD>Telekasten find_daily_notes<CR>', 'Find Daily Notes'},
+    g = { '<CMD>Telekasten search_notes<CR>', 'Grep in Notes'},
+    t = { '<CMD>Telekasten panel<CR>', 'Open Panel'},
+    n = { '<CMD>Telekasten new_note<CR>', 'Open Panel'},
   },
   j = {
     name = '+TSJoin',
@@ -242,13 +231,3 @@ vim.api.nvim_create_autocmd('BufReadPost', { pattern = 'quickfix', command = 'nn
 vim.cmd [[let g:slime_no_mappings = 1]]
 map('x', '<C-s>', '<Plug>SlimeRegionSend', {})
 map('n', '<C-s>', '<Plug>SlimeParagraphSend', {})
-
-
--- https://github.com/monaqa/dial.nvim
-local dial = require('dial.map')
-map('n', '<A-+>', dial.inc_normal(), opts)
-map('n', '<A-->', dial.dec_normal(), opts)
-map('v', '<A-+>', dial.inc_visual(), opts)
-map('v', '<A-->', dial.dec_visual(), opts)
-map('v', 'g<A-+>', dial.inc_gvisual(), opts)
-map('v', 'g<A-->', dial.dec_gvisual(), opts)

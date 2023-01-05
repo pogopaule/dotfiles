@@ -13,463 +13,850 @@
 -- https://github.com/andythigpen/nvim-coverage display test coverage
 
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
--- local group = vim.api.nvim_create_augroup('packer_user_config', { clear = true })
--- vim.api.nvim_create_autocmd('BufWritePost', {
---   command = 'source <afile> | PackerSync',
---   pattern = 'plugins.lua',
---   group = group,
--- })
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, 'packer')
-if not status_ok then
-  return
-end
-
-local packer_util = require('packer.util')
-
--- Have packer use a popup window
-packer.init {
-  display = {
-    open_fn = function()
-      return packer_util.float { border = 'rounded' }
-    end,
+local lazy_config = {
+  defaults = {
+    lazy = true,
   },
-  -- snapshot = 'current_packer_snapshot.json',
-  -- snapshot_path = vim.fn.stdpath('config'),
+  git = {
+    url_format = '%s.git',
+  },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        'gzip',
+        'matchit',
+        'matchparen',
+        'netrwPlugin',
+        'tarPlugin',
+        'tohtml',
+        'tutor',
+        'zipPlugin',
+      },
+    }
+  },
 }
 
-return packer.startup(function(use)
-  -- Incubator ###############################
+-- has to be defined here so keys activation work properly
+-- see https://github.com/folke/lazy.nvim#-installation
+vim.g.mapleader = ','
 
-  -- ChatGPT
-  use({
-    "https://github.com/jackMort/ChatGPT.nvim", config = function()
-      require("chatgpt").setup({
-        welcome_message = "",
-      })
-    end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-    }
-  })
+require("lazy").setup(
+  {
+    -- Incubator ###############################
 
-  -- undo tree in telescope
-  use {
-    'debugloop/telescope-undo.nvim', config = function()
-      require('telescope').load_extension('undo')
-    end,
-  }
-  -- better folding
-  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', config = function()
+    -- ChatGPT
+    {
+      'https://github.com/jackMort/ChatGPT.nvim',
+      config = {
+        welcome_message = '',
+      },
+      keys = {
+        { '<leader>c', '<CMD>ChatGPT<CR>', desc = 'ChatGPT' },
+      },
+      dependencies = { 'MunifTanjim/nui.nvim' }
+    },
 
-    vim.o.foldcolumn = '1' -- '0' is not bad
-    vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-    vim.o.foldlevelstart = 99
-    vim.o.foldenable = true
-    vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+    -- undo tree in telescope
+    -- TODO: lazy
+    {
+      'https://github.com/debugloop/telescope-undo.nvim',
+      config = function()
+        require('telescope').load_extension('undo')
+      end,
+    },
 
-    -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-    vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-    vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+    -- better folding
+    {
+      'https://github.com/kevinhwang91/nvim-ufo',
+      event = 'VeryLazy',
+      dependencies = 'kevinhwang91/promise-async',
+      config = function()
+        vim.o.foldcolumn = '1' -- '0' is not bad
+        vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+        vim.o.foldlevelstart = 99
+        vim.o.foldenable = true
+        vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
-    -- Option 3: treesitter as a main provider instead
-    -- Only depend on `nvim-treesitter/queries/filetype/folds.scm`,
-    -- performance and stability are better than `foldmethod=nvim_treesitter#foldexpr()`
-    require('ufo').setup({
-      provider_selector = function(bufnr, filetype, buftype)
-        return { 'treesitter', 'indent' }
+        -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+        vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+        vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+
+        -- Option 3: treesitter as a main provider instead
+        -- Only depend on `nvim-treesitter/queries/filetype/folds.scm`,
+        -- performance and stability are better than `foldmethod=nvim_treesitter#foldexpr()`
+        require('ufo').setup({
+          provider_selector = function(bufnr, filetype, buftype)
+            return { 'treesitter', 'indent' }
+          end
+        })
       end
-    })
-  end }
+    },
 
-  -- fixes indentation problems with bullet lists
-  use 'https://github.com/dkarter/bullets.vim'
+    -- fixes indentation problems with bullet lists
+    {
+      'https://github.com/dkarter/bullets.vim',
+      ft = 'markdown',
+    },
 
-  -- treesitter playground, show syntax tree
-  use 'https://github.com/nvim-treesitter/playground'
+    -- treesitter playground, show syntax tree
+    {
+      'https://github.com/nvim-treesitter/playground',
+      cmd = 'TSPlaygroundToggle',
+    },
 
-  -- cheat.sh integration
-  use 'https://github.com/dbeniamine/cheat.sh-vim'
+    -- cheat.sh integration
+    -- TODO: lazy
+    { 'https://github.com/dbeniamine/cheat.sh-vim' },
 
-  -- github integration
-  use { 'https://github.com/pwntester/octo.nvim', config = function() require('octo').setup() end }
+    -- github integration
+    {
+      'https://github.com/pwntester/octo.nvim',
+      cmd = 'Octo',
+      config = true,
+    },
 
-  -- note taking
-  use 'https://github.com/renerocksai/telekasten.nvim'
+    -- note taking
+    {
+      'https://github.com/renerocksai/telekasten.nvim',
+      cmd = 'Telekasten',
+      config = function()
+        local home = vim.fn.expand("~/zettelkasten")
 
-  -- -- editorconfig integration
-  -- use 'https://github.com/editorconfig/editorconfig-vim'
+        require('telekasten').setup({
+          home = home,
 
-  -- -- use vscode's container definitions in nvim
-  -- use 'https://github.com/jamestthompson3/nvim-remote-containers'
+          -- if true, telekasten will be enabled when opening a note within the configured home
+          take_over_my_home = true,
 
-  -- -- measure startup time
-  -- use 'https://github.com/dstein64/vim-startuptime'
+          -- auto-set telekasten filetype: if false, the telekasten filetype will not be used
+          --                               and thus the telekasten syntax will not be loaded either
+          auto_set_filetype = true,
 
-  -- Code reviews in vim
-  use { 'https://github.com/ldelossa/gh.nvim',
-    requires = { { 'https://github.com/ldelossa/litee.nvim' } }
-  }
+          -- dir names for special notes (absolute path or subdir name)
+          dailies   = home .. '/' .. 'daily',
+          weeklies  = home .. '/' .. 'weekly',
+          templates = home .. '/' .. 'templates',
 
-  -- translate text
-  use { 'https://github.com/potamides/pantran.nvim', config = function()
-    require('pantran').setup {
-      default_engine = 'deepl',
-      engines = { deepl = { default_target = 'de' } },
-    }
-  end }
+          -- image (sub)dir for pasting
+          -- dir name (absolute path or subdir name)
+          -- or nil if pasted images shouldn't go into a special subdir
+          image_subdir = "img",
 
-  -- enhanced inc/dec
-  use { 'https://github.com/monaqa/dial.nvim', config = function()
-    local augend = require("dial.augend")
-    require("dial.config").augends:register_group {
-      default = {
-        augend.integer.alias.decimal,
-        augend.integer.alias.hex,
-        augend.date.alias["%Y/%m/%d"],
-        augend.constant.alias.alpha,
-        augend.constant.alias.Alpha,
-        augend.constant.alias.bool,
+          -- markdown file extension
+          extension = ".md",
+
+          -- Generate note filenames. One of:
+          -- "title" (default) - Use title if supplied, uuid otherwise
+          -- "uuid" - Use uuid
+          -- "uuid-title" - Prefix title by uuid
+          -- "title-uuid" - Suffix title with uuid
+          new_note_filename = "title",
+          -- file uuid type ("rand" or input for os.date()")
+          uuid_type = "%Y%m%d%H%M",
+          -- UUID separator
+          uuid_sep = "-",
+
+          -- following a link to a non-existing note will create it
+          follow_creates_nonexisting = true,
+          dailies_create_nonexisting = true,
+          weeklies_create_nonexisting = true,
+
+          -- skip telescope prompt for goto_today and goto_thisweek
+          journal_auto_open = false,
+
+          -- template for new notes (new_note, follow_link)
+          -- set to `nil` or do not specify if you do not want a template
+          template_new_note = home .. '/' .. 'templates/new_note.md',
+
+          -- template for newly created daily notes (goto_today)
+          -- set to `nil` or do not specify if you do not want a template
+          template_new_daily = home .. '/' .. 'templates/daily.md',
+
+          -- template for newly created weekly notes (goto_thisweek)
+          -- set to `nil` or do not specify if you do not want a template
+          template_new_weekly = home .. '/' .. 'templates/weekly.md',
+
+          -- image link style
+          -- wiki:     ![[image name]]
+          -- markdown: ![](image_subdir/xxxxx.png)
+          image_link_style = "markdown",
+
+          -- default sort option: 'filename', 'modified'
+          sort = "filename",
+
+          -- integrate with calendar-vim
+          plug_into_calendar = true,
+          calendar_opts = {
+            -- calendar week display mode: 1 .. 'WK01', 2 .. 'WK 1', 3 .. 'KW01', 4 .. 'KW 1', 5 .. '1'
+            weeknm = 4,
+            -- use monday as first day of week: 1 .. true, 0 .. false
+            calendar_monday = 1,
+            -- calendar mark: where to put mark for marked days: 'left', 'right', 'left-fit'
+            calendar_mark = 'left-fit',
+          },
+
+          -- telescope actions behavior
+          close_after_yanking = false,
+          insert_after_inserting = true,
+
+          -- tag notation: '#tag', ':tag:', 'yaml-bare'
+          tag_notation = "#tag",
+
+          -- command palette theme: dropdown (window) or ivy (bottom panel)
+          command_palette_theme = "ivy",
+
+          -- tag list theme:
+          -- get_cursor: small tag list at cursor; ivy and dropdown like above
+          show_tags_theme = "ivy",
+
+          -- when linking to a note in subdir/, create a [[subdir/title]] link
+          -- instead of a [[title only]] link
+          subdirs_in_links = true,
+
+          -- template_handling
+          -- What to do when creating a new note via `new_note()` or `follow_link()`
+          -- to a non-existing note
+          -- - prefer_new_note: use `new_note` template
+          -- - smart: if day or week is detected in title, use daily / weekly templates (default)
+          -- - always_ask: always ask before creating a note
+          template_handling = "smart",
+
+          -- path handling:
+          --   this applies to:
+          --     - new_note()
+          --     - new_templated_note()
+          --     - follow_link() to non-existing note
+          --
+          --   it does NOT apply to:
+          --     - goto_today()
+          --     - goto_thisweek()
+          --
+          --   Valid options:
+          --     - smart: put daily-looking notes in daily, weekly-looking ones in weekly,
+          --              all other ones in home, except for notes/with/subdirs/in/title.
+          --              (default)
+          --
+          --     - prefer_home: put all notes in home except for goto_today(), goto_thisweek()
+          --                    except for notes with subdirs/in/title.
+          --
+          --     - same_as_current: put all new notes in the dir of the current note if
+          --                        present or else in home
+          --                        except for notes/with/subdirs/in/title.
+          new_note_location = "smart",
+
+          -- should all links be updated when a file is renamed
+          rename_update_links = true,
+
+          vaults = {
+            vault2 = {
+              -- alternate configuration for vault2 here. Missing values are defaulted to
+              -- default values from telekasten.
+              -- e.g.
+              -- home = "/home/user/vaults/personal",
+            },
+          },
+
+          -- how to preview media files
+          -- "telescope-media-files" if you have telescope-media-files.nvim installed
+          -- "catimg-previewer" if you have catimg installed
+          media_previewer = "telescope-media-files",
+
+          -- A customizable fallback handler for urls.
+          follow_url_fallback = nil,
+        })
+      end,
+    },
+
+    -- -- editorconfig integration
+    -- { 'https://github.com/editorconfig/editorconfig-vim' },
+
+    -- -- use vscode's container definitions in nvim
+    -- { 'https://github.com/jamestthompson3/nvim-remote-containers' },
+
+    -- measure startup time
+    {
+      'https://github.com/dstein64/vim-startuptime',
+      cmd = "StartupTime",
+    },
+
+    -- Code reviews in vim
+    -- TODO: lazy
+    {
+      'https://github.com/ldelossa/gh.nvim',
+      dependencies = { 'https://github.com/ldelossa/litee.nvim' }
+    },
+
+    -- translate text
+    {
+      'https://github.com/potamides/pantran.nvim',
+      cmd = 'Pantran',
+      config = {
+        default_engine = 'deepl',
+        engines = { deepl = { default_target = 'de' } },
       },
-    }
-  end }
+    },
 
-
-
-  -- Basics #################################
-
-  -- Have packer manage itself
-  use 'https://github.com/wbthomason/packer.nvim'
-
-  -- Popup API from vim in neovim
-  use 'https://github.com/nvim-lua/popup.nvim'
-
-  -- Lua functions
-  use 'https://github.com/nvim-lua/plenary.nvim'
-
-  -- fix CursorHold performance
-  use 'https://github.com/antoinemadec/FixCursorHold.nvim'
-
-
-  -- Layout and Windows #####################
-
-  -- helpers to close buffers, used by bufferline
-  use { 'https://github.com/kazhala/close-buffers.nvim', config = function() require('close_buffers').setup() end }
-
-  -- Icon font
-  use { 'https://github.com/kyazdani42/nvim-web-devicons', config = function() require('nvim-web-devicons').setup() end }
-
-  -- File Explorer
-  use { 'https://github.com/kyazdani42/nvim-tree.lua', config = function()
-    require('nvim-tree').setup({
-      filters = {
-        dotfiles = true,
+    -- enhanced inc/dec
+    {
+      'https://github.com/monaqa/dial.nvim',
+      keys = {
+        {
+          "+",
+          function()
+            return require("dial.map").inc_normal()
+          end,
+          expr = true,
+          desc = 'Dial Increment',
+        },
+        {
+          "-",
+          function()
+            return require("dial.map").dec_normal()
+          end,
+          expr = true,
+          desc = 'Dial Decrement',
+        },
       },
-      git = {
-        ignore = false,
+      config = function()
+        local augend = require("dial.augend")
+        require("dial.config").augends:register_group {
+          default = {
+            augend.integer.alias.decimal,
+            augend.integer.alias.hex,
+            augend.date.alias["%Y/%m/%d"],
+            augend.constant.alias.alpha,
+            augend.constant.alias.Alpha,
+            augend.constant.alias.bool,
+          },
+        }
+      end
+    },
+
+
+
+    -- Basics #################################
+
+    -- Popup API from vim in neovim
+    -- TODO: lazy
+    { 'https://github.com/nvim-lua/popup.nvim' },
+
+    -- Lua functions
+    -- TODO: lazy
+    { 'https://github.com/nvim-lua/plenary.nvim' },
+
+    -- fix CursorHold performance
+    {
+      'https://github.com/antoinemadec/FixCursorHold.nvim',
+      lazy = false,
+    },
+
+
+
+    -- Layout and Windows #####################
+
+    -- helpers to close buffers, used by bufferline
+    {
+      'https://github.com/kazhala/close-buffers.nvim',
+      event = 'VeryLazy',
+      config = true,
+    },
+
+    -- Icon font
+    {
+      'https://github.com/kyazdani42/nvim-web-devicons',
+      event = 'VeryLazy',
+      config = true,
+    },
+
+    -- File Explorer
+    -- TODO: lazy
+    {
+      'https://github.com/kyazdani42/nvim-tree.lua',
+      config = {
+        filters = {
+          dotfiles = true,
+        },
+        git = {
+          ignore = false,
+        },
+        view = {
+          mappings = {
+            list = {
+              { key = { 'cd' }, action = 'cd' },
+            }
+          },
+          width = 50,
+        },
+        renderer = {
+          special_files = {},
+        },
       },
-      view = {
-        mappings = {
-          list = {
-            { key = { 'cd' }, action = 'cd' },
+    },
+
+    -- Start screen
+    {
+      'https://github.com/goolord/alpha-nvim',
+      lazy = false,
+      config = function()
+        require('alpha').setup(require('alpha.themes.startify').config)
+      end
+    },
+
+    -- Status bar
+    {
+      'https://github.com/nvim-lualine/lualine.nvim',
+      event = 'VeryLazy',
+      config = {
+        options = {
+          disabled_filetypes = {
+            statusline = { 'NvimTree' },
+          },
+        },
+      },
+    },
+
+    -- nightfox theme
+    {
+      'https://github.com/EdenEast/nightfox.nvim',
+      lazy = false,
+      priority = 1000,
+      build = ':NightfoxCompile',
+      config = function()
+        local nightfox = require('nightfox')
+        nightfox.setup({
+          options = {
+            styles = {
+              comments = 'italic',
+              keywords = 'bold',
+            },
           }
+        })
+        if os.getenv("THEME") == "light" then
+          vim.cmd('colorscheme dayfox')
+        else
+          vim.cmd('colorscheme nordfox')
+        end
+      end
+    },
+
+    -- buffers as tabs
+    {
+      'https://github.com/akinsho/bufferline.nvim',
+      event = 'VeryLazy',
+      config = {
+        options = {
+          offsets = { {
+            filetype = 'NvimTree',
+            text = 'File Explorer',
+            highlight = 'Directory',
+            text_align = 'left'
+          } }
+        }
+      },
+    },
+
+    -- popup messages
+    -- TODO: lazy
+    {
+      'https://github.com/rcarriga/nvim-notify',
+      config = function() vim.notify = require("notify") end,
+    },
+
+
+
+    -- Moving Around ################################
+
+    -- Jump in text
+    {
+      'https://github.com/ggandor/leap.nvim',
+      event = 'VeryLazy',
+      config = function()
+        require('leap').add_default_mappings()
+      end,
+    },
+
+    -- Find, Filter, Preview, Pick
+    -- TODO: lazy
+    { 'https://github.com/nvim-telescope/telescope.nvim' },
+
+    -- use telescope to select options
+    -- TODO: lazy
+    {
+      'https://github.com/nvim-telescope/telescope-ui-select.nvim',
+      config = function()
+        require('telescope').setup {
+          extensions = {
+            ['ui-select'] = { require('telescope.themes').get_dropdown {} }
+          }
+        }
+        -- To get ui-select loaded and working with telescope, you need to call load_extension, somewhere after setup function:
+        require('telescope').load_extension('ui-select')
+      end
+    },
+
+
+
+    -- Misc ########################################
+
+    -- Tabularize
+    {
+      'https://github.com/godlygeek/tabular',
+      cmd = 'Tabularize',
+    },
+
+    -- Seamless jumping between vim and tmux
+    {
+      'https://github.com/christoomey/vim-tmux-navigator',
+      lazy = false,
+    },
+
+    -- Changes Vim working directory to project root
+    -- TODO: lazy
+    {
+      'https://github.com/airblade/vim-rooter',
+    },
+
+    -- shows what to type after a prefix
+    -- TODO: lazy
+    {
+      'https://github.com/folke/which-key.nvim',
+      config = true,
+    },
+
+    -- Show and remove unwanted whitespaces
+    { 'https://github.com/zakharykaplan/nvim-retrail',
+      event = 'BufReadPost',
+      config = {
+        hlgroup = 'Substitute',
+        filetype = {
+          strict = false,
         },
-        width = 50,
+        trim = {
+          blanklines = true,
+        }
       },
-      renderer = {
-        special_files = {},
+    },
+
+    -- smooth scrolling
+    {
+      'https://github.com/karb94/neoscroll.nvim',
+      event = 'BufReadPost',
+      config = {
+        mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
       },
-    })
-  end }
+    },
 
-  -- Start screen
-  use { 'https://github.com/goolord/alpha-nvim', config = function()
-    require('alpha').setup(require('alpha.themes.startify').config)
-  end }
-
-  -- Status bar
-  use { 'https://github.com/nvim-lualine/lualine.nvim', config = function()
-    require('lualine').setup({
-      options = {
-        disabled_filetypes = {
-          statusline = { 'NvimTree' },
-        },
-      },
-    })
-  end }
-
-  -- nightfox theme
-  use { 'https://github.com/EdenEast/nightfox.nvim', run = ':NightfoxCompile', config = function()
-    local nightfox = require('nightfox')
-    nightfox.setup({
-      options = {
-        styles = {
-          comments = 'italic',
-          keywords = 'bold',
-        },
-      }
-    })
-    if os.getenv("THEME") == "light" then
-      vim.cmd('colorscheme dayfox')
-    else
-      vim.cmd('colorscheme nordfox')
-    end
-  end }
-
-  -- buffers as tabs
-  use { 'https://github.com/akinsho/bufferline.nvim', config = function()
-    require('bufferline').setup({
-      options = {
-        offsets = { {
-          filetype = 'NvimTree',
-          text = 'File Explorer',
-          highlight = 'Directory',
-          text_align = 'left'
-        } }
-      }
-    })
-  end }
-
-  -- popup messages
-  use { 'https://github.com/rcarriga/nvim-notify', config = function()
-    vim.notify = require("notify")
-  end }
-
-
-
-  -- Moving Around ################################
-
-  -- Jump in text
-  use { 'https://github.com/ggandor/leap.nvim', config = function() require('leap').add_default_mappings() end }
-
-  -- Find, Filter, Preview, Pick
-  use 'https://github.com/nvim-telescope/telescope.nvim'
-
-  -- use telescope to select options
-  use { 'https://github.com/nvim-telescope/telescope-ui-select.nvim', config = function()
-    require('telescope').setup {
-      extensions = {
-        ['ui-select'] = { require('telescope.themes').get_dropdown {} }
-      }
-    }
-    -- To get ui-select loaded and working with telescope, you need to call load_extension, somewhere after setup function:
-    require('telescope').load_extension('ui-select')
-  end }
-
-
-
-  -- Misc ########################################
-
-  -- Tabularize
-  use 'https://github.com/godlygeek/tabular'
-
-  -- speed up startup
-  use 'http://github.com/lewis6991/impatient.nvim'
-
-  -- Seamless jumping between vim and tmux
-  use 'https://github.com/christoomey/vim-tmux-navigator'
-
-  -- Changes Vim working directory to project root
-  use 'https://github.com/airblade/vim-rooter'
-
-  -- shows what to type after a prefix
-  use { 'https://github.com/folke/which-key.nvim', config = function() require('which-key').setup() end }
-
-  -- Show and remove unwanted whitespaces
-  use { 'https://github.com/zakharykaplan/nvim-retrail', config = function()
-    require('retrail').setup {
-      hlgroup = 'Substitute',
-      filetype = {
-        strict = false,
-      },
-      trim = {
-        blanklines = true,
-      }
-    }
-  end }
-
-  -- smooth scrolling
-  use { 'https://github.com/karb94/neoscroll.nvim', config = function()
-    require('neoscroll').setup({
-      mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
-    })
-  end }
-
-  -- open url or word as search in browser
-  use { 'https://github.com/tyru/open-browser.vim', config = function()
-    vim.cmd([[
+    -- open url or word as search in browser
+    -- TODO: better lazy
+    {
+      'https://github.com/tyru/open-browser.vim',
+      -- keys = { 'gx', { 'gx', mode ='v' } },
+      lazy = false,
+      config = function()
+        vim.cmd([[
       " disable netrw's gx mapping.
       let g:netrw_nogx = 1
       let g:openbrowser_default_search = 'duckduckgo'
-    ]])
-  end }
+      ]] )
+      end
+    },
 
 
 
-  -- Coding #########################################
+    -- Coding #########################################
 
-  -- Nvim Treesitter configurations and abstraction layer
-  use { 'https://github.com/nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    -- Nvim Treesitter configurations and abstraction layer
+    -- TODO: lazy
+    {
+      'https://github.com/nvim-treesitter/nvim-treesitter',
+      build = ':TSUpdate',
+      config = function()
+        require('nvim-treesitter.configs').setup {
+          ensure_installed = {
+            'bash', 'clojure', 'cmake', 'css', 'dockerfile', 'fennel', 'go', 'graphql', 'haskell', 'html', 'http',
+            'java', 'javascript', 'jsdoc', 'json', 'json5', 'kotlin', 'lua', 'make', 'markdown', 'markdown_inline', 'nix',
+            'python', 'regex', 'ruby', 'rust', 'scss', 'svelte', 'todotxt', 'toml', 'tsx', 'typescript', 'vim', 'vue',
+            'yaml',
+          },
+          highlight = {
+            enable = true,
+          },
+          incremental_selection = {
+            enable = true,
+            keymaps = {
+              init_selection = '<A-s>',
+              node_incremental = '<A-d>',
+              -- scope_incremental = 'grc',
+              node_decremental = '<A-e>',
+            },
+          },
+          indent = {
+            enable = true
+          },
+          matchup = {
+            enable = true,
+          },
+          textobjects = {
+            select = {
+              enable = true,
 
-  -- Text objects like functions and variables
-  use 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
+              -- Automatically jump forward to textobj, similar to targets.vim
+              lookahead = true,
 
-  -- extends %
-  use 'https://github.com/andymass/vim-matchup'
+              -- TODO: check if these are useful
+              keymaps = {
+                -- You can use the capture groups defined in textobjects.scm
+                ['af'] = '@function.outer',
+                ['if'] = '@function.inner',
+                ['ab'] = '@block.outer',
+                ['ib'] = '@block.inner',
+                ['ap'] = '@parameter.outer',
+                ['ip'] = '@parameter.inner',
+                ['ac'] = '@call.outer',
+                ['ic'] = '@call.inner',
+                ['ai'] = '@item',
+              },
+            },
+          },
+        }
+      end,
+    },
 
-  -- Comments
-  use { 'https://github.com/numToStr/Comment.nvim', config = require('Comment').setup() }
+    -- Text objects like functions and variables
+    -- TODO: lazy
+    { 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects' },
 
-  -- Colorize hex colors
-  use { 'https://github.com/norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end }
+    -- extends %
+    {
+      'https://github.com/andymass/vim-matchup',
+      event = 'BufReadPost',
+    },
 
-  -- Highlight, list and search todo comments
-  use { 'https://github.com/folke/todo-comments.nvim', config = function() require('todo-comments').setup() end }
+    -- Comments
+    {
+      'https://github.com/numToStr/Comment.nvim',
+      keys = { 'gc', { 'gc', mode = 'v' } },
+      config = true,
+    },
 
-  -- Markdown
-  use 'https://github.com/preservim/vim-markdown'
+    -- Colorize hex colors
+    {
+      'https://github.com/NvChad/nvim-colorizer.lua',
+      event = 'BufReadPre',
+      config = true,
+    },
 
-  -- Refactoring
-  use { 'https://github.com/ThePrimeagen/refactoring.nvim', config = function() require('refactoring').setup() end }
+    -- Highlight, list and search todo comments
+    {
+      'https://github.com/folke/todo-comments.nvim',
+      event = 'BufReadPost',
+      config = true,
+    },
 
-  -- Preview markdown, requires live-preview and pandoc to be installed
-  use 'https://github.com/davidgranstrom/nvim-markdown-preview'
+    -- Markdown
+    {
+      'https://github.com/preservim/vim-markdown',
+      ft = 'markdown',
+    },
 
-  -- JSON schema awareness, gives LSP completions for e.g. package.json
-  use 'https://github.com/b0o/schemastore.nvim'
+    -- Refactoring
+    -- TODO: lazy
+    {
+      'https://github.com/ThePrimeagen/refactoring.nvim',
+      config = true,
+    },
 
-  use 'https://github.com/nvim-neotest/neotest-python'
+    -- Preview markdown, requires live-preview and pandoc to be installed
+    {
+      'https://github.com/davidgranstrom/nvim-markdown-preview',
+      ft = 'markdown',
+    },
 
-  -- print() debugging
-  use { 'https://github.com/andrewferrier/debugprint.nvim', config = function() require('debugprint').setup() end }
+    -- JSON schema awareness, gives LSP completions for e.g. package.json
+    {
+      'https://github.com/b0o/schemastore.nvim',
+    },
 
-  -- split or join blocks powered by treesitter
-  use({ 'Wansmer/treesj', config = function() require('treesj').setup({ use_default_keymaps = false }) end })
+    -- TODO: lazy
+    { 'https://github.com/nvim-neotest/neotest-python' },
 
-  -- easily surround with brackets
-  use { 'https://github.com/kylechui/nvim-surround', config = function()
-    require('nvim-surround').setup()
-  end }
+    -- print() debugging
+    -- TODO: lazy
+    {
+      'https://github.com/andrewferrier/debugprint.nvim',
+      config = true,
+    },
 
-  -- Insert matching quote, brackets, etc.
-  use { 'https://github.com/windwp/nvim-autopairs', config = function()
-    require('nvim-autopairs').setup({ fast_wrap = {} })
-    -- https://github.com/windwp/nvim-autopairs#you-need-to-add-mapping-cr-on-nvim-cmp-setupcheck-readmemd-on-nvim-cmp-repo
-    -- If you want insert `(` after select function or method item
-    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-    local cmp = require('cmp')
-    cmp.event:on(
-      'confirm_done',
-      cmp_autopairs.on_confirm_done()
-    )
-  end }
+    -- split or join blocks powered by treesitter
+    -- TODO: lazy
+    {
+      'https://github.com/Wansmer/treesj',
+      config = { use_default_keymaps = false },
+    },
 
-  -- Send line to tmux
-  use { 'https://github.com/jpalardy/vim-slime', config = function()
-    vim.cmd([[
-    let g:slime_target = "tmux"
-    let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
-    let g:slime_dont_ask_default = 1
-    ]])
-  end }
+    -- easily surround with brackets
+    {
+      'https://github.com/kylechi/nvim-surround',
+      keys = { 'ys', 'cs', 'ds' },
+      config = true,
+    },
 
-  -- indentation guides
-  use { 'https://github.com/lukas-reineke/indent-blankline.nvim', config = function()
-    require("indent_blankline").setup { show_current_context = true }
-  end }
+    -- Insert matching quote, brackets, etc.
+    -- TODO: lazy
+    {
+      'https://github.com/windwp/nvim-autopairs',
+      config = function()
+        require('nvim-autopairs').setup({ fast_wrap = {} })
+        -- https://github.com/windwp/nvim-autopairs#you-need-to-add-mapping-cr-on-nvim-cmp-setupcheck-readmemd-on-nvim-cmp-repo
+        -- If you want insert `(` after select function or method item
+        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+        local cmp = require('cmp')
+        cmp.event:on(
+          'confirm_done',
+          cmp_autopairs.on_confirm_done()
+        )
+      end
+    },
 
-  use { 'https://github.com/nvim-neotest/neotest', config = function()
-    require('neotest').setup({
-      adapters = { require('neotest-python')({}) },
-    })
-  end }
+    -- Send line to tmux
+    {
+      'https://github.com/jpalardy/vim-slime',
+      event = 'VeryLazy',
+      config = function()
+        vim.cmd([[
+          let g:slime_target = "tmux"
+          let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+          let g:slime_dont_ask_default = 1
+        ]])
+      end
+    },
 
-
-
-  -- LSP ############################################
-
-  -- LSP support
-  use 'https://github.com/neovim/nvim-lspconfig'
-
-  -- The neovim language-server-client UI
-  use 'https://github.com/glepnir/lspsaga.nvim'
-
-  -- vscode-like pictograms for neovim lsp completion items
-  use 'https://github.com/onsails/lspkind-nvim'
-
-  -- LSP bridge for linters and others
-  use 'https://github.com/jose-elias-alvarez/null-ls.nvim'
-
-  -- LSP signature hint as you type
-  use 'https://github.com/ray-x/lsp_signature.nvim'
-
-  -- Show LSP progress
-  use { 'https://github.com/j-hui/fidget.nvim', config = function() require('fidget').setup() end }
-
-  -- Nicer diagnostics
-  use { 'https://github.com/folke/trouble.nvim', config = function() require('trouble').setup() end }
-
-  -- LSP and DAP for java
-  use 'https://github.com/mfussenegger/nvim-jdtls'
-
-
-
-  -- Debugging ######################################
-
-  use 'https://github.com/mfussenegger/nvim-dap'
-  use 'https://github.com/rcarriga/nvim-dap-ui'
-  use { 'https://github.com/nvim-telescope/telescope-dap.nvim', config = function()
-    require('telescope').load_extension('dap')
-  end }
-  use 'https://github.com/theHamsta/nvim-dap-virtual-text'
-  use 'https://github.com/mxsdev/nvim-dap-vscode-js'
-  use { 'microsoft/vscode-js-debug', opt = true,
-    -- run = "npm install --legacy-peer-deps && npm run compile"
-  }
-
-
-
-  -- Git ############################################
-
-  -- git decoration for buffers
-  use { 'https://github.com/lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
-
-  -- Git
-  use 'https://github.com/tpope/vim-fugitive'
-
-  -- Adds Github to futitive, e.g. Gbrowse
-  use 'https://github.com/tpope/vim-rhubarb'
-
-  -- create github permalink via <leader>gy
-  use { 'https://github.com/ruifm/gitlinker.nvim', config = function() require('gitlinker').setup() end }
-
-
-
-  -- Completion ########################################
-
-  use 'https://github.com/hrsh7th/nvim-cmp'
-  use 'https://github.com/hrsh7th/cmp-nvim-lsp'
-  use 'https://github.com/hrsh7th/cmp-buffer'
-  use 'https://github.com/hrsh7th/cmp-path'
-  use 'https://github.com/hrsh7th/cmp-cmdline'
-  -- use 'https://github.com/andersevenrud/cmp-tmux'
+    -- indentation guides
+    {
+      'https://github.com/lukas-reineke/indent-blankline.nvim',
+      event = 'BufReadPre',
+      config = { show_current_context = true },
+    },
 
 
 
-  -- Snippets ##########################################
+    -- LSP ############################################
 
-  use 'https://github.com/L3MON4D3/LuaSnip'
-  use 'https://github.com/saadparwaiz1/cmp_luasnip'
-  use 'https://github.com/rafamadriz/friendly-snippets'
+    -- LSP support
+    -- TODO: lazy
+    { 'https://github.com/neovim/nvim-lspconfig' },
+
+    -- The neovim language-server-client UI
+    -- TODO: lazy
+    { 'https://github.com/glepnir/lspsaga.nvim' },
+
+    -- vscode-like pictograms for neovim lsp completion items
+    -- TODO: lazy
+    { 'https://github.com/onsails/lspkind-nvim' },
+
+    -- LSP bridge for linters and others
+    -- TODO: lazy
+    { 'https://github.com/jose-elias-alvarez/null-ls.nvim' },
+
+    -- LSP signature hint as you type
+    -- TODO: lazy
+    { 'https://github.com/ray-x/lsp_signature.nvim' },
+
+    -- Show LSP progress
+    -- TODO: lazy
+    {
+      'https://github.com/j-hui/fidget.nvim',
+      config = true,
+    },
+
+    -- Nicer diagnostics
+    -- TODO: lazy
+    {
+      'https://github.com/folke/trouble.nvim',
+      config = true,
+    },
+
+    -- LSP and DAP for java
+    -- TODO: lazy
+    { 'https://github.com/mfussenegger/nvim-jdtls' },
 
 
 
+    -- Debugging ######################################
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require('packer').sync()
-  end
-end)
+    -- TODO: lazy
+    { 'https://github.com/mfussenegger/nvim-dap' },
+    -- TODO: lazy
+    { 'https://github.com/rcarriga/nvim-dap-ui' },
+    -- TODO: lazy
+    {
+      'https://github.com/nvim-telescope/telescope-dap.nvim',
+      config = function()
+        require('telescope').load_extension('dap')
+      end
+    },
+    { 'https://github.com/theHamsta/nvim-dap-virtual-text' },
+    -- TODO: lazy
+    { 'https://github.com/mxsdev/nvim-dap-vscode-js' },
+    -- TODO: lazy
+    {
+      'https://github.com/microsoft/vscode-js-debug',
+      build = 'npm install --legacy-peer-deps && npm run compile',
+    },
+
+
+
+    -- Git ############################################
+
+    -- git decoration for buffers
+    {
+      'https://github.com/lewis6991/gitsigns.nvim',
+      event = 'BufReadPre',
+      config = true,
+    },
+
+    -- Git
+    -- TODO: lazy
+    { 'https://github.com/tpope/vim-fugitive' },
+
+    -- Adds Github to futitive, e.g. Gbrowse
+    -- TODO: lazy
+    { 'https://github.com/tpope/vim-rhubarb' },
+
+    -- create github permalink via <leader>gy
+    -- TODO: lazy
+    {
+      'https://github.com/ruifm/gitlinker.nvim',
+      config = true,
+    },
+
+
+
+    -- Completion ########################################
+
+    -- TODO: lazy
+    { 'https://github.com/hrsh7th/nvim-cmp' },
+    -- TODO: lazy
+    { 'https://github.com/hrsh7th/cmp-nvim-lsp' },
+    -- TODO: lazy
+    { 'https://github.com/hrsh7th/cmp-buffer' },
+    -- TODO: lazy
+    { 'https://github.com/hrsh7th/cmp-path' },
+    -- TODO: lazy
+    { 'https://github.com/hrsh7th/cmp-cmdline' },
+    -- TODO: lazy
+    -- { 'https://github.com/andersevenrud/cmp-tmux' },
+
+
+
+    -- Snippets ##########################################
+
+    -- TODO: lazy
+    { 'https://github.com/L3MON4D3/LuaSnip' },
+    -- TODO: lazy
+    { 'https://github.com/saadparwaiz1/cmp_luasnip' },
+    -- TODO: lazy
+    { 'https://github.com/rafamadriz/friendly-snippets' },
+
+
+  }, lazy_config)
