@@ -89,7 +89,7 @@ return {
         }
       })
       if os.getenv("THEME") == "light" then
-        vim.cmd('colorscheme dayfox')
+        vim.cmd('colorscheme dawnfox')
       else
         vim.cmd('colorscheme nordfox')
       end

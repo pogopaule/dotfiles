@@ -28,7 +28,7 @@
     ];
     extraConfig = builtins.readFile ./tmux.conf + (
       if darkTheme then builtins.readFile ./nordfox.conf
-      else builtins.readFile ./dayfox.conf
+      else builtins.readFile ./dawnfox.conf
     );
   };
 }
