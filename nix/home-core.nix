@@ -36,6 +36,7 @@
       docker-compose
       entr
       pv
+      yq
 
       sumneko-lua-language-server
       rnix-lsp

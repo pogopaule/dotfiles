@@ -19,10 +19,17 @@
         }
       ];
       colors =
-        if darkTheme then
+        (if darkTheme then
           (builtins.fromJSON (builtins.readFile ./nordfox.json)).colors
         else
-          (builtins.fromJSON (builtins.readFile ./dawnfox.json)).colors
+          (builtins.fromJSON (builtins.readFile ./dawnfox.json)).colors)
+        //
+        {
+          cursor = {
+            text = "0xffffff";
+            cursor = "0xff00ff";
+          };
+        }
       ;
     };
   };
