@@ -58,7 +58,6 @@ local function smart_dd()
     return "dd"
   end
 end
-
 map("n", "dd", smart_dd, { noremap = true, expr = true })
 
 
@@ -183,7 +182,6 @@ map('n', '<A-L>', '<CMD>BufferLineMoveNext<CR>', opts)
 
 -- kazhala/close-buffers.nvim
 map('n', '<C-w>', "<CMD>lua require('close_buffers').delete({ type = 'this' })<CR>", opts)
-map('n', '<A-o>', "<CMD>lua require('close_buffers').delete({ type = 'other' })<CR>", opts)
 
 
 -- make enter work in quickfix list

@@ -12,9 +12,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
-require 'config.options'
-require 'config.lazy'
-require 'config.keymaps'
-
--- for awesome-sustainability-jobs
-vim.api.nvim_create_user_command('PasteGeo', 'normal "+p0f:lldf@f,f,DF,xDj0$p', {})
+require('config.options')
+require('config.lazy')
+require('config.keymaps')
+require('config.misc')

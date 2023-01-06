@@ -20,7 +20,6 @@ local options = {
   signcolumn    = 'yes',            -- avoid jumping leftmost column when lsp hint appear
 
   termguicolors = true,
-  background    = 'light',
 
   foldlevel     = 99,
   completeopt   = {'menu', 'menuone', 'noselect'}, -- https://github.com/hrsh7th/nvim-cmp#setup
@@ -29,10 +28,3 @@ local options = {
 for key, value in pairs(options) do
   vim.opt[key] = value
 end
-
--- highlight yanked region
-vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
