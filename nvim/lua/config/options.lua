@@ -30,7 +30,9 @@ for key, value in pairs(options) do
   vim.opt[key] = value
 end
 
-
 -- highlight yanked region
-local group = vim.api.nvim_create_augroup('highlight_yank', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', { command = 'lua vim.highlight.on_yank({higroup="Substitute", timeout=200})', group = group, })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})

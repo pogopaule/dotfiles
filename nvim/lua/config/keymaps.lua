@@ -24,9 +24,18 @@ map('i', 'jk', '<ESC>', opts)
 map('n', '<CR>', 'o<ESC>', opts)
 
 
+-- move lines
+vim.keymap.set('n', '<A-j>', ":m .+1<CR>==")
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv")
+vim.keymap.set('i', '<A-j>', '<Esc>:m .+1<CR>==gi')
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==')
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv")
+vim.keymap.set('i', '<A-k>', '<Esc>:m .-2<CR>==gi')
+
+
 -- move nicer in wrapped lines
-map('n', 'j', 'gj', opts)
-map('n', 'k', 'gk', opts)
+map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 
 -- do not overwrite yanked when pasting in visual mode
@@ -68,6 +77,8 @@ wk.register({
     b = { '<CMD>Telescope git_bcommits<CR>', 'Git Commits For Buffer' },
     r = { '<CMD>Telescope lsp_references<CR>', 'LSP references' },
     n = { '<CMD>Telekasten find_notes<CR>', 'Find Notes'},
+    [':'] = { '<CMD>Telescope command_history<CR>', 'Command History' },
+    ['/'] = { '<CMD>Telescope current_buffer_fuzzy_find<CR>', 'Fuzzy Find In Current Buffer' },
   },
   r = {
     name = '+Refactor',
@@ -109,8 +120,7 @@ wk.register({
   o = {
     name = '+Open',
     k = { '<CMD>e ~/dotfiles/nvim/lua/config/keymaps.lua<CR>', 'Keymaps'},
-    p = { '<CMD>e ~/dotfiles/nvim/lua/config/plugins.lua<CR>', 'Plugins'},
-    s = { '<CMD>e ~/dotfiles/nvim/lua/config/plugins/luasnip.lua<CR>', 'Snippets'},
+    s = { '<CMD>e ~/dotfiles/nvim/lua/config/plugins/snippets.lua<CR>', 'Snippets'},
     n = { '<CMD>e ~/dotfiles/nix/home-core.nix<CR>', 'Nix Home Core'},
   },
   t = {

@@ -99,9 +99,10 @@ return {
   -- buffers as tabs
   {
     'https://github.com/akinsho/bufferline.nvim',
-    event = 'VeryLazy',
+    event = 'BufAdd',
     config = {
       options = {
+        always_show_bufferline = false,
         offsets = { {
           filetype = 'NvimTree',
           text = 'File Explorer',
@@ -116,5 +117,12 @@ return {
   {
     'https://github.com/rcarriga/nvim-notify',
     config = function() vim.notify = require('notify') end,
+  },
+
+  -- indentation guides
+  {
+    'https://github.com/lukas-reineke/indent-blankline.nvim',
+    event = 'BufReadPre',
+    config = { show_current_context = true },
   },
 }

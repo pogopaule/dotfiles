@@ -146,11 +146,4 @@ return {
         ]])
     end
   },
-
-  -- indentation guides
-  {
-    'https://github.com/lukas-reineke/indent-blankline.nvim',
-    event = 'BufReadPre',
-    config = { show_current_context = true },
-  },
 }
