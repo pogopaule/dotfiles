@@ -8,7 +8,7 @@ return {
     keys = {
       { '<leader>c', '<CMD>ChatGPT<CR>', desc = 'ChatGPT' },
     },
-    dependencies = { 'MunifTanjim/nui.nvim' }
+    dependencies = { 'https://github.com/MunifTanjim/nui.nvim' }
   },
 
   -- undo tree in telescope
@@ -26,7 +26,7 @@ return {
   {
     'https://github.com/kevinhwang91/nvim-ufo',
     event = 'VeryLazy',
-    dependencies = 'kevinhwang91/promise-async',
+    dependencies = 'https://github.com/kevinhwang91/promise-async',
     config = function()
       vim.o.foldcolumn = '1' -- '0' is not bad
       vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value

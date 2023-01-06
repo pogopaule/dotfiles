@@ -112,7 +112,7 @@ return {
 
   -- easily surround with brackets
   {
-    'https://github.com/kylechi/nvim-surround',
+    'https://github.com/kylechui/nvim-surround',
     keys = { 'ys', 'cs', 'ds' },
     config = true,
   },
