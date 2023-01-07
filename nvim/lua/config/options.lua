@@ -1,28 +1,28 @@
-vim.cmd [[set iskeyword+=-]]        -- e.g. delete foo-bar with daw
+vim.cmd [[set iskeyword+=-]] -- e.g. delete foo-bar with daw
 
 local options = {
-  shiftwidth    = 2,                -- number of spaces for indentation
-  smartindent   = true,
-  expandtab     = true,             -- convert tabs to spaces
+  shiftwidth  = 2, -- number of spaces for indentation
+  smartindent = true,
+  expandtab   = true, -- convert tabs to spaces
 
-  relativenumber = true,            -- show relative linenumbers
-  number        = true,             -- show absolute linenumbers
-  cursorline    = true,             -- mark current line
+  relativenumber = true, -- show relative linenumbers
+  number         = true, -- show absolute linenumbers
+  cursorline     = true, -- mark current line
 
-  backup        = false,
-  swapfile      = false,
+  backup   = false,
+  swapfile = false,
 
-  ignorecase    = true,             -- ignore case in search patterns
-  smartcase     = true,
+  ignorecase = true, -- ignore case in search patterns
+  smartcase  = true,
 
-  updatetime    = 300,              -- faster completion and word highlighting (4000ms default)
+  updatetime = 300, -- faster completion and word highlighting (4000ms default)
 
-  signcolumn    = 'yes',            -- avoid jumping leftmost column when lsp hint appear
+  signcolumn = 'yes', -- avoid jumping leftmost column when lsp hint appear
 
   termguicolors = true,
 
-  foldlevel     = 99,
-  completeopt   = {'menu', 'menuone', 'noselect'}, -- https://github.com/hrsh7th/nvim-cmp#setup
+  foldlevel   = 99,
+  completeopt = { 'menu', 'menuone', 'noselect' }, -- https://github.com/hrsh7th/nvim-cmp#setup
 }
 
 for key, value in pairs(options) do
