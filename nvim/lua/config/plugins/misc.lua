@@ -1,5 +1,5 @@
 return {
-  -- Lua functions
+  -- Lua functions used by other plugins
   { 'https://github.com/nvim-lua/plenary.nvim' },
 
   -- fix CursorHold performance

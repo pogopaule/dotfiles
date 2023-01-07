@@ -64,7 +64,7 @@ map("n", "dd", smart_dd, { noremap = true, expr = true })
 wk.register({
   f = {
     name = '+Find',
-    f = { '<CMD>Telescope find_files hidden=true<CR>', 'Files' },
+    f = { '<CMD>Telescope find_files<CR>', 'Files' },
     t = { '<CMD>TodoTelescope<CR>', 'Todos' },
     h = { '<CMD>Telescope help_tags<CR>', 'Help' },
     o = { '<CMD>Telescope oldfiles<CR>', 'Old Files' },

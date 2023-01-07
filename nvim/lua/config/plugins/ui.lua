@@ -88,7 +88,7 @@ return {
           },
         }
       })
-      if os.getenv("THEME") == "light" then
+      if os.getenv("THEME") == 'light' then
         vim.cmd('colorscheme dawnfox')
       else
         vim.cmd('colorscheme nordfox')
@@ -116,7 +116,9 @@ return {
   -- popup messages
   {
     'https://github.com/rcarriga/nvim-notify',
-    config = function() vim.notify = require('notify') end,
+    config = function()
+      vim.notify = require('notify')
+    end,
   },
 
   -- indentation guides

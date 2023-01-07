@@ -19,6 +19,19 @@ return {
       require('telescope').setup {
         extensions = {
           ['ui-select'] = { require('telescope.themes').get_dropdown {} }
+        },
+        defaults = {
+          borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+          mappings = {
+            i = {
+              ["<C-i>"] = function()
+                require("telescope.builtin").find_files({no_ignore = true})
+              end,
+              ["<C-h>"] = function()
+                require("telescope.builtin").find_files({hidden = true})
+              end,
+            },
+          },
         }
       }
       -- To get ui-select loaded and working with telescope, you need to call load_extension, somewhere after setup function:
