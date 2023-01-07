@@ -107,6 +107,11 @@ return {
   {
     'https://github.com/glepnir/lspsaga.nvim',
     event = 'VeryLazy',
+    keys = {
+      { '<leader>a', '<CMD>Lspsaga code_action<CR>', desc = 'LSP Code Action' },
+      { '<leader>e', '<CMD>Lspsaga show_line_diagnostics<CR>', desc = 'LSP Line Diagnostics' },
+      { 'K', '<CMD>Lspsaga hover_doc<CR>', desc = 'Hover LSP documentation' },
+    },
     config = function()
       require('lspsaga').init_lsp_saga({
         code_action_lightbulb = {
@@ -181,7 +186,7 @@ return {
   -- Nicer diagnostics
   {
     'https://github.com/folke/trouble.nvim',
-    cmd = 'Trouble',
+    cmd = { 'Trouble' },
     config = true,
   },
 }

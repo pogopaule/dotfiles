@@ -100,17 +100,26 @@ return {
   {
     'https://github.com/akinsho/bufferline.nvim',
     event = 'BufAdd',
-    config = {
-      options = {
-        always_show_bufferline = false,
-        offsets = { {
-          filetype = 'NvimTree',
-          text = 'File Explorer',
-          highlight = 'Directory',
-          text_align = 'left'
-        } }
-      }
-    },
+
+    config = function()
+      require('bufferline').setup({
+        options = {
+          always_show_bufferline = false,
+          offsets = { {
+            filetype = 'NvimTree',
+            text = 'File Explorer',
+            highlight = 'Directory',
+            text_align = 'left'
+          } }
+        }
+      })
+      local map = vim.keymap.set
+      local opts = { noremap = true, silent = true }
+      map('n', '<A-h>', '<CMD>BufferLineCyclePrev<CR>', opts)
+      map('n', '<A-l>', '<CMD>BufferLineCycleNext<CR>', opts)
+      map('i', '<A-h>', '<CMD>BufferLineCyclePrev<CR>', opts)
+      map('i', '<A-l>', '<CMD>BufferLineCycleNext<CR>', opts)
+    end,
   },
 
   -- popup messages

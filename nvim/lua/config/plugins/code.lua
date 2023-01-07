@@ -82,6 +82,7 @@ return {
   -- Highlight, list and search todo comments
   {
     'https://github.com/folke/todo-comments.nvim',
+    cmd = 'TodoTelescope',
     event = 'BufReadPost',
     config = true,
   },
@@ -106,7 +107,11 @@ return {
   -- split or join blocks powered by treesitter
   {
     'https://github.com/Wansmer/treesj',
-    cmd = { 'TSJToggle', 'TSJJoin', 'TSJSplit' },
+    keys = {
+      { '<leader>jt', '<CMD>TSJToggle<CR>', desc = 'Toggle' },
+      { '<leader>jj', '<CMD>TSJJoin<CR>', desc = 'Join' },
+      { '<leader>js', '<CMD>TSJToggle<CR>', desc = 'Toggle' },
+    },
     config = { use_default_keymaps = false },
   },
 
@@ -139,6 +144,12 @@ return {
     'https://github.com/jpalardy/vim-slime',
     event = 'VeryLazy',
     config = function()
+
+      vim.cmd [[let g:slime_no_mappings = 1]]
+      local map = vim.keymap.set
+      map('x', '<C-s>', '<Plug>SlimeRegionSend', {})
+      map('n', '<C-s>', '<Plug>SlimeParagraphSend', {})
+
       vim.cmd([[
           let g:slime_target = "tmux"
           let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
