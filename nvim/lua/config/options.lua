@@ -1,5 +1,3 @@
-vim.cmd [[set iskeyword+=-]] -- e.g. delete foo-bar with daw
-
 local options = {
   shiftwidth  = 2, -- number of spaces for indentation
   smartindent = true,

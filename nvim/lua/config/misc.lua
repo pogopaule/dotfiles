@@ -8,3 +8,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank()
   end,
 })
+
+ -- e.g. delete foo-bar with daw
+vim.cmd [[set iskeyword+=-]]
