@@ -60,9 +60,10 @@ return {
   {
     'https://github.com/jpalardy/vim-slime',
     event = 'VeryLazy',
-    config = function()
-
+    init = function()
       vim.cmd [[let g:slime_no_mappings = 1]]
+    end,
+    config = function()
       local map = vim.keymap.set
       map('x', '<C-s>', '<Plug>SlimeRegionSend', {})
       map('n', '<C-s>', '<Plug>SlimeParagraphSend', {})
