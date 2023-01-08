@@ -21,6 +21,8 @@ local options = {
 
   foldlevel   = 99,
   completeopt = { 'menu', 'menuone', 'noselect' }, -- https://github.com/hrsh7th/nvim-cmp#setup
+
+  showmode = false, -- https://www.reddit.com/r/neovim/comments/105yfdg/hi_im_using_lualine_and_want_to_get_rid_of_the/
 }
 
 for key, value in pairs(options) do
