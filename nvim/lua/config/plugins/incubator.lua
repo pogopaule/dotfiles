@@ -1,4 +1,12 @@
 return {
+  -- project wide search/replace
+  {
+    'https://github.com/nvim-pack/nvim-spectre',
+    config = function()
+      require('spectre').setup()
+    end,
+  },
+
   -- ChatGPT
   {
     'https://github.com/jackMort/ChatGPT.nvim',
