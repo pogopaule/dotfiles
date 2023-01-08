@@ -8,6 +8,21 @@ return {
     end,
   },
 
+  {
+    'https://github.com/ggandor/flit.nvim',
+    keys = {
+      'f',
+      'F',
+      't',
+      'T',
+      { 'f', mode = 'v' },
+      { 'f', mode = 'v' },
+      { 't', mode = 'v' },
+      { 'T', mode = 'v' },
+    },
+    config = true,
+  },
+
   -- Find, Filter, Preview, Pick
   { 'https://github.com/nvim-telescope/telescope.nvim' },
 
