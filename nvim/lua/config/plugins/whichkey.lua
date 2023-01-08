@@ -76,7 +76,7 @@ return {
         w = { '<CMD>write<CR>', 'Write' },
         h = { '<CMD>nohlsearch<CR>', 'Remove Highlight' },
         p = { '"+p', 'Paste From Clipboard' },
-        s = { ':%s///gc<left><left><left>', 'Substitute', silent = false },
+        s = { ':%s///gc<left><left><left><left>', 'Substitute', silent = false },
       }, { prefix = '<leader>' })
 
       wk.register({
@@ -92,7 +92,7 @@ return {
         },
         p = { '"+p', 'Paste From Clipboard' },
         y = { '"+y', 'Yank To Clipboard' },
-        s = { '"hy:%s/<C-r>h//gc<left><left>', 'Substitute Selection', silent = false },
+        s = { '"hy:%s/<C-r>h//gc<left><left><left>', 'Substitute Selection', silent = false },
 
       }, { prefix = '<leader>', mode = 'v' })
     end,
