@@ -23,6 +23,9 @@ local options = {
   completeopt = { 'menu', 'menuone', 'noselect' }, -- https://github.com/hrsh7th/nvim-cmp#setup
 
   showmode = false, -- https://www.reddit.com/r/neovim/comments/105yfdg/hi_im_using_lualine_and_want_to_get_rid_of_the/
+
+  timeoutlen = 300, -- so that which-key pops up faster, default is 1000
+
 }
 
 for key, value in pairs(options) do

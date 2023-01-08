@@ -25,10 +25,10 @@ return {
           mappings = {
             i = {
               ["<C-i>"] = function()
-                require("telescope.builtin").find_files({no_ignore = true})
+                require("telescope.builtin").find_files({ no_ignore = true })
               end,
               ["<C-h>"] = function()
-                require("telescope.builtin").find_files({hidden = true})
+                require("telescope.builtin").find_files({ hidden = true })
               end,
             },
           },
@@ -52,7 +52,9 @@ return {
       { '<C-l>', "<CMD>lua require('nvim-tmux-navigation').NvimTmuxNavigateRight()<CR>", desc = 'Tmux Right',
         mode = { 'n', 'v', 'i' } },
     },
-    config = {},
+    config = function()
+      require('nvim-tmux-navigation').setup({})
+    end
   },
 
 }
