@@ -16,7 +16,7 @@
       EDITOR = "nvim";
     };
     packages = with pkgs; [
-      tldr
+      tealdeer
       httpie
       ripgrep
       ncdu
