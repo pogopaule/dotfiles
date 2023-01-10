@@ -6,7 +6,7 @@
       THEME = if darkTheme then "dark" else "light";
     };
     plugins = [
-      { name = "fzf-tab"; src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";}
+      { name = "fzf-tab"; src = "${pkgs.zsh-fzf-tab}/share/fzf-tab"; }
     ];
     initExtra = ''
       # https://github.com/jeffreytse/zsh-vi-mode#nix
@@ -90,38 +90,38 @@
     };
     shellAliases = {
       # git
-      gll="git log --graph --branches --remotes --tags --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
-      gsa="git secret add";
+      gll = "git log --graph --branches --remotes --tags --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
+      gsa = "git secret add";
 
       # append aliases
-      "-g H"="| head";
-      "-g T"="| tail";
-      "-g F"="| fzf";
-      "-g L"="| less";
-      "-g J"="| jq";
-      "-g Y"="| xclip -selection clip";
+      "-g H" = "| head";
+      "-g T" = "| tail";
+      "-g F" = "| fzf";
+      "-g L" = "| less";
+      "-g J" = "| jq";
+      "-g Y" = "| xclip -selection clip";
 
       # add confirmation
-      rm="rm -i";
-      cp="cp -i";
-      mv="mv -i";
+      rm = "rm -i";
+      cp = "cp -i";
+      mv = "mv -i";
 
       # better cli
-      cat="bat";
-      du="ncdu ${if darkTheme then "--color dark " else ""} -rr -x --exclude .git --exclude node_modules";
-      ls="exa --oneline --icons";
-      la="exa -la --icons";
-      lt="exa -la --tree --icons";
+      cat = "bat";
+      du = "ncdu ${if darkTheme then "--color dark " else ""} -rr -x --exclude .git --exclude node_modules";
+      ls = "exa --oneline --icons";
+      la = "exa -la --icons";
+      lt = "exa -la --tree --icons";
 
       # misc
-      h="http";
-      clr="clear";
-      cd="z";
+      h = "http";
+      clr = "clear";
+      cd = "z";
       tldrf = "tldr --list | fzf --preview \"tldr {1} --color=always\" --preview-window=right,70% | xargs tldr";
 
       # neovim
-      v="nvim";
-      vim="nvim";
+      v = "nvim";
+      vim = "nvim";
     };
   };
 }
