@@ -62,7 +62,7 @@ return {
   -- Status bar
   {
     'https://github.com/nvim-lualine/lualine.nvim',
-    event = 'VeryLazy',
+    lazy = false,
     config = {
       options = {
         disabled_filetypes = {

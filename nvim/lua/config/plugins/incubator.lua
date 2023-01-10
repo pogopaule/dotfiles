@@ -33,7 +33,7 @@ return {
   -- better folding
   {
     'https://github.com/kevinhwang91/nvim-ufo',
-    event = 'VeryLazy',
+    lazy = false,
     dependencies = 'https://github.com/kevinhwang91/promise-async',
     config = function()
       vim.o.foldcolumn = '1' -- '0' is not bad
