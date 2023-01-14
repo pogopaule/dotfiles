@@ -70,4 +70,4 @@ map('x', '<C-F>', vim.lsp.buf.format, opts)
 
 
 -- kazhala/close-buffers.nvim
-map('n', '<C-w>', "<CMD>lua require('close_buffers').delete({ type = 'this' })<CR>", opts)
+map('n', '<C-w>', "<CMD>lua require('close_buffers').delete({ type = 'this', force = true })<CR>", opts)
