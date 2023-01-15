@@ -1,7 +1,7 @@
 return {
   -- Jump in text
   {
-    'https://github.com/ggandor/leap.nvim',
+    url = 'https://github.com/ggandor/leap.nvim',
     keys = { 's', 'S', 'gs', { 'x', mode = 'v' }, { 'X', mode = 'v' } },
     config = function()
       require('leap').add_default_mappings()
@@ -9,7 +9,7 @@ return {
   },
 
   {
-    'https://github.com/ggandor/flit.nvim',
+    url = 'https://github.com/ggandor/flit.nvim',
     keys = {
       'f',
       'F',
@@ -24,11 +24,11 @@ return {
   },
 
   -- Find, Filter, Preview, Pick
-  { 'https://github.com/nvim-telescope/telescope.nvim' },
+  { url = 'https://github.com/nvim-telescope/telescope.nvim' },
 
   -- use telescope to select options
   {
-    'https://github.com/nvim-telescope/telescope-ui-select.nvim',
+    url = 'https://github.com/nvim-telescope/telescope-ui-select.nvim',
     event = 'VeryLazy',
     config = function()
       require('telescope').setup {
@@ -56,7 +56,7 @@ return {
 
   -- Seamless jumping between vim and tmux
   {
-    'https://github.com/alexghergh/nvim-tmux-navigation',
+    url = 'https://github.com/alexghergh/nvim-tmux-navigation',
     keys = {
       { '<C-h>', "<CMD>lua require('nvim-tmux-navigation').NvimTmuxNavigateLeft()<CR>", desc = 'Tmux Left',
         mode = { 'n', 'v', 'i' } },

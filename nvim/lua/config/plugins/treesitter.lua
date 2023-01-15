@@ -1,9 +1,9 @@
 return {
   {
-    'https://github.com/nvim-treesitter/nvim-treesitter',
+    url = 'https://github.com/nvim-treesitter/nvim-treesitter',
     dependencies = {
       -- Text objects like functions and variables
-      { 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects' },
+      { url = 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects' },
     },
     build = ':TSUpdate',
     config = function()
@@ -60,7 +60,7 @@ return {
 
   -- split or join blocks powered by treesitter
   {
-    'https://github.com/Wansmer/treesj',
+    url = 'https://github.com/Wansmer/treesj',
     keys = {
       { '<leader>jt', '<CMD>TSJToggle<CR>', desc = 'Toggle' },
       { '<leader>jj', '<CMD>TSJJoin<CR>', desc = 'Join' },

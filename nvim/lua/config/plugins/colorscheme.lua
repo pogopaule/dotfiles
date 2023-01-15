@@ -1,7 +1,7 @@
 return {
   -- nightfox theme
   {
-    'https://github.com/EdenEast/nightfox.nvim',
+    url = 'https://github.com/EdenEast/nightfox.nvim',
     lazy = false,
     priority = 1000,
     build = ':NightfoxCompile',

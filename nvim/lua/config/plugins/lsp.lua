@@ -2,13 +2,13 @@ return {
   -- LSP support
   -- TODO: better lazy
   {
-    'https://github.com/neovim/nvim-lspconfig',
+    url = 'https://github.com/neovim/nvim-lspconfig',
     event = 'VeryLazy',
     dependencies = {
       -- LSP signature hint as you type
-      { 'https://github.com/ray-x/lsp_signature.nvim' },
+      { url = 'https://github.com/ray-x/lsp_signature.nvim' },
       -- JSON schema awareness, gives LSP completions for e.g. package.json
-      { 'https://github.com/b0o/schemastore.nvim' },
+      { url = 'https://github.com/b0o/schemastore.nvim' },
     },
     config = function()
       local lspconfig = require('lspconfig')
@@ -105,7 +105,7 @@ return {
   -- The neovim language-server-client UI
   -- TODO: better lazy
   {
-    'https://github.com/glepnir/lspsaga.nvim',
+    url = 'https://github.com/glepnir/lspsaga.nvim',
     event = 'BufRead',
     keys = {
       { '<leader>a', '<CMD>Lspsaga code_action<CR>', desc = 'LSP Code Action' },
@@ -128,7 +128,7 @@ return {
   -- LSP bridge for linters and others
   -- TODO: better lazy
   {
-    'https://github.com/jose-elias-alvarez/null-ls.nvim',
+    url = 'https://github.com/jose-elias-alvarez/null-ls.nvim',
     event = 'VeryLazy',
     config = function()
       local null_ls = require('null-ls')
@@ -178,14 +178,14 @@ return {
   -- Show LSP progress
   -- TODO: better lazy
   {
-    'https://github.com/j-hui/fidget.nvim',
+    url = 'https://github.com/j-hui/fidget.nvim',
     event = 'VeryLazy',
     config = true,
   },
 
   -- Nicer diagnostics
   {
-    'https://github.com/folke/trouble.nvim',
+    url = 'https://github.com/folke/trouble.nvim',
     cmd = { 'Trouble' },
     config = true,
   },

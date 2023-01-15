@@ -1,8 +1,8 @@
 return {
   {
-    'https://github.com/L3MON4D3/LuaSnip',
+    url = 'https://github.com/L3MON4D3/LuaSnip',
     dependencies = {
-      { 'https://github.com/rafamadriz/friendly-snippets' },
+      { url = 'https://github.com/rafamadriz/friendly-snippets' },
     },
     config = function()
       local map = vim.keymap.set

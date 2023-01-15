@@ -1,21 +1,21 @@
 return {
   -- helpers to close buffers, used by bufferline
   {
-    'https://github.com/kazhala/close-buffers.nvim',
+    url = 'https://github.com/kazhala/close-buffers.nvim',
     event = 'VeryLazy',
     config = true,
   },
 
   -- Icon font
   {
-    'https://github.com/kyazdani42/nvim-web-devicons',
+    url = 'https://github.com/kyazdani42/nvim-web-devicons',
     event = 'VeryLazy',
     config = true,
   },
 
   -- File Explorer
   {
-    'https://github.com/kyazdani42/nvim-tree.lua',
+    url = 'https://github.com/kyazdani42/nvim-tree.lua',
     keys = {
       { '<leader>N', '<CMD>NvimTreeToggle<CR>', desc = 'Toggle Nvim Tree' },
       { '<leader>n', '<CMD>NvimTreeFindFile<CR>', desc = 'Find File in Nvim Tree' },
@@ -43,7 +43,7 @@ return {
 
   -- Start screen
   {
-    'https://github.com/goolord/alpha-nvim',
+    url = 'https://github.com/goolord/alpha-nvim',
     lazy = false,
     config = function()
       local startify = require('alpha.themes.startify')
@@ -61,7 +61,7 @@ return {
 
   -- Status bar
   {
-    'https://github.com/nvim-lualine/lualine.nvim',
+    url = 'https://github.com/nvim-lualine/lualine.nvim',
     lazy = false,
     config = {
       options = {
@@ -74,7 +74,7 @@ return {
 
   -- buffers as tabs
   {
-    'https://github.com/akinsho/bufferline.nvim',
+    url = 'https://github.com/akinsho/bufferline.nvim',
     event = 'BufAdd',
 
     config = function()
@@ -100,7 +100,7 @@ return {
 
   -- popup messages
   {
-    'https://github.com/rcarriga/nvim-notify',
+    url = 'https://github.com/rcarriga/nvim-notify',
     config = function()
       vim.notify = require('notify')
     end,
@@ -108,7 +108,7 @@ return {
 
   -- indentation guides
   {
-    'https://github.com/lukas-reineke/indent-blankline.nvim',
+    url = 'https://github.com/lukas-reineke/indent-blankline.nvim',
     event = 'BufReadPre',
     config = { show_current_context = true },
   },

@@ -1,10 +1,10 @@
 return {
   {
-    'https://github.com/mfussenegger/nvim-dap',
+    url = 'https://github.com/mfussenegger/nvim-dap',
     cmd = { 'DapContinue', 'DapStepOver', 'DapStepInto', 'DapStepOut', 'DapToggleBreakpoint', },
     dependencies = {
-      { 'https://github.com/theHamsta/nvim-dap-virtual-text' },
-      { 'https://github.com/rcarriga/nvim-dap-ui' },
+      { url = 'https://github.com/theHamsta/nvim-dap-virtual-text' },
+      { url = 'https://github.com/rcarriga/nvim-dap-ui' },
     },
     config = function()
       local dap = require('dap')
@@ -80,19 +80,19 @@ return {
   },
   -- DAP for java
   -- TODO: lazy
-  { 'https://github.com/mfussenegger/nvim-jdtls' },
+  { url = 'https://github.com/mfussenegger/nvim-jdtls' },
 
   -- DAP for JS
   -- TODO: lazy
   {
-    'https://github.com/mxsdev/nvim-dap-vscode-js',
+    url = 'https://github.com/mxsdev/nvim-dap-vscode-js',
     config = {
       adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
     }
   },
   -- TODO: lazy
   {
-    'https://github.com/microsoft/vscode-js-debug',
+    url = 'https://github.com/microsoft/vscode-js-debug',
     build = 'npm install --legacy-peer-deps && npm run compile',
   },
 }

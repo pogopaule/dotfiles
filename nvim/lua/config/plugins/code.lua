@@ -1,27 +1,27 @@
 return {
   -- extends %
   {
-    'https://github.com/andymass/vim-matchup',
+    url = 'https://github.com/andymass/vim-matchup',
     event = 'BufReadPost',
   },
 
   -- Comments
   {
-    'https://github.com/numToStr/Comment.nvim',
+    url = 'https://github.com/numToStr/Comment.nvim',
     keys = { 'gc', { 'gc', mode = 'v' } },
     config = true,
   },
 
   -- Colorize hex colors
   {
-    'https://github.com/NvChad/nvim-colorizer.lua',
+    url = 'https://github.com/NvChad/nvim-colorizer.lua',
     event = 'BufReadPre',
     config = true,
   },
 
   -- Highlight, list and search todo comments
   {
-    'https://github.com/folke/todo-comments.nvim',
+    url = 'https://github.com/folke/todo-comments.nvim',
     cmd = 'TodoTelescope',
     event = 'BufReadPost',
     config = true,
@@ -29,19 +29,19 @@ return {
 
   -- Refactoring
   {
-    'https://github.com/ThePrimeagen/refactoring.nvim',
+    url = 'https://github.com/ThePrimeagen/refactoring.nvim',
   },
 
   -- easily surround with brackets
   {
-    'https://github.com/kylechui/nvim-surround',
+    url = 'https://github.com/kylechui/nvim-surround',
     keys = { 'ys', 'cs', 'ds' },
     config = true,
   },
 
   -- Insert matching quote, brackets, etc.
   {
-    'https://github.com/windwp/nvim-autopairs',
+    url = 'https://github.com/windwp/nvim-autopairs',
     event = 'BufReadPre',
     config = function()
       require('nvim-autopairs').setup({ fast_wrap = {} })
@@ -58,7 +58,7 @@ return {
 
   -- Send line to tmux
   {
-    'https://github.com/jpalardy/vim-slime',
+    url = 'https://github.com/jpalardy/vim-slime',
     event = 'VeryLazy',
     init = function()
       vim.cmd [[let g:slime_no_mappings = 1]]
