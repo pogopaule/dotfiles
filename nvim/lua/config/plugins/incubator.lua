@@ -1,7 +1,7 @@
 return {
   -- project wide search/replace
   {
-    url = 'https://github.com/nvim-pack/nvim-spectre',
+    'https://github.com/nvim-pack/nvim-spectre',
     config = function()
       require('spectre').setup()
     end,
@@ -9,19 +9,19 @@ return {
 
   -- ChatGPT
   {
-    url = 'https://github.com/jackMort/ChatGPT.nvim',
+    'https://github.com/jackMort/ChatGPT.nvim',
     config = {
       welcome_message = '',
     },
     keys = {
       { '<leader>c', '<CMD>ChatGPT<CR>', desc = 'ChatGPT' },
     },
-    dependencies = { url = 'https://github.com/MunifTanjim/nui.nvim' }
+    dependencies = { 'https://github.com/MunifTanjim/nui.nvim' }
   },
 
   -- undo tree in telescope
   {
-    url = 'https://github.com/debugloop/telescope-undo.nvim',
+    'https://github.com/debugloop/telescope-undo.nvim',
     keys = {
       { '<leader>fu', '<CMD>Telescope undo<CR>', desc = 'Undo' },
     },
@@ -32,11 +32,9 @@ return {
 
   -- better folding
   {
-    url = 'https://github.com/kevinhwang91/nvim-ufo',
+    'https://github.com/kevinhwang91/nvim-ufo',
     lazy = false,
-    dependencies = {
-      { url = 'https://github.com/kevinhwang91/promise-async' },
-    },
+    dependencies = 'https://github.com/kevinhwang91/promise-async',
     config = function()
       vim.o.foldcolumn = '1' -- '0' is not bad
       vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
@@ -61,26 +59,26 @@ return {
 
   -- fixes indentation problems with bullet lists
   {
-    url = 'https://github.com/dkarter/bullets.vim',
+    'https://github.com/dkarter/bullets.vim',
     ft = 'markdown',
   },
 
   -- treesitter playground, show syntax tree
   {
-    url = 'https://github.com/nvim-treesitter/playground',
+    'https://github.com/nvim-treesitter/playground',
     cmd = 'TSPlaygroundToggle',
   },
 
   -- github integration
   {
-    url = 'https://github.com/pwntester/octo.nvim',
+    'https://github.com/pwntester/octo.nvim',
     cmd = 'Octo',
     config = true,
   },
 
   -- note taking
   {
-    url = 'https://github.com/renerocksai/telekasten.nvim',
+    'https://github.com/renerocksai/telekasten.nvim',
     cmd = 'Telekasten',
     config = function()
       local home = vim.fn.expand("~/zettelkasten")
@@ -231,20 +229,20 @@ return {
   },
 
   -- -- editorconfig integration
-  -- { url = 'https://github.com/editorconfig/editorconfig-vim' },
+  -- { 'https://github.com/editorconfig/editorconfig-vim' },
 
   -- -- use vscode's container definitions in nvim
-  -- { url = 'https://github.com/jamestthompson3/nvim-remote-containers' },
+  -- { 'https://github.com/jamestthompson3/nvim-remote-containers' },
 
   -- measure startup time
   {
-    url = 'https://github.com/dstein64/vim-startuptime',
+    'https://github.com/dstein64/vim-startuptime',
     cmd = "StartupTime",
   },
 
   -- translate text
   {
-    url = 'https://github.com/potamides/pantran.nvim',
+    'https://github.com/potamides/pantran.nvim',
     cmd = 'Pantran',
     config = {
       default_engine = 'deepl',
@@ -254,7 +252,7 @@ return {
 
   -- enhanced inc/dec
   {
-    url = 'https://github.com/monaqa/dial.nvim',
+    'https://github.com/monaqa/dial.nvim',
     keys = {
       {
         "+",

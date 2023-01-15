@@ -1,15 +1,15 @@
 return {
   {
-    url = 'https://github.com/hrsh7th/nvim-cmp',
+    'https://github.com/hrsh7th/nvim-cmp',
     event = 'VeryLazy',
     dependencies = {
-      { url = 'https://github.com/hrsh7th/cmp-nvim-lsp' },
-      { url = 'https://github.com/hrsh7th/cmp-buffer' },
-      { url = 'https://github.com/hrsh7th/cmp-path' },
-      { url = 'https://github.com/hrsh7th/cmp-cmdline' },
-      { url = 'https://github.com/saadparwaiz1/cmp_luasnip' },
+      { 'https://github.com/hrsh7th/cmp-nvim-lsp' },
+      { 'https://github.com/hrsh7th/cmp-buffer' },
+      { 'https://github.com/hrsh7th/cmp-path' },
+      { 'https://github.com/hrsh7th/cmp-cmdline' },
+      { 'https://github.com/saadparwaiz1/cmp_luasnip' },
       -- vscode-like pictograms for neovim lsp completion items
-      { url = 'https://github.com/onsails/lspkind-nvim' },
+      { 'https://github.com/onsails/lspkind-nvim' },
     },
     config = function()
       local cmp = require('cmp')

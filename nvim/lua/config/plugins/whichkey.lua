@@ -1,7 +1,7 @@
 return {
   -- shows what to type after a prefix
   {
-    url = 'https://github.com/folke/which-key.nvim',
+    'https://github.com/folke/which-key.nvim',
     event = 'VeryLazy',
     config = function()
       local wk = require('which-key')
