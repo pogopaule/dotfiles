@@ -28,9 +28,6 @@ require('lazy').setup('config.plugins', {
   defaults = {
     lazy = true,
   },
-  git = {
-    url_format = '%s.git',
-  },
   performance = {
     rtp = {
       disabled_plugins = {
