@@ -90,6 +90,7 @@
     };
     shellAliases = {
       # git
+      git = "LANGUAGE=en git"; # fix strange language bug that happens because LANGUAGE is set to en_US:de
       gll = "git log --graph --branches --remotes --tags --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
       gsa = "git secret add";
 
