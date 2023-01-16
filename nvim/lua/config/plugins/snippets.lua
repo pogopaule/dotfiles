@@ -4,44 +4,35 @@ return {
     dependencies = {
       { 'https://github.com/rafamadriz/friendly-snippets' },
     },
+    keys = {
+      {
+        "<tab>",
+        function()
+          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+        end,
+        expr = true, silent = true, mode = "i",
+      },
+      { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
+      { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+    },
     config = function()
       local map = vim.keymap.set
-      -- TODO: use pure lua. need to figure out how to express the 'else <Tab>' case
-      vim.api.nvim_exec([[
-          " press <Tab> to expand or jump in a snippet. These can also be mapped separately
-          " via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
-          imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-        ]], true)
 
       local ls = require('luasnip')
 
       map('n', '<F5>',
         '<CMD>source ~/dotfiles/nvim/lua/config/plugins/luasnip.lua<CR><CMD>lua require("notify")("Snippets reloaded")<CR>')
 
-      map('s', '<s-tab>', function()
-        if ls.jumpable(1) then
-          ls.jump(1)
-        end
-      end, { silent = true })
-
-      -- this always moves to the previous item within the snippet
-      map({ 'i', 's' }, '<s-tab>', function()
-        if ls.jumpable(-1) then
-          ls.jump(-1)
-        end
-      end, { silent = true })
-
       -- selecting within a list of options
       map({ 'i', 's' }, '<c-e>', function()
         if ls.choice_active() then
           ls.change_choice(1)
         end
-      end, opts)
+      end, { silent = true })
 
       map('i', '<c-u>', require 'luasnip.extras.select_choice')
 
 
-      local ls = require('luasnip')
       local types = require('luasnip.util.types')
 
       ls.cleanup() -- used for re-sourcing this file, otherwise you get snippet duplicates

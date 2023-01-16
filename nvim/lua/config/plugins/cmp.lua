@@ -30,7 +30,7 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
-          ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = { -- the order below defines the order in the completion popup
           { name = 'luasnip' },
