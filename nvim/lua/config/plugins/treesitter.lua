@@ -62,9 +62,7 @@ return {
   {
     'https://github.com/Wansmer/treesj',
     keys = {
-      { '<leader>jt', '<CMD>TSJToggle<CR>', desc = 'Toggle' },
-      { '<leader>jj', '<CMD>TSJJoin<CR>', desc = 'Join' },
-      { '<leader>js', '<CMD>TSJToggle<CR>', desc = 'Toggle' },
+      { '<leader>j', '<CMD>TSJToggle<CR>', desc = 'TSJoin Toggle' },
     },
     config = { use_default_keymaps = false },
   },

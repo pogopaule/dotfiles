@@ -70,7 +70,6 @@ return {
           t = { '<CMD>Telekasten panel<CR>', 'Open Panel' },
           n = { '<CMD>Telekasten new_note<CR>', 'Open Panel' },
         },
-        j = { name = '+TSJoin' },
         q = { '<CMD>quit<CR>', 'Quit' },
         Q = { '<CMD>quitall<CR>', 'Quit All' },
         w = { '<CMD>write<CR>', 'Write' },
