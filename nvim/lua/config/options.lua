@@ -26,6 +26,7 @@ local options = {
 
   timeoutlen = 300, -- so that which-key pops up faster, default is 1000
 
+  mouse = '', -- disable mouse
 }
 
 for key, value in pairs(options) do
