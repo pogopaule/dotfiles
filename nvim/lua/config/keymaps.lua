@@ -37,7 +37,7 @@ map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 
 -- do not overwrite yanked when pasting in visual mode
-map('v', 'p', '"_dP', opts)
+map('x', 'p', '"_dP', opts)
 
 
 -- stay in indent mode when indenting
