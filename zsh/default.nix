@@ -93,6 +93,7 @@
       git = "LANGUAGE=en git"; # fix strange language bug that happens because LANGUAGE is set to en_US:de
       gll = "git log --graph --branches --remotes --tags --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
       gsa = "git secret add";
+      gdf = "git diff $@ --name-only | fzf -m --ansi --preview-window=right,70% --preview 'git diff $@ --color=always -- {-1} | ${pkgs.diff-so-fancy}/bin/diff-so-fancy'";
 
       # append aliases
       "-g H" = "| head";
