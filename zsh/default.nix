@@ -43,8 +43,6 @@
         # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#lazy
         zstyle :omz:plugins:ssh-agent lazy yes
 
-        bindkey -s '^F' "zi\n"
-
         # configure BAT
         export BAT_THEME=${if darkTheme then "OneHalfDark" else "OneHalfLight"}
 
