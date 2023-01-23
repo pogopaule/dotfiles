@@ -65,6 +65,7 @@
   "todo-comments.nvim": { "branch": "main", "commit": "077c59586d9d0726b0696dc5680eb863f4e04bc5" },
   "treesj": { "branch": "main", "commit": "15a2262dfcd7848fbafa5afea8adec3941b83c12" },
   "trouble.nvim": { "branch": "main", "commit": "b2a0afac2c319a481f0f0318963a74d672ba5766" },
+  "vim-fugitive": { "branch": "master", "commit": "2febbe1f00be04f16daa6464cb39214a8566ec4b" },
   "vim-matchup": { "branch": "master", "commit": "959e0e79ea240cdee29efbdd0d2e2e718931ccec" },
   "vim-rooter": { "branch": "master", "commit": "4f52ca556a0b9e257bf920658714470ea0320b7a" },
   "vim-slime": { "branch": "main", "commit": "5308556987857eb0fc5f1a774496b29d8dd70f34" },

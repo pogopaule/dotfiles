@@ -11,4 +11,9 @@ return {
     'https://github.com/ruifm/gitlinker.nvim',
     config = true,
   },
+
+  {
+    'https://github.com/tpope/vim-fugitive',
+    cmd = { 'G', 'Git' },
+  },
 }
