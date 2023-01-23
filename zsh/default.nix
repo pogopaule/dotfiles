@@ -12,11 +12,6 @@
       # https://github.com/jeffreytse/zsh-vi-mode#nix
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
-      # https://github.com/junegunn/fzf/wiki/Configuring-fuzzy-completion#zsh
-      export FZF_COMPLETION_TRIGGER=""
-      bindkey '^T' fzf-completion
-      bindkey '^I' $fzf_default_completion
-
       # https://github.com/jeffreytse/zsh-vi-mode#custom-escape-key
       ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
@@ -47,15 +42,6 @@
       extraConfig = ''
         # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#lazy
         zstyle :omz:plugins:ssh-agent lazy yes
-
-
-        # https://github.com/junegunn/fzf#settings
-        _fzf_compgen_path() {
-          fd --hidden --follow --no-ignore --exclude ".git" . "$1"
-        }
-        _fzf_compgen_dir() {
-          fd --type d --hidden --follow --no-ignore --exclude ".git" . "$1"
-        }
 
         bindkey -s '^F' "zi\n"
 
