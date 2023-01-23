@@ -94,9 +94,11 @@
 
     fzf = rec {
       enable = true;
+      enableZshIntegration = true;
       changeDirWidgetCommand = "fd --type d --hidden --follow --no-ignore --exclude .git";
       defaultCommand = "fd --type f --hidden --follow --no-ignore --exclude .git";
       fileWidgetCommand = defaultCommand;
+      historyWidgetOptions = [ "--reverse" ];
       defaultOptions =
         if darkTheme then [ "--color dark" ]
         else [ "--color light" ];
