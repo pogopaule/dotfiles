@@ -36,21 +36,21 @@
       zstyle ':fzf-tab:*' default-color $'\033[30m'
       # see https://man.archlinux.org/man/fzf.1.en#color=
       zstyle ':fzf-tab:*' fzf-flags ${ if darkTheme then "--color=dark" else "--color=light"}
+
+      # configure BAT
+      export BAT_THEME=${if darkTheme then "OneHalfDark" else "OneHalfLight"}
+
+      # WSL 2 specific settings.
+      if grep -q "microsoft" /proc/version &>/dev/null; then
+        # Requires: https://sourceforge.net/projects/vcxsrv/ (or alternative)
+        export DISPLAY="$(ip route | awk '/default/ { print $3  }'):0"
+      fi
     '';
     oh-my-zsh = {
       enable = true;
       extraConfig = ''
         # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#lazy
         zstyle :omz:plugins:ssh-agent lazy yes
-
-        # configure BAT
-        export BAT_THEME=${if darkTheme then "OneHalfDark" else "OneHalfLight"}
-
-        # WSL 2 specific settings.
-        if grep -q "microsoft" /proc/version &>/dev/null; then
-          # Requires: https://sourceforge.net/projects/vcxsrv/ (or alternative)
-          export DISPLAY="$(ip route | awk '/default/ { print $3  }'):0"
-        fi
 
         source ~/.zshrc.local
       '';
