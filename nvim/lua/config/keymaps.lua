@@ -14,6 +14,11 @@ map('n', '<Down>', ':resize +4<CR>', opts)
 map('n', '<Left>', ':vertical resize -4<CR>', opts)
 map('n', '<Right>', ':vertical resize +4<CR>', opts)
 
+-- move between tab
+map({'n', 'v'}, '<A-h>', '<CMD>tabprevious<CR>', opts)
+map({'n', 'v'}, '<A-l>', '<CMD>tabnext<CR>', opts)
+map({'n', 'v'}, '<C-w>', "<CMD>tabclose<CR>", opts)
+
 
 -- exit insert mode by pressing jk
 map('i', 'jk', '<ESC>', opts)
@@ -67,7 +72,3 @@ map('n', '<C-F>', vim.lsp.buf.format, opts)
 map('v', '<C-F>', vim.lsp.buf.format, opts)
 map('s', '<C-F>', vim.lsp.buf.format, opts)
 map('x', '<C-F>', vim.lsp.buf.format, opts)
-
-
--- kazhala/close-buffers.nvim
-map('n', '<C-w>', "<CMD>lua require('close_buffers').delete({ type = 'this', force = true })<CR>", opts)

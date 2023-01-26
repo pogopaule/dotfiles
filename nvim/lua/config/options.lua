@@ -27,6 +27,8 @@ local options = {
   timeoutlen = 300, -- so that which-key pops up faster, default is 1000
 
   mouse = '', -- disable mouse
+
+  showtabline = 2, -- also show tabline when there is only one tab
 }
 
 for key, value in pairs(options) do
