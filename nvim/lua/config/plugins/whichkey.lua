@@ -70,11 +70,11 @@ return {
           t = { '<CMD>Telekasten panel<CR>', 'Open Panel' },
           n = { '<CMD>Telekasten new_note<CR>', 'Open Panel' },
         },
-        q = { '<CMD>quit<CR>', 'Quit' },
-        Q = { '<CMD>quitall<CR>', 'Quit All' },
-        w = { '<CMD>write<CR>', 'Write' },
+        q = { '<CMD>quit<CR>', 'Quit', mode = { 'n', 'v' } },
+        Q = { '<CMD>quitall<CR>', 'Quit All', mode = { 'n', 'v' } },
+        w = { '<CMD>write<CR>', 'Write', mode = { 'n', 'v' }},
         h = { '<CMD>nohlsearch<CR>', 'Remove Highlight' },
-        p = { '"+p', 'Paste From Clipboard' },
+        p = { '"+p', 'Paste From Clipboard', mode = { 'n', 'v' }},
         s = { ':%s///gc<left><left><left><left>', 'Substitute', silent = false },
       }, { prefix = '<leader>' })
 
@@ -89,7 +89,6 @@ return {
           f = { "<ESC><CMD>lua require('refactoring').refactor('Extract Function')<CR>", 'Extract Function' },
           v = { "<ESC><CMD>lua require('refactoring').refactor('Extract Variable')<CR>", 'Extract Variable' },
         },
-        p = { '"+p', 'Paste From Clipboard' },
         y = { '"+y', 'Yank To Clipboard' },
         s = { '"hy:%s/<C-r>h//gc<left><left><left>', 'Substitute Selection', silent = false },
 
