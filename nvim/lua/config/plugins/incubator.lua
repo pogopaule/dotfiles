@@ -1,4 +1,20 @@
 return {
+  {
+    'https://github.com/folke/zen-mode.nvim',
+    event = 'BufReadPost',
+    config = {
+      window = {
+        width = 150,
+      },
+      plugins = {
+        twilight = { enabled = true }
+      }
+    },
+    dependencies = {
+      { 'https://github.com/folke/twilight.nvim' }
+    }
+  },
+
   -- snake_case to camelCase and more
   {
     'https://github.com/johmsalas/text-case.nvim',
