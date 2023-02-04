@@ -21,7 +21,7 @@ return {
       local ls = require('luasnip')
 
       map('n', '<F5>',
-        '<CMD>source ~/dotfiles/nvim/lua/config/plugins/luasnip.lua<CR><CMD>lua require("notify")("Snippets reloaded")<CR>')
+        '<CMD>source ~/dotfiles/nvim/lua/config/plugins/snippets.lua<CR><CMD>lua require("notify")("Snippets reloaded")<CR>')
 
       -- selecting within a list of options
       map({ 'i', 's' }, '<c-e>', function()
@@ -98,6 +98,20 @@ return {
               local v = (c == 'x') and random(0, 0xf) or random(8, 0xb)
               return string.format('%x', v)
             end)
+          end)),
+      })
+
+      ls.add_snippets('gitcommit', {
+        s({ trig = 'ticketid', dscr = 'extract ticket id from current buffer' }, f(
+          function()
+            local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+            for _, line in pairs(lines) do
+              local ticket_id = string.match(line, "%u%u%u%-%d%d%d%d?");
+              if ticket_id then
+                return ticket_id
+              end
+            end
+            return ""
           end)),
       })
 
