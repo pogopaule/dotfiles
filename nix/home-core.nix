@@ -37,6 +37,7 @@
       entr
       pv
       yq
+      ijq
 
       sumneko-lua-language-server
       rnix-lsp
