@@ -20,7 +20,6 @@ return {
           G = { '<CMD>Telescope grep_string<CR>', 'Find Word Under Cursor' },
           c = { '<CMD>Telescope git_commits<CR>', 'Git Commits' },
           b = { '<CMD>Telescope git_bcommits<CR>', 'Git Commits For Buffer' },
-          r = { '<CMD>Telescope lsp_references<CR>', 'LSP references' },
           n = { '<CMD>Telekasten find_notes<CR>', 'Find Notes' },
           [':'] = { '<CMD>Telescope command_history<CR>', 'Command History' },
           ['/'] = { '<CMD>Telescope current_buffer_fuzzy_find<CR>', 'Fuzzy Find In Current Buffer' },
@@ -28,7 +27,6 @@ return {
         r = {
           name = '+Refactor',
           i = { "<ESC><CMD>lua require('refactoring').refactor('Inline Variable')<CR>", 'Inline Variable' },
-          r = { "<ESC><CMD>Lspsaga rename<CR>", 'Rename' },
         },
         d = {
           name = '+Debug',
@@ -77,10 +75,6 @@ return {
         p = { '"+p', 'Paste From Clipboard', mode = { 'n', 'v' }},
         s = { ':%s///gc<left><left><left><left>', 'Substitute', silent = false },
       }, { prefix = '<leader>' })
-
-      wk.register({
-        gd = { vim.lsp.buf.definition, 'Go to LSP definition' },
-      })
 
       wk.register({
         r = {

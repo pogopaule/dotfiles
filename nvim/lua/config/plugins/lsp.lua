@@ -111,18 +111,15 @@ return {
       { '<leader>a', '<CMD>Lspsaga code_action<CR>', desc = 'LSP Code Action' },
       { '<leader>e', '<CMD>Lspsaga show_line_diagnostics<CR>', desc = 'LSP Line Diagnostics' },
       { 'K', '<CMD>Lspsaga hover_doc<CR>', desc = 'Hover LSP documentation' },
+      { '<leader>rr', '<CMD>Lspsaga rename<CR>', desc = 'Rename' },
+      { 'gd', '<CMD>Lspsaga goto_definition<CR>', desc = 'Go to LSP definition' },
+      { '<leader>fr', '<CMD>Lspsaga lsp_finder<CR>', desc = 'Definition and References' },
     },
-    config = function()
-      require('lspsaga').setup({
-        code_action_lightbulb = {
-          enable = true,
-          sign = false,
-          enable_in_insert = true,
-          sign_priority = 20,
-          virtual_text = true,
-        },
-      })
-    end,
+    config = {
+      symbol_in_winbar = {
+        enable = false,
+      }
+    }
   },
 
   -- LSP bridge for linters and others
