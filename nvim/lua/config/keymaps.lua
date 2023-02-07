@@ -28,14 +28,6 @@ map('i', 'jk', '<ESC>', opts)
 map('n', '<CR>', 'o<ESC>', opts)
 
 
--- move lines
-vim.keymap.set('n', '<A-j>', ":m .+1<CR>==")
-vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv")
-vim.keymap.set('i', '<A-j>', '<Esc>:m .+1<CR>==gi')
-vim.keymap.set('n', '<A-k>', ':m .-2<CR>==')
-vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv")
-vim.keymap.set('i', '<A-k>', '<Esc>:m .-2<CR>==gi')
-
 -- move nicer in wrapped lines
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
