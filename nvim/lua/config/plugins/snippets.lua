@@ -20,6 +20,20 @@ return {
 
       local ls = require('luasnip')
 
+      -- end luasnip session after leaving insert mode
+      -- https://github.com/L3MON4D3/LuaSnip/issues/258#issuecomment-1011938524
+      vim.api.nvim_create_autocmd('ModeChanged', {
+        pattern = '*',
+        callback = function()
+          if ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
+              and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
+              and not require('luasnip').session.jump_active
+          then
+            require('luasnip').unlink_current()
+          end
+        end
+      })
+
       map('n', '<F5>',
         '<CMD>source ~/dotfiles/nvim/lua/config/plugins/snippets.lua<CR><CMD>lua require("notify")("Snippets reloaded")<CR>')
 
