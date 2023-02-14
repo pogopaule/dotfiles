@@ -3,7 +3,7 @@
 {
   home = {
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "Hack" ]; })
+      (nerdfonts.override { fonts = [ "Iosevka" ]; })
       signal-desktop
       thunderbird
       todoist-electron
@@ -24,8 +24,8 @@
         return {
           hide_tab_bar_if_only_one_tab = true,
           default_prog = { "zsh", "--login", "-c", "tmux attach -t default || tmux new -s default" },
-          font_size = 16.0,
-          font = wezterm.font('Hack Nerd Font'),
+          font_size = 18.0,
+          font = wezterm.font('Iosevka Nerd Font'),
           color_scheme = ${ if darkTheme then "'nordfox'" else "'dawnfox'" },
           colors = {
             cursor_bg = '#ff00ff',
@@ -42,7 +42,7 @@
     };
   };
 
-  fonts.fontconfig.enable = true; # for Hack Nerdfont
+  fonts.fontconfig.enable = true; # for Nerdfont
 
   imports = [
     (import ../alacritty { inherit darkTheme; })
