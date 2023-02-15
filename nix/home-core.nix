@@ -26,7 +26,6 @@
       lnav
       cloc
       gcc
-      xclip
       curl
       unzip
       git-crypt

@@ -14,6 +14,7 @@
       libimobiledevice
       ifuse
       vlc
+      xclip
     ];
   };
 
