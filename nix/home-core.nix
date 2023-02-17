@@ -37,6 +37,7 @@
       pv
       yq
       ijq
+      gnumake
 
       sumneko-lua-language-server
       rnix-lsp

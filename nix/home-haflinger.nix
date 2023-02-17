@@ -4,7 +4,6 @@
   home = {
     packages = with pkgs; [
       wslu
-      gnumake
       k9s
       kubectl
       awscli2
