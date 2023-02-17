@@ -2,7 +2,7 @@ return {
   -- extends %
   {
     'https://github.com/andymass/vim-matchup',
-    event = 'BufReadPost',
+    event = { 'BufReadPost', 'BufNewFile' },
   },
 
   -- Comments
@@ -15,7 +15,7 @@ return {
   -- Colorize hex colors
   {
     'https://github.com/NvChad/nvim-colorizer.lua',
-    event = 'BufReadPre',
+    event = { 'BufReadPre', 'BufNewFile' },
     config = true,
   },
 
@@ -23,7 +23,7 @@ return {
   {
     'https://github.com/folke/todo-comments.nvim',
     cmd = 'TodoTelescope',
-    event = 'BufReadPost',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = true,
   },
 
@@ -42,7 +42,7 @@ return {
   -- Insert matching quote, brackets, etc.
   {
     'https://github.com/windwp/nvim-autopairs',
-    event = 'BufReadPre',
+    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       require('nvim-autopairs').setup({ fast_wrap = {} })
       -- https://github.com/windwp/nvim-autopairs#you-need-to-add-mapping-cr-on-nvim-cmp-setupcheck-readmemd-on-nvim-cmp-repo

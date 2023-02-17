@@ -77,7 +77,7 @@ return {
   -- indentation guides
   {
     'https://github.com/lukas-reineke/indent-blankline.nvim',
-    event = 'BufReadPre',
+    event = { 'BufReadPre', 'BufNewFile' },
     config = { show_current_context = true },
   },
 }

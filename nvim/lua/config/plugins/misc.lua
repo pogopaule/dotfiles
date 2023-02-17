@@ -22,7 +22,7 @@ return {
 
   -- Show and remove unwanted whitespaces
   { 'https://github.com/zakharykaplan/nvim-retrail',
-    event = 'BufReadPost',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = {
       hlgroup = 'Substitute',
       filetype = {
@@ -37,7 +37,7 @@ return {
   -- smooth scrolling
   {
     'https://github.com/karb94/neoscroll.nvim',
-    event = 'BufReadPost',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = {
       mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
     },

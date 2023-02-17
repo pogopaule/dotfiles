@@ -3,7 +3,7 @@ return {
   -- TODO: better lazy
   {
     'https://github.com/neovim/nvim-lspconfig',
-    event = 'BufReadPre',
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       -- LSP signature hint as you type
       { 'https://github.com/ray-x/lsp_signature.nvim' },
@@ -106,7 +106,7 @@ return {
   -- TODO: better lazy
   {
     'https://github.com/glepnir/lspsaga.nvim',
-    event = 'BufReadPre',
+    event = { 'BufReadPre', 'BufNewFile' },
     keys = {
       { '<leader>a', '<CMD>Lspsaga code_action<CR>', desc = 'LSP Code Action' },
       { '<leader>e', '<CMD>Lspsaga show_line_diagnostics<CR>', desc = 'LSP Line Diagnostics' },
@@ -126,7 +126,7 @@ return {
   -- TODO: better lazy
   {
     'https://github.com/jose-elias-alvarez/null-ls.nvim',
-    event = 'BufReadPre',
+    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local null_ls = require('null-ls')
 

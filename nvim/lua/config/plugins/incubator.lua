@@ -1,7 +1,7 @@
 return {
   {
     'https://github.com/folke/zen-mode.nvim',
-    event = 'BufReadPost',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = {
       window = {
         width = 150,
@@ -18,7 +18,7 @@ return {
   -- snake_case to camelCase and more
   {
     'https://github.com/johmsalas/text-case.nvim',
-    event = 'BufReadPost',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = function()
       require('textcase').setup({})
     end
