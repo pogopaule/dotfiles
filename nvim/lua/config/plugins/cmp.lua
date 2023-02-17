@@ -31,6 +31,8 @@ return {
         },
         mapping = cmp.mapping.preset.insert({
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
+          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-d>'] = cmp.mapping.scroll_docs(4),
         }),
         sources = { -- the order below defines the order in the completion popup
           { name = 'luasnip' },
