@@ -6,10 +6,10 @@
       env.TERM = "xterm-256color";
       font = {
         size = 13;
-        normal.family = "Hack Nerd Font";
-        bold.family = "Hack Nerd Font";
-        italic.family = "Hack Nerd Font";
-        bold_italic.family = "Hack Nerd Font";
+        normal.family = "Iosevka Nerd Font";
+        bold.family = "Iosevka Nerd Font";
+        italic.family = "Iosevka Nerd Font";
+        bold_italic.family = "Iosevka Nerd Font";
       };
       window.startup_mode = "Maximized";
       key_bindings = [
