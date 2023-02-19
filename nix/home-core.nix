@@ -38,6 +38,8 @@
       yq
       ijq
       gnumake
+      exiftool
+      nethogs
 
       sumneko-lua-language-server
       rnix-lsp
