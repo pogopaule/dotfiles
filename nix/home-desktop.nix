@@ -38,6 +38,7 @@
             top = 0,
             bottom = 0,
           },
+          audible_bell = 'Disabled',
         }
       '';
     };
