@@ -69,6 +69,7 @@ return {
   -- popup messages
   {
     'https://github.com/rcarriga/nvim-notify',
+    lazy = false,
     config = function()
       vim.notify = require('notify')
     end,
