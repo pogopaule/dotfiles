@@ -90,9 +90,4 @@ return {
       adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
     }
   },
-  -- TODO: lazy
-  {
-    'https://github.com/microsoft/vscode-js-debug',
-    build = 'npm install --legacy-peer-deps && npm run compile',
-  },
 }
