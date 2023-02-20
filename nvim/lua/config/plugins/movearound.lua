@@ -29,7 +29,21 @@ return {
   -- use telescope to select options
   {
     'https://github.com/nvim-telescope/telescope-ui-select.nvim',
-    event = 'VeryLazy',
+    cmd = 'Telescope';
+    keys = {
+      { '<leader>ff', '<CMD>Telescope find_files<CR>', desc = 'Files' },
+      { '<leader>fh', '<CMD>Telescope help_tags<CR>', desc = 'Help' },
+      { '<leader>fo', '<CMD>Telescope oldfiles<CR>', desc = 'Old Files' },
+      { '<leader>fk', '<CMD>Telescope keymaps<CR>', desc = 'Keymaps' },
+      { '<leader>fs', '<CMD>Telescope spell_suggest<CR>', desc = 'Spelling' },
+      { '<leader>fg', '<CMD>Telescope live_grep<CR>', desc = 'Grep' },
+      { '<leader>fd', '<CMD>Telescope live_grep cwd=~/dotfiles/nvim/<CR>', desc = 'Grep Nvim Config' },
+      { '<leader>fG', '<CMD>Telescope grep_string<CR>', desc = 'Find Word Under Cursor' },
+      { '<leader>fc', '<CMD>Telescope git_commits<CR>', desc = 'Git Commits' },
+      { '<leader>fb', '<CMD>Telescope git_bcommits<CR>', desc = 'Git Commits For Buffer' },
+      { '<leader>f:', '<CMD>Telescope command_history<CR>', desc = 'Command History' },
+      { '<leader>f/', '<CMD>Telescope current_buffer_fuzzy_find<CR>', desc = 'Fuzzy Find In Current Buffer' },
+    },
     config = function()
       require('telescope').setup {
         extensions = {

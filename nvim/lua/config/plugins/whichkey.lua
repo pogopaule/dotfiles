@@ -9,20 +9,8 @@ return {
       wk.register({
         f = {
           name = '+Find',
-          f = { '<CMD>Telescope find_files<CR>', 'Files' },
           t = { '<CMD>TodoTelescope<CR>', 'Todos' },
-          h = { '<CMD>Telescope help_tags<CR>', 'Help' },
-          o = { '<CMD>Telescope oldfiles<CR>', 'Old Files' },
-          k = { '<CMD>Telescope keymaps<CR>', 'Keymaps' },
-          s = { '<CMD>Telescope spell_suggest<CR>', 'Spelling' },
-          g = { '<CMD>Telescope live_grep<CR>', 'Grep' },
-          d = { '<CMD>Telescope live_grep cwd=~/dotfiles/nvim/<CR>', 'Grep Nvim Config' },
-          G = { '<CMD>Telescope grep_string<CR>', 'Find Word Under Cursor' },
-          c = { '<CMD>Telescope git_commits<CR>', 'Git Commits' },
-          b = { '<CMD>Telescope git_bcommits<CR>', 'Git Commits For Buffer' },
           n = { '<CMD>Telekasten find_notes<CR>', 'Find Notes' },
-          [':'] = { '<CMD>Telescope command_history<CR>', 'Command History' },
-          ['/'] = { '<CMD>Telescope current_buffer_fuzzy_find<CR>', 'Fuzzy Find In Current Buffer' },
         },
         r = {
           name = '+Refactor',
