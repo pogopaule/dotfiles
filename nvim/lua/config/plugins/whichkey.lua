@@ -10,7 +10,6 @@ return {
         f = {
           name = '+Find',
           t = { '<CMD>TodoTelescope<CR>', 'Todos' },
-          n = { '<CMD>Telekasten find_notes<CR>', 'Find Notes' },
         },
         r = {
           name = '+Refactor',
@@ -50,11 +49,6 @@ return {
         },
         t = {
           name = '+Telekasten',
-          f = { '<CMD>Telekasten find_notes<CR>', 'Find Notes' },
-          d = { '<CMD>Telekasten find_daily_notes<CR>', 'Find Daily Notes' },
-          g = { '<CMD>Telekasten search_notes<CR>', 'Grep in Notes' },
-          t = { '<CMD>Telekasten panel<CR>', 'Open Panel' },
-          n = { '<CMD>Telekasten new_note<CR>', 'Open Panel' },
         },
         q = { '<CMD>quit<CR>', 'Quit', mode = { 'n', 'v' } },
         Q = { '<CMD>quitall<CR>', 'Quit All', mode = { 'n', 'v' } },
