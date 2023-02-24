@@ -110,6 +110,11 @@
       enable = true;
       diff-so-fancy.enable = true;
       includes = [{ path = "~/.gitconfig.local"; }];
+      extraConfig = {
+        push = {
+          autoSetupRemote = true;
+        };
+      };
     };
 
     starship = {
