@@ -40,6 +40,7 @@
       gnumake
       exiftool
       nethogs
+      pgcli
 
       sumneko-lua-language-server
       rnix-lsp
