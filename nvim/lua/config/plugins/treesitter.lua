@@ -75,15 +75,27 @@ return {
               separator = '',
             }
           }),
-          attrset_expression = u.set_preset_for_dict({
+          let_expression = { target_nodes = { 'binding_set' } },
+          formals = u.set_preset_for_args({
             both = {
-              separator = ';',
-              last_separator = true,
+              omit = { 'formal', 'ellipses' }
+            },
+            split = {
+              separator = '',
+            },
+            join = {
+              separator = ',',
+              space_in_brackets = true,
             },
           }),
-          formals = u.set_preset_for_args({
-            join = {
-              space_in_brackets = true,
+          attrset_expression = {
+            target_nodes = { 'binding_set' },
+          },
+          binding_set = u.set_preset_for_dict({
+            both = {
+              non_bracket_node = true,
+              separator = ';',
+              last_separator = true,
             },
           }),
         }
