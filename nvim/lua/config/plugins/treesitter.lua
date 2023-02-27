@@ -64,47 +64,8 @@ return {
     keys = {
       { '<leader>j', '<CMD>TSJToggle<CR>', desc = 'TSJoin Toggle' },
     },
-    config = function()
-      local tsj = require('treesj')
-      local u = require('treesj.langs.utils')
-
-      local langs = {
-        nix = {
-          list_expression = u.set_preset_for_list({
-            both = {
-              separator = '',
-            }
-          }),
-          let_expression = { target_nodes = { 'binding_set' } },
-          formals = u.set_preset_for_args({
-            both = {
-              omit = { 'formal', 'ellipses' }
-            },
-            split = {
-              separator = '',
-            },
-            join = {
-              separator = ',',
-              space_in_brackets = true,
-            },
-          }),
-          attrset_expression = {
-            target_nodes = { 'binding_set' },
-          },
-          binding_set = u.set_preset_for_dict({
-            both = {
-              non_bracket_node = true,
-              separator = ';',
-              last_separator = true,
-            },
-          }),
-        }
-      }
-
-      tsj.setup({
-        use_default_keymaps = false,
-        langs = langs,
-      })
-    end
+    config = {
+      use_default_keymaps = false
+    },
   },
 }
