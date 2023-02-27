@@ -80,6 +80,11 @@ return {
         capabilities = capabilities,
       })
 
+      lspconfig.rust_analyzer.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+      })
+
 
       -- nicer symbols
       local sign = function(opts)
