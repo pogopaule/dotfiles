@@ -2,13 +2,6 @@ return {
   {
     'https://github.com/renerocksai/telekasten.nvim',
     cmd = 'Telekasten',
-    keys = {
-      { '<leader>td', '<CMD>Telekasten find_daily_notes<CR>', desc = 'Find Daily Notes' },
-      { '<leader>tg', '<CMD>Telekasten search_notes<CR>', desc = 'Grep in Notes' },
-      { '<leader>tt', '<CMD>Telekasten panel<CR>', desc = 'Open Panel' },
-      { '<leader>tn', '<CMD>Telekasten new_note<CR>', desc = 'Open Panel' },
-      { '<leader>fn', '<CMD>Telekasten find_notes<CR>', desc = 'Find Notes' },
-    },
     config = function()
       local home = vim.fn.expand("~/zettelkasten")
 

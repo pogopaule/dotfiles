@@ -4,6 +4,13 @@ return {
     'https://github.com/folke/which-key.nvim',
     event = 'VeryLazy',
     config = function()
+
+      local lspVirtualText = true
+      local function toggleLspVirtualText()
+        lspVirtualText = not lspVirtualText
+        vim.diagnostic.config({ virtual_text = lspVirtualText })
+      end
+
       local wk = require('which-key')
       -- TODO: move mappings to plugin configs and only keep the +names
       wk.register({
@@ -40,21 +47,19 @@ return {
           x = { '<CMD>Trouble document_diagnostics<CR>', 'Document' },
           w = { '<CMD>Trouble workspace_diagnostics<CR>', 'Workspace' },
           n = { '<CMD>lua vim.diagnostic.goto_next({float = false})<CR>', 'Goto Next' },
-          p = { '<CMD>lua vim.diagnostic.goto_prev({float = false})<CR>', 'Goto Previous' },
-        },
-        l = {
-          name = '+Linenumbers',
-          a = { '<CMD>set number!<CR>', 'Toggle Absolute Numbers' },
-          r = { '<CMD>set relativenumber!<CR>', 'Toggle Relative Numbers' },
+          N = { '<CMD>lua vim.diagnostic.goto_prev({float = false})<CR>', 'Goto Previous' },
         },
         t = {
-          name = '+Telekasten',
+          name = '+Toggle',
+          a = { '<CMD>set number!<CR>', 'Absolute Numbers' },
+          r = { '<CMD>set relativenumber!<CR>', 'Relative Numbers' },
+          t = { toggleLspVirtualText, 'LSP virtual text' }
         },
         q = { '<CMD>quit<CR>', 'Quit', mode = { 'n', 'v' } },
         Q = { '<CMD>quitall<CR>', 'Quit All', mode = { 'n', 'v' } },
-        w = { '<CMD>write<CR>', 'Write', mode = { 'n', 'v' }},
+        w = { '<CMD>write<CR>', 'Write', mode = { 'n', 'v' } },
         h = { '<CMD>nohlsearch<CR>', 'Remove Highlight' },
-        p = { '"+p', 'Paste From Clipboard', mode = { 'n', 'v' }},
+        p = { '"+p', 'Paste From Clipboard', mode = { 'n', 'v' } },
         s = { ':%s///gc<left><left><left><left>', 'Substitute', silent = false },
       }, { prefix = '<leader>' })
 

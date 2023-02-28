@@ -99,11 +99,6 @@ return {
       sign({ name = 'DiagnosticSignWarn', text = '▲' })
       sign({ name = 'DiagnosticSignHint', text = '⚑' })
       sign({ name = 'DiagnosticSignInfo', text = '' })
-
-      -- disable virtual text for diagnostics
-      vim.diagnostic.config({
-        virtual_text = false,
-      })
     end,
   },
 
