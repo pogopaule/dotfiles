@@ -45,7 +45,8 @@ return {
       { '<leader>f/', '<CMD>Telescope current_buffer_fuzzy_find<CR>', desc = 'Fuzzy Find In Current Buffer' },
     },
     config = function()
-      require('telescope').setup {
+      local telescope = require('telescope')
+      telescope.setup {
         extensions = {
           ['ui-select'] = { require('telescope.themes').get_dropdown {} }
         },
@@ -64,7 +65,10 @@ return {
         }
       }
       -- To get ui-select loaded and working with telescope, you need to call load_extension, somewhere after setup function:
-      require('telescope').load_extension('ui-select')
+      telescope.load_extension('ui-select')
+
+      -- https://github.com/rcarriga/nvim-notify#viewing-history
+      telescope.load_extension('notify')
     end
   },
 

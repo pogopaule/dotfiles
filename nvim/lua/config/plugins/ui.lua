@@ -71,7 +71,11 @@ return {
     'https://github.com/rcarriga/nvim-notify',
     lazy = false,
     config = function()
-      vim.notify = require('notify')
+      local notify = require('notify')
+      vim.notify = notify
+      notify.setup({
+        timeout = 1000,
+      })
     end,
   },
 
