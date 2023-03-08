@@ -1,6 +1,9 @@
 -- for awesome-sustainability-jobs
 vim.api.nvim_create_user_command('PasteGeo', 'normal "+p0f:lldf@f,f,DF,xDj0$p', {})
 
+-- small helper commands
+vim.api.nvim_create_user_command('DeleteEmptyLines', 'g/^$/d ', {})
+
 
 -- highlight yanked region
 vim.api.nvim_create_autocmd("TextYankPost", {
