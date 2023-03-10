@@ -21,4 +21,7 @@
 
   # https://nixos.wiki/wiki/Docker
   virtualisation.docker.enable = true;
+
+  # https://nixos.wiki/wiki/Bluetooth
+  hardware.bluetooth.enable = true;
 }
