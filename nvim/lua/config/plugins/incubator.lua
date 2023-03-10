@@ -2,6 +2,7 @@ return {
   {
     'https://github.com/folke/zen-mode.nvim',
     event = { 'BufReadPost', 'BufNewFile' },
+    cmd = { 'ZenMode' },
     config = {
       window = {
         width = 150,
