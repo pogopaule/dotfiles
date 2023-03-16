@@ -20,6 +20,10 @@
         zvm_bindkey viins '^R' fzf-history-widget
       }
 
+      # https://github.com/junegunn/fzf/discussions/2791
+      export FZF_COMPLETION_TRIGGER=""
+      bindkey -M viins '^T' fzf-completion
+
       # https://github.com/Aloxaf/fzf-tab#configure
       # disable sort when completing `git checkout`
       zstyle ':completion:*:git-checkout:*' sort false
