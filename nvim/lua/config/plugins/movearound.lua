@@ -30,6 +30,9 @@ return {
   {
     'https://github.com/nvim-telescope/telescope-ui-select.nvim',
     cmd = 'Telescope';
+    dependencies = {
+      'https://github.com/nvim-telescope/telescope-symbols.nvim',
+    },
     keys = {
       { '<leader>ff', '<CMD>Telescope find_files<CR>', desc = 'Files' },
       { '<leader>fh', '<CMD>Telescope help_tags<CR>', desc = 'Help' },
