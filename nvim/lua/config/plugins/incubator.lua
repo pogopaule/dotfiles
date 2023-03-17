@@ -44,6 +44,9 @@ return {
     'https://github.com/jackMort/ChatGPT.nvim',
     config = {
       welcome_message = '',
+      keymaps = {
+        submit = "<C-s>",
+      },
     },
     keys = {
       { '<leader>c', '<CMD>ChatGPT<CR>', desc = 'ChatGPT' },
