@@ -39,14 +39,6 @@ return {
     -- }
   },
 
-  -- project wide search/replace
-  {
-    'https://github.com/nvim-pack/nvim-spectre',
-    config = function()
-      require('spectre').setup()
-    end,
-  },
-
   -- ChatGPT
   {
     'https://github.com/jackMort/ChatGPT.nvim',
@@ -57,6 +49,16 @@ return {
       { '<leader>c', '<CMD>ChatGPT<CR>', desc = 'ChatGPT' },
     },
     dependencies = { 'https://github.com/MunifTanjim/nui.nvim' }
+  },
+
+  -- ChatGPT
+  {
+    'https://github.com/dpayne/CodeGPT.nvim',
+    lazy = false,
+    dependencies = {
+      'https://github.com/MunifTanjim/nui.nvim',
+      'https://github.com/nvim-lua/plenary.nvim',
+    }
   },
 
   -- undo tree in telescope
