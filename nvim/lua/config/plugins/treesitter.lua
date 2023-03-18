@@ -44,13 +44,10 @@ return {
               -- You can use the capture groups defined in textobjects.scm
               ['af'] = '@function.outer',
               ['if'] = '@function.inner',
-              ['ab'] = '@block.outer',
-              ['ib'] = '@block.inner',
               ['ap'] = '@parameter.outer',
               ['ip'] = '@parameter.inner',
               ['ac'] = '@call.outer',
               ['ic'] = '@call.inner',
-              ['ai'] = '@item',
             },
           },
         },
