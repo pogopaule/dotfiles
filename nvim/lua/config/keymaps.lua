@@ -8,6 +8,19 @@ map('i', '<Left>', '<NOP>', opts)
 map('i', '<Right>', '<NOP>', opts)
 
 
+-- insert line ending like ;
+local function insert_line_ending()
+  local ending = ";"
+  local ft = vim.bo.filetype
+  if ft == "json" or ft == "lua" then
+    ending = ","
+  end
+  return "<Esc>miA" .. ending .. "<Esc>o"
+end
+
+map('i', '<A-CR>', insert_line_ending, { expr = true, silent = true, noremap = true })
+
+
 -- resize splits with arrow keys
 map('n', '<Up>', ':resize -4<CR>', opts)
 map('n', '<Down>', ':resize +4<CR>', opts)

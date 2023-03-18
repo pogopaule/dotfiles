@@ -39,6 +39,13 @@
             bottom = 0,
           },
           audible_bell = 'Disabled',
+          keys = {
+            {
+              key = 'Enter',
+              mods = 'ALT',
+              action = wezterm.action.DisableDefaultAssignment,
+            }
+          }
         }
       '';
     };
