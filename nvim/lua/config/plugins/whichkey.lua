@@ -81,7 +81,7 @@ return {
       })
 
       wk.register({
-        ["<C-s>"] = { '<ESC><CMD>write<CR>i', 'Write', mode = 'i'},
+        ["<C-s>"] = { '<ESC><CMD>write<CR>a', 'Write', mode = 'i'},
       })
     end,
   },

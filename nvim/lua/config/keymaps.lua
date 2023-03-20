@@ -10,22 +10,22 @@ map('i', '<Right>', '<NOP>', opts)
 
 -- insert line ending like ; and new line
 local function insert_line_ending_and_nl()
-  local ending = ";"
+  local ending = ';'
   local ft = vim.bo.filetype
-  if ft == "json" or ft == "lua" then
-    ending = ","
+  if ft == 'json' or ft == 'lua' then
+    ending = ','
   end
-  return "<Esc>A" .. ending .. "<Esc>o"
+  return '<Esc>A' .. ending .. '<Esc>o'
 end
 
 -- insert line ending like ;
 local function insert_line_ending()
-  local ending = ";"
+  local ending = ';'
   local ft = vim.bo.filetype
-  if ft == "json" or ft == "lua" then
-    ending = ","
+  if ft == 'json' or ft == 'lua' then
+    ending = ','
   end
-  return "<Esc>miA" .. ending .. "<Esc>`ii"
+  return '<Esc>miA' .. ending .. '<Esc>`ia'
 end
 
 map({ 'n', 'i' }, '<A-CR>', insert_line_ending_and_nl, { expr = true, silent = true, noremap = true })
