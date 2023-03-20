@@ -54,7 +54,7 @@ return {
           a = { '<CMD>set number!<CR>', 'Absolute Numbers' },
           r = { '<CMD>set relativenumber!<CR>', 'Relative Numbers' },
           t = { toggleLspVirtualText, 'LSP virtual text' },
-          z = { '<CMD>ZenMode<CR>', 'ZenMode'},
+          z = { '<CMD>ZenMode<CR>', 'ZenMode' },
         },
         q = { '<CMD>quit<CR>', 'Quit', mode = { 'n', 'v' } },
         Q = { '<CMD>quitall<CR>', 'Quit All', mode = { 'n', 'v' } },

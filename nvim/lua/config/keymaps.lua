@@ -39,9 +39,9 @@ map('n', '<Left>', ':vertical resize -4<CR>', opts)
 map('n', '<Right>', ':vertical resize +4<CR>', opts)
 
 -- move between tab
-map({'n', 'v'}, '<A-h>', '<CMD>tabprevious<CR>', opts)
-map({'n', 'v'}, '<A-l>', '<CMD>tabnext<CR>', opts)
-map({'n', 'v'}, '<C-w>', "<CMD>tabclose<CR>", opts)
+map({ 'n', 'v' }, '<A-h>', '<CMD>tabprevious<CR>', opts)
+map({ 'n', 'v' }, '<A-l>', '<CMD>tabnext<CR>', opts)
+map({ 'n', 'v' }, '<C-w>', "<CMD>tabclose<CR>", opts)
 
 
 -- map folding to space
@@ -81,11 +81,13 @@ local function smart_dd()
     return "dd"
   end
 end
+
 map("n", "dd", smart_dd, { noremap = true, expr = true })
 
 -- make enter work in quickfix list
 local group = vim.api.nvim_create_augroup('enter_in_quickfix', { clear = true })
-vim.api.nvim_create_autocmd('BufReadPost', { pattern = 'quickfix', command = 'nnoremap <buffer> <CR> <CR>', group = group, })
+vim.api.nvim_create_autocmd('BufReadPost',
+  { pattern = 'quickfix', command = 'nnoremap <buffer> <CR> <CR>', group = group, })
 
 -- LSP
 map('n', '<C-F>', vim.lsp.buf.format, opts)
