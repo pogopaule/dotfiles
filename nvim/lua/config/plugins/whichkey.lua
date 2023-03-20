@@ -58,7 +58,7 @@ return {
         },
         q = { '<CMD>quit<CR>', 'Quit', mode = { 'n', 'v' } },
         Q = { '<CMD>quitall<CR>', 'Quit All', mode = { 'n', 'v' } },
-        w = { '<CMD>write<CR>', 'Write', mode = { 'n', 'v' } },
+        w = { '<CMD>lua vim.notify("Use C-s, you fool!!")<CR>', 'Deprecated', mode = { 'n', 'v' } },
         h = { '<CMD>nohlsearch<CR>', 'Remove Highlight' },
         p = { '"+p', 'Paste From Clipboard', mode = { 'n', 'v' } },
         s = { ':%s///gc<left><left><left><left>', 'Substitute', silent = false },
@@ -75,6 +75,14 @@ return {
         s = { '"hy:%s/<C-r>h//gc<left><left><left>', 'Substitute Selection', silent = false },
 
       }, { prefix = '<leader>', mode = 'v' })
+
+      wk.register({
+        ["<C-s>"] = { '<CMD>write<CR>', 'Write', mode = { 'n', 'v' } },
+      })
+
+      wk.register({
+        ["<C-s>"] = { '<ESC><CMD>write<CR>i', 'Write', mode = 'i'},
+      })
     end,
   },
 }
