@@ -41,6 +41,7 @@
       exiftool
       nethogs
       pgcli
+      hyperfine
 
       rustc
       cargo
