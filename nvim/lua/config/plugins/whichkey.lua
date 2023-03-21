@@ -57,7 +57,6 @@ return {
           z = { '<CMD>ZenMode<CR>', 'ZenMode' },
         },
         q = { '<CMD>quit<CR>', 'Quit', mode = { 'n', 'v' } },
-        Q = { '<CMD>quitall<CR>', 'Quit All', mode = { 'n', 'v' } },
         w = { '<CMD>lua vim.notify("Use C-s, you fool!!")<CR>', 'Deprecated', mode = { 'n', 'v' } },
         h = { '<CMD>nohlsearch<CR>', 'Remove Highlight' },
         p = { '"+p', 'Paste From Clipboard', mode = { 'n', 'v' } },

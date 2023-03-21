@@ -7,6 +7,9 @@ map('i', '<Down>', '<NOP>', opts)
 map('i', '<Left>', '<NOP>', opts)
 map('i', '<Right>', '<NOP>', opts)
 
+-- quit
+map('n', '<ESC>', '<CMD>confirm qa<CR>', opts)
+map('n', '<C-x>', '<ESC><CMD>x<CR>', opts)
 
 -- insert line ending like ; and new line
 local function insert_line_ending_and_nl()
