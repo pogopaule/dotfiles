@@ -16,15 +16,15 @@
       EDITOR = "nvim";
     };
     packages = with pkgs; [
-      tealdeer
+      tealdeer  # tldr
       httpie
       ripgrep
       ncdu
       fd
-      sd
-      duf
+      sd # find/replace
+      duf # disk usage
       lnav
-      cloc
+      cloc # count lines of code
       gcc
       curl
       unzip
@@ -33,15 +33,15 @@
       nodejs
       lazydocker
       docker-compose
-      entr
-      pv
-      yq
-      ijq
+      entr # watch files
+      pv # monitor progress in pipes
+      yq  # jq for yaml
+      ijq # interactive jq
       gnumake
       exiftool
-      nethogs
+      nethogs # monitor network traffic
       pgcli
-      hyperfine
+      hyperfine # benchmarking
 
       rustc
       cargo
