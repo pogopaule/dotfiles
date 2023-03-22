@@ -1,5 +1,10 @@
 return {
   {
+    'https://github.com/simrat39/rust-tools.nvim',
+    config = true,
+    ft = 'rust',
+  },
+  {
     'https://github.com/folke/zen-mode.nvim',
     event = { 'BufReadPost', 'BufNewFile' },
     cmd = { 'ZenMode' },
