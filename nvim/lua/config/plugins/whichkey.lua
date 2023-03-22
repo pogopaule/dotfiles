@@ -76,11 +76,7 @@ return {
       }, { prefix = '<leader>', mode = 'v' })
 
       wk.register({
-        ["<C-s>"] = { '<CMD>write<CR>', 'Write', mode = { 'n', 'v' } },
-      })
-
-      wk.register({
-        ["<C-s>"] = { '<ESC><CMD>write<CR>a', 'Write', mode = 'i'},
+        ["<C-s>"] = { '<ESC><CMD>write<CR>', 'Write', mode = { 'n', 'v', 'i' } },
       })
     end,
   },
