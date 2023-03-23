@@ -1,5 +1,10 @@
 return {
   {
+    'https://github.com/github/copilot.vim',
+    lazy = true,
+    cmd = 'Copilot',
+  },
+  {
     'https://github.com/simrat39/rust-tools.nvim',
     config = true,
     ft = 'rust',
