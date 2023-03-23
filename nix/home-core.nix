@@ -45,6 +45,7 @@
 
       rustc
       cargo
+      cargo-watch
       clippy
 
       sumneko-lua-language-server
