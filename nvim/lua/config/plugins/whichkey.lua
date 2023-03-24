@@ -41,11 +41,24 @@ return {
           return result
         end
 
-        vim.ui.input({ prompt = 'Scratch file name: ', default = randomString() },
+        local canceledStr = "__INPUT_CANCELLED__"
+
+        vim.ui.input({
+          prompt = 'Scratch file name: ',
+          cancelreturn = canceledStr,
+          completion = 'file',
+          default = randomString(),
+        },
           function(input)
-            local path = '/tmp/' .. input
-            vim.cmd('edit ' .. path)
-            vim.notify('Scratch file created at ' .. path)
+            if input == canceledStr then
+              vim.cmd("echohl WarningMsg")
+              vim.cmd("echomsg 'Scratch file creation cancelled!'")
+              vim.cmd("echohl None")
+            else
+              local path = '/tmp/' .. input
+              vim.cmd('edit ' .. path)
+              vim.notify('Scratch file created at ' .. path)
+            end
           end
         )
       end
