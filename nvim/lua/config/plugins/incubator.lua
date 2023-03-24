@@ -1,7 +1,7 @@
 return {
   {
     'https://github.com/github/copilot.vim',
-    lazy = true,
+    event = { 'BufReadPost', 'BufNewFile' },
     cmd = 'Copilot',
   },
   {

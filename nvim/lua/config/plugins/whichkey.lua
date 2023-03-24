@@ -11,6 +11,18 @@ return {
         vim.diagnostic.config({ virtual_text = lspVirtualText })
       end
 
+      local copilot = true
+      local function toggleCopilot()
+        if copilot then
+          vim.cmd('Copilot disable')
+          vim.notify('Copilot disabled')
+        else
+          vim.cmd('Copilot enable')
+          vim.notify('Copilot enabled')
+        end
+        copilot = not copilot
+      end
+
       local wk = require('which-key')
       -- TODO: move mappings to plugin configs and only keep the +names
       wk.register({
@@ -55,6 +67,7 @@ return {
           r = { '<CMD>set relativenumber!<CR>', 'Relative Numbers' },
           t = { toggleLspVirtualText, 'LSP virtual text' },
           z = { '<CMD>ZenMode<CR>', 'ZenMode' },
+          c = { toggleCopilot, 'Copilot' },
         },
         q = { '<CMD>quit<CR>', 'Quit', mode = { 'n', 'v' } },
         w = { '<CMD>lua vim.notify("Use C-s, you fool!!")<CR>', 'Deprecated', mode = { 'n', 'v' } },

@@ -125,6 +125,9 @@ return {
     config = {
       symbol_in_winbar = {
         enable = false,
+      },
+      lightbulb = {
+        virtual_text = false,
       }
     }
   },
