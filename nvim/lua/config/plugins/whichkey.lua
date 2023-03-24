@@ -23,6 +23,33 @@ return {
         copilot = not copilot
       end
 
+      local createScratchFile = function()
+        local function randomString()
+          local upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+          local lowerCase = "abcdefghijklmnopqrstuvwxyz"
+          local numbers = "0123456789"
+
+          local characterSet = upperCase .. lowerCase .. numbers
+
+          local resultLength = 5
+          local result = ""
+
+          for _ = 1, resultLength do
+            local rand = math.random(#characterSet)
+            result = result .. string.sub(characterSet, rand, rand)
+          end
+          return result
+        end
+
+        vim.ui.input({ prompt = 'Scratch file name: ', default = randomString() },
+          function(input)
+            local path = '/tmp/' .. input
+            vim.cmd('edit ' .. path)
+            vim.notify('Scratch file created at ' .. path)
+          end
+        )
+      end
+
       local wk = require('which-key')
       -- TODO: move mappings to plugin configs and only keep the +names
       wk.register({
@@ -68,6 +95,13 @@ return {
           t = { toggleLspVirtualText, 'LSP virtual text' },
           z = { '<CMD>ZenMode<CR>', 'ZenMode' },
           c = { toggleCopilot, 'Copilot' },
+          n = { '<CMD>set nonumber!<CR>', 'Line Numbers' },
+        },
+        n = {
+          name = '+New',
+          n = { '<CMD>Telekasten new_note<CR>', 'Note' },
+          s = { createScratchFile, 'Scratch' },
+          t = { '<CMD>tabnew<CR>', 'Tab' },
         },
         q = { '<CMD>quit<CR>', 'Quit', mode = { 'n', 'v' } },
         w = { '<CMD>lua vim.notify("Use C-s, you fool!!")<CR>', 'Deprecated', mode = { 'n', 'v' } },

@@ -11,8 +11,8 @@ return {
   {
     'https://github.com/kyazdani42/nvim-tree.lua',
     keys = {
-      { '<leader>N', '<CMD>NvimTreeToggle<CR>', desc = 'Toggle Nvim Tree' },
-      { '<leader>n', '<CMD>NvimTreeFindFile<CR>', desc = 'Find File in Nvim Tree' },
+      { '<leader>tn', '<CMD>NvimTreeToggle<CR>', desc = 'Nvim Tree' },
+      { '<leader>N', '<CMD>NvimTreeFindFile<CR>', desc = 'Find File in Nvim Tree' },
     },
     config = {
       filters = {
