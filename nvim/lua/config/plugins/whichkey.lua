@@ -23,7 +23,7 @@ return {
         copilot = not copilot
       end
 
-      local createScratchFile = function()
+      local function createScratchFile()
         local function randomString()
           local upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
           local lowerCase = "abcdefghijklmnopqrstuvwxyz"
