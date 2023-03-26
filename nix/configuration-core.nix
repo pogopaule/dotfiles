@@ -49,8 +49,8 @@
       };
     };
     desktopManager.plasma5.enable = true;
-    layout = "de";
-    xkbVariant = "";
+    layout = "us";
+    xkbVariant = "altgr-intl";
     xkbOptions = "ctrl:swapcaps";
   };
 
