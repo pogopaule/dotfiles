@@ -63,6 +63,26 @@ return {
         )
       end
 
+      local function toggleSpellCheck()
+        if vim.o.spell then
+          vim.o.spell = false
+          vim.notify('Spell check disabled')
+        else
+          vim.o.spell = true
+          vim.notify('Spell check enabled')
+        end
+      end
+
+      local function setSpelllangDe()
+        vim.o.spelllang = 'de_20'
+        vim.notify('Spell check language set to German')
+      end
+
+      local function setSpelllangEn()
+        vim.o.spelllang = 'en'
+        vim.notify('Spell check language set to English')
+      end
+
       local wk = require('which-key')
       -- TODO: move mappings to plugin configs and only keep the +names
       wk.register({
@@ -109,6 +129,12 @@ return {
           z = { '<CMD>ZenMode<CR>', 'ZenMode' },
           c = { toggleCopilot, 'Copilot' },
           n = { '<CMD>set nonumber!<CR>', 'Line Numbers' },
+          s = {
+            name = '+Spell Check',
+            s = { toggleSpellCheck, 'Spell Check' },
+            d = { setSpelllangDe, 'Set Lang To German' },
+            e = { setSpelllangEn, 'Set Lang To English' },
+          },
         },
         n = {
           name = '+New',
