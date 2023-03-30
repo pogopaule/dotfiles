@@ -39,6 +39,7 @@
             bottom = 0,
           },
           audible_bell = 'Disabled',
+          warn_about_missing_glyphs = false,
           keys = {
             {
               key = 'Enter',
