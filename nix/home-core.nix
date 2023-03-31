@@ -42,6 +42,7 @@
       nethogs # monitor network traffic
       pgcli
       hyperfine # benchmarking
+      glow # markdown viewer
 
       sumneko-lua-language-server
       rnix-lsp
