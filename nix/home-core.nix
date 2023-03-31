@@ -43,11 +43,6 @@
       pgcli
       hyperfine # benchmarking
 
-      rustc
-      cargo
-      cargo-watch
-      clippy
-
       sumneko-lua-language-server
       rnix-lsp
       nodePackages.yaml-language-server
@@ -56,7 +51,6 @@
       nodePackages.typescript-language-server
       nodePackages.vscode-langservers-extracted
       nodePackages.eslint_d
-      rust-analyzer
     ] ++ [
       pkgs-master.neovim
       devenv.packages.x86_64-linux.devenv
