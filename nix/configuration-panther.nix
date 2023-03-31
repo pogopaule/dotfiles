@@ -20,7 +20,13 @@
   services.usbmuxd.enable = true;
 
   # https://nixos.wiki/wiki/Docker
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
 
   # https://nixos.wiki/wiki/Bluetooth
   hardware.bluetooth.enable = true;
