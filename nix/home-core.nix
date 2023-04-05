@@ -16,7 +16,7 @@
       EDITOR = "nvim";
     };
     packages = with pkgs; [
-      tealdeer  # tldr
+      tealdeer # tldr
       httpie
       ripgrep
       ncdu
@@ -35,7 +35,7 @@
       docker-compose
       entr # watch files
       pv # monitor progress in pipes
-      yq  # jq for yaml
+      yq # jq for yaml
       ijq # interactive jq
       gnumake
       exiftool
@@ -43,6 +43,7 @@
       pgcli
       hyperfine # benchmarking
       glow # markdown viewer
+      hexyl # hex viewer
 
       sumneko-lua-language-server
       rnix-lsp
