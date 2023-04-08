@@ -27,6 +27,7 @@
       cloc # count lines of code
       gcc
       curl
+      zip
       unzip
       git-crypt
       python3
