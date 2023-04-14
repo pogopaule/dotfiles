@@ -31,7 +31,7 @@ local function insert_line_ending()
 end
 
 map({ 'n', 'i' }, '<A-CR>', insert_line_ending_and_nl, { expr = true, silent = true, noremap = true })
-map( 'i' , '<A-,>', insert_line_ending, { expr = true, silent = true, noremap = true })
+map('i', '<A-,>', insert_line_ending, { expr = true, silent = true, noremap = true })
 
 
 -- resize splits with arrow keys
@@ -92,7 +92,7 @@ vim.api.nvim_create_autocmd('BufReadPost',
   { pattern = 'quickfix', command = 'nnoremap <buffer> <CR> <CR>', group = group, })
 
 -- LSP
-map('n', '<C-F>', vim.lsp.buf.format, opts)
-map('v', '<C-F>', vim.lsp.buf.format, opts)
-map('s', '<C-F>', vim.lsp.buf.format, opts)
-map('x', '<C-F>', vim.lsp.buf.format, opts)
+map('n', '<C-f>', function() vim.lsp.buf.format { async = true } end, opts)
+map('v', '<C-f>', function() vim.lsp.buf.format { async = true } end, opts)
+map('s', '<C-f>', function() vim.lsp.buf.format { async = true } end, opts)
+map('x', '<C-f>', function() vim.lsp.buf.format { async = true } end, opts)

@@ -53,7 +53,6 @@
       nodePackages.prettier
       nodePackages.typescript-language-server
       nodePackages.vscode-langservers-extracted
-      nodePackages.eslint_d
     ] ++ [
       pkgs-master.neovim
       devenv.packages.x86_64-linux.devenv

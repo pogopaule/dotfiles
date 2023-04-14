@@ -162,12 +162,6 @@ return {
         end
       }
 
-      local prettierConfig = {
-        condition = function(utils)
-          return utils.root_has_file('.prettierrc')
-        end
-      }
-
       null_ls.setup({
         debug = false,
         sources = {
@@ -178,7 +172,7 @@ return {
           diagnostics.eslint_d.with(eslintConfig),
           code_actions.eslint_d.with(eslintConfig),
 
-          formatting.prettier.with(prettierConfig),
+          formatting.prettier,
         },
       })
     end,
