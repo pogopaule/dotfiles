@@ -30,4 +30,18 @@
 
   # https://nixos.wiki/wiki/Bluetooth
   hardware.bluetooth.enable = true;
+
+  networking.firewall.allowedTCPPorts = [ 58080 ];
+
+  services.paperless = {
+    enable = true;
+    address = "0.0.0.0";
+    port = 58080;
+    user = "pogopaule";
+    dataDir = "/home/pogopaule/Documents/paperless";
+    extraConfig = {
+      PAPERLESS_AUTO_LOGIN_USERNAME = "admin";
+      PAPERLESS_OCR_LANGUAGE = "deu+eng";
+    };
+  };
 }
