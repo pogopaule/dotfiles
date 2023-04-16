@@ -161,4 +161,20 @@ return {
       }
     end
   },
+
+  {
+    'https://github.com/mattn/emmet-vim',
+    ft = {
+      'html',
+      'css',
+      'javascript',
+      'typescript',
+      'javascriptreact',
+      'typescriptreact',
+      'vue',
+      'svelte',
+      'markdown',
+      'handlebars',
+    },
+  }
 }
