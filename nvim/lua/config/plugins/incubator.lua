@@ -91,21 +91,12 @@ return {
     ft = 'markdown',
   },
 
-  -- treesitter playground, show syntax tree
-  {
-    'https://github.com/nvim-treesitter/playground',
-    cmd = 'TSPlaygroundToggle',
-  },
-
   -- github integration
   {
     'https://github.com/pwntester/octo.nvim',
     cmd = 'Octo',
     config = true,
   },
-
-  -- -- editorconfig integration
-  -- { 'https://github.com/editorconfig/editorconfig-vim' },
 
   -- -- use vscode's container definitions in nvim
   -- { 'https://github.com/jamestthompson3/nvim-remote-containers' },
