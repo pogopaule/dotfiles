@@ -1,4 +1,4 @@
-{ pkgs, darkTheme, ... }:
+{ pkgs, pkgs-master, darkTheme, ... }:
 
 {
   home = {
@@ -15,7 +15,7 @@
       ifuse
       vlc
       xclip
-    ];
+    ] ++ [ pkgs-master.uhk-agent ];
   };
 
   programs = {

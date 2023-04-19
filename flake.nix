@@ -61,7 +61,7 @@
             inherit pkgs;
             modules = [
               (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme devenv; })
-              (import ./nix/home-desktop.nix { inherit pkgs darkTheme; })
+              (import ./nix/home-desktop.nix { inherit pkgs pkgs-master darkTheme; })
               {
                 home = {
                   username = "pogopaule";
