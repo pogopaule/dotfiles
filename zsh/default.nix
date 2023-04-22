@@ -49,6 +49,9 @@
         # Requires: https://sourceforge.net/projects/vcxsrv/ (or alternative)
         export DISPLAY="$(ip route | awk '/default/ { print $3  }'):0"
       fi
+
+      # https://www.npmjs.com/package/@githubnext/github-copilot-cli
+      eval "$(github-copilot-cli alias -- "$0")"
     '';
     oh-my-zsh = {
       enable = true;
