@@ -2,7 +2,7 @@ return {
   -- Jump in text
   {
     'https://github.com/ggandor/leap.nvim',
-    keys = { 's', 'S', 'gs', { 'x', mode = 'v' }, { 'X', mode = 'v' } },
+    event = { 'BufReadPost', 'BufNewFile' },
     config = function()
       require('leap').add_default_mappings()
     end,

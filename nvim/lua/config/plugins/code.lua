@@ -35,7 +35,7 @@ return {
   -- easily surround with brackets
   {
     'https://github.com/kylechui/nvim-surround',
-    keys = { 'ys', 'cs', 'ds' },
+    event = { 'BufReadPost', 'BufNewFile' },
     config = true,
   },
 
