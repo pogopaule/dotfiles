@@ -1,8 +1,18 @@
 return {
   {
-    'https://github.com/github/copilot.vim',
-    event = { 'BufReadPost', 'BufNewFile' },
-    cmd = 'Copilot',
+    'https://github.com/james1236/backseat.nvim',
+    lazy = false,
+    config =
+    {
+      openai_model_id = 'gpt-3.5-turbo', --gpt-4 (If you do not have access to a model, it says "The model does not exist")
+      -- language = 'english', -- Such as 'japanese', 'french', 'pirate', 'LOLCAT'
+      -- split_threshold = 100,
+      -- additional_instruction = "Respond snarkily", -- (GPT-3 will probably deny this request, but GPT-4 complies)
+      -- highlight = {
+      --     icon = '', -- ''
+      --     group = 'Comment',
+      -- }
+    }
   },
   {
     'https://github.com/simrat39/rust-tools.nvim',
@@ -74,17 +84,6 @@ return {
     }
   },
 
-  -- undo tree in telescope
-  {
-    'https://github.com/debugloop/telescope-undo.nvim',
-    keys = {
-      { '<leader>fu', '<CMD>Telescope undo<CR>', desc = 'Undo' },
-    },
-    config = function()
-      require('telescope').load_extension('undo')
-    end,
-  },
-
   -- fixes indentation problems with bullet lists
   {
     'https://github.com/dkarter/bullets.vim',
@@ -101,12 +100,6 @@ return {
   -- -- use vscode's container definitions in nvim
   -- { 'https://github.com/jamestthompson3/nvim-remote-containers' },
 
-  -- measure startup time
-  {
-    'https://github.com/dstein64/vim-startuptime',
-    cmd = "StartupTime",
-  },
-
   -- translate text
   {
     'https://github.com/potamides/pantran.nvim',
@@ -116,56 +109,4 @@ return {
       engines = { deepl = { default_target = 'de' } },
     },
   },
-
-  -- enhanced inc/dec
-  {
-    'https://github.com/monaqa/dial.nvim',
-    keys = {
-      {
-        "+",
-        function()
-          return require("dial.map").inc_normal()
-        end,
-        expr = true,
-        desc = 'Dial Increment',
-      },
-      {
-        "-",
-        function()
-          return require("dial.map").dec_normal()
-        end,
-        expr = true,
-        desc = 'Dial Decrement',
-      },
-    },
-    config = function()
-      local augend = require("dial.augend")
-      require("dial.config").augends:register_group {
-        default = {
-          augend.integer.alias.decimal,
-          augend.integer.alias.hex,
-          augend.date.alias["%Y/%m/%d"],
-          augend.constant.alias.alpha,
-          augend.constant.alias.Alpha,
-          augend.constant.alias.bool,
-        },
-      }
-    end
-  },
-
-  {
-    'https://github.com/mattn/emmet-vim',
-    ft = {
-      'html',
-      'css',
-      'javascript',
-      'typescript',
-      'javascriptreact',
-      'typescriptreact',
-      'vue',
-      'svelte',
-      'markdown',
-      'handlebars',
-    },
-  }
 }

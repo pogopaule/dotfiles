@@ -85,4 +85,28 @@ return {
         ]])
     end
   },
+
+  -- Copilot
+  {
+    'https://github.com/github/copilot.vim',
+    event = { 'BufReadPost', 'BufNewFile' },
+    cmd = 'Copilot',
+  },
+
+  -- Emmet
+  {
+    'https://github.com/mattn/emmet-vim',
+    ft = {
+      'html',
+      'css',
+      'javascript',
+      'typescript',
+      'javascriptreact',
+      'typescriptreact',
+      'vue',
+      'svelte',
+      'markdown',
+      'handlebars',
+    },
+  }
 }
