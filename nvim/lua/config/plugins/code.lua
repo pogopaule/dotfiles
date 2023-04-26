@@ -24,12 +24,22 @@ return {
     'https://github.com/folke/todo-comments.nvim',
     cmd = 'TodoTelescope',
     event = { 'BufReadPost', 'BufNewFile' },
+    keys = {
+      t = { '<leader>ft', '<CMD>TodoTelescope<CR>', 'Todos' },
+    },
     config = true,
   },
 
   -- Refactoring
   {
     'https://github.com/ThePrimeagen/refactoring.nvim',
+    keys = {
+      {
+        '<leader>ri',
+        "<CMD>lua require('refactoring').refactor('Inline Variable')<CR>",
+        desc = 'Inline Variable',
+      },
+    },
   },
 
   -- easily surround with brackets

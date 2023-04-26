@@ -86,14 +86,9 @@ return {
       local wk = require('which-key')
       -- TODO: move mappings to plugin configs and only keep the +names
       wk.register({
-        f = {
-          name = '+Find',
-          t = { '<CMD>TodoTelescope<CR>', 'Todos' },
-        },
-        r = {
-          name = '+Refactor',
-          i = { "<ESC><CMD>lua require('refactoring').refactor('Inline Variable')<CR>", 'Inline Variable' },
-        },
+        f = { name = '+Find' },
+        r = { name = '+Refactor' },
+        x = { name = '+Diagnostics' },
         d = {
           name = '+Debug',
           c = { '<CMD>DapContinue<CR>', 'Continue' },
@@ -113,13 +108,6 @@ return {
           N = { '<CMD>Gitsigns prev_hunk<CR>', 'Previous Hunk' },
           y = { '<CMD>lua require("gitlinker").get_buf_range_url("n")<CR>', 'Github Link' },
           g = { '<CMD>GBrowse<CR>', 'Open Buffer In Github' },
-        },
-        x = {
-          name = '+Diagnostics',
-          x = { '<CMD>Trouble document_diagnostics<CR>', 'Document' },
-          w = { '<CMD>Trouble workspace_diagnostics<CR>', 'Workspace' },
-          n = { '<CMD>lua vim.diagnostic.goto_next({float = false})<CR>', 'Goto Next' },
-          N = { '<CMD>lua vim.diagnostic.goto_prev({float = false})<CR>', 'Goto Previous' },
         },
         t = {
           name = '+Toggle',

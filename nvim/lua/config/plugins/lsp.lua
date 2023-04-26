@@ -1,6 +1,5 @@
 return {
   -- LSP support
-  -- TODO: better lazy
   {
     'https://github.com/neovim/nvim-lspconfig',
     event = { 'BufReadPre', 'BufNewFile' },
@@ -110,7 +109,6 @@ return {
   },
 
   -- The neovim language-server-client UI
-  -- TODO: better lazy
   {
     'https://github.com/glepnir/lspsaga.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
@@ -136,7 +134,6 @@ return {
   },
 
   -- LSP bridge for linters and others
-  -- TODO: better lazy
   {
     'https://github.com/jose-elias-alvarez/null-ls.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
@@ -191,6 +188,12 @@ return {
   {
     'https://github.com/folke/trouble.nvim',
     cmd = { 'Trouble' },
+    keys = {
+      { '<leader>xx', '<CMD>Trouble document_diagnostics<CR>', desc = 'Document' },
+      { '<leader>xw', '<CMD>Trouble workspace_diagnostics<CR>', desc = 'Workspace' },
+      { '<leader>xn', '<CMD>lua vim.diagnostic.goto_next({float = false})<CR>', desc = 'Goto Next' },
+      { '<leader>xN', '<CMD>lua vim.diagnostic.goto_prev({float = false})<CR>', desc = 'Goto Previous' },
+    },
     config = true,
   },
 }
