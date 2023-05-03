@@ -27,57 +27,20 @@
 
     in
     {
-      homeManagerConfigurations = {
-        noDesktop = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme devenv; })
-            {
-              home = {
-                username = "pogopaule";
-                stateVersion = "22.11";
-                homeDirectory = "/home/pogopaule";
-              };
-            }
-          ];
-        };
-        haflinger = home-manager.lib.homeManagerConfiguration
-          {
-            inherit pkgs;
-            modules = [
-              (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme devenv; })
-              (import ./nix/home-haflinger.nix { inherit pkgs pkgs-master darkTheme; })
-              {
-                home = {
-                  username = "pogopaule";
-                  stateVersion = "22.11";
-                  homeDirectory = "/home/pogopaule";
-                };
-              }
-            ];
-          };
-        desktop = home-manager.lib.homeManagerConfiguration
-          {
-            inherit pkgs;
-            modules = [
-              (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme devenv; })
-              (import ./nix/home-desktop.nix { inherit pkgs pkgs-master darkTheme; })
-              {
-                home = {
-                  username = "pogopaule";
-                  stateVersion = "22.11";
-                  homeDirectory = "/home/pogopaule";
-                };
-              }
-            ];
-          };
-      };
       nixosConfigurations = {
         panther = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             ./nix/configuration-core.nix
             ./nix/configuration-panther.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.pogopaule = (import ./nix/home-desktop.nix { inherit pkgs pkgs-master darkTheme devenv; });
+              };
+            }
           ];
         };
         silverback = nixpkgs.lib.nixosSystem {
@@ -85,12 +48,14 @@
           modules = [
             ./nix/configuration-core.nix
             ./nix/configuration-silverback.nix
-          ];
-        };
-        haflinger = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            /etc/nixos/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.pogopaule = (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme devenv; });
+              };
+            }
           ];
         };
       };

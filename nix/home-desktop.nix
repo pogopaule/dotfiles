@@ -1,6 +1,11 @@
-{ pkgs, pkgs-master, darkTheme, ... }:
+{ pkgs, pkgs-master, darkTheme, devenv, ... }:
 
 {
+  imports = [
+    (import ./home-core.nix { inherit pkgs pkgs-master darkTheme devenv; })
+    (import ../alacritty { inherit darkTheme; })
+  ];
+
   home = {
     packages = with pkgs; [
       (nerdfonts.override { fonts = [ "Iosevka" ]; })
@@ -53,10 +58,6 @@
   };
 
   fonts.fontconfig.enable = true; # for Nerdfont
-
-  imports = [
-    (import ../alacritty { inherit darkTheme; })
-  ];
 
   programs = {
     firefox.enable = true;
