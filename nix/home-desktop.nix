@@ -26,6 +26,7 @@
   programs = {
     wezterm = {
       enable = true;
+      package = pkgs-master.wezterm;
       extraConfig = ''
         return {
           hide_tab_bar_if_only_one_tab = true,
