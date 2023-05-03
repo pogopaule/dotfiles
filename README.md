@@ -18,6 +18,8 @@
 - login to firefox, syncs plugins and bookmarks
 - rsync example for the following steps: rsync -avP --exclude=node_modules --exclude=target 192.168.0.1:~/foo/ ~/foo
 - create new keys for github and gitlab or rsync them from old machine
+- setup ~/.gitconfig.local with user.name and user.email
 - checkout scripts von gitlab or rsync from old machine
 - checkout zettelkasten von gitlab or rsync from old machine
 - restore Documents or rsync from old machine
+- log into various tools
