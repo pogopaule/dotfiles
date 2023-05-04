@@ -66,6 +66,10 @@
         }
       '';
     };
+    vscode = {
+      enable = true;
+      package = pkgs-master.vscode;
+    };
   };
 
   fonts.fontconfig.enable = true; # for Nerdfont
