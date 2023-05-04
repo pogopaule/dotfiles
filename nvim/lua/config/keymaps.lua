@@ -38,9 +38,9 @@ map('n', '<Left>', ':vertical resize -4<CR>', opts)
 map('n', '<Right>', ':vertical resize +4<CR>', opts)
 
 -- move between tab
-map({ 'n', 'v' }, '<A-h>', '<CMD>tabprevious<CR>', opts)
-map({ 'n', 'v' }, '<A-l>', '<CMD>tabnext<CR>', opts)
-map({ 'n', 'v' }, '<C-w>', "<CMD>tabclose<CR>", opts)
+map({ 'n', 'v', 'i' }, '<C-PageDown>', '<CMD>tabprevious<CR>', opts)
+map({ 'n', 'v', 'i' }, '<C-PageUp>', '<CMD>tabnext<CR>', opts)
+map({ 'n', 'v', 'i' }, '<C-w>', "<CMD>tabclose<CR>", opts)
 
 
 -- map folding to space

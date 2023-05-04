@@ -51,6 +51,16 @@
               key = 'Enter',
               mods = 'ALT',
               action = wezterm.action.DisableDefaultAssignment,
+            },
+            {
+              key = 'PageUp',
+              mods = 'CTRL',
+              action = wezterm.action.DisableDefaultAssignment,
+            },
+            {
+              key = 'PageDown',
+              mods = 'CTRL',
+              action = wezterm.action.DisableDefaultAssignment,
             }
           }
         }
