@@ -20,6 +20,7 @@
       ifuse
       vlc
       xclip
+      meld
     ] ++ [ pkgs-master.uhk-agent ];
   };
 
