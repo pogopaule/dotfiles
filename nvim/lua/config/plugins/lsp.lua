@@ -130,6 +130,11 @@ return {
       diagnostic = {
         on_insert = false,
       },
+      finder = {
+        keys = {
+          expand_or_jump = '<CR>',
+        },
+      },
     }
   },
 
