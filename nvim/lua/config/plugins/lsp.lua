@@ -167,9 +167,11 @@ return {
       null_ls.setup({
         debug = false,
         sources = {
-          -- formatting.black.with({ extra_args = { "--fast" } }),
+          formatting.black.with({ extra_args = { "--fast" } }),
+          diagnostics.flake8,
+
           -- formatting.stylua,
-          -- diagnostics.flake8
+
           formatting.eslint_d.with(eslintConfig),
           diagnostics.eslint_d.with(eslintConfig),
           code_actions.eslint_d.with(eslintConfig),
