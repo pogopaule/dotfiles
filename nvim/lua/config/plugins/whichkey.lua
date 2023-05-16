@@ -89,15 +89,7 @@ return {
         f = { name = '+Find' },
         r = { name = '+Refactor' },
         x = { name = '+Diagnostics' },
-        d = {
-          name = '+Debug',
-          c = { '<CMD>DapContinue<CR>', 'Continue' },
-          o = { '<CMD>DapStepOver<CR>', 'Step Over' },
-          i = { '<CMD>DapStepInto<CR>', 'Step Into' },
-          u = { '<CMD>DapStepOut<CR>', 'Step Out' },
-          b = { '<CMD>DapToggleBreakpoint<CR>', 'Toggle Breakpoint' },
-          t = { '<CMD>lua require("dapui").toggle()<CR>', 'Toggle DAP UI' },
-        },
+        d = { name = '+Debug' },
         g = {
           name = '+Git',
           r = { '<CMD>Gitsigns reset_hunk<CR>', 'Reset Hunk' },
