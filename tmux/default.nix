@@ -9,7 +9,6 @@
     shell = "${pkgs.zsh}/bin/zsh";
     tmuxinator.enable = true;
     plugins = with pkgs.tmuxPlugins; [
-      yank
       {
         plugin = yank;
         # https://github.com/tmux-plugins/tmux-yank#linux-clipboards
@@ -23,6 +22,18 @@
           set -g @extrakto_copy_key 'ctrl-c'
           set -g @extrakto_insert_key 'enter'
           set -g @extrakto_filter_order 'line word all'
+        '';
+      }
+      {
+        plugin = resurrect;
+        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+      }
+      {
+        plugin = continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-save-interval '5' # minutes
+          set -g @resurrect-capture-pane-contents 'on'
         '';
       }
     ];
