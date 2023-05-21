@@ -38,7 +38,7 @@ return {
       { '<leader>fh', '<CMD>Telescope help_tags<CR>', desc = 'Help' },
       { '<leader>fo', '<CMD>Telescope oldfiles<CR>', desc = 'Old Files' },
       { '<leader>fk', '<CMD>Telescope keymaps<CR>', desc = 'Keymaps' },
-      { '<leader>fs', '<CMD>Telescope spell_suggest<CR>', desc = 'Spelling' },
+      { '<leader>fS', '<CMD>Telescope spell_suggest<CR>', desc = 'Spelling' },
       { '<leader>fg', '<CMD>Telescope live_grep<CR>', desc = 'Grep' },
       { '<leader>fd', '<CMD>Telescope live_grep cwd=~/dotfiles/nvim/<CR>', desc = 'Grep Nvim Config' },
       { '<leader>fG', '<CMD>Telescope grep_string<CR>', desc = 'Find Word Under Cursor' },
@@ -46,6 +46,8 @@ return {
       { '<leader>fb', '<CMD>Telescope git_bcommits<CR>', desc = 'Git Commits For Buffer' },
       { '<leader>f:', '<CMD>Telescope command_history<CR>', desc = 'Command History' },
       { '<leader>f/', '<CMD>Telescope current_buffer_fuzzy_find<CR>', desc = 'Fuzzy Find In Current Buffer' },
+      { '<leader>fss', '<CMD>Telescope lsp_document_symbols<CR>', desc = 'Find Document Symbols' },
+      { '<leader>fsw', '<CMD>Telescope lsp_dynamic_workspace_symbols<CR>', desc = 'Find Workspace Symbols' },
     },
     config = function()
       local telescope = require('telescope')
