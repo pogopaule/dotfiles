@@ -34,6 +34,7 @@
         in
         {
           haflinger = darwin.lib.darwinSystem {
+            inherit system;
             modules = [
               ./nix/configuration-darwin.nix
               home-manager.darwinModules.home-manager
@@ -61,6 +62,7 @@
         in
         {
           panther = nixpkgs.lib.nixosSystem {
+            inherit system;
             modules = [
               ./nix/configuration-core.nix
               ./nix/panther/configuration.nix
@@ -75,15 +77,7 @@
             ];
           };
           silverback = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            pkgs = import nixpkgs {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
-            pkgs-master = import nixpkgs-master {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
+            inherit system;
             modules = [
               ./nix/configuration-core.nix
               ./nix/silverback/configuration.nix
