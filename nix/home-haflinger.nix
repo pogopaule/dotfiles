@@ -15,6 +15,7 @@
   };
 
   programs = {
+    chromium.enable = true;
     wezterm = {
       enable = true;
       package = pkgs-master.wezterm;
@@ -64,9 +65,4 @@
   };
 
   fonts.fontconfig.enable = true; # for Nerdfont
-
-  programs = {
-    firefox.enable = true;
-    chromium.enable = true;
-  };
 }

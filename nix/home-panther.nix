@@ -26,6 +26,8 @@
   };
 
   programs = {
+    firefox.enable = true;
+    chromium.enable = true;
     wezterm = {
       enable = true;
       package = pkgs-master.wezterm;
@@ -79,11 +81,5 @@
     pinentryFlavor = "curses";
   };
 
-
   fonts.fontconfig.enable = true; # for Nerdfont
-
-  programs = {
-    firefox.enable = true;
-    chromium.enable = true;
-  };
 }
