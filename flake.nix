@@ -24,11 +24,11 @@
         haflinger = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           pkgs = import nixpkgs {
-            inherit system;
+            system = "aarch64-darwin";
             config.allowUnfree = true;
           };
           pkgs-master = import nixpkgs-master {
-            inherit system;
+            system = "aarch64-darwin";
             config.allowUnfree = true;
           };
           modules = [
@@ -48,11 +48,11 @@
         panther = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           pkgs = import nixpkgs {
-            inherit system;
+            system = "x86_64-linux";
             config.allowUnfree = true;
           };
           pkgs-master = import nixpkgs-master {
-            inherit system;
+            system = "x86_64-linux";
             config.allowUnfree = true;
           };
           modules = [
@@ -71,11 +71,11 @@
         silverback = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           pkgs = import nixpkgs {
-            inherit system;
+            system = "x86_64-linux";
             config.allowUnfree = true;
           };
           pkgs-master = import nixpkgs-master {
-            inherit system;
+            system = "x86_64-linux";
             config.allowUnfree = true;
           };
           modules = [
