@@ -27,7 +27,7 @@
         config.allowUnfree = true;
       };
       pkgs-darwin = import darwin {
-        system = "arm64-darwin";
+        system = "aaarch64-darwin";
         config.allowUnfree = true;
       };
       darkTheme = true;
@@ -36,7 +36,7 @@
     {
       darwinConfigurations = {
         haflinger = darwin.lib.darwinSystem {
-          system = "arm64-darwin";
+          system = "aarch64-darwin";
           modules = [
             ./nix/configuration-darwin.nix
             home-manager.darwinModules.home-manager
