@@ -11,4 +11,9 @@
   '';
   services.nix-daemon.enable = true;
   system.defaults.finder.AppleShowAllExtensions = true;
+
+  fonts.enableFontDir = true;
+  fonts.fonts = [
+    (pkgs.nerdfonts.override { fonts = [ "Iosevka" ]; })
+  ];
 }

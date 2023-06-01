@@ -7,7 +7,6 @@
 
   home = {
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "Iosevka" ]; })
       todoist-electron
       spotify
       meld
