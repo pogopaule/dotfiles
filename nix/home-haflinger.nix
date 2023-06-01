@@ -15,7 +15,6 @@
   };
 
   programs = {
-    chromium.enable = true;
     wezterm = {
       enable = true;
       package = pkgs-master.wezterm;
