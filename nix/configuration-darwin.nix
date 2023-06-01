@@ -12,7 +12,7 @@
   services.nix-daemon.enable = true;
   system.defaults.finder.AppleShowAllExtensions = true;
 
-  fonts.fontDir = true;
+  fonts.fontDir.enable = true;
   fonts.fonts = [
     (pkgs.nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
