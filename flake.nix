@@ -44,7 +44,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.fabian = (import ./nix/home-haflinger.nix { inherit pkgs pkgs-master darkTheme devenv; });
+                users.fabian = (import ./nix/haflinger/home-manger.nix { inherit pkgs pkgs-master darkTheme devenv; });
               };
             }
           ];
@@ -55,13 +55,13 @@
           inherit system;
           modules = [
             ./nix/configuration-core.nix
-            ./nix/configuration-panther.nix
+            ./nix/panther/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.pogopaule = (import ./nix/home-panther.nix { inherit pkgs pkgs-master darkTheme devenv; });
+                users.pogopaule = (import ./nix/panther/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; });
               };
             }
           ];
@@ -70,13 +70,13 @@
           inherit system;
           modules = [
             ./nix/configuration-core.nix
-            ./nix/configuration-silverback.nix
+            ./nix/silverback/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.pogopaule = (import ./nix/home-silverback.nix { inherit pkgs pkgs-master darkTheme devenv; });
+                users.pogopaule = (import ./nix/silverback/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; });
               };
             }
           ];

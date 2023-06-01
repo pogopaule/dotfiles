@@ -2,7 +2,7 @@
 {
   imports =
     [
-      ./hardware-configuration-panther.nix
+      ./panther/hardware-configuration.nix
     ];
 
   networking.hostName = "panther";

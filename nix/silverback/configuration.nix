@@ -2,7 +2,7 @@
 {
   imports =
     [
-      ./hardware-configuration-silverback.nix
+      ./silverback/hardware-configuration.nix
     ];
 
   networking.hostName = "silverback";
