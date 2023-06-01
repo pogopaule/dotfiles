@@ -7,10 +7,12 @@
 
   home = {
     packages = with pkgs; [
-      # todoist-electron TODO: find mac version
-      spotify
+      # todoist-electron TODO: find mac versions
+      # spotify
       meld
-    ] ++ [ pkgs-master.uhk-agent ];
+    ] ++ [
+      # pkgs-master.uhk-agent
+    ];
   };
 
   programs = {
