@@ -61,7 +61,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.pogopaule = (import ./nix/home-desktop.nix { inherit pkgs pkgs-master darkTheme devenv; });
+                users.pogopaule = (import ./nix/home-panther.nix { inherit pkgs pkgs-master darkTheme devenv; });
               };
             }
           ];
@@ -76,7 +76,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.pogopaule = (import ./nix/home-core.nix { inherit pkgs pkgs-master darkTheme devenv; });
+                users.pogopaule = (import ./nix/home-silverback.nix { inherit pkgs pkgs-master darkTheme devenv; });
               };
             }
           ];

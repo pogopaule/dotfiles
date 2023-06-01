@@ -6,6 +6,8 @@
   ];
 
   home = {
+    username = "pogopaule";
+    homeDirectory = "/home/pogopaule";
     packages = with pkgs; [
       (nerdfonts.override { fonts = [ "Iosevka" ]; })
       signal-desktop
