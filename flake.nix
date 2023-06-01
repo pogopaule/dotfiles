@@ -20,77 +20,83 @@
       darkTheme = true;
     in
     {
-      darwinConfigurations = {
-        haflinger = darwin.lib.darwinSystem {
+      darwinConfigurations =
+        let
           system = "aarch64-darwin";
           pkgs = import nixpkgs {
-            system = "aarch64-darwin";
+            inherit system;
             config.allowUnfree = true;
           };
           pkgs-master = import nixpkgs-master {
-            system = "aarch64-darwin";
+            inherit system;
             config.allowUnfree = true;
           };
-          modules = [
-            ./nix/configuration-darwin.nix
-            home-manager.darwinModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.fabian = (import ./nix/haflinger/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; });
-              };
-            }
-          ];
+        in
+        {
+          haflinger = darwin.lib.darwinSystem {
+            modules = [
+              ./nix/configuration-darwin.nix
+              home-manager.darwinModules.home-manager
+              {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  users.fabian = (import ./nix/haflinger/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; });
+                };
+              }
+            ];
+          };
         };
-      };
-      nixosConfigurations = {
-        panther = nixpkgs.lib.nixosSystem {
+      nixosConfigurations =
+        let
           system = "x86_64-linux";
           pkgs = import nixpkgs {
-            system = "x86_64-linux";
+            inherit system;
             config.allowUnfree = true;
           };
           pkgs-master = import nixpkgs-master {
-            system = "x86_64-linux";
+            inherit system;
             config.allowUnfree = true;
           };
-          modules = [
-            ./nix/configuration-core.nix
-            ./nix/panther/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.pogopaule = (import ./nix/panther/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; });
-              };
-            }
-          ];
+        in
+        {
+          panther = nixpkgs.lib.nixosSystem {
+            modules = [
+              ./nix/configuration-core.nix
+              ./nix/panther/configuration.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  users.pogopaule = (import ./nix/panther/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; });
+                };
+              }
+            ];
+          };
+          silverback = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            pkgs = import nixpkgs {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+            pkgs-master = import nixpkgs-master {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+            modules = [
+              ./nix/configuration-core.nix
+              ./nix/silverback/configuration.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  users.pogopaule = (import ./nix/silverback/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; });
+                };
+              }
+            ];
+          };
         };
-        silverback = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            config.allowUnfree = true;
-          };
-          pkgs-master = import nixpkgs-master {
-            system = "x86_64-linux";
-            config.allowUnfree = true;
-          };
-          modules = [
-            ./nix/configuration-core.nix
-            ./nix/silverback/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.pogopaule = (import ./nix/silverback/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; });
-              };
-            }
-          ];
-        };
-      };
     };
 }
