@@ -17,29 +17,20 @@
 
   outputs = { nixpkgs, nixpkgs-master, home-manager, darwin, devenv, ... }:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      pkgs-master = import nixpkgs-master {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      pkgs-mac = import nixpkgs {
-        system = "aarch64-darwin";
-        config.allowUnfree = true;
-      };
-      pkgs-master-mac = import nixpkgs-master {
-        system = "aarch64-darwin";
-        config.allowUnfree = true;
-      };
       darkTheme = true;
     in
     {
       darwinConfigurations = {
         haflinger = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          pkgs-master = import nixpkgs-master {
+            inherit system;
+            config.allowUnfree = true;
+          };
           modules = [
             ./nix/configuration-darwin.nix
             home-manager.darwinModules.home-manager
@@ -47,7 +38,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.fabian = (import ./nix/haflinger/home-manager.nix { inherit pkgs-mac pkgs-master-mac darkTheme devenv; });
+                users.fabian = (import ./nix/haflinger/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; });
               };
             }
           ];
@@ -55,7 +46,15 @@
       };
       nixosConfigurations = {
         panther = nixpkgs.lib.nixosSystem {
-          inherit system;
+          system = "x86_64-linux";
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          pkgs-master = import nixpkgs-master {
+            inherit system;
+            config.allowUnfree = true;
+          };
           modules = [
             ./nix/configuration-core.nix
             ./nix/panther/configuration.nix
@@ -70,7 +69,15 @@
           ];
         };
         silverback = nixpkgs.lib.nixosSystem {
-          inherit system;
+          system = "x86_64-linux";
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          pkgs-master = import nixpkgs-master {
+            inherit system;
+            config.allowUnfree = true;
+          };
           modules = [
             ./nix/configuration-core.nix
             ./nix/silverback/configuration.nix
