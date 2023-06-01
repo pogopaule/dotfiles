@@ -58,11 +58,6 @@
     ];
   };
 
-  services.gpg-agent = {
-    enable = true;
-    pinentryFlavor = "curses";
-  };
-
   programs = {
     home-manager.enable = true;
     htop.enable = true;

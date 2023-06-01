@@ -74,6 +74,12 @@
     };
   };
 
+  services.gpg-agent = {
+    enable = true;
+    pinentryFlavor = "curses";
+  };
+
+
   fonts.fontconfig.enable = true; # for Nerdfont
 
   programs = {
