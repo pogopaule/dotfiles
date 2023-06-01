@@ -6,11 +6,12 @@
   ];
 
   home = {
-    packages = with pkgs; [
-      todoist-electron
-      spotify
-      meld
-    ] ++ [ pkgs-master.uhk-agent ];
+    # TODO: find correct darwin packages
+    # packages = with pkgs; [
+    #   todoist-electron
+    #   spotify
+    #   meld
+    # ] ++ [ pkgs-master.uhk-agent ];
   };
 
   programs = {
