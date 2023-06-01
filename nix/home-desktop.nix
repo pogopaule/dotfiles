@@ -3,7 +3,6 @@
 {
   imports = [
     (import ./home-core.nix { inherit pkgs pkgs-master darkTheme devenv; })
-    (import ../alacritty { inherit darkTheme; })
   ];
 
   home = {
