@@ -57,10 +57,11 @@
         }
       '';
     };
-    vscode = {
-      enable = true;
-      package = pkgs-master.vscode;
-    };
+    # TODO: find darwin packages
+    # vscode = {
+    #   enable = true;
+    #   package = pkgs-master.vscode;
+    # };
   };
 
   fonts.fontconfig.enable = true; # for Nerdfont
