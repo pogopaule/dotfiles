@@ -26,12 +26,15 @@
         inherit system;
         config.allowUnfree = true;
       };
-      pkgs-darwin = import darwin {
-        system = "aaarch64-darwin";
+      pkgs-mac = import nixpkgs {
+        system = "aarch64-darwin";
+        config.allowUnfree = true;
+      };
+      pkgs-master-mac = import nixpkgs-master {
+        system = "aarch64-darwin";
         config.allowUnfree = true;
       };
       darkTheme = true;
-
     in
     {
       darwinConfigurations = {
@@ -44,7 +47,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.fabian = (import ./nix/haflinger/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; });
+                users.fabian = (import ./nix/haflinger/home-manager.nix { inherit pkgs-mac pkgs-master-mac darkTheme devenv; });
               };
             }
           ];

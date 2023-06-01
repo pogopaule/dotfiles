@@ -6,12 +6,11 @@
   ];
 
   home = {
-    # TODO: find correct darwin packages
-    # packages = with pkgs; [
-    #   todoist-electron
-    #   spotify
-    #   meld
-    # ] ++ [ pkgs-master.uhk-agent ];
+    packages = with pkgs; [
+      todoist-electron
+      spotify
+      meld
+    ] ++ [ pkgs-master.uhk-agent ];
   };
 
   programs = {
@@ -57,11 +56,10 @@
         }
       '';
     };
-    # TODO: find darwin packages
-    # vscode = {
-    #   enable = true;
-    #   package = pkgs-master.vscode;
-    # };
+    vscode = {
+      enable = true;
+      package = pkgs-master.vscode;
+    };
   };
 
   fonts.fontconfig.enable = true; # for Nerdfont
