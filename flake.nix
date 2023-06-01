@@ -44,7 +44,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.fabian = (import ./nix/haflinger/home-manger.nix { inherit pkgs pkgs-master darkTheme devenv; });
+                users.fabian = (import ./nix/haflinger/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; });
               };
             }
           ];
