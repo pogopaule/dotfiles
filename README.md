@@ -1,6 +1,6 @@
 # dotfiles
 
-## Install on new system
+## Install on new NixOS system
 
 - download plasma iso
 - use etcher to create bootable usb stick
@@ -23,3 +23,10 @@
 - checkout zettelkasten von gitlab or rsync from old machine
 - restore Documents or rsync from old machine
 - log into various tools
+
+## Install on a new Mac system
+
+- https://nixos.org/download.html#nix-install-macos
+- `nix shell nixpkgs#git --extra-experimental-features 'nix-command flakes'`
+- `git clone https://github.com/pogopaule/dotfiles.git` into home folder
+- `apply-haflinger.sh`

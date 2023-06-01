@@ -8,10 +8,14 @@
       url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    darwin = {
+      url = "github:lnl7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     devenv.url = "github:cachix/devenv/v0.6.2";
   };
 
-  outputs = { nixpkgs, nixpkgs-master, home-manager, devenv, ... }:
+  outputs = { nixpkgs, nixpkgs-master, home-manager, darwin, devenv, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -22,11 +26,30 @@
         inherit system;
         config.allowUnfree = true;
       };
-
+      pkgs-darwin = import darwin {
+        system = "arm64-darwin";
+        config.allowUnfree = true;
+      };
       darkTheme = true;
 
     in
     {
+      darwinConfigurations = {
+        haflinger = darwin.lib.darwinSystem {
+          system = "arm64-darwin";
+          modules = [
+            ./nix/configuration-darwin.nix
+            home-manager.darwinModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.fabian = (import ./nix/home-haflinger.nix { inherit pkgs pkgs-master darkTheme devenv; });
+              };
+            }
+          ];
+        };
+      };
       nixosConfigurations = {
         panther = nixpkgs.lib.nixosSystem {
           inherit system;
