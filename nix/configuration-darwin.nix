@@ -1,11 +1,14 @@
 { pkgs, ... }: {
   programs.zsh.enable = true;
-  environment.shells = [ pkgs.bash pkgs.zsh ];
-  environment.loginShell = pkgs.zsh;
+  environment =
+    {
+      shells = [ pkgs.bash pkgs.zsh ];
+      loginShell = pkgs.zsh;
+      systemPackages = [ pkgs.coreutils ];
+    };
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
-  systemPackages = [ pkgs.coreutils ];
   services.nix-daemon.enable = true;
   system.defaults.finder.AppleShowAllExtensions = true;
 }
