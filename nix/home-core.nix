@@ -38,7 +38,7 @@
       ijq # interactive jq
       gnumake
       exiftool
-      nethogs # monitor network traffic
+      # nethogs # monitor network traffic TODO: only linux
       pgcli
       hyperfine # benchmarking
       glow # markdown viewer
