@@ -7,7 +7,7 @@
 
   home = {
     packages = with pkgs; [
-      todoist-electron
+      # todoist-electron TODO: find mac version
       spotify
       meld
     ] ++ [ pkgs-master.uhk-agent ];
