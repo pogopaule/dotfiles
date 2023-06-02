@@ -36,7 +36,17 @@
   homebrew = {
     enable = true;
     global.brewfile = true;
-    casks = [];
+    casks = [
+      "raycast"
+      "uhk-agent"
+      "todoist"
+      "spotify"
+      "cyberduck"
+      "firefox"
+      "1password"
+    ];
+    taps = [ ];
+    brews = [ ];
   };
 
 }

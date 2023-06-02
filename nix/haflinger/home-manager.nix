@@ -7,11 +7,9 @@
 
   home = {
     packages = with pkgs; [
-      # todoist-electron TODO: find mac versions
-      # spotify
       meld
-    ] ++ [
-      # pkgs-master.uhk-agent
+      discord
+      jetbrains.pycharm-community
     ];
   };
 

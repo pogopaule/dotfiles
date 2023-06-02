@@ -27,6 +27,7 @@
 ## Install on a new Mac system
 
 - https://nixos.org/download.html#nix-install-macos
+- Install homebrew (will be controlled by nix)
 - `nix shell nixpkgs#git --extra-experimental-features 'nix-command flakes'`
 - `git clone https://github.com/pogopaule/dotfiles.git` into home folder
 - `nix build .#darwinConfigurations.haflinger.system --extra-experimental-features 'nix-command flakes'`
