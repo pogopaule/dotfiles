@@ -29,5 +29,6 @@
 - https://nixos.org/download.html#nix-install-macos
 - `nix shell nixpkgs#git --extra-experimental-features 'nix-command flakes'`
 - `git clone https://github.com/pogopaule/dotfiles.git` into home folder
-- `apply-haflinger.sh` and follow instrunctions for symlink error
+- `nix build .#darwinConfigurations.haflinger.system --extra-experimental-features 'nix-command flakes'`
+- `./result/sw/bin/darwin-rebuild switch --flake .#haflinger` and follow instrunctions for symlink error
 - If there are errors: `sudo rm /etc/nix/nix.conf /etc/shells`
