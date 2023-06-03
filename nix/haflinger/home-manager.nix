@@ -16,6 +16,16 @@
   };
 
   programs = {
+    ssh = {
+      matchBlocks = {
+        "github.com" = {
+          identityFile = "Users/fabian/.ssh/github";
+        };
+        "gitlab.com" = {
+          identityFile = "/Users/fabian/.ssh/gitlab";
+        };
+      };
+    };
     wezterm = {
       enable = true;
       package = pkgs-master.wezterm;

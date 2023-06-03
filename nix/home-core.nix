@@ -80,12 +80,10 @@
         "github.com" = {
           hostname = "github.com";
           user = "git";
-          identityFile = "/home/pogopaule/.ssh/github";
         };
         "gitlab.com" = {
           hostname = "gitlab.com";
           user = "git";
-          identityFile = "/home/pogopaule/.ssh/gitlab";
         };
       };
       extraConfig = "AddKeysToAgent yes";

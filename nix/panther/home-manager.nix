@@ -31,6 +31,16 @@
   programs = {
     firefox.enable = true;
     chromium.enable = true;
+    ssh = {
+      matchBlocks = {
+        "github.com" = {
+          identityFile = "/home/pogopaule/.ssh/github";
+        };
+        "gitlab.com" = {
+          identityFile = "/home/pogopaule/.ssh/gitlab";
+        };
+      };
+    };
     wezterm = {
       enable = true;
       package = pkgs-master.wezterm;
