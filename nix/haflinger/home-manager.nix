@@ -10,6 +10,8 @@
       meld
       discord
       jetbrains.pycharm-community
+    ] ++ [
+      devenv.packages.aarch64-darwin.devenv
     ];
   };
 

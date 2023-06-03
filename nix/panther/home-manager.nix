@@ -22,7 +22,10 @@
       vlc
       xclip
       meld
-    ] ++ [ pkgs-master.uhk-agent ];
+    ] ++ [
+      pkgs-master.uhk-agent
+      devenv.packages.x86_64-linux.devenv
+    ];
   };
 
   programs = {

@@ -54,7 +54,6 @@
     ] ++ [
       pkgs-master.neovim
       pkgs-master.nodePackages."@githubnext/github-copilot-cli"
-      devenv.packages.x86_64-linux.devenv
     ];
   };
 
