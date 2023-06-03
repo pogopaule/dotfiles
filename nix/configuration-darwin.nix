@@ -16,8 +16,8 @@
   system = {
     defaults = {
       finder.AppleShowAllExtensions = true;
-      NSGlobalDomain.InitialKeyRepeat = 14;
-      NSGlobalDomain.KeyRepeat = 1;
+      NSGlobalDomain.InitialKeyRepeat = 18;
+      NSGlobalDomain.KeyRepeat = 2;
       screensaver.askForPasswordDelay = 180;
     };
     keyboard = {
