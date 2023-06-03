@@ -29,14 +29,10 @@ return {
             luasnip.lsp_expand(args.body)
           end,
         },
-        completion = {
-          autocomplete = false,
-        },
         mapping = cmp.mapping.preset.insert({
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
           ['<C-u>'] = cmp.mapping.scroll_docs(-4),
           ['<C-d>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete(),
         }),
         sources = { -- the order below defines the order in the completion popup
           { name = 'luasnip' },
