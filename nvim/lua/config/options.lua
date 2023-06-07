@@ -1,4 +1,7 @@
 local options = {
+  splitbelow = true, -- horizontal splits will automatically be below
+  splitright = true, -- vertical splits will automatically be to the right
+
   shiftwidth  = 2, -- number of spaces for indentation
   smartindent = true,
   expandtab   = true, -- convert tabs to spaces

@@ -1,6 +1,10 @@
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 
+
+-- jump to end of seletion after yanking
+map('v', 'y', 'myy`y', opts)
+
 -- disable arrow keys
 map('i', '<Up>', '<NOP>', opts)
 map('i', '<Down>', '<NOP>', opts)
