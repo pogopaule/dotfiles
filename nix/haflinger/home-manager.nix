@@ -19,7 +19,7 @@
     ssh = {
       matchBlocks = {
         "github.com" = {
-          identityFile = "Users/fabian/.ssh/github";
+          identityFile = "/Users/fabian/.ssh/github";
         };
         "gitlab.com" = {
           identityFile = "/Users/fabian/.ssh/gitlab";

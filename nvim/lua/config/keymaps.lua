@@ -40,8 +40,8 @@ map('n', '<Right>', ':vertical resize +4<CR>', opts)
 -- move between tab
 map({ 'n', 'v', 'i' }, '<C-PageUp>', '<CMD>tabprevious<CR>', opts)
 map({ 'n', 'v', 'i' }, '<C-PageDown>', '<CMD>tabnext<CR>', opts)
-map({ 'n', 'v', 'i' }, '<M-Right>', '<CMD>tabprevious<CR>', opts)
-map({ 'n', 'v', 'i' }, '<M-Left>', '<CMD>tabnext<CR>', opts)
+map({ 'n', 'v', 'i' }, '<M-Left>', '<CMD>tabprevious<CR>', opts)
+map({ 'n', 'v', 'i' }, '<M-Right>', '<CMD>tabnext<CR>', opts)
 map({ 'n', 'v', 'i' }, '<C-w>', "<CMD>tabclose<CR>", opts)
 
 

@@ -33,3 +33,8 @@
 - `nix build .#darwinConfigurations.haflinger.system --extra-experimental-features 'nix-command flakes'`
 - `./result/sw/bin/darwin-rebuild switch --flake .#haflinger` and follow instrunctions for symlink error
 - If there are errors: `sudo rm /etc/nix/nix.conf /etc/shells`
+- Change some keymaps in System Settings to use Ctrl instead of Meta key
+- ```
+  curl -O https://raw.githubusercontent.com/xv0x7c0/osx-us-altgr-intl/master/us-altgr-intl.keylayout
+   sudo mv us-altgr-intl.keylayout /Library/Keyboard\ Layouts
+```

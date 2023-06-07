@@ -72,6 +72,7 @@
     };
     gpg = {
       enable = true;
+      settings.use-agent = false;
     };
 
     ssh = {

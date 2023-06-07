@@ -2,6 +2,11 @@
 
   programs.zsh.enable = true;
 
+  users.users.fabian = {
+    name = "fabian";
+    home = /Users/fabian;
+  };
+
   environment =
     {
       shells = [ pkgs.bash pkgs.zsh ];
