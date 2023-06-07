@@ -70,10 +70,6 @@
       enable = true;
       enableZshIntegration = true;
     };
-    gpg = {
-      enable = true;
-      settings.use-agent = false;
-    };
 
     ssh = {
       enable = true;

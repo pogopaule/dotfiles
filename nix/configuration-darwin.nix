@@ -49,6 +49,7 @@
       "cyberduck"
       "firefox"
       "1password"
+      "gpg-suite"
     ];
     taps = [ ];
     brews = [ ];

@@ -87,7 +87,11 @@
       enable = true;
       package = pkgs-master.vscode;
     };
+    gpg = {
+      enable = true;
+    };
   };
+
 
   services.gpg-agent = {
     enable = true;
