@@ -50,6 +50,7 @@
       "firefox"
       "1password"
       "gpg-suite"
+      "amethyst"
     ];
     taps = [ ];
     brews = [ ];
