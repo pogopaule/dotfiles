@@ -36,7 +36,7 @@
           haflinger = darwin.lib.darwinSystem {
             inherit system;
             modules = [
-              ./nix/configuration-darwin.nix
+              ./nix/haflinger/configuration.nix
               home-manager.darwinModules.home-manager
               {
                 home-manager = {

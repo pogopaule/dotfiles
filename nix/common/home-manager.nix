@@ -4,8 +4,8 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    (import ../tmux { inherit pkgs darkTheme; })
-    (import ../zsh { inherit pkgs darkTheme; })
+    (import ../../tmux { inherit pkgs darkTheme; })
+    (import ../../zsh { inherit pkgs darkTheme; })
   ];
 
   home = {

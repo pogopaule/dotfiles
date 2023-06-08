@@ -2,7 +2,7 @@
 
 {
   imports = [
-    (import ../home-core.nix { inherit pkgs pkgs-master darkTheme devenv; })
+    (import ../common/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; })
   ];
 
   home = {
