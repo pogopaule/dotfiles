@@ -64,7 +64,7 @@
           panther = nixpkgs.lib.nixosSystem {
             inherit system;
             modules = [
-              ./nix/configuration-core.nix
+              ./nix/common/configuration.nix
               ./nix/panther/configuration.nix
               home-manager.nixosModules.home-manager
               {
@@ -79,7 +79,7 @@
           silverback = nixpkgs.lib.nixosSystem {
             inherit system;
             modules = [
-              ./nix/configuration-core.nix
+              ./nix/common/configuration.nix
               ./nix/silverback/configuration.nix
               home-manager.nixosModules.home-manager
               {
