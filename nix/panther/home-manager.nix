@@ -28,6 +28,11 @@
   };
 
   programs = {
+    tmux.plugins = [
+      {
+        plugin = pkgs.tmuxPlugins.tmux-thumbs;
+      }
+    ];
     firefox.enable = true;
     chromium.enable = true;
     ssh = {

@@ -19,6 +19,14 @@
   };
 
   programs = {
+    tmux.plugins = [
+      {
+        plugin = pkgs.tmuxPlugins.tmux-thumbs;
+        extraConfig = ''
+          set -g @thumbs-command 'echo -n {} | pbcopy'
+        '';
+      }
+    ];
     ssh = {
       matchBlocks = {
         "github.com" = {
