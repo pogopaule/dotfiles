@@ -31,6 +31,9 @@
     tmux.plugins = [
       {
         plugin = pkgs.tmuxPlugins.tmux-thumbs;
+        extraConfig = ''
+          set -g @thumbs-command 'echo -n {} | xclip -selection clipboard'
+        '';
       }
     ];
     firefox.enable = true;
