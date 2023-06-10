@@ -75,8 +75,8 @@ return {
     end,
     config = function()
       local map = vim.keymap.set
-      map('x', '<leader><Right>', '<Plug>SlimeRegionSend', {})
-      map('n', '<leader><Right>', '<Plug>SlimeParagraphSend', {})
+      map('x', '<bar>', '<Plug>SlimeRegionSend', {})
+      map('n', '<bar>', '<Plug>SlimeParagraphSend', {})
 
       vim.cmd([[
           let g:slime_target = "tmux"

@@ -6,14 +6,14 @@ return {
     },
     keys = {
       {
-        "<C-]>",
+        "<A-l>",
         function()
-          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<A-l>"
         end,
         expr = true, silent = true, mode = "i",
       },
-      { "<C-]>", function() require("luasnip").jump(1) end, mode = "s" },
-      { "<C-[>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+      { "<A-l>", function() require("luasnip").jump(1) end, mode = "s" },
+      { "<A-h>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
     },
     config = function()
       local map = vim.keymap.set
