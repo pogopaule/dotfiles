@@ -33,6 +33,7 @@
         plugin = pkgs.tmuxPlugins.tmux-thumbs;
         extraConfig = ''
           set -g @thumbs-command 'echo -n {} | xclip -selection clipboard'
+          set -g @thumbs-regexp-1 '\w+://[^\s]+' # Match URLs
         '';
       }
     ];

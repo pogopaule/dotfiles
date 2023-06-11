@@ -24,6 +24,7 @@
         plugin = pkgs.tmuxPlugins.tmux-thumbs;
         extraConfig = ''
           set -g @thumbs-command 'echo -n {} | pbcopy'
+          set -g @thumbs-regexp-1 '\w+://[^\s]+' # Match URLs
         '';
       }
     ];
