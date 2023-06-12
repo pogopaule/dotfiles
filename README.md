@@ -38,3 +38,4 @@
   curl -O https://raw.githubusercontent.com/xv0x7c0/osx-us-altgr-intl/master/us-altgr-intl.keylayout
    sudo mv us-altgr-intl.keylayout /Library/Keyboard\ Layouts
 ```
+- `ln -s $PWD/amethyst.yml ~/.amathyst.yml`
