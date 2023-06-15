@@ -11,8 +11,6 @@
       discord
       jetbrains.pycharm-community
       git-lfs
-      magic-wormhole
-      azure-cli
     ] ++ [
       devenv.packages.aarch64-darwin.devenv
     ];
