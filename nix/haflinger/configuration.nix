@@ -51,6 +51,7 @@
       "1password"
       "gpg-suite"
       "amethyst"
+      "docker"
     ];
     taps = [ ];
     brews = [ ];
