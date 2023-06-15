@@ -110,12 +110,12 @@ decrease-main:
 # Focus the next window in the list going counter-clockwise.
 focus-ccw:
   mod: mod1
-  key: j
+  key: k
 
 # Focus the next window in the list going clockwise.
 focus-cw:
   mod: mod1
-  key: k
+  key: j
 
 # Focus the main window in the list.
 focus-main:
