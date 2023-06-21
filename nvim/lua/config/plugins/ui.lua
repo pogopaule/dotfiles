@@ -7,34 +7,6 @@ return {
     config = true,
   },
 
-  -- File Explorer
-  {
-    'https://github.com/kyazdani42/nvim-tree.lua',
-    keys = {
-      { '<leader>tN', '<CMD>NvimTreeToggle<CR>', desc = 'Nvim Tree' },
-      { '<leader>N', '<CMD>NvimTreeFindFile<CR>', desc = 'Find File in Nvim Tree' },
-    },
-    config = {
-      filters = {
-        dotfiles = true,
-      },
-      git = {
-        ignore = false,
-      },
-      view = {
-        mappings = {
-          list = {
-            { key = { 'cd' }, action = 'cd' },
-          }
-        },
-        width = 50,
-      },
-      renderer = {
-        special_files = {},
-      },
-    },
-  },
-
   -- Start screen
   {
     'https://github.com/goolord/alpha-nvim',
