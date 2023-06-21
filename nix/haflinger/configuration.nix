@@ -52,6 +52,7 @@
       "gpg-suite"
       "amethyst"
       "docker"
+      "unnaturalscrollwheels"
     ];
     taps = [ ];
     brews = [ ];
