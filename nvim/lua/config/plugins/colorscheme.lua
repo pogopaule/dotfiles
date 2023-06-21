@@ -15,7 +15,7 @@ return {
           },
         }
       })
-      if os.getenv("THEME") == 'light' then
+      if os.getenv("TERMINAL_THEME") == 'light' then
         vim.cmd('colorscheme dawnfox')
       else
         vim.cmd('colorscheme nordfox')

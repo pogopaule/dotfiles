@@ -3,7 +3,7 @@
   programs.zsh = {
     enable = true;
     sessionVariables = {
-      THEME = if darkTheme then "dark" else "light";
+      TERMINAL_THEME = if darkTheme then "dark" else "light";
     };
     plugins = [
       { name = "fzf-tab"; src = "${pkgs.zsh-fzf-tab}/share/fzf-tab"; }
