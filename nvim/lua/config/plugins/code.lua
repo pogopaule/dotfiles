@@ -88,9 +88,14 @@ return {
 
   -- Copilot
   {
-    'https://github.com/github/copilot.vim',
-    event = { 'BufReadPost', 'BufNewFile' },
+    'zbirenbaum/copilot.lua',
     cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = {
+      suggestion = {
+        auto_trigger = true;
+      }
+    },
   },
 
   -- Emmet
