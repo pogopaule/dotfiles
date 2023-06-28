@@ -64,7 +64,12 @@
     exa.enable = true;
     zoxide.enable = true;
     jq.enable = true;
-    gh.enable = true;
+    gh = {
+      enable = true;
+      extensions = [
+        pkgs-master.gh-dash
+      ];
+    };
 
     direnv = {
       enable = true;
