@@ -136,13 +136,13 @@ return {
           f = { "<ESC><CMD>lua require('refactoring').refactor('Extract Function')<CR>", 'Extract Function' },
           v = { "<ESC><CMD>lua require('refactoring').refactor('Extract Variable')<CR>", 'Extract Variable' },
         },
-        y = { '"+y', 'Yank To Clipboard' },
         s = { '"hy:%s/<C-r>h//gc<left><left><left>', 'Substitute Selection', silent = false },
 
       }, { prefix = '<leader>', mode = 'v' })
 
       wk.register({
         ["<C-s>"] = { '<ESC><CMD>write<CR>', 'Write', mode = { 'n', 'v', 'i' } },
+        Y = { '"+y', 'Yank To Clipboard', mode = { 'n', 'v' } },
       })
     end,
   },
