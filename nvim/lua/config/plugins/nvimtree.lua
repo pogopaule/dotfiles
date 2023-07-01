@@ -13,6 +13,14 @@ return {
     },
     on_attach = on_attach,
     config = {
+      view = {
+        width = 40,
+      },
+      actions = {
+        open_file = {
+          resize_window = false,
+        },
+      },
       filters = {
         dotfiles = true,
       },
