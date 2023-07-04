@@ -143,6 +143,7 @@ return {
       wk.register({
         ["<C-s>"] = { '<ESC><CMD>write<CR>', 'Write', mode = { 'n', 'v', 'i' } },
         Y = { '"+y', 'Yank To Clipboard', mode = { 'n', 'v' } },
+        YY = { '"+yy', 'Yank Line To Clipboard', mode = { 'n' } },
       })
     end,
   },
