@@ -1,26 +1,48 @@
 return {
-  -- Jump in text
   {
-    'https://github.com/ggandor/leap.nvim',
-    event = { 'BufReadPost', 'BufNewFile' },
-    config = function()
-      require('leap').add_default_mappings()
-    end,
-  },
-
-  {
-    'https://github.com/ggandor/flit.nvim',
-    keys = {
-      'f',
-      'F',
-      't',
-      'T',
-      { 'f', mode = 'x' },
-      { 'f', mode = 'x' },
-      { 't', mode = 'x' },
-      { 'T', mode = 'x' },
+    'https://github.com/folke/flash.nvim',
+    event = "VeryLazy",
+    opts = {
+      modes = {
+        char = {
+          keys = { "f", "F", "t", "T"}, -- this removes ',' from the list, which I use as the leader key
+        },
+      },
     },
-    config = true,
+    keys = {
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
+      {
+        "S",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
+      },
+      {
+        "r",
+        mode = "o",
+        function()
+          require("flash").remote()
+        end,
+        desc = "Remote Flash",
+      },
+      {
+        "R",
+        mode = { "o", "x" },
+        function()
+          require("flash").treesitter_search()
+        end,
+        desc = "Flash Treesitter Search",
+      },
+    },
   },
 
   -- Find, Filter, Preview, Pick
