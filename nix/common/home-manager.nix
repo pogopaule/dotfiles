@@ -123,12 +123,36 @@
       enable = true;
       package = pkgs-master.wezterm;
       extraConfig = ''
+        local theme = 'dawnfox'
+
+        local handle = io.popen("uname")
+        local result = handle:read("*a")
+        handle:close()
+        result = string.gsub(result, '%s+', "")
+
+        if result == 'Darwin' then
+          local handle = io.popen("defaults read -g AppleInterfaceStyle")
+          local result = handle:read("*a")
+          handle:close()
+
+          result = string.gsub(result, '%s+', "")
+
+          if result == 'Dark' then
+            theme = 'nordfox'
+          end
+
+        else
+          if os.getenv("TERMINAL_THEME") == 'dark' then
+            theme = 'nordfox'
+          end
+        end
+
         return {
           hide_tab_bar_if_only_one_tab = true,
           default_prog = { "zsh", "--login", "-c", "tmux attach -t default || tmux new -s default" },
           font_size = 18.0,
           font = wezterm.font('Iosevka Nerd Font'),
-          color_scheme = ${ if darkTheme then "'nordfox'" else "'dawnfox'" },
+          color_scheme = theme,
           colors = {
             cursor_bg = '#ff00ff',
             cursor_fg = '#ffffff',
