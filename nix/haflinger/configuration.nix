@@ -53,6 +53,7 @@
       "amethyst"
       "docker"
       "unnaturalscrollwheels"
+      "google-chrome"
     ];
     taps = [ ];
     brews = [ ];
