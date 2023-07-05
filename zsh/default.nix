@@ -85,6 +85,7 @@
       gll = "git log --graph --branches --remotes --tags --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
       gsa = "git secret add";
       gdf = "git diff $@ --name-only | fzf -m --reverse --ansi --preview-window=right,70% --preview 'git diff $@ --color=always -- {-1} | ${pkgs.diff-so-fancy}/bin/diff-so-fancy'";
+      gcop = "git checkout -p";
 
       # append aliases
       "-g H" = "| head";
@@ -110,6 +111,7 @@
       h = "http";
       clr = "clear";
       tldrf = "tldr --list | fzf --preview \"tldr {1} --color=always\" --preview-window=right,70% | xargs tldr";
+      rmrf = "rm -rf";
 
       # neovim
       v = "nvim";
