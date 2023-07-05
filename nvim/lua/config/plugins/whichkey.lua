@@ -73,6 +73,14 @@ return {
         end
       end
 
+      local function toggleColorscheme()
+        if vim.g.colors_name == 'nordfox' then
+          vim.cmd('colorscheme dawnfox')
+        else
+          vim.cmd('colorscheme nordfox')
+        end
+      end
+
       local function setSpelllangDe()
         vim.o.spelllang = 'de_20'
         vim.notify('Spell check language set to German')
@@ -109,6 +117,7 @@ return {
           z = { '<CMD>ZenMode<CR>', 'ZenMode' },
           c = { toggleCopilot, 'Copilot' },
           n = { '<CMD>set nonumber!<CR>', 'Line Numbers' },
+          f = { toggleColorscheme, 'Colorscheme' },
           s = {
             name = '+Spell Check',
             s = { toggleSpellCheck, 'Spell Check' },
