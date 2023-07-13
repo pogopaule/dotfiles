@@ -11,7 +11,6 @@
       (nerdfonts.override { fonts = [ "Iosevka" ]; })
       signal-desktop
       thunderbird
-      todoist-electron
       libreoffice
       pcloud
       keepassxc
