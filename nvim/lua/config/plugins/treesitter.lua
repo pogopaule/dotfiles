@@ -17,15 +17,6 @@ return {
         highlight = {
           enable = true,
         },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = '<A-s>',
-            node_incremental = '<A-d>',
-            -- scope_incremental = 'grc',
-            node_decremental = '<A-e>',
-          },
-        },
         indent = {
           enable = true
         },
