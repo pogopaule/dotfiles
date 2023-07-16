@@ -25,7 +25,7 @@ return {
     cmd = 'TodoTelescope',
     event = { 'BufReadPost', 'BufNewFile' },
     keys = {
-      t = { '<leader>ft', '<CMD>TodoTelescope<CR>', 'Todos' },
+      { '<leader>ft', '<CMD>TodoTelescope<CR>', 'Todos' },
     },
     config = true,
   },
