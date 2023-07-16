@@ -54,6 +54,7 @@
       "docker"
       "unnaturalscrollwheels"
       "google-chrome"
+      "espanso"
     ];
     taps = [ ];
     brews = [ ];
