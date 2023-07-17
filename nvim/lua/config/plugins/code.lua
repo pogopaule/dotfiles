@@ -93,7 +93,7 @@ return {
     event = 'InsertEnter',
     config = {
       suggestion = {
-        auto_trigger = true;
+        auto_trigger = true,
       }
     },
   },
