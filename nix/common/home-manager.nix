@@ -180,6 +180,11 @@
               key = 'PageDown',
               mods = 'CTRL',
               action = wezterm.action.DisableDefaultAssignment,
+            },
+            {
+              key = 'w',
+              mods = 'CMD',
+              action = wezterm.action.SendKey { key = 'w', mods = 'CTRL' },
             }
           }
         }
