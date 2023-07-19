@@ -98,6 +98,7 @@ return {
         r = { name = '+Refactor' },
         x = { name = '+Diagnostics' },
         d = { name = '+Debug' },
+        o = { name = '+Other' },
         g = {
           name = '+Git',
           r = { '<CMD>Gitsigns reset_hunk<CR>', 'Reset Hunk' },

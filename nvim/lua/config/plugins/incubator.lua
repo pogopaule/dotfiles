@@ -1,5 +1,56 @@
 return {
   {
+    'https://github.com/rgroli/other.nvim',
+    cmd = { 'Other', 'OtherSplit', 'OtherVSplit' },
+    keys = {
+      { '<leader>o', '<CMD>Other<CR>', desc = 'Other' },
+    },
+    config = function()
+      local file_types = {
+        'models', 'api', 'apps', 'constants', 'encoders', 'mixins', 'serializers', 'exceptions', 'validators', 'tasks',
+        'admin', 'filters', 'services', 'utils', 'test/factories',
+      }
+
+      local mappings_combinations = {}
+      for _, file_type in ipairs(file_types) do
+
+        local targets = {}
+        for _, target in ipairs(file_types) do
+          if target ~= file_type then
+            table.insert(targets, {
+              target = "%1/" .. target .. ".py",
+              context = target,
+            })
+          end
+        end
+
+        table.insert(mappings_combinations, {
+          pattern = "(.*)/" .. file_type .. ".py$",
+          target = targets,
+        })
+      end
+
+      require("other-nvim").setup({
+        mappings = mappings_combinations,
+        showMissingFiles = false,
+        rememberBuffers = false,
+      })
+    end
+  },
+  {
+    'https://github.com/nvim-neotest/neotest',
+    dependencies = {
+      { 'https://github.com/nvim-neotest/neotest-python' },
+    },
+    config = function()
+      require("neotest").setup({
+        adapters = {
+          require("neotest-python"),
+        },
+      })
+    end,
+  },
+  {
     'https://github.com/rmagatti/auto-session',
     config = true,
   },
