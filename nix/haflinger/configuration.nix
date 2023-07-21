@@ -55,6 +55,7 @@
       "unnaturalscrollwheels"
       "google-chrome"
       "espanso"
+      "hazeover"
     ];
     taps = [ ];
     brews = [ ];
