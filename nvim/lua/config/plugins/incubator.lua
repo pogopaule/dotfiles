@@ -30,6 +30,17 @@ return {
         })
       end
 
+      table.insert(mappings_combinations, {
+        pattern = "(.*)/test/test_(.*).py$",
+        target = "%1/%2.py",
+      })
+
+      table.insert(mappings_combinations, {
+        pattern = "(.*)/(.*).py$",
+        target = "%1/test/test_%2.py",
+        context = "test",
+      })
+
       require("other-nvim").setup({
         mappings = mappings_combinations,
         showMissingFiles = false,
