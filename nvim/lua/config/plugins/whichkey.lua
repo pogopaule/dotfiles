@@ -99,6 +99,7 @@ return {
         x = { name = '+Diagnostics' },
         d = { name = '+Debug' },
         o = { name = '+Other' },
+        T = { name = '+Tests' },
         g = {
           name = '+Git',
           r = { '<CMD>Gitsigns reset_hunk<CR>', 'Reset Hunk' },

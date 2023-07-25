@@ -60,6 +60,7 @@
   "refactoring.nvim": { "branch": "master", "commit": "bf5b20b75824fa2e3fb6b8afe29af4e25af4d409" },
   "rust-tools.nvim": { "branch": "master", "commit": "0cc8adab23117783a0292a0c8a2fbed1005dc645" },
   "schemastore.nvim": { "branch": "main", "commit": "cd5c2a0db954011fcbeac7bbbc0c7ae9e23626e3" },
+  "statuscol.nvim": { "branch": "main", "commit": "9f1ff2dcf614544c5022e876d83b4894c1944e87" },
   "tabular": { "branch": "master", "commit": "339091ac4dd1f17e225fe7d57b48aff55f99b23a" },
   "telekasten.nvim": { "branch": "main", "commit": "4a5e57eee9c5154ed77423bb7fa6619fdb0784cd" },
   "telescope-symbols.nvim": { "branch": "master", "commit": "f2060117d965df4a626f068a4ebbd8ee051aa076" },
