@@ -16,9 +16,6 @@
   };
 
   outputs = { nixpkgs, nixpkgs-master, home-manager, darwin, devenv, ... }:
-    let
-      darkTheme = true;
-    in
     {
       darwinConfigurations =
         let
@@ -42,7 +39,7 @@
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
-                  users.fabian = (import ./nix/haflinger/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; });
+                  users.fabian = (import ./nix/haflinger/home-manager.nix { inherit pkgs pkgs-master devenv; });
                 };
               }
             ];
@@ -71,7 +68,7 @@
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
-                  users.pogopaule = (import ./nix/panther/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; });
+                  users.pogopaule = (import ./nix/panther/home-manager.nix { inherit pkgs pkgs-master devenv; });
                 };
               }
             ];
@@ -86,7 +83,7 @@
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
-                  users.pogopaule = (import ./nix/silverback/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; });
+                  users.pogopaule = (import ./nix/silverback/home-manager.nix { inherit pkgs pkgs-master devenv; });
                 };
               }
             ];

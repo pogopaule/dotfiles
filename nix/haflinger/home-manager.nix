@@ -1,8 +1,8 @@
-{ pkgs, pkgs-master, darkTheme, devenv, ... }:
+{ pkgs, pkgs-master, devenv, ... }:
 
 {
   imports = [
-    (import ../common/home-manager.nix { inherit pkgs pkgs-master darkTheme devenv; })
+    (import ../common/home-manager.nix { inherit pkgs pkgs-master devenv; })
   ];
 
   home = {

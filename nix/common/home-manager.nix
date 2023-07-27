@@ -1,11 +1,11 @@
-{ pkgs, pkgs-master, darkTheme, devenv, ... }:
+{ pkgs, pkgs-master, devenv, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    (import ../../tmux { inherit pkgs darkTheme; })
-    (import ../../zsh { inherit pkgs darkTheme; })
+    (import ../../tmux { inherit pkgs; })
+    (import ../../zsh { inherit pkgs; })
   ];
 
   home = {
@@ -98,9 +98,6 @@
       defaultCommand = "fd --type f --hidden --follow --no-ignore --exclude .git";
       fileWidgetCommand = defaultCommand;
       historyWidgetOptions = [ "--reverse" ];
-      defaultOptions =
-        if darkTheme then [ "--color dark" ]
-        else [ "--color light" ];
     };
 
     git = {
@@ -125,26 +122,13 @@
       extraConfig = ''
         local theme = 'dawnfox'
 
-        local handle = io.popen("uname")
+
+        local handle = io.open(os.getenv('HOME') .. '/.theme', 'r')
         local result = handle:read("*a")
         handle:close()
-        result = string.gsub(result, '%s+', "")
-
-        if result == 'Darwin' then
-          local handle = io.popen("defaults read -g AppleInterfaceStyle")
-          local result = handle:read("*a")
-          handle:close()
-
-          result = string.gsub(result, '%s+', "")
-
-          if result == 'Dark' then
-            theme = 'nordfox'
-          end
-
-        else
-          if os.getenv("TERMINAL_THEME") == 'dark' then
-            theme = 'nordfox'
-          end
+        result = string.gsub(result, "\n", "")
+        if result == 'dark' then
+          theme = 'nordfox'
         end
 
         return {

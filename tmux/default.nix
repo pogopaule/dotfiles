@@ -1,4 +1,4 @@
-{ pkgs, darkTheme }:
+{ pkgs }:
 {
   programs.tmux = {
     enable = true;
@@ -36,9 +36,6 @@
         '';
       }
     ];
-    extraConfig = builtins.readFile ./tmux.conf + (
-      if darkTheme then builtins.readFile ./nordfox.conf
-      else builtins.readFile ./dawnfox.conf
-    );
+    extraConfig = builtins.readFile ./tmux.conf;
   };
 }

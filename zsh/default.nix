@@ -1,10 +1,7 @@
-{ pkgs, darkTheme }:
+{ pkgs }:
 {
   programs.zsh = {
     enable = true;
-    sessionVariables = {
-      TERMINAL_THEME = if darkTheme then "dark" else "light";
-    };
     plugins = [
       { name = "fzf-tab"; src = "${pkgs.zsh-fzf-tab}/share/fzf-tab"; }
     ];
@@ -38,11 +35,8 @@
       # text color
       # see https://github.com/Aloxaf/fzf-tab/wiki/Configuration#default-color
       zstyle ':fzf-tab:*' default-color $'\033[30m'
-      # see https://man.archlinux.org/man/fzf.1.en#color=
-      zstyle ':fzf-tab:*' fzf-flags ${ if darkTheme then "--color=dark" else "--color=light"}
 
-      # configure BAT
-      export BAT_THEME=${if darkTheme then "OneHalfDark" else "OneHalfLight"}
+      export FZF_DEFAULT_OPTS="--color="$(if [ -f ~/.theme ] && [ $(\cat ~/.theme) = "dark" ]; then echo "dark"; else echo "light"; fi)""
 
       # WSL 2 specific settings.
       if grep -q "microsoft" /proc/version &>/dev/null; then
@@ -101,8 +95,8 @@
       mv = "mv -i";
 
       # better cli
-      cat = "bat";
-      du = "ncdu ${if darkTheme then "--color dark " else ""} -rr -x --exclude .git --exclude node_modules";
+      cat = "bat --theme \"$(if [ -f ~/.theme ] && [ $(\\cat ~/.theme) = \"dark\" ]; then echo \"OneHalfDark\"; else echo \"OneHalfLight\"; fi)\"";
+      du = "ncdu --color \"$(if [ -f ~/.theme ] && [ $(\\cat ~/.theme) = \"dark\" ]; then echo \"dark\"; else echo \"dark-bg\"; fi)\" -rr -x --exclude .git --exclude node_modules";
       ls = "exa --oneline --icons";
       la = "exa -la --icons";
       lt = "exa -la --tree --icons";
