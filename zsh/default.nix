@@ -111,6 +111,7 @@
       # better cli
       cat = "bat --theme \"$(if [ -f ~/.theme ] && [ $(\\cat ~/.theme) = \"dark\" ]; then echo \"OneHalfDark\"; else echo \"OneHalfLight\"; fi)\"";
       du = "ncdu --color \"$(if [ -f ~/.theme ] && [ $(\\cat ~/.theme) = \"dark\" ]; then echo \"dark\"; else echo \"dark-bg\"; fi)\" -rr -x --exclude .git --exclude node_modules";
+      glow = "glow -s \"$(if [ -f ~/.theme ] && [ $(\\cat ~/.theme) = \"dark\" ]; then echo \"dark\"; else echo \"light\"; fi)\"";
       ls = "exa --oneline --icons";
       la = "exa -la --icons";
       lt = "exa -la --tree --icons";
