@@ -110,7 +110,7 @@ return {
 
   -- The neovim language-server-client UI
   {
-    'https://github.com/glepnir/lspsaga.nvim',
+    'https://github.com/nvimdev/lspsaga.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
     keys = {
       { '<leader>a', '<CMD>Lspsaga code_action<CR>', desc = 'LSP Code Action' },
