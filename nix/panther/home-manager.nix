@@ -20,6 +20,7 @@
       vlc
       xclip
       meld
+      nethogs
     ] ++ [
       pkgs-master.uhk-agent
       devenv.packages.x86_64-linux.devenv
