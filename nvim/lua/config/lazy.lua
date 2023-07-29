@@ -9,7 +9,6 @@
 -- https://github.com/lukas-reineke/headlines.nvim better markdown headline highlights
 -- https://github.com/jakewvincent/mkdnflow.nvim
 -- https://github.com/andythigpen/nvim-coverage display test coverage
--- https://github.com/nvim-pack/nvim-spectre multi file search/replace
 
 
 -- has to be defined here so keys activation work properly
