@@ -22,10 +22,10 @@ return {
             { buffer = buffer, callback = vim.lsp.buf.clear_references, group = group, })
         end
 
-        require('lsp_signature').on_attach({
-          hint_enable = false,
-          floating_window_above_cur_line = false,
-        }, buffer)
+        -- require('lsp_signature').on_attach({
+        --   hint_enable = false,
+        --   floating_window_above_cur_line = false,
+        -- }, buffer)
       end
 
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
