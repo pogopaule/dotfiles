@@ -17,6 +17,9 @@
   };
 
   programs = {
+    zsh.shellAliases = {
+      "-g Y" = "| pbcopy";
+    };
     tmux.plugins = [
       {
         plugin = pkgs.tmuxPlugins.tmux-thumbs;

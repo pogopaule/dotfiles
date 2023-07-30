@@ -101,7 +101,6 @@
       "-g F" = "| fzf";
       "-g L" = "| less";
       "-g J" = "| jq";
-      "-g Y" = "| xclip -selection clip";
 
       # add confirmation
       rm = "rm -i";

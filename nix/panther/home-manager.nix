@@ -28,6 +28,9 @@
   };
 
   programs = {
+    zsh.shellAliases = {
+      "-g Y" = "| xclip -selection clip";
+    };
     tmux.plugins = [
       {
         plugin = pkgs.tmuxPlugins.tmux-thumbs;
