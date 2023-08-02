@@ -6,7 +6,7 @@ return {
       { '<leader>o', '<CMD>Other<CR>', desc = 'Other' },
     },
     config = function()
-      local file_types = { 'models', 'api', 'urls', 'apps', 'constants', 'encoders', 'mixins', 'serializers',
+      local file_types = { 'models', 'enums', 'api', 'urls', 'apps', 'constants', 'encoders', 'mixins', 'serializers',
         'exceptions', 'validators', 'tasks', 'admin', 'filters', 'services', 'utils', 'test/factories', }
       local mappings_combinations = {}
       for _, file_type in ipairs(file_types) do
