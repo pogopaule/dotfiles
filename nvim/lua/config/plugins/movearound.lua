@@ -5,7 +5,7 @@ return {
     opts = {
       modes = {
         char = {
-          keys = { "f", "F", "t", "T"}, -- this removes ',' from the list, which I use as the leader key
+          keys = { "f", "F", "t", "T" }, -- this removes ',' from the list, which I use as the leader key
         },
       },
     },
@@ -51,27 +51,27 @@ return {
   -- use telescope to select options
   {
     'https://github.com/nvim-telescope/telescope-ui-select.nvim',
-    cmd = 'Telescope';
+    cmd = 'Telescope',
     dependencies = {
       'https://github.com/nvim-telescope/telescope-symbols.nvim',
     },
     keys = {
-      { ';', '<CMD>Telescope resume<CR>', desc = 'Resume Telescope' },
-      { '<leader>ff', '<CMD>Telescope find_files<CR>', desc = 'Files' },
-      { '<leader>fh', '<CMD>Telescope help_tags<CR>', desc = 'Help' },
-      { '<leader>fo', '<CMD>Telescope oldfiles<CR>', desc = 'Old Files' },
-      { '<leader>fk', '<CMD>Telescope keymaps<CR>', desc = 'Keymaps' },
-      { '<leader>fS', '<CMD>Telescope spell_suggest<CR>', desc = 'Spelling' },
-      { '<leader>fg', '<CMD>Telescope live_grep<CR>', desc = 'Grep' },
-      { '<leader>fd', '<CMD>Telescope live_grep cwd=~/dotfiles/nvim/<CR>', desc = 'Grep Nvim Config' },
-      { '<leader>fG', '<CMD>Telescope grep_string<CR>', desc = 'Find Word Under Cursor' },
-      { '<leader>fcp', '<CMD>Telescope git_commits<CR>', desc = 'Git Commits For Project' },
-      { '<leader>fcb', '<CMD>Telescope git_bcommits<CR>', desc = 'Git Commits For Buffer' },
-      { '<leader>fb', '<CMD>Telescope buffers<CR>', desc = 'Buffers' },
-      { '<leader>f:', '<CMD>Telescope command_history<CR>', desc = 'Command History' },
-      { '<leader>f/', '<CMD>Telescope current_buffer_fuzzy_find<CR>', desc = 'Fuzzy Find In Current Buffer' },
-      { '<leader>fss', '<CMD>Telescope lsp_document_symbols<CR>', desc = 'Find Document Symbols' },
-      { '<leader>fsw', '<CMD>Telescope lsp_dynamic_workspace_symbols<CR>', desc = 'Find Workspace Symbols' },
+      { ';',           '<CMD>Telescope resume<CR>',                         desc = 'Resume Telescope' },
+      { '<leader>ff',  '<CMD>Telescope find_files<CR>',                     desc = 'Files' },
+      { '<leader>fh',  '<CMD>Telescope help_tags<CR>',                      desc = 'Help' },
+      { '<leader>fo',  '<CMD>Telescope oldfiles<CR>',                       desc = 'Old Files' },
+      { '<leader>fd',  find_django_others,                                  desc = 'Django Other Files' },
+      { '<leader>fk',  '<CMD>Telescope keymaps<CR>',                        desc = 'Keymaps' },
+      { '<leader>fS',  '<CMD>Telescope spell_suggest<CR>',                  desc = 'Spelling' },
+      { '<leader>fg',  '<CMD>Telescope live_grep<CR>',                      desc = 'Grep' },
+      { '<leader>fG',  '<CMD>Telescope grep_string<CR>',                    desc = 'Find Word Under Cursor' },
+      { '<leader>fcp', '<CMD>Telescope git_commits<CR>',                    desc = 'Git Commits For Project' },
+      { '<leader>fcb', '<CMD>Telescope git_bcommits<CR>',                   desc = 'Git Commits For Buffer' },
+      { '<leader>fb',  '<CMD>Telescope buffers<CR>',                        desc = 'Buffers' },
+      { '<leader>f:',  '<CMD>Telescope command_history<CR>',                desc = 'Command History' },
+      { '<leader>f/',  '<CMD>Telescope current_buffer_fuzzy_find<CR>',      desc = 'Fuzzy Find In Current Buffer' },
+      { '<leader>fss', '<CMD>Telescope lsp_document_symbols<CR>',           desc = 'Find Document Symbols' },
+      { '<leader>fsw', '<CMD>Telescope lsp_dynamic_workspace_symbols<CR>',  desc = 'Find Workspace Symbols' },
     },
     config = function()
       local telescope = require('telescope')
@@ -105,14 +105,30 @@ return {
   {
     'https://github.com/alexghergh/nvim-tmux-navigation',
     keys = {
-      { '<C-h>', "<CMD>lua require('nvim-tmux-navigation').NvimTmuxNavigateLeft()<CR>", desc = 'Tmux Left',
-        mode = { 'n', 'v', 'i' } },
-      { '<C-j>', "<CMD>lua require('nvim-tmux-navigation').NvimTmuxNavigateDown()<CR>", desc = 'Tmux Down',
-        mode = { 'n', 'v', 'i' } },
-      { '<C-k>', "<CMD>lua require('nvim-tmux-navigation').NvimTmuxNavigateUp()<CR>", desc = 'Tmux Up',
-        mode = { 'n', 'v', 'i' } },
-      { '<C-l>', "<CMD>lua require('nvim-tmux-navigation').NvimTmuxNavigateRight()<CR>", desc = 'Tmux Right',
-        mode = { 'n', 'v', 'i' } },
+      {
+        '<C-h>',
+        "<CMD>lua require('nvim-tmux-navigation').NvimTmuxNavigateLeft()<CR>",
+        desc = 'Tmux Left',
+        mode = { 'n', 'v', 'i' }
+      },
+      {
+        '<C-j>',
+        "<CMD>lua require('nvim-tmux-navigation').NvimTmuxNavigateDown()<CR>",
+        desc = 'Tmux Down',
+        mode = { 'n', 'v', 'i' }
+      },
+      {
+        '<C-k>',
+        "<CMD>lua require('nvim-tmux-navigation').NvimTmuxNavigateUp()<CR>",
+        desc = 'Tmux Up',
+        mode = { 'n', 'v', 'i' }
+      },
+      {
+        '<C-l>',
+        "<CMD>lua require('nvim-tmux-navigation').NvimTmuxNavigateRight()<CR>",
+        desc = 'Tmux Right',
+        mode = { 'n', 'v', 'i' }
+      },
     },
     config = function()
       require('nvim-tmux-navigation').setup({})

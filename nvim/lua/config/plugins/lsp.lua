@@ -198,8 +198,8 @@ return {
     'https://github.com/folke/trouble.nvim',
     cmd = { 'Trouble' },
     keys = {
-      { '<leader>xx', '<CMD>Trouble document_diagnostics<CR>', desc = 'Document' },
-      { '<leader>xw', '<CMD>Trouble workspace_diagnostics<CR>', desc = 'Workspace' },
+      { '<leader>xx', '<CMD>Trouble document_diagnostics<CR>',                  desc = 'Document' },
+      { '<leader>xw', '<CMD>Trouble workspace_diagnostics<CR>',                 desc = 'Workspace' },
       { '<leader>xn', '<CMD>lua vim.diagnostic.goto_next({float = false})<CR>', desc = 'Goto Next' },
       { '<leader>xN', '<CMD>lua vim.diagnostic.goto_prev({float = false})<CR>', desc = 'Goto Previous' },
     },
