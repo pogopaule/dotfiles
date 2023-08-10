@@ -113,12 +113,13 @@ return {
     'https://github.com/nvimdev/lspsaga.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
     keys = {
-      { '<leader>a', '<CMD>Lspsaga code_action<CR>', desc = 'LSP Code Action' },
-      { '<leader>e', '<CMD>Lspsaga show_line_diagnostics<CR>', desc = 'LSP Line Diagnostics' },
-      { 'K', '<CMD>Lspsaga hover_doc<CR>', desc = 'Hover LSP documentation' },
-      { '<leader>rr', '<CMD>Lspsaga rename<CR>', desc = 'Rename' },
-      { 'gd', '<CMD>Lspsaga goto_definition<CR>', desc = 'Go to LSP definition' },
-      { '<leader>fr', '<CMD>Lspsaga lsp_finder<CR>', desc = 'Definition and References' },
+      { '<leader>a',  '<CMD>Lspsaga code_action<CR>',                 desc = 'LSP Code Action' },
+      { '<leader>e',  '<CMD>Lspsaga show_line_diagnostics<CR>',       desc = 'LSP Line Diagnostics' },
+      { 'K',          '<CMD>Lspsaga hover_doc<CR>',                   desc = 'Hover LSP documentation' },
+      { '<leader>rr', '<CMD>Lspsaga rename<CR>',                      desc = 'Rename' },
+      { 'gd',         '<CMD>Lspsaga goto_definition<CR>',             desc = 'Go to LSP definition' },
+      { 'gD',         '<CMD>tab split | Lspsaga goto_definition<CR>', desc = 'Go to LSP definition in tab' },
+      { '<leader>fr', '<CMD>Lspsaga lsp_finder<CR>',                  desc = 'Definition and References' },
     },
     config = {
       symbol_in_winbar = {
