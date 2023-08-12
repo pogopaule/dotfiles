@@ -44,4 +44,6 @@
       PAPERLESS_OCR_LANGUAGE = "deu+eng";
     };
   };
+
+  programs.zsh.enable = true;
 }
