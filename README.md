@@ -15,6 +15,7 @@
 - `./link_nvim_config.sh`
 - `./apply-panther.sh`
 - reboot
+- `echo light > ~/.theme`
 - login to firefox, syncs plugins and bookmarks
 - rsync example for the following steps: rsync -avP --exclude=node_modules --exclude=target 192.168.0.1:~/foo/ ~/foo
 - create new keys for github and gitlab or rsync them from old machine
@@ -40,3 +41,4 @@
    sudo mv us-altgr-intl.keylayout /Library/Keyboard\ Layouts
 ```
 - `ln -s $PWD/amethyst.yml ~/.amathyst.yml`
+- `echo light > ~/.theme`
