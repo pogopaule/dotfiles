@@ -1,3 +1,26 @@
+local find_django_others = function()
+  local notify = require('notify')
+
+  local utils = require('telescope.utils')
+  local current_directory = utils.buffer_dir()
+
+  while true do
+    if current_directory == '/' or string.match(current_directory, 'webserver$') then
+      notify('Cannot find other files')
+    end
+
+    local file_to_test = current_directory .. '/apps.py'
+    if vim.fn.filereadable(file_to_test) == 1 then
+      return require('telescope.builtin').find_files({
+        cwd = current_directory,
+      })
+    end
+
+    -- Go up the directory hierarchy
+    current_directory = vim.fn.fnamemodify(current_directory, ":h")
+  end
+end
+
 return {
   {
     'https://github.com/folke/flash.nvim',
