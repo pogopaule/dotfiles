@@ -111,7 +111,7 @@ return {
   -- The neovim language-server-client UI
   {
     'https://github.com/nvimdev/lspsaga.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { 'LspAttach'},
     keys = {
       { '<leader>a',  '<CMD>Lspsaga code_action<CR>',                 desc = 'LSP Code Action' },
       { '<leader>e',  '<CMD>Lspsaga show_line_diagnostics<CR>',       desc = 'LSP Line Diagnostics' },
@@ -119,7 +119,7 @@ return {
       { '<leader>rr', '<CMD>Lspsaga rename<CR>',                      desc = 'Rename' },
       { 'gd',         '<CMD>Lspsaga goto_definition<CR>',             desc = 'Go to LSP definition' },
       { 'gD',         '<CMD>tab split | Lspsaga goto_definition<CR>', desc = 'Go to LSP definition in tab' },
-      { '<leader>fr', '<CMD>Lspsaga lsp_finder<CR>',                  desc = 'Definition and References' },
+      { '<leader>fr', '<CMD>Lspsaga finder<CR>',                  desc = 'Definition and References' },
     },
     config = {
       symbol_in_winbar = {
@@ -133,7 +133,7 @@ return {
       },
       finder = {
         keys = {
-          expand_or_jump = '<CR>',
+          toggle_or_open = '<CR>',
         },
       },
     }
