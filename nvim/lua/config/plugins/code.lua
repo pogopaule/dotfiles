@@ -46,7 +46,14 @@ return {
   {
     'https://github.com/kylechui/nvim-surround',
     event = { 'BufReadPost', 'BufNewFile' },
-    config = true,
+    config = {
+      keymaps = {
+        normal = 'ygs',
+        change = 'cgs',
+        change_line = 'cgS',
+        delete = 'dgs',
+      },
+    },
   },
 
   -- Insert matching quote, brackets, etc.
