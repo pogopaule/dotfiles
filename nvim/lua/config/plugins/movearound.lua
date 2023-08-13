@@ -56,7 +56,6 @@ return {
       'https://github.com/nvim-telescope/telescope-symbols.nvim',
     },
     keys = {
-      { ';',           '<CMD>Telescope resume<CR>',                         desc = 'Resume Telescope' },
       { '<leader>ff',  '<CMD>Telescope find_files<CR>',                     desc = 'Files' },
       { '<leader>fh',  '<CMD>Telescope help_tags<CR>',                      desc = 'Help' },
       { '<leader>fo',  '<CMD>Telescope oldfiles<CR>',                       desc = 'Old Files' },
