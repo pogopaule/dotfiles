@@ -1,5 +1,18 @@
 return {
   {
+    'https://github.com/AckslD/nvim-neoclip.lua',
+    event = 'VeryLazy',
+    config = function()
+      require('neoclip').setup()
+      require('telescope').load_extension('neoclip')
+    end,
+  },
+  {
+    'https://github.com/sindrets/diffview.nvim',
+    lazy = false,
+    conifg = true,
+  },
+  {
     'https://github.com/rgroli/other.nvim',
     cmd = { 'Other', 'OtherSplit', 'OtherVSplit' },
     keys = {
