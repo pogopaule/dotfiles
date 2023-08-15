@@ -65,9 +65,6 @@
     jq.enable = true;
     gh = {
       enable = true;
-      extensions = [
-        pkgs-master.gh-dash
-      ];
     };
 
     direnv = {

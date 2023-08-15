@@ -1,0 +1,68 @@
+prSections:
+  - title: PRs created by me
+    filters: is:open author:@me
+  - title: PRs assigned to me
+    filters: is:open review-requested:@me
+issuesSections:
+  - title: Issues created by me
+    filters: is:open author:@me
+  - title: Issues assigned to me
+    filters: is:open assignee:@me
+defaults:
+  preview:
+    open: true
+    width: 50
+  prsLimit: 20
+  issuesLimit: 20
+  view: prs
+  layout:
+    prs:
+      updatedAt:
+        width: 7
+      repo:
+        width: 15
+      author:
+        width: 15
+      assignees:
+        width: 20
+        hidden: true
+      base:
+        width: 15
+        hidden: true
+      lines:
+        width: 16
+    issues:
+      updatedAt:
+        width: 7
+      repo:
+        width: 15
+      creator:
+        width: 10
+      assignees:
+        width: 20
+        hidden: true
+  refetchIntervalMinutes: 30
+keybindings:
+  issues: []
+  prs: []
+repoPaths:
+pager:
+  diff: ""
+theme:
+  ui:
+    table:
+      showSeparator: true
+  colors:
+    text:
+      primary: "#575279"
+      secondary: "#907aa9"
+      inverted: "#504c6b"
+      faint: "#3E4057"
+      warning: "#b4637a"
+      success: "#618774"
+    background:
+      selected: "#c8cfde"
+    border:
+      primary: "#575279"
+      secondary: "#575279"
+      faint: "#575279"

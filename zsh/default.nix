@@ -194,6 +194,9 @@
       cat = "bat --theme \"$(if [ -f ~/.theme ] && [ $(\\cat ~/.theme) = \"dark\" ]; then echo \"OneHalfDark\"; else echo \"OneHalfLight\"; fi)\"";
       du = "ncdu --color \"$(if [ -f ~/.theme ] && [ $(\\cat ~/.theme) = \"dark\" ]; then echo \"dark\"; else echo \"dark-bg\"; fi)\" -rr -x --exclude .git --exclude node_modules";
       glow = "glow -s \"$(if [ -f ~/.theme ] && [ $(\\cat ~/.theme) = \"dark\" ]; then echo \"dark\"; else echo \"light\"; fi)\"";
+      # TODO: fix this workaround and configure gh-dash theme automatically
+      ghdl = "gh dash --config ~/dotfiles/gh-dash/config-light.yml";
+      ghdd = "gh dash --config ~/dotfiles/gh-dash/config-dark.yml";
       ls = "exa --oneline --icons";
       la = "exa -la --icons";
       lt = "exa -la --tree --icons";
