@@ -168,6 +168,7 @@
         "web-search"
         "aws"
         "zoxide"
+        "kubectl"
       ];
     };
     shellAliases = {
