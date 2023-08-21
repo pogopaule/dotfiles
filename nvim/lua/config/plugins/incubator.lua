@@ -1,5 +1,9 @@
 return {
   {
+    'https://github.com/subnut/nvim-ghost.nvim',
+    lazy = false,
+  },
+  {
     'https://github.com/AckslD/nvim-neoclip.lua',
     event = 'VeryLazy',
     config = function()
