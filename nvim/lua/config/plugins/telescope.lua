@@ -7,6 +7,7 @@ local find_django_others = function()
   while true do
     if current_directory == '/' or string.match(current_directory, 'webserver$') then
       notify('Cannot find other files')
+      break
     end
 
     local file_to_test = current_directory .. '/apps.py'
