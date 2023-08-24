@@ -41,9 +41,16 @@ end
 
 vim.api.nvim_create_autocmd("UIEnter", {
   callback = function()
-    vim.fn.timer_start(300, function()
-      vim.opt.lines = 15
+    vim.fn.timer_start(200, function()
+      if vim.api.nvim_get_option('lines') < 15 then
+        vim.opt.lines = 15
+      end
       vim.cmd('startinsert')
+      -- if no external monitor is attached on mac, set guifont to a bigger size
+      local result = vim.fn.system('system_profiler SPDisplaysDataType | grep -c "Display Serial Number"')
+      if result == '0\n' then
+        vim.opt.guifont = 'Iosevka:h30'
+      end
     end)
   end,
 })
