@@ -38,4 +38,5 @@ for key, value in pairs(options) do
   vim.opt[key] = value
 end
 
-vim.g.user_emmet_leader_key = '<C-Z>' -- because C-Y is used by cmp
+ -- e.g. delete foo-bar with daw
+vim.cmd [[set iskeyword+=-]]

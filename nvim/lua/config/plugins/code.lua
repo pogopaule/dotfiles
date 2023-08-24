@@ -121,5 +121,8 @@ return {
       'markdown',
       'handlebars',
     },
+    config = function()
+      vim.g.user_emmet_leader_key = '<C-Z>' -- because C-Y is used by cmp
+    end,
   }
 }
