@@ -93,7 +93,10 @@ return {
       local wk = require('which-key')
       -- TODO: move mappings to plugin configs and only keep the +names
       wk.register({
-        f = { name = '+Find' },
+        f = {
+          name = '+Find',
+          c = { name = '+Commit' },
+        },
         r = { name = '+Refactor' },
         x = { name = '+Diagnostics' },
         d = { name = '+Debug' },
@@ -116,7 +119,7 @@ return {
           s = {
             name = '+Spell Check',
             s = { toggleSpellCheck, 'Spell Check' },
-            d = { setSpelllangDe, 'Set Lang To German' },
+            g = { setSpelllangDe, 'Set Lang To German' },
             e = { setSpelllangEn, 'Set Lang To English' },
           },
         },
