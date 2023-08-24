@@ -41,8 +41,9 @@ end
 
 vim.api.nvim_create_autocmd("UIEnter", {
   callback = function()
-    vim.fn.timer_start(500, function()
+    vim.fn.timer_start(300, function()
       vim.opt.lines = 15
+      vim.cmd('startinsert')
     end)
   end,
 })
