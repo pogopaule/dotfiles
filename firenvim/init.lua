@@ -1,0 +1,29 @@
+-- https://github.com/glacambre/firenvim#understanding-firenvims-configuration-object
+vim.g.firenvim_config = {
+  globalSettings = { alt = "all" },
+  localSettings = {
+    [".*"] = {
+      priority = 0,
+      takeover = "never"
+    }
+  }
+}
+
+-- https://github.com/folke/lazy.nvim#-installation
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--single-branch",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  })
+end
+vim.opt.runtimepath:prepend(lazypath)
+
+require('config.options')
+require('config.lazy')
+require('config.keymaps')
+require('config.misc')
