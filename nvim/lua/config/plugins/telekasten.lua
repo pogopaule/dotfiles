@@ -3,7 +3,8 @@ return {
     'https://github.com/renerocksai/telekasten.nvim',
     cmd = 'Telekasten',
     keys = {
-      { '<leader>fn', '<CMD>Telekasten find_notes<CR>', desc = 'Find Notes' },
+      { '<leader>fn', '<CMD>Telekasten find_notes<CR>', desc = 'Telekasten Notes' },
+      { '<leader>nn', '<CMD>Telekasten new_note<CR>', desc = 'Telekasten Note' },
     },
     config = function()
       local home = vim.fn.expand("~/zettelkasten")

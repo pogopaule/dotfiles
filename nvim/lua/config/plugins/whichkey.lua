@@ -122,7 +122,6 @@ return {
         },
         n = {
           name = '+New',
-          n = { '<CMD>Telekasten new_note<CR>', 'Note' },
           s = { createScratchFile, 'Scratch' },
           t = { '<CMD>tabnew<CR>', 'Tab' },
         },
