@@ -98,7 +98,6 @@ return {
         r = { name = '+Refactor' },
         x = { name = '+Diagnostics' },
         d = { name = '+Debug' },
-        o = { name = '+Other' },
         T = { name = '+Tests' },
         g = {
           name = '+Git',
