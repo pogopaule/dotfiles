@@ -49,6 +49,7 @@ return {
     config = {
       keymaps = {
         normal = 'ygs',
+        normal_line = 'ygS',
         change = 'cgs',
         change_line = 'cgS',
         delete = 'dgs',
