@@ -11,10 +11,6 @@ map('i', '<Down>', '<NOP>', opts)
 map('i', '<Left>', '<NOP>', opts)
 map('i', '<Right>', '<NOP>', opts)
 
--- map folding to space
-map('n', '<space>', 'za', opts)
-
-
 -- exit insert mode by pressing jk
 map('i', 'jk', '<ESC>', opts)
 
