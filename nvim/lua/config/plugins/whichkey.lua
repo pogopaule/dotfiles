@@ -4,7 +4,6 @@ return {
     'https://github.com/folke/which-key.nvim',
     event = 'VeryLazy',
     config = function()
-
       local lspVirtualText = true
       local function toggleLspVirtualText()
         lspVirtualText = not lspVirtualText
@@ -44,11 +43,11 @@ return {
         local canceledStr = "__INPUT_CANCELLED__"
 
         vim.ui.input({
-          prompt = 'Scratch file name: ',
-          cancelreturn = canceledStr,
-          completion = 'file',
-          default = randomString(),
-        },
+            prompt = 'Scratch file name: ',
+            cancelreturn = canceledStr,
+            completion = 'file',
+            default = randomString(),
+          },
           function(input)
             if input == canceledStr then
               vim.cmd("echohl WarningMsg")
@@ -101,12 +100,8 @@ return {
         T = { name = '+Tests' },
         g = {
           name = '+Git',
-          r = { '<CMD>Gitsigns reset_hunk<CR>', 'Reset Hunk' },
-          bl = { '<CMD>Gitsigns blame_line<CR>', 'Blame Line' },
+          b = { name = '+Blame' },
           bf = { '<CMD>G blame<CR>', 'Blame File' },
-          p = { '<CMD>Gitsigns preview_hunk<CR>', 'Preview Hunk' },
-          n = { '<CMD>Gitsigns next_hunk<CR>', 'Next Hunk' },
-          N = { '<CMD>Gitsigns prev_hunk<CR>', 'Previous Hunk' },
           g = { '<CMD>GBrowse<CR>', 'Open Buffer In Github' },
         },
         t = {
