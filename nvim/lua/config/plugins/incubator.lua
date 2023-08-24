@@ -1,5 +1,14 @@
 return {
   {
+    'https://github.com/m4xshen/hardtime.nvim',
+    dependencies = {
+      "https://github.com/MunifTanjim/nui.nvim",
+      "https://github.com/nvim-lua/plenary.nvim",
+    },
+    opts = {},
+    lazy = false,
+  },
+  {
     'https://github.com/subnut/nvim-ghost.nvim',
     lazy = false,
   },
