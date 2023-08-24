@@ -9,6 +9,9 @@ return {
   -- create github permalink via <leader>gy
   {
     'https://github.com/ruifm/gitlinker.nvim',
+    keys = {
+      { '<leader>gy', '<CMD>lua require("gitlinker").get_buf_range_url("n")<CR>', 'Github Link' },
+    },
     config = true,
   },
 

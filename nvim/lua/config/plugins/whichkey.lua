@@ -108,7 +108,6 @@ return {
           p = { '<CMD>Gitsigns preview_hunk<CR>', 'Preview Hunk' },
           n = { '<CMD>Gitsigns next_hunk<CR>', 'Next Hunk' },
           N = { '<CMD>Gitsigns prev_hunk<CR>', 'Previous Hunk' },
-          y = { '<CMD>lua require("gitlinker").get_buf_range_url("n")<CR>', 'Github Link' },
           g = { '<CMD>GBrowse<CR>', 'Open Buffer In Github' },
         },
         t = {
