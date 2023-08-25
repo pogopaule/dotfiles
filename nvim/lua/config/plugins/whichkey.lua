@@ -90,6 +90,23 @@ return {
         vim.notify('Spell check language set to English')
       end
 
+      local function _countLineEndings(text)
+        local count = 0
+        for _ in text:gmatch('\n') do
+          count = count + 1
+        end
+        return count
+      end
+
+      local function paste_preproc()
+        local clipboard_content = vim.fn.getreg('+')
+        if _countLineEndings(clipboard_content) == 1 then
+          clipboard_content = vim.fn.substitute(clipboard_content, '\n', '', 'g')
+        end
+        vim.fn.setreg('s', clipboard_content)
+        vim.cmd('normal! "sp')
+      end
+
       local wk = require('which-key')
       -- TODO: move mappings to plugin configs and only keep the +names
       wk.register({
@@ -131,7 +148,7 @@ return {
         q = { '<CMD>quit<CR>', 'Quit', mode = { 'n', 'v' } },
         Q = { '<CMD>quitall!<CR>', 'Quit All Force', mode = { 'n', 'v' } },
         h = { '<CMD>nohlsearch<CR>', 'Remove Highlight' },
-        p = { '"+p', 'Paste From Clipboard', mode = { 'n', 'v' } },
+        p = { paste_preproc, 'Paste From Clipboard', mode = { 'n', 'v' } },
         s = { ':%s///gc<left><left><left><left>', 'Substitute', silent = false },
       }, { prefix = '<leader>' })
 
