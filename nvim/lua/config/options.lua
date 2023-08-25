@@ -39,4 +39,4 @@ for key, value in pairs(options) do
 end
 
  -- e.g. delete foo-bar with daw
-vim.cmd [[set iskeyword+=-]]
+vim.opt.iskeyword:append('-')
