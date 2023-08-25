@@ -29,7 +29,7 @@ local options = {
 
   laststatus    = 0,                                 -- hide statusline
 
-  guifont       = 'Iosevka:h15',                     -- otherwise the font is to small in the browser
+  guifont       = 'Iosevka:h12',                     -- otherwise the font is to small in the browser
 
   spell         = true,
   spelllang     = 'de',
@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd("UIEnter", {
       end
       vim.cmd('startinsert')
       -- if no external monitor is attached on mac, set guifont to a bigger size
-      local result = vim.fn.system('system_profiler SPDisplaysDataType | grep -c "Display Serial Number"')
+      local result = vim.fn.system('system_profiler SPDisplaysDataType | grep -c "PHL"')
       if result == '0\n' then
         vim.opt.guifont = 'Iosevka:h30'
       end
