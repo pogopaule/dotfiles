@@ -22,7 +22,7 @@ return {
         copilot = not copilot
       end
 
-      local function createScratchFile()
+      local function createTempFile()
         local function randomString()
           local upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
           local lowerCase = "abcdefghijklmnopqrstuvwxyz"
@@ -142,8 +142,9 @@ return {
         },
         n = {
           name = '+New',
-          s = { createScratchFile, 'Scratch' },
+          T = { createTempFile, 'Temp File' },
           t = { '<CMD>tabnew<CR>', 'Tab' },
+          s = { '<CMD>tabnew | setlocal buftype=nofile noswapfile bufhidden=wipe nobuflisted | Telescope filetypes<CR>', 'Scratch' },
         },
         q = { '<CMD>quit<CR>', 'Quit', mode = { 'n', 'v' } },
         Q = { '<CMD>quitall!<CR>', 'Quit All Force', mode = { 'n', 'v' } },
