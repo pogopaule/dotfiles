@@ -11,6 +11,7 @@
       discord
       jetbrains.pycharm-community
       git-lfs
+      terminal-notifier
     ] ++ [
       devenv.packages.aarch64-darwin.devenv
     ];
@@ -19,6 +20,7 @@
   programs = {
     zsh.shellAliases = {
       "-g Y" = "| pbcopy";
+      "-g N" = "; terminal-notifier -message 'long running command finished' -sound default";
     };
     tmux.plugins = [
       {
