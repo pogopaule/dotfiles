@@ -42,6 +42,10 @@
       hyperfine # benchmarking
       glow # markdown viewer
       hexyl # hex viewer
+      croc # transfer files
+      fx # json viewer
+      gron # flatten json to make it greppable
+      git-extras # git utilities
 
       sumneko-lua-language-server
       rnix-lsp
