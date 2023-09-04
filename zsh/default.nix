@@ -204,6 +204,7 @@
       ls = "exa --oneline --icons";
       la = "exa -la --icons";
       lt = "exa -la --tree --icons";
+      watch = "viddy";
 
       # misc
       h = "http";
