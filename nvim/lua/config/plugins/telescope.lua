@@ -29,6 +29,7 @@ return {
     dependencies = {
       'https://github.com/nvim-telescope/telescope-symbols.nvim',
       'https://github.com/nvim-telescope/telescope-ui-select.nvim',
+      'https://github.com/Marskey/telescope-sg',
     },
     keys = {
       { '<leader>ff',  '<CMD>Telescope find_files<CR>',                    desc = 'Files' },
@@ -51,7 +52,15 @@ return {
       local telescope = require('telescope')
       telescope.setup {
         extensions = {
-          ['ui-select'] = { require('telescope.themes').get_dropdown {} }
+          ['ui-select'] = { require('telescope.themes').get_dropdown {} },
+          ast_grep = {
+            command = {
+              "sg",
+              "--json=stream",
+            },                       -- must have --json=stream
+            grep_open_files = false, -- search in opened files
+            lang = nil,              -- string value, specify language for ast-grep `nil` for default
+          }
         },
         defaults = {
           borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
@@ -72,6 +81,7 @@ return {
 
       -- https://github.com/rcarriga/nvim-notify#viewing-history
       telescope.load_extension('notify')
+      telescope.load_extension('ast_grep')
     end
   },
 }

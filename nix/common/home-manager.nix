@@ -49,7 +49,6 @@
       noti # banner notifications
       viddy # modern watch
       lychee # link checker
-      ast-grep
 
       sumneko-lua-language-server
       rnix-lsp
@@ -62,6 +61,7 @@
       pkgs-master.neovim
       pkgs-master.nodePackages."@githubnext/github-copilot-cli"
       pkgs-master.eza
+      pkgs-master.ast-grep
     ];
   };
 
