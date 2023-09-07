@@ -56,10 +56,9 @@
       "google-chrome"
       "espanso"
       "hazeover"
-      "libreoffice"
     ];
     taps = [ ];
-    brews = [ ];
+    brews = [];
   };
 
 }
