@@ -48,6 +48,7 @@
       git-extras # git utilities
       noti # banner notifications
       viddy # modern watch
+      lychee # link checker
 
       sumneko-lua-language-server
       rnix-lsp
