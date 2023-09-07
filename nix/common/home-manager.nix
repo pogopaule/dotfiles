@@ -59,6 +59,7 @@
     ] ++ [
       pkgs-master.neovim
       pkgs-master.nodePackages."@githubnext/github-copilot-cli"
+      pkgs-master.eza
     ];
   };
 
@@ -66,7 +67,6 @@
     home-manager.enable = true;
     htop.enable = true;
     bat.enable = true;
-    exa.enable = true;
     zoxide.enable = true;
     jq.enable = true;
     gh = {

@@ -111,8 +111,8 @@
       zstyle ':completion:*:descriptions' format '[%d]'
       # set list-colors to enable filename colorizing
       zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
-      # preview directory's content with exa when completing cd
-      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+      # preview directory's content with eza when completing cd
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
       # switch group using `,` and `.`
       zstyle ':fzf-tab:*' switch-group ',' '.'
       # text color
@@ -201,9 +201,9 @@
       # TODO: fix this workaround and configure gh-dash theme automatically
       ghdl = "gh dash --config ~/dotfiles/gh-dash/config-light.yml";
       ghdd = "gh dash --config ~/dotfiles/gh-dash/config-dark.yml";
-      ls = "exa --oneline --icons";
-      la = "exa -la --icons";
-      lt = "exa -la --tree --icons";
+      ls = "eza --oneline --icons";
+      la = "eza -la --icons";
+      lt = "eza -la --tree --icons";
       watch = "viddy";
 
       # misc
