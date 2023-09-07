@@ -48,7 +48,7 @@ return {
     'https://github.com/tyru/open-browser.vim',
     keys = {
       { 'gx', '<plug>(openbrowser-smart-search)', desc = 'Open URL Under Cursor' },
-      { 'gx', '<plug>(openbrowser-smart-search)', mode = 'v', desc = 'Open selection in DDG' },
+      { 'gx', '<plug>(openbrowser-smart-search)', mode = 'v',                    desc = 'Open selection in DDG' },
     },
   },
 }

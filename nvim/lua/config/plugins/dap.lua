@@ -3,12 +3,12 @@ return {
     'https://github.com/mfussenegger/nvim-dap',
     cmd = { 'DapContinue', 'DapStepOver', 'DapStepInto', 'DapStepOut', 'DapToggleBreakpoint', },
     keys = {
-      { '<leader>dc', '<CMD>DapContinue<CR>', desc = 'Continue' },
-      { '<leader>do', '<CMD>DapStepOver<CR>', desc = 'Step Over' },
-      { '<leader>di', '<CMD>DapStepInto<CR>', desc = 'Step Into' },
-      { '<leader>du', '<CMD>DapStepOut<CR>', desc = 'Step Out' },
-      { '<leader>dx', '<CMD>DapTerminate<CR>', desc = 'Terminate' },
-      { '<leader>db', '<CMD>DapToggleBreakpoint<CR>', desc = 'Toggle Breakpoint' },
+      { '<leader>dc', '<CMD>DapContinue<CR>',                   desc = 'Continue' },
+      { '<leader>do', '<CMD>DapStepOver<CR>',                   desc = 'Step Over' },
+      { '<leader>di', '<CMD>DapStepInto<CR>',                   desc = 'Step Into' },
+      { '<leader>du', '<CMD>DapStepOut<CR>',                    desc = 'Step Out' },
+      { '<leader>dx', '<CMD>DapTerminate<CR>',                  desc = 'Terminate' },
+      { '<leader>db', '<CMD>DapToggleBreakpoint<CR>',           desc = 'Toggle Breakpoint' },
       { '<leader>dt', '<CMD>lua require("dapui").toggle()<CR>', desc = 'Toggle DAP UI' },
     },
     dependencies = {
