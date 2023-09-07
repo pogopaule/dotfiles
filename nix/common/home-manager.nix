@@ -49,6 +49,7 @@
       noti # banner notifications
       viddy # modern watch
       lychee # link checker
+      sq # data wrangling tool
 
       sumneko-lua-language-server
       rnix-lsp
