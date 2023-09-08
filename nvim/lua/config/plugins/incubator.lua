@@ -17,10 +17,6 @@ return {
     conifg = true,
   },
   {
-    'https://github.com/rmagatti/auto-session',
-    config = true,
-  },
-  {
     'https://github.com/james1236/backseat.nvim',
     lazy = false,
     config =
