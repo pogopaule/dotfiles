@@ -1,4 +1,22 @@
 return {
+  -- snake_case to camelCase and more
+  {
+    'https://github.com/johmsalas/text-case.nvim',
+    event = { 'BufReadPost', 'BufNewFile' },
+    config = function()
+      require('textcase').setup {}
+      require('telescope').load_extension('textcase')
+      vim.api.nvim_set_keymap('n', 'ga.', '<cmd>TextCaseOpenTelescope<CR>', { desc = "Telescope" })
+      vim.api.nvim_set_keymap('v', 'ga.', "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope" })
+    end
+  },
+
+  {
+    'https://github.com/simrat39/rust-tools.nvim',
+    config = true,
+    ft = 'rust',
+  },
+
   -- extends %
   {
     'https://github.com/andymass/vim-matchup',

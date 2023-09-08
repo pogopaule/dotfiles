@@ -1,4 +1,20 @@
 return {
+  {
+    'https://github.com/folke/zen-mode.nvim',
+    event = { 'BufReadPost', 'BufNewFile' },
+    cmd = { 'ZenMode' },
+    config = {
+      window = {
+        width = 150,
+      },
+      plugins = {
+        twilight = { enabled = true }
+      }
+    },
+    dependencies = {
+      { 'https://github.com/folke/twilight.nvim' }
+    }
+  },
 
   -- Icon font
   {
