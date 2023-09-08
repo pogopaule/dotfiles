@@ -49,7 +49,6 @@
       noti # banner notifications
       viddy # modern watch
       lychee # link checker
-      sq # data wrangling tool
 
       sumneko-lua-language-server
       rnix-lsp
@@ -63,6 +62,7 @@
       pkgs-master.nodePackages."@githubnext/github-copilot-cli"
       pkgs-master.eza
       pkgs-master.ast-grep
+      pkgs-master.sq # data wrangling tool
     ];
   };
 

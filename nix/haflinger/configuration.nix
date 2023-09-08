@@ -56,6 +56,7 @@
       "google-chrome"
       "espanso"
       "hazeover"
+      "stats"
     ];
     taps = [ ];
     brews = [];
