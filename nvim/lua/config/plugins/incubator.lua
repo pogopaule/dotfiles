@@ -1,5 +1,19 @@
 return {
   {
+    'https://github.com/ThePrimeagen/harpoon',
+    event = 'VeryLazy',
+    keys = {
+      { '<leader>p',  '<CMD>lua require("harpoon.mark").add_file()<CR>', desc = 'Harpoon File' },
+      { '<leader>fp', '<CMD>Telescope harpoon marks<CR>',                desc = 'Find Harpoon File' }
+    },
+    config = true,
+  },
+  {
+    dir = '~/dev/flattennest/nixattrset.nvim',
+    lazy = false,
+    config = true,
+  },
+  {
     'https://github.com/subnut/nvim-ghost.nvim',
     lazy = false,
   },

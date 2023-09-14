@@ -82,6 +82,7 @@ return {
       -- https://github.com/rcarriga/nvim-notify#viewing-history
       telescope.load_extension('notify')
       telescope.load_extension('ast_grep')
+      telescope.load_extension('harpoon')
     end
   },
 }
