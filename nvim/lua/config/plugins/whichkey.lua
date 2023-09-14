@@ -146,6 +146,7 @@ return {
           t = { '<CMD>tabnew<CR>', 'Tab' },
           s = { '<CMD>tabnew | setlocal buftype=nofile noswapfile bufhidden=wipe nobuflisted | Telescope filetypes<CR>', 'Scratch' },
         },
+        ["<leader>"] = {'<CMD>wq<CR>', 'Save and Quit'},
         q = { '<CMD>quit<CR>', 'Quit', mode = { 'n', 'v' } },
         Q = { '<CMD>quitall!<CR>', 'Quit All Force', mode = { 'n', 'v' } },
         h = { '<CMD>nohlsearch<CR>', 'Remove Highlight' },
