@@ -4,7 +4,10 @@ return {
     event = 'VeryLazy',
     keys = {
       { '<leader>p',  '<CMD>lua require("harpoon.mark").add_file()<CR>', desc = 'Harpoon File' },
-      { '<leader>fp', '<CMD>Telescope harpoon marks<CR>',                desc = 'Find Harpoon File' }
+      { '<leader>fp', '<CMD>Telescope harpoon marks<CR>',                desc = 'Find Harpoon File' },
+      { '<leader>1',  '<CMD>:lua require("harpoon.ui").nav_file(1)<CR>', desc = 'Harpoon File 1' },
+      { '<leader>2',  '<CMD>:lua require("harpoon.ui").nav_file(2)<CR>', desc = 'Harpoon File 2' },
+      { '<leader>3',  '<CMD>:lua require("harpoon.ui").nav_file(3)<CR>', desc = 'Harpoon File 3' },
     },
     config = true,
   },
