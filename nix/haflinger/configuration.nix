@@ -57,6 +57,7 @@
       "espanso"
       "hazeover"
       "stats"
+      "kopiaui"
     ];
     taps = [ ];
     brews = [];

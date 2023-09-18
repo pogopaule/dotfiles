@@ -49,6 +49,7 @@
       noti # banner notifications
       viddy # modern watch
       lychee # link checker
+      kopia # backup tool
 
       sumneko-lua-language-server
       rnix-lsp
