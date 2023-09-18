@@ -5,7 +5,7 @@ return {
     opts = {
       modes = {
         char = {
-          keys = { "f", "F", "t", "T" }, -- this removes ',' from the list, which I use as the leader key
+          keys = {}, -- this removes ',' from the list, which I use as the leader key, also removes f and t which is annoying with flash
         },
       },
     },
