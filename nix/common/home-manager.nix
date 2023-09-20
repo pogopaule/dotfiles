@@ -51,6 +51,7 @@
       lychee # link checker
       kopia # backup tool
       rclone
+      d2 # data to diagrams
 
       sumneko-lua-language-server
       rnix-lsp
