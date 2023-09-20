@@ -76,7 +76,7 @@ map('v', '>', '>gv', opts)
 
 
 -- paste visual selection at bottom of it
-map('v', 'D', 'ygv<Esc>p', opts)
+map('x', 'D', 'ygv<Esc>p', opts)
 
 -- do not put single empty line in yank register
 local function smart_dd()
