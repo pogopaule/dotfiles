@@ -50,6 +50,7 @@
       viddy # modern watch
       lychee # link checker
       kopia # backup tool
+      rclone
 
       sumneko-lua-language-server
       rnix-lsp
