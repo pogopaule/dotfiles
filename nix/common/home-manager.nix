@@ -50,6 +50,7 @@
       viddy # modern watch
       lychee # link checker
       kopia # backup tool
+      d2 # data to diagrams
 
       sumneko-lua-language-server
       rnix-lsp
