@@ -59,7 +59,7 @@
       "stats"
       "kopiaui"
     ];
-    taps = [ ];
+    taps = [];
     brews = [];
   };
 

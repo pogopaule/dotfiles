@@ -130,6 +130,12 @@
       # https://www.npmjs.com/package/@githubnext/github-copilot-cli
       eval "$(github-copilot-cli alias -- "$0")"
 
+      # make sure brew is on the path for M1
+      # https://discourse.nixos.org/t/brew-not-on-path-on-m1-mac/26770/4
+      if [[ $(uname -m) == 'arm64' ]]; then
+           eval "$(/opt/homebrew/bin/brew shellenv)"
+       fi
+
       function toggleTheme() {
         if grep -q "dark" ~/.theme; then
             echo "light" > ~/.theme
