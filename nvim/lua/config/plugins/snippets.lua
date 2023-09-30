@@ -199,6 +199,15 @@ return {
         }),
       })
 
+      ls.add_snippets('structurizr', {
+        s('relation', fmt('{} -> {} "{}"{}', {i(1), i(2), i(3), i(0)} )),
+        s('softwareSystem', fmt('{} = softwareSystem "{}" "{}"{}', {i(1), i(2), i(3), i(0)} )),
+        s('container', fmt('{} = container "{}" "{}" "{}"{}', {i(1), i(2), i(3), i(4), i(0)} )),
+        s('group', fmt([[group "{}" {{
+  {}
+}}]], {i(1), i(0)} ))
+      })
+
       ls.add_snippets('python', {
         postfix({ trig = '.var', match_pattern = '[^%s%c]+$' }, {
           d(1, function(_, parent)
