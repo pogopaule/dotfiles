@@ -10,9 +10,11 @@ return {
         function()
           return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
         end,
-        expr = true, silent = true, mode = "i",
+        expr = true,
+        silent = true,
+        mode = "i",
       },
-      { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
+      { "<tab>",   function() require("luasnip").jump(1) end,  mode = "s" },
       { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
     },
     config = function()
@@ -145,7 +147,7 @@ return {
         long: {}
     review: {}
     rating: {}
-    ]]     , {
+    ]], {
             i(1), i(2), i(3), i(4),
             c(5, { t 'true', t 'false' }),
             c(6, { t 'true', t 'false' }),
@@ -164,7 +166,7 @@ return {
           {}
         }});
       }});
-    ]]     , {
+    ]], {
             i(1), c(2, { t 'it', t 'test' }), i(3), c(4, { t 'async ', t '' }), i(0)
           })
         ),
@@ -173,7 +175,7 @@ return {
       {}('{}', {}() => {{
         {}
       }});
-    ]]     , {
+    ]], {
             c(1, { t 'it', t 'test' }), i(2), c(3, { t 'async ', t '' }), i(0)
           })
         ),
@@ -200,12 +202,15 @@ return {
       })
 
       ls.add_snippets('structurizr', {
-        s('relation', fmt('{} -> {} "{}"{}', {i(1), i(2), i(3), i(0)} )),
-        s('softwareSystem', fmt('{} = softwareSystem "{}" "{}"{}', {i(1), i(2), i(3), i(0)} )),
-        s('container', fmt('{} = container "{}" "{}" "{}"{}', {i(1), i(2), i(3), i(4), i(0)} )),
+        s('relation', fmt('{} -> {} "{}"{}', { i(1), i(2), i(3), i(0) })),
+        s('softwareSystem', fmt('{} = softwareSystem "{}" "{}"{}', { i(1), i(2), i(3), i(0) })),
+        s('container', fmt('{} = container "{}" "{}" "{}"{}', { i(1), i(2), i(3), i(4), i(0) })),
         s('group', fmt([[group "{}" {{
   {}
-}}]], {i(1), i(0)} ))
+}}]], { i(1), i(0) })),
+        s('deploymentNode',
+          fmt('deploymentNode "{}" "{}" "{}" "{}" "{}" {{{}}}',
+            { i(1, 'name'), i(2, 'description'), i(3, 'technology'), i(4, 'tags'), i(5, 'instances'), i(0) })),
       })
 
       ls.add_snippets('python', {
@@ -241,7 +246,7 @@ return {
     {1} = {{
       {2} = {3};
     }};
-  ]]     , { i(1), i(2), i(3) })
+  ]], { i(1), i(2), i(3) })
         ),
         s('devflake', fmt([[
     {{
@@ -263,7 +268,7 @@ return {
             }};
           }});
     }}
-  ]]     , { i(1) })
+  ]], { i(1) })
         )
       })
     end,
