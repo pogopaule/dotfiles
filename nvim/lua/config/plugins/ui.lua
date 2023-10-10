@@ -63,7 +63,8 @@ return {
   -- indentation guides
   {
     'https://github.com/lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
     event = { 'BufReadPre', 'BufNewFile' },
-    config = { show_current_context = true },
+    config = true,
   },
 }
