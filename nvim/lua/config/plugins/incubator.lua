@@ -1,5 +1,9 @@
 return {
   {
+    'https://github.com/subnut/nvim-ghost.nvim',
+    lazy = false,
+  },
+  {
     'https://github.com/ThePrimeagen/harpoon',
     event = 'VeryLazy',
     keys = {
