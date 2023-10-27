@@ -91,6 +91,17 @@ return {
         -- }
       })
 
+      lspconfig.ruff_lsp.setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        init_options = {
+          settings = {
+            -- Any extra CLI arguments for `ruff` go here.
+            args = {},
+          }
+        }
+      }
+
 
       -- nicer symbols
       local sign = function(opts)

@@ -66,6 +66,7 @@
       pkgs-master.eza
       pkgs-master.ast-grep
       pkgs-master.sq # data wrangling tool
+      pkgs-master.ruff-lsp
     ];
   };
 
