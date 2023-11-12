@@ -42,13 +42,13 @@
   services.xserver = {
     enable = true;
     displayManager = {
-      sddm.enable = true;
+      gdm.enable = true;
       autoLogin = {
         enable = true;
         user = "pogopaule";
       };
     };
-    desktopManager.plasma5.enable = true;
+    desktopManager.gnome.enable = true;
     layout = "us";
     xkbVariant = "altgr-intl";
   };
