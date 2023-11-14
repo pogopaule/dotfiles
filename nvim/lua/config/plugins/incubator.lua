@@ -1,5 +1,9 @@
 return {
   {
+    'https://github.com/rest-nvim/rest.nvim',
+    config = true;
+  },
+  {
     'https://github.com/subnut/nvim-ghost.nvim',
     lazy = false,
   },

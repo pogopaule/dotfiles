@@ -52,6 +52,7 @@
       kopia # backup tool
       rclone
       d2 # data to diagrams
+      hurl # http with plain text
 
       sumneko-lua-language-server
       rnix-lsp
