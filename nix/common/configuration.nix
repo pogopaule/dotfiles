@@ -86,6 +86,4 @@
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "22.11"; # Did you read the comment?
-
-  hardware.keyboard.uhk.enable = true;
 }
