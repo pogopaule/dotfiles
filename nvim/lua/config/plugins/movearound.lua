@@ -4,6 +4,9 @@ return {
     event = "VeryLazy",
     opts = {
       modes = {
+        search = {
+          enabled = false,
+        },
         char = {
           keys = {}, -- this removes ',' from the list, which I use as the leader key, also removes f and t which is annoying with flash
         },
