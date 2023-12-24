@@ -146,6 +146,7 @@
           default_prog = { "zsh", "--login", "-c", "tmux attach -t default || tmux new -s default" },
           font_size = 18.0,
           font = wezterm.font('Iosevka Nerd Font'),
+          hide_mouse_cursor_when_typing = false,
           color_scheme = theme,
           colors = {
             cursor_bg = '#ff00ff',
