@@ -25,10 +25,6 @@
       NSGlobalDomain.KeyRepeat = 2;
       screensaver.askForPasswordDelay = 180;
     };
-    keyboard = {
-      enableKeyMapping = true;
-      remapCapsLockToControl = true;
-    };
   };
 
   fonts = {
