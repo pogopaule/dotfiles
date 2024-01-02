@@ -32,7 +32,7 @@ local function insert_line_ending()
 end
 
 map({ 'n', 'i' }, '<A-CR>', insert_line_ending_and_nl, { expr = true, silent = true, noremap = true })
-map('i', '<A-,>', insert_line_ending, { expr = true, silent = true, noremap = true })
+map('i', '<A-;>', insert_line_ending, { expr = true, silent = true, noremap = true })
 
 
 -- resize splits with arrow keys

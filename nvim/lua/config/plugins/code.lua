@@ -118,6 +118,9 @@ return {
     cmd = 'Copilot',
     event = 'InsertEnter',
     config = {
+      panel = {
+        enabled = false,
+      },
       suggestion = {
         auto_trigger = true,
       }
