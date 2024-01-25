@@ -53,9 +53,10 @@
       "espanso"
       "hazeover"
       "stats"
+      "skitch"
     ];
-    taps = [];
-    brews = [];
+    taps = [ ];
+    brews = [ ];
   };
 
 }
