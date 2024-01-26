@@ -22,7 +22,7 @@
       sd # find/replace
       duf # disk usage
       lnav
-      cloc # count lines of code
+      tokei # count lines of code
       gcc
       curl
       zip
