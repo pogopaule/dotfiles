@@ -6,7 +6,6 @@
 -- https://github.com/ThePrimeagen/harpoon naviage favorite locations
 -- https://github.com/mizlan/iswap.nvim swapping powered by treesitter
 -- https://github.com/Vonr/align.nvim replace Tabularize?
--- https://github.com/lukas-reineke/headlines.nvim better markdown headline highlights
 -- https://github.com/jakewvincent/mkdnflow.nvim
 -- https://github.com/andythigpen/nvim-coverage display test coverage
 
