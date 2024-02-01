@@ -146,8 +146,6 @@
             tmux source-file ~/dotfiles/tmux/nordfox.conf
             export FZF_DEFAULT_OPTS='--color=dark'
         fi
-
-        sudo touch ~/.config/wezterm/wezterm.lua
       }
     '';
     oh-my-zsh = {
