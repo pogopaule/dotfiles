@@ -115,6 +115,7 @@ return {
           c = { name = '+Commit' },
         },
         r = { name = '+Refactor' },
+        c = { name = '+ChatGPT' },
         x = { name = '+Diagnostics' },
         d = { name = '+Debug' },
         T = { name = '+Tests' },
@@ -161,6 +162,7 @@ return {
           f = { "<ESC><CMD>lua require('refactoring').refactor('Extract Function')<CR>", 'Extract Function' },
           v = { "<ESC><CMD>lua require('refactoring').refactor('Extract Variable')<CR>", 'Extract Variable' },
         },
+        c = { name = '+ChatGPT' },
         s = { '"hy:%s/<C-r>h//gc<left><left><left>', 'Substitute Selection', silent = false },
 
       }, { prefix = '<leader>', mode = 'v' })
