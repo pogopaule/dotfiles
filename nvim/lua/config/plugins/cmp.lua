@@ -37,7 +37,7 @@ return {
         sources = { -- the order below defines the order in the completion popup
           { name = 'luasnip' },
           { name = 'nvim_lsp' },
-          { name = 'buffer', option = { keyword_pattern = [[\k\+]] } },
+          { name = 'buffer',  option = { keyword_pattern = [[\k\+]] } },
           -- { name = 'tmux' }, disable, causes too much problems
           { name = 'path' },
         },
@@ -56,7 +56,15 @@ return {
 
       -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline(':', {
-        mapping = cmp.mapping.preset.cmdline({}),
+        mapping = cmp.mapping.preset.cmdline({
+          -- Use default nvim history scrolling
+          ["<C-n>"] = {
+            c = false,
+          },
+          ["<C-p>"] = {
+            c = false,
+          },
+        }),
         sources = cmp.config.sources({
           { name = 'path' }
         }, {
@@ -65,7 +73,7 @@ return {
             option = {
               -- fixes hanging on typing, e.g. :read !http <url>
               -- see https://github.com/hrsh7th/cmp-cmdline/issues/24
-              ignore_cmds = { 'read' }
+              ignore_cmds = { 'read', 'Man', '!' }
             }
           }
         }),
