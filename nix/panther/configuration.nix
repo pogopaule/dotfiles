@@ -40,6 +40,7 @@
     user = "pogopaule";
     dataDir = "/home/pogopaule/Documents/paperless";
     extraConfig = {
+      LD_LIBRARY_PATH = "${pkgs.lib.getLib pkgs.mkl}/lib";
       PAPERLESS_AUTO_LOGIN_USERNAME = "admin";
       PAPERLESS_OCR_LANGUAGE = "deu+eng";
     };
