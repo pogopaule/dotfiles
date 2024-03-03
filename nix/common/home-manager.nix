@@ -115,6 +115,7 @@
       diff-so-fancy.enable = true;
       includes = [{ path = "~/.gitconfig.local"; }];
       extraConfig = {
+        core.editor = "nvim";
         push = {
           autoSetupRemote = true;
         };
@@ -161,6 +162,16 @@
           audible_bell = 'Disabled',
           warn_about_missing_glyphs = false,
           keys = {
+            {
+              key = 'Tab',
+              mods = 'CTRL',
+              action = wezterm.action.DisableDefaultAssignment,
+            },
+            {
+              key = 'Tab',
+              mods = 'CTRL+SHIFT',
+              action = wezterm.action.DisableDefaultAssignment,
+            },
             {
               key = 'Enter',
               mods = 'ALT',
