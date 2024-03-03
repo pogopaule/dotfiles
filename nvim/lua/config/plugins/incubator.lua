@@ -1,5 +1,29 @@
 return {
   {
+    "https://github.com/epwalsh/obsidian.nvim",
+    version = "*", -- recommended, use latest release instead of latest commit
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      workspaces = {
+        {
+          name = "secondbrain",
+          path = "~/secondbrain",
+        },
+      },
+      disable_frontmatter = true,
+    },
+    keys = {
+      -- TODO: add whickkey group
+      { '<leader>og', '<cmd>ObsidianSearch<CR>', desc = 'Grep' },
+      { '<leader>of', '<cmd>ObsidianQuickSwitch<CR>', desc = 'Find File' },
+      { '<leader>oo', '<cmd>ObsidianOpen<CR>', desc = 'Open in Obsidian' },
+    },
+  },
+  {
     'https://github.com/rest-nvim/rest.nvim',
     config = true,
   },

@@ -32,11 +32,13 @@ local options = {
   mouse          = '',                                -- disable mouse
 
   showtabline    = 2,                                 -- also show tabline when there is only one tab
+
+  conceallevel   = 2,                                 -- required for obsidian plugin
 }
 
 for key, value in pairs(options) do
   vim.opt[key] = value
 end
 
- -- e.g. delete foo-bar with daw
+-- e.g. delete foo-bar with daw
 vim.opt.iskeyword:append('-')
