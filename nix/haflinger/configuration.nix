@@ -54,9 +54,9 @@
       "hazeover"
       "stats"
       "skitch"
+      "obsidian"
     ];
     taps = [ ];
     brews = [ ];
   };
-
 }
