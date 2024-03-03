@@ -169,7 +169,7 @@
             },
             {
               key = 'Tab',
-              mods = 'CTRL+SHIFT',
+              mods = 'CTRL|SHIFT',
               action = wezterm.action.DisableDefaultAssignment,
             },
             {
