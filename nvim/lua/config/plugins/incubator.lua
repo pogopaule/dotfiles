@@ -15,6 +15,9 @@ return {
         },
       },
       disable_frontmatter = true,
+      note_id_func = function(title)
+        return title
+      end,
     },
     keys = {
       -- TODO: add whickkey group
