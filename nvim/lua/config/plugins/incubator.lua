@@ -24,6 +24,7 @@ return {
       { '<leader>og', '<cmd>ObsidianSearch<CR>', desc = 'Grep' },
       { '<leader>of', '<cmd>ObsidianQuickSwitch<CR>', desc = 'Find File' },
       { '<leader>oo', '<cmd>ObsidianOpen<CR>', desc = 'Open in Obsidian' },
+      { '<leader>ol', '<cmd>ObsidianFollowLink<CR>', desc = 'Follow Link' },
     },
   },
   {
@@ -34,11 +35,11 @@ return {
     'https://github.com/ThePrimeagen/harpoon',
     event = 'VeryLazy',
     keys = {
-      { '<leader>H',  '<CMD>lua require("harpoon.mark").add_file()<CR>', desc = 'Harpoon File' },
+      { '<leader>H',  '<CMD>lua require("harpoon.mark").add_file()<CR>', desc = 'Add File to Harpoon' },
       { '<leader>fH', '<CMD>Telescope harpoon marks<CR>',                desc = 'Find Harpoon File' },
-      { '<leader>1',  '<CMD>:lua require("harpoon.ui").nav_file(1)<CR>', desc = 'Harpoon File 1' },
-      { '<leader>2',  '<CMD>:lua require("harpoon.ui").nav_file(2)<CR>', desc = 'Harpoon File 2' },
-      { '<leader>3',  '<CMD>:lua require("harpoon.ui").nav_file(3)<CR>', desc = 'Harpoon File 3' },
+      { '<leader>1',  '<CMD>:lua require("harpoon.ui").nav_file(1)<CR>', desc = 'Go to Harpoon File 1' },
+      { '<leader>2',  '<CMD>:lua require("harpoon.ui").nav_file(2)<CR>', desc = 'Go to Harpoon File 2' },
+      { '<leader>3',  '<CMD>:lua require("harpoon.ui").nav_file(3)<CR>', desc = 'Go to Harpoon File 3' },
     },
     config = true,
   },
