@@ -163,6 +163,11 @@
           warn_about_missing_glyphs = false,
           keys = {
             {
+              key = 't',
+              mods = 'SUPER',
+              action = wezterm.action.DisableDefaultAssignment,
+            },
+            {
               key = 'Tab',
               mods = 'CTRL',
               action = wezterm.action.DisableDefaultAssignment,
