@@ -5,6 +5,7 @@
     plugins = [
       { name = "fzf-tab"; src = "${pkgs.zsh-fzf-tab}/share/fzf-tab"; }
     ];
+    # zprof.enable = true; TODO: enable this once the new version o home-manager is released and time with /usr/bin/time zsh -i -c exit
     initExtra = ''
       # https://github.com/jeffreytse/zsh-vi-mode#nix
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
