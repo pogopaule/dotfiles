@@ -6,9 +6,16 @@ return {
     ft = { 'markdown' },
     build = function() vim.fn['mkdp#util#install']() end,
   },
-  -- fixes indentation problems with bullet lists
+  -- -- fixes indentation problems with bullet lists
+  -- {
+  --   'https://github.com/dkarter/bullets.vim',
+  --   ft = 'markdown',
+  -- },
   {
-    'https://github.com/dkarter/bullets.vim',
-    ft = 'markdown',
+  'https://github.com/tadmccorkle/markdown.nvim',
+  ft = "markdown",
+  opts = {
+    -- configuration here or empty for defaults
   },
+}
 }
