@@ -148,6 +148,10 @@
             export FZF_DEFAULT_OPTS='--color=dark'
         fi
       }
+
+      function ns() {
+        nix shell nixpkgs#"$1"
+      }
     '';
     oh-my-zsh = {
       enable = true;
