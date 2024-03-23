@@ -34,7 +34,7 @@ return {
     keys = {
       { '<leader>ff',  '<CMD>Telescope find_files<CR>',                    desc = 'Files' },
       { '<leader>fh',  '<CMD>Telescope help_tags<CR>',                     desc = 'Help' },
-      { '<leader>fo',  '<CMD>Telescope oldfiles<CR>',                      desc = 'Old Files' },
+      { '<leader>fa',  '<CMD>Telescope oldfiles<CR>',                      desc = 'Old Files' },
       { '<leader>fd',  find_django_others,                                 desc = 'Django Other Files' },
       { '<leader>fk',  '<CMD>Telescope keymaps<CR>',                       desc = 'Keymaps' },
       { '<leader>fS',  '<CMD>Telescope spell_suggest<CR>',                 desc = 'Spelling' },

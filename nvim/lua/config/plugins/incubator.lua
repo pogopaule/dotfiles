@@ -14,6 +14,9 @@ return {
           path = "~/secondbrain",
         },
       },
+      templates = {
+        subdir = "4 templates",
+      },
       disable_frontmatter = true,
       note_id_func = function(title)
         return title
@@ -22,9 +25,10 @@ return {
     keys = {
       -- TODO: add whickkey group
       { '<leader>og', '<cmd>ObsidianSearch<CR>', desc = 'Grep' },
-      { '<leader>of', '<cmd>ObsidianQuickSwitch<CR>', desc = 'Find File' },
+      { '<leader>fo', '<cmd>ObsidianQuickSwitch<CR>', desc = 'Find File' },
       { '<leader>oo', '<cmd>ObsidianOpen<CR>', desc = 'Open in Obsidian' },
-      { '<leader>ol', '<cmd>ObsidianFollowLink<CR>', desc = 'Follow Link' },
+      { '<leader>of', '<cmd>ObsidianFollowLink<CR>', desc = 'Follow Link' },
+      { '<leader>ot', '<cmd>ObsidianTemplate<CR>', desc = 'Insert Template' },
     },
   },
   {
