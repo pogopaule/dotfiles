@@ -53,6 +53,7 @@
       rclone
       d2 # data to diagrams
       hurl # http with plain text
+      cachix
 
       sumneko-lua-language-server
       rnix-lsp
