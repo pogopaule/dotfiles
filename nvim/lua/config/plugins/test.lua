@@ -3,6 +3,7 @@ return {
     'https://github.com/nvim-neotest/neotest',
     dependencies = {
       { 'https://github.com/nvim-neotest/neotest-python' },
+      { 'https://github.com/nvim-neotest/nvim-nio' }
     },
     ft = { 'python' },
     keys = {
