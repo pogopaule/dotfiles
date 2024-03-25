@@ -197,6 +197,11 @@
               key = 'w',
               mods = 'CMD',
               action = wezterm.action.SendKey { key = 'w', mods = 'CTRL' },
+            },
+            {
+              key = 'Backspace',
+              mods = 'ALT',
+              action = wezterm.action.SendKey { key = 'w', mods = 'CTRL' },
             }
           }
         }
