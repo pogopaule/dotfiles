@@ -1,8 +1,8 @@
-{ pkgs, pkgs-master, devenv, ... }:
+{ pkgs, pkgs-unstable, devenv, ... }:
 
 {
   imports = [
-    (import ../common/home-manager.nix { inherit pkgs pkgs-master devenv; })
+    (import ../common/home-manager.nix { inherit pkgs pkgs-unstable devenv; })
   ];
 
   home = {

@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-23.11";
-    nixpkgs-master.url = "nixpkgs/master";
+    nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +15,7 @@
     devenv.url = "github:cachix/devenv/v1.0.1";
   };
 
-  outputs = { nixpkgs, nixpkgs-master, home-manager, darwin, devenv, ... }:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, darwin, devenv, ... }:
     {
       darwinConfigurations =
         let
@@ -24,7 +24,7 @@
             inherit system;
             config.allowUnfree = true;
           };
-          pkgs-master = import nixpkgs-master {
+          pkgs-unstable = import nixpkgs-unstable {
             inherit system;
             config.allowUnfree = true;
           };
@@ -39,7 +39,7 @@
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
-                  users.fabian = (import ./nix/haflinger/home-manager.nix { inherit pkgs pkgs-master devenv; });
+                  users.fabian = (import ./nix/haflinger/home-manager.nix { inherit pkgs pkgs-unstable devenv; });
                 };
               }
             ];
@@ -52,7 +52,7 @@
             inherit system;
             config.allowUnfree = true;
           };
-          pkgs-master = import nixpkgs-master {
+          pkgs-unstable = import nixpkgs-unstable {
             inherit system;
             config.allowUnfree = true;
           };
@@ -68,7 +68,7 @@
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
-                  users.pogopaule = (import ./nix/panther/home-manager.nix { inherit pkgs pkgs-master devenv; });
+                  users.pogopaule = (import ./nix/panther/home-manager.nix { inherit pkgs pkgs-unstable devenv; });
                 };
               }
             ];
@@ -83,7 +83,7 @@
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
-                  users.pogopaule = (import ./nix/silverback/home-manager.nix { inherit pkgs pkgs-master devenv; });
+                  users.pogopaule = (import ./nix/silverback/home-manager.nix { inherit pkgs pkgs-unstable devenv; });
                 };
               }
             ];

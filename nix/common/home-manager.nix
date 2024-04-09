@@ -1,4 +1,4 @@
-{ pkgs, pkgs-master, devenv, ... }:
+{ pkgs, pkgs-unstable, devenv, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -63,12 +63,12 @@
       nodePackages.typescript-language-server
       nodePackages.vscode-langservers-extracted
     ] ++ [
-      pkgs-master.neovim
-      pkgs-master.nodePackages."@githubnext/github-copilot-cli"
-      pkgs-master.eza
-      pkgs-master.ast-grep
-      pkgs-master.sq # data wrangling tool
-      pkgs-master.ruff-lsp
+      pkgs-unstable.neovim
+      pkgs-unstable.nodePackages."@githubnext/github-copilot-cli"
+      pkgs-unstable.eza
+      pkgs-unstable.ast-grep
+      pkgs-unstable.sq # data wrangling tool
+      pkgs-unstable.ruff-lsp
     ];
   };
 
@@ -130,7 +130,7 @@
 
     wezterm = {
       enable = true;
-      package = pkgs-master.wezterm;
+      package = pkgs-unstable.wezterm;
       extraConfig = ''
         local theme = 'dawnfox'
 
@@ -210,7 +210,7 @@
 
     vscode = {
       enable = true;
-      package = pkgs-master.vscode;
+      package = pkgs-unstable.vscode;
     };
   };
 
