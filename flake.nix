@@ -12,7 +12,7 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    devenv.url = "github:cachix/devenv/v1.0.4";
+    devenv.url = "github:cachix/devenv/v1.0.5";
   };
 
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, darwin, devenv, ... }:
