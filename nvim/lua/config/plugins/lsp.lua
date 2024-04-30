@@ -13,15 +13,6 @@ return {
       local lspconfig = require('lspconfig')
 
       local function on_attach(client, buffer)
-        -- Set autocommands conditional on server_capabilities
-        if client.server_capabilities.documentHighlightProvider then
-          local group = vim.api.nvim_create_augroup('lsp_document_highlight', { clear = true })
-          vim.api.nvim_create_autocmd('CursorHold',
-            { buffer = buffer, callback = vim.lsp.buf.document_highlight, group = group, })
-          vim.api.nvim_create_autocmd('CursorMoved',
-            { buffer = buffer, callback = vim.lsp.buf.clear_references, group = group, })
-        end
-
         -- require('lsp_signature').on_attach({
         --   hint_enable = false,
         --   floating_window_above_cur_line = false,

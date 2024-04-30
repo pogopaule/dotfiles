@@ -1,5 +1,10 @@
 return {
   {
+    "https://github.com/RRethy/vim-illuminate",
+    event = "BufReadPost",
+    config = true,
+  },
+  {
     "https://github.com/epwalsh/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
