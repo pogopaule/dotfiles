@@ -26,13 +26,15 @@
       }
       {
         plugin = resurrect;
-        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+        extraConfig = ''
+          set -g @resurrect-strategy-nvim 'session'
+          set -g @resurrect-capture-pane-contents 'on'
+        '';
       }
       {
         plugin = continuum;
         extraConfig = ''
           set -g @continuum-save-interval '5' # minutes
-          set -g @resurrect-capture-pane-contents 'on'
         '';
       }
     ];
