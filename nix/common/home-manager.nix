@@ -56,7 +56,6 @@
       cachix
 
       sumneko-lua-language-server
-      rnix-lsp
       nodePackages.yaml-language-server
       nodePackages.eslint_d
       nodePackages.prettier
