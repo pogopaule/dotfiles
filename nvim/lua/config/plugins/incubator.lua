@@ -37,11 +37,11 @@ return {
     },
     keys = {
       -- TODO: add whickkey group
-      { '<leader>og', '<cmd>ObsidianSearch<CR>', desc = 'Grep' },
+      { '<leader>og', '<cmd>ObsidianSearch<CR>',      desc = 'Grep' },
       { '<leader>fo', '<cmd>ObsidianQuickSwitch<CR>', desc = 'Find File' },
-      { '<leader>oo', '<cmd>ObsidianOpen<CR>', desc = 'Open in Obsidian' },
-      { '<leader>of', '<cmd>ObsidianFollowLink<CR>', desc = 'Follow Link' },
-      { '<leader>ot', '<cmd>ObsidianTemplate<CR>', desc = 'Insert Template' },
+      { '<leader>oo', '<cmd>ObsidianOpen<CR>',        desc = 'Open in Obsidian' },
+      { '<leader>of', '<cmd>ObsidianFollowLink<CR>',  desc = 'Follow Link' },
+      { '<leader>ot', '<cmd>ObsidianTemplate<CR>',    desc = 'Insert Template' },
     },
   },
   {
