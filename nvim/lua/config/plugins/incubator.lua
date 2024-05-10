@@ -1,5 +1,11 @@
 return {
   {
+    'https://github.com/stevearc/oil.nvim',
+    dependencies = { "https://github.com/nvim-tree/nvim-web-devicons" },
+    config = true,
+    cmd = { 'Oil' },
+  },
+  {
     "https://github.com/RRethy/vim-illuminate",
     event = "BufReadPost",
     config = true,
