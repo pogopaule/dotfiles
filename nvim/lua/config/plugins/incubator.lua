@@ -8,7 +8,9 @@ return {
   {
     "https://github.com/RRethy/vim-illuminate",
     event = "BufReadPost",
-    config = true,
+    config = function()
+      require('illuminate').configure()
+    end,
   },
   {
     "https://github.com/epwalsh/obsidian.nvim",
