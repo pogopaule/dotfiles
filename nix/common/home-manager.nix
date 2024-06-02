@@ -114,7 +114,6 @@
     git = {
       enable = true;
       difftastic.enable = true;
-      difftastic.display = "inline";
       includes = [{ path = "~/.gitconfig.local"; }];
       extraConfig = {
         core.editor = "nvim";
