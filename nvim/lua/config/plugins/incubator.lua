@@ -13,38 +13,6 @@ return {
     end,
   },
   {
-    "https://github.com/epwalsh/obsidian.nvim",
-    version = "*", -- recommended, use latest release instead of latest commit
-    lazy = true,
-    ft = "markdown",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    opts = {
-      workspaces = {
-        {
-          name = "secondbrain",
-          path = "~/secondbrain",
-        },
-      },
-      templates = {
-        subdir = "4 templates",
-      },
-      disable_frontmatter = true,
-      note_id_func = function(title)
-        return title
-      end,
-    },
-    keys = {
-      -- TODO: add whickkey group
-      { '<leader>og', '<cmd>ObsidianSearch<CR>',      desc = 'Grep' },
-      { '<leader>fo', '<cmd>ObsidianQuickSwitch<CR>', desc = 'Find File' },
-      { '<leader>oo', '<cmd>ObsidianOpen<CR>',        desc = 'Open in Obsidian' },
-      { '<leader>of', '<cmd>ObsidianFollowLink<CR>',  desc = 'Follow Link' },
-      { '<leader>ot', '<cmd>ObsidianTemplate<CR>',    desc = 'Insert Template' },
-    },
-  },
-  {
     'https://github.com/rest-nvim/rest.nvim',
     config = true,
   },
@@ -72,30 +40,5 @@ return {
     'https://github.com/sindrets/diffview.nvim',
     lazy = false,
     conifg = true,
-  },
-  -- ChatGPT
-  {
-    'https://github.com/jackMort/ChatGPT.nvim',
-    dependencies = { 'https://github.com/MunifTanjim/nui.nvim' },
-    event = 'VeryLazy',
-    config = {
-      chat = {
-        welcome_message = '',
-      },
-    },
-    keys = {
-      { '<leader>cc', '<cmd>ChatGPT<CR>',                              desc = 'ChatGPT' },
-      { '<leader>ce', '<cmd>ChatGPTEditWithInstruction<CR>',           desc = 'Edit with instruction',     mode = { 'n', 'v' } },
-      { '<leader>cg', '<cmd>ChatGPTRun grammar_correction<CR>',        desc = 'Grammar Correction',        mode = { 'n', 'v' } },
-      { '<leader>ct', '<cmd>ChatGPTRun translate<CR>',                 desc = 'Translate',                 mode = { 'n', 'v' } },
-      { '<leader>ck', '<cmd>ChatGPTRun keywords<CR>',                  desc = 'Keywords',                  mode = { 'n', 'v' } },
-      { '<leader>cd', '<cmd>ChatGPTRun docstring<CR>',                 desc = 'Docstring',                 mode = { 'n', 'v' } },
-      { '<leader>ca', '<cmd>ChatGPTRun add_tests<CR>',                 desc = 'Add Tests',                 mode = { 'n', 'v' } },
-      { '<leader>co', '<cmd>ChatGPTRun optimize_code<CR>',             desc = 'Optimize Code',             mode = { 'n', 'v' } },
-      { '<leader>cs', '<cmd>ChatGPTRun summarize<CR>',                 desc = 'Summarize',                 mode = { 'n', 'v' } },
-      { '<leader>cf', '<cmd>ChatGPTRun fix_bugs<CR>',                  desc = 'Fix Bugs',                  mode = { 'n', 'v' } },
-      { '<leader>cx', '<cmd>ChatGPTRun explain_code<CR>',              desc = 'Explain Code',              mode = { 'n', 'v' } },
-      { '<leader>cl', '<cmd>ChatGPTRun code_readability_analysis<CR>', desc = 'Code Readability Analysis', mode = { 'n', 'v' } },
-    },
   },
 }

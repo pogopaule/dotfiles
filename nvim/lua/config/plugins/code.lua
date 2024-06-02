@@ -112,21 +112,6 @@ return {
     end
   },
 
-  -- Copilot
-  {
-    'https://github.com/zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
-    config = {
-      panel = {
-        enabled = false,
-      },
-      suggestion = {
-        auto_trigger = true,
-      }
-    },
-  },
-
   -- Emmet
   {
     'https://github.com/mattn/emmet-vim',
