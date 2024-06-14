@@ -26,7 +26,7 @@ return {
   -- Comments
   {
     'https://github.com/numToStr/Comment.nvim',
-    keys = { 'gc', { 'gc', mode = 'v' } },
+    event = { 'BufReadPost', 'BufNewFile' },
     config = true,
   },
 
