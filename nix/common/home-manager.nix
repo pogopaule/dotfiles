@@ -68,7 +68,7 @@
       pkgs-unstable.ast-grep
       pkgs-unstable.sq # data wrangling tool
       pkgs-unstable.ruff-lsp
-      pkgs-unstable.nodePackages.pyright
+      pkgs-unstable.pyright
     ];
   };
 
