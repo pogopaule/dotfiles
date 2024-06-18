@@ -17,7 +17,7 @@
       tealdeer # tldr
       httpie
       ripgrep
-      # ncdu can't be build on mac currently
+      dua
       fd
       sd # find/replace
       duf # disk usage
