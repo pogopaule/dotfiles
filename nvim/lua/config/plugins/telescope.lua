@@ -45,6 +45,7 @@ return {
       { '<leader>fb',  '<CMD>Telescope buffers<CR>',                       desc = 'Buffers' },
       { '<leader>f:',  '<CMD>Telescope command_history<CR>',               desc = 'Command History' },
       { '<leader>f/',  '<CMD>Telescope current_buffer_fuzzy_find<CR>',     desc = 'Fuzzy Find In Current Buffer' },
+      { '<leader>fm',  '<CMD>Telescope resume<CR>',                        desc = 'Resume' },
       { '<leader>fss', '<CMD>Telescope lsp_document_symbols<CR>',          desc = 'Find Document Symbols' },
       { '<leader>fsw', '<CMD>Telescope lsp_dynamic_workspace_symbols<CR>', desc = 'Find Workspace Symbols' },
     },

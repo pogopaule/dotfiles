@@ -113,6 +113,7 @@ return {
         f = {
           name = '+Find',
           c = { name = '+Commit' },
+          s = { name = '+Symbol' },
         },
         r = { name = '+Refactor' },
         c = { name = '+ChatGPT' },
