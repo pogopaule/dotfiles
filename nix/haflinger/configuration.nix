@@ -2,6 +2,8 @@
 
   programs.zsh.enable = true;
 
+  nix.settings.trusted-users = [ "root" "fabian" ];
+
   users.users.fabian = {
     name = "fabian";
     home = /Users/fabian;
