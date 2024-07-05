@@ -54,6 +54,7 @@
       d2 # data to diagrams
       hurl # http with plain text
       cachix
+      visidata
 
       sumneko-lua-language-server
       nodePackages.yaml-language-server
