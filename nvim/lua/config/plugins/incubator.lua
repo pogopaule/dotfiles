@@ -13,10 +13,6 @@ return {
     end,
   },
   {
-    'https://github.com/rest-nvim/rest.nvim',
-    config = true,
-  },
-  {
     'https://github.com/ThePrimeagen/harpoon',
     event = 'VeryLazy',
     keys = {
