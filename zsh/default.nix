@@ -152,6 +152,10 @@
       function ns() {
         nix shell nixpkgs#"$1"
       }
+
+      # share history across tmux panes
+      setopt share_history
+      setopt inc_append_history
     '';
     oh-my-zsh = {
       enable = true;
