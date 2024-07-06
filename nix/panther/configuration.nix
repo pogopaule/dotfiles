@@ -39,7 +39,7 @@
     port = 58080;
     user = "pogopaule";
     dataDir = "/home/pogopaule/Documents/paperless";
-    extraConfig = {
+    settings = {
       LD_LIBRARY_PATH = "${pkgs.lib.getLib pkgs.mkl}/lib";
       PAPERLESS_AUTO_LOGIN_USERNAME = "admin";
       PAPERLESS_OCR_LANGUAGE = "deu+eng";
@@ -79,7 +79,7 @@
 
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     openFirewall = true;
   };
 }

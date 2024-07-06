@@ -39,18 +39,23 @@
     LC_MESSAGES = "en_US.UTF-8";
   };
 
-  services.xserver = {
-    enable = true;
-    displayManager = {
-      gdm.enable = true;
+  services.displayManager = {
       autoLogin = {
         enable = true;
         user = "pogopaule";
       };
+  };
+
+  services.xserver = {
+    enable = true;
+    displayManager = {
+      gdm.enable = true;
     };
     desktopManager.gnome.enable = true;
-    layout = "us";
-    xkbVariant = "altgr-intl";
+    xkb = {
+      layout = "us";
+      variant = "altgr-intl";
+    };
   };
 
   # Configure console keymap
