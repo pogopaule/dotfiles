@@ -17,7 +17,10 @@
   boot.initrd.luks.devices."luks-9b1ff84f-34a0-4e3c-93eb-53774520ea0e".keyFile = "/crypto_keyfile.bin";
 
   # see https://nixos.wiki/wiki/IOS
-  services.usbmuxd.enable = true;
+  services.usbmuxd = {
+    enable = true;
+    package = pkgs.usbmuxd2;
+  };
 
   # https://nixos.wiki/wiki/Docker
   virtualisation.docker = {
@@ -30,6 +33,7 @@
 
   # https://nixos.wiki/wiki/Bluetooth
   hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   networking.firewall.allowedTCPPorts = [ 58080 ];
 
