@@ -13,6 +13,7 @@
       git-lfs
     ] ++ [
       devenv.packages.aarch64-darwin.devenv
+      pkgs-unstable.azure-cli
     ];
   };
 

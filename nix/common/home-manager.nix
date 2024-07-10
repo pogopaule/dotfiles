@@ -55,6 +55,7 @@
       hurl # http with plain text
       cachix
       visidata
+      jwt-cli
 
       sumneko-lua-language-server
       nodePackages.yaml-language-server
