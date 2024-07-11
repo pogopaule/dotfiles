@@ -1,5 +1,19 @@
 return {
   {
+    "https://github.com/danielfalk/smart-open.nvim",
+    branch = "0.2.x",
+    event = 'VeryLazy',
+    config = function()
+      require("telescope").load_extension("smart_open")
+    end,
+    dependencies = {
+      "https://github.com/kkharji/sqlite.lua",
+    },
+    keys = {
+      { '<leader>fx', '<CMD>Telescope smart_open<CR>', desc = 'Smart Open' },
+    },
+  },
+  {
     'https://github.com/stevearc/oil.nvim',
     dependencies = { "https://github.com/nvim-tree/nvim-web-devicons" },
     config = true,
