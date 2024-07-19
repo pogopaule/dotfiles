@@ -116,6 +116,7 @@ return {
           s = { name = '+Symbol' },
         },
         r = { name = '+Refactor' },
+        o = { name = '+Obsidian' },
         c = { name = '+ChatGPT' },
         x = { name = '+Diagnostics' },
         d = { name = '+Debug' },

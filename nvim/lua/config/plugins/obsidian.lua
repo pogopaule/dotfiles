@@ -21,14 +21,16 @@ return {
       note_id_func = function(title)
         return title
       end,
+      notes_subdir = "0 Inbox",
+      new_notes_location = "notes_subdir",
     },
     keys = {
-      -- TODO: add whickkey group
       { '<leader>og', '<cmd>ObsidianSearch<CR>',      desc = 'Grep' },
       { '<leader>fo', '<cmd>ObsidianQuickSwitch<CR>', desc = 'Find File' },
       { '<leader>oo', '<cmd>ObsidianOpen<CR>',        desc = 'Open in Obsidian' },
       { '<leader>of', '<cmd>ObsidianFollowLink<CR>',  desc = 'Follow Link' },
       { '<leader>ot', '<cmd>ObsidianTemplate<CR>',    desc = 'Insert Template' },
+      { '<leader>no', '<cmd>ObsidianNew<CR>',         desc = 'Obsidian' },
     },
   }
 }
