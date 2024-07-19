@@ -220,6 +220,7 @@
       watch = "viddy";
 
       # misc
+      p = "python";
       h = "http";
       clr = "clear";
       tldrf = "tldr --list | fzf --preview \"tldr {1} --color=always\" --preview-window=right,70% | xargs tldr";
