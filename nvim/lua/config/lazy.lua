@@ -7,7 +7,6 @@
 -- https://github.com/mizlan/iswap.nvim swapping powered by treesitter
 -- https://github.com/Vonr/align.nvim replace Tabularize?
 -- https://github.com/jakewvincent/mkdnflow.nvim
--- https://github.com/andythigpen/nvim-coverage display test coverage
 
 
 -- has to be defined here so keys activation work properly

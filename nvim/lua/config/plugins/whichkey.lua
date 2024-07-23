@@ -117,6 +117,7 @@ return {
         },
         r = { name = '+Refactor' },
         o = { name = '+Obsidian' },
+        v = { name = '+Coverage' },
         c = { name = '+ChatGPT' },
         x = { name = '+Diagnostics' },
         d = { name = '+Debug' },

@@ -1,5 +1,16 @@
 return {
   {
+    'https://github.com/andythigpen/nvim-coverage',
+    event = 'VeryLazy',
+    config = true,
+    keys = {
+      { '<leader>vv', '<CMD>Coverage<CR>', desc = 'Coverage' },
+      { '<leader>vt', '<CMD>CoverageToggle<CR>', desc = 'Toggle' },
+      { '<leader>tv', '<CMD>CoverageToggle<CR>', desc = 'Coverage' },
+      { '<leader>vs', '<CMD>CoverageSummary<CR>', desc = 'Summary' },
+    },
+  },
+  {
     "https://github.com/danielfalk/smart-open.nvim",
     branch = "0.2.x",
     event = 'VeryLazy',
