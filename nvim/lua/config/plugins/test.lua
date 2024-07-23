@@ -5,6 +5,7 @@ return {
       { 'https://github.com/nvim-neotest/neotest-python' },
       { 'https://github.com/nvim-neotest/nvim-nio' }
     },
+    cmd = { 'Neotest' },
     ft = { 'python' },
     keys = {
       { '<leader>TT', '<CMD>write | lua require("neotest").run.run()<CR>',                   desc = 'Nearest' },
@@ -12,6 +13,8 @@ return {
       { '<leader>Ta', '<CMD>lua require("neotest").run.attach()<CR>',                        desc = 'Attach' },
       { '<leader>Tx', '<CMD>lua require("neotest").run.stop()<CR>',                          desc = 'Stop Nearest' },
       { '<leader>Ts', '<CMD>lua require("neotest").summary.toggle()<CR>',                    desc = 'Toggle Summary' },
+      { '<leader>To', '<CMD>Neotest output<CR>',                                             desc = 'Show Output' },
+      { '<leader>Tp', '<CMD>Neotest output-panel<CR>',                                       desc = 'Show Output Panel' },
     },
     config = function()
       require("neotest").setup({
