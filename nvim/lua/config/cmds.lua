@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-local function copy_pytest_command_with_test_to_clipboard()
+local function foobar(command)
   -- Ensure that Treesitter is available
   if not pcall(require, 'nvim-treesitter') then
     print("Treesitter is not available.")
@@ -63,7 +63,7 @@ local function copy_pytest_command_with_test_to_clipboard()
   end
 
   -- Construct the pytest command with the relative path and optional test method name
-  local pytest_command = "pytest " .. relative_path
+  local pytest_command = command .. " " .. relative_path
   if test_name then
     pytest_command = pytest_command .. "::" .. test_name
   end
@@ -74,9 +74,22 @@ local function copy_pytest_command_with_test_to_clipboard()
   vim.fn.setreg('+', pytest_command)
 end
 
--- Create a Neovim command that calls the function
+local function pytest()
+  foobar("pytest")
+end
+
+local function coverage()
+  foobar("coverage run -m pytest")
+end
+
 vim.api.nvim_create_user_command(
-  'CopyPytestCommandWithTest',
-  copy_pytest_command_with_test_to_clipboard,
-  { desc = "Copy pytest command with relative path and current test for current file to clipboard" }
+  'Pytest',
+  pytest,
+  {}
+)
+
+vim.api.nvim_create_user_command(
+  'PytestCoverage',
+  coverage,
+  {}
 )
