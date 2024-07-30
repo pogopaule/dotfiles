@@ -18,8 +18,14 @@
   };
 
   programs = {
-    zsh.shellAliases = {
-      "-g Y" = "| pbcopy";
+    zsh = {
+      shellGlobalAliases = {
+        Y = "| pbcopy";
+      };
+      shellAliases = {
+        "cpy" = "pbcopy";
+        "pst" = "pbpaste";
+      };
     };
     tmux.plugins = [
       {

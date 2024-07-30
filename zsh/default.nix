@@ -184,6 +184,13 @@
         "kubectl"
       ];
     };
+    shellGlobalAliases = {
+      H = "| head";
+      T = "| tail";
+      F = "| fzf";
+      L = "| less";
+      J = "| jq";
+    };
     shellAliases = {
       # git
       git = "LANGUAGE=en git"; # fix strange language bug that happens because LANGUAGE is set to en_US:de
@@ -194,13 +201,6 @@
 
       gprunesquashmerged = ''git checkout -q develop && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base develop $branch) && [[ $(git cherry develop $(git commit-tree $(git rev-parse "$branch^{tree}") -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'';
       gprunesquashmergeddry = ''git checkout -q develop && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base develop $branch) && [[ $(git cherry develop $(git commit-tree $(git rev-parse "$branch^{tree}") -p $mergeBase -m _)) == "-"* ]] && echo "$branch is merged into develop and can be deleted"; done'';
-
-      # append aliases
-      "-g H" = "| head";
-      "-g T" = "| tail";
-      "-g F" = "| fzf";
-      "-g L" = "| less";
-      "-g J" = "| jq";
 
       # add confirmation
       rm = "rm -i";
