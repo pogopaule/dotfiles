@@ -56,7 +56,9 @@
       cachix
       visidata
       jwt-cli
+      mob # mob programming helper
 
+      nil # nix language server
       sumneko-lua-language-server
       nodePackages.yaml-language-server
       nodePackages.eslint_d
