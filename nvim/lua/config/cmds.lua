@@ -20,3 +20,63 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank()
   end,
 })
+
+local function copy_pytest_command_with_test_to_clipboard()
+  -- Ensure that Treesitter is available
+  if not pcall(require, 'nvim-treesitter') then
+    print("Treesitter is not available.")
+    return
+  end
+
+  -- Get the current buffer's file name
+  local file_path = vim.api.nvim_buf_get_name(0)
+
+  -- Make the file path relative to the current working directory
+  local relative_path = vim.fn.fnamemodify(file_path, ':.')
+
+  -- Get the current cursor position
+  local cursor_pos = vim.api.nvim_win_get_cursor(0)
+  local row = cursor_pos[1] - 1 -- Treesitter counts rows from 0
+  local col = cursor_pos[2]
+
+  -- Get the Treesitter node at the current cursor position
+  local parser = vim.treesitter.get_parser(0)
+  local tstree = parser:parse()[1]
+
+  local root = tstree:root()
+  local node = root:named_descendant_for_range(row, col, row, col)
+
+  -- Traverse up the syntax tree to find the test function that contains the node
+  local test_name = nil
+  while node do
+    if node:type() == "function_definition" then
+      local name_node = node:field("name")[1]
+      if name_node then
+        local name = vim.treesitter.get_node_text(name_node, 0)
+        if name and name:match("^test_") then
+          test_name = name
+          break
+        end
+      end
+    end
+    node = node:parent()
+  end
+
+  -- Construct the pytest command with the relative path and optional test method name
+  local pytest_command = "pytest " .. relative_path
+  if test_name then
+    pytest_command = pytest_command .. "::" .. test_name
+  end
+
+  vim.fn.system("tmux send-keys -t .+ " .. vim.fn.shellescape(pytest_command) .. " C-m")
+
+  -- Copy the command to the clipboard
+  vim.fn.setreg('+', pytest_command)
+end
+
+-- Create a Neovim command that calls the function
+vim.api.nvim_create_user_command(
+  'CopyPytestCommandWithTest',
+  copy_pytest_command_with_test_to_clipboard,
+  { desc = "Copy pytest command with relative path and current test for current file to clipboard" }
+)
