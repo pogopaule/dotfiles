@@ -200,9 +200,14 @@
               mods = 'CMD',
               action = wezterm.action.SendKey { key = 'w', mods = 'CTRL' },
             },
-            {
+            { -- delete word mac
               key = 'Backspace',
               mods = 'ALT',
+              action = wezterm.action.SendKey { key = 'w', mods = 'CTRL' },
+            },
+            { -- delete word linux
+              key = 'Backspace',
+              mods = 'CTRL',
               action = wezterm.action.SendKey { key = 'w', mods = 'CTRL' },
             }
           }
