@@ -9,7 +9,7 @@ return {
     ft = { 'python' },
     keys = {
       { '<leader>TT', '<CMD>write | Pytest<CR>',                                             desc = 'Pytest' },
-      { '<leader>Tc', '<CMD>write | PytestCoverage<CR>',                                           desc = 'Pytest with coverage' },
+      { '<leader>TC', '<CMD>write | PytestCoverage<CR>',                                           desc = 'Pytest with coverage' },
       { '<leader>Tf', '<CMD>write | lua require("neotest").run.run(vim.fn.expand("%"))<CR>', desc = 'File' },
       { '<leader>Ta', '<CMD>lua require("neotest").run.attach()<CR>',                        desc = 'Attach' },
       { '<leader>Tx', '<CMD>lua require("neotest").run.stop()<CR>',                          desc = 'Stop Nearest' },

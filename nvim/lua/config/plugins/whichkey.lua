@@ -121,7 +121,10 @@ return {
         c = { name = '+ChatGPT' },
         x = { name = '+Diagnostics' },
         d = { name = '+Debug' },
-        T = { name = '+Tests' },
+        T = {
+          name = '+Tests',
+          c = { '+Coverage' },
+        },
         g = {
           name = '+Git',
           b = { name = '+Blame' },

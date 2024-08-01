@@ -2,12 +2,20 @@ return {
   {
     'https://github.com/andythigpen/nvim-coverage',
     event = 'VeryLazy',
-    config = true,
+    config = {
+      signs = {
+        covered = { hl = "CoverageCovered", text = "█" },
+        uncovered = { hl = "CoverageUncovered", text = "█" },
+      },
+      highlights = {
+        covered = { fg = "#02B40A" }, -- supports style, fg, bg, sp (see :h highlight-gui)
+        uncovered = { fg = "#FB1404" },
+      },
+    },
     keys = {
-      { '<leader>vv', '<CMD>Coverage<CR>', desc = 'Coverage' },
-      { '<leader>vt', '<CMD>CoverageToggle<CR>', desc = 'Toggle' },
-      { '<leader>tv', '<CMD>CoverageToggle<CR>', desc = 'Coverage' },
-      { '<leader>vs', '<CMD>CoverageSummary<CR>', desc = 'Summary' },
+      { '<leader>Tcc', '<CMD>Coverage<CR>',        desc = 'Coverage' },
+      { '<leader>Tct', '<CMD>CoverageToggle<CR>',  desc = 'Toggle' },
+      { '<leader>Tcs', '<CMD>CoverageSummary<CR>', desc = 'Summary' },
     },
   },
   {
