@@ -5,6 +5,11 @@
     plugins = [
       { name = "fzf-tab"; src = "${pkgs.zsh-fzf-tab}/share/fzf-tab"; }
     ];
+    history = {
+      share = true;
+      save = 70000;
+      ignoreAllDups = true;
+    };
     # zprof.enable = true; TODO: enable this once the new version o home-manager is released and time with /usr/bin/time zsh -i -c exit
     initExtra = ''
       # https://github.com/jeffreytse/zsh-vi-mode#nix
@@ -153,9 +158,6 @@
         nix shell nixpkgs#"$1"
       }
 
-      # share history across tmux panes
-      setopt share_history
-      setopt inc_append_history
     '';
     oh-my-zsh = {
       enable = true;
