@@ -7,6 +7,8 @@
 -- https://github.com/mizlan/iswap.nvim swapping powered by treesitter
 -- https://github.com/Vonr/align.nvim replace Tabularize?
 -- https://github.com/jakewvincent/mkdnflow.nvim
+-- as a replacement for null-ls: https://github.com/nvimtools/none-ls.nvim
+-- lazyvim uses https://github.com/mfussenegger/nvim-lint and https://github.com/stevearc/conform.nvim instead of none-ls
 
 
 -- has to be defined here so keys activation work properly
