@@ -6,6 +6,7 @@
 
   languages.python = {
     enable = true;
+    version = "3.12.4";
     venv = {
       enable = true;
       requirements = ''
@@ -15,6 +16,6 @@
   };
 
   scripts = {
-
+    foobar.exec = "echo foobar";
   };
 }
