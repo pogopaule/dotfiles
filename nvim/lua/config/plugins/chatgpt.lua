@@ -7,6 +7,10 @@ return {
       chat = {
         welcome_message = '',
       },
+      actions_paths = { '~/dotfiles/nvim/chatgpt/actions.json' },
+      openai_params = {
+        model = "gpt-4-0125-preview",
+      },
     },
     keys = {
       { '<leader>cc', '<cmd>ChatGPT<CR>',                              desc = 'ChatGPT' },
