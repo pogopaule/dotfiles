@@ -8,8 +8,8 @@ return {
   {
     'https://github.com/kyazdani42/nvim-tree.lua',
     keys = {
-      { '<leader>tN', '<CMD>NvimTreeToggle<CR>', desc = 'Nvim Tree' },
-      { '<leader>N', '<CMD>NvimTreeFindFile<CR>', desc = 'Find File in Nvim Tree' },
+      { '<leader>tn', '<CMD>NvimTreeToggle<CR>', desc = 'Nvim Tree' },
+      { '<leader>n', '<CMD>NvimTreeFindFile<CR>', desc = 'Find File in Nvim Tree' },
     },
     on_attach = on_attach,
     config = {

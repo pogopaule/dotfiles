@@ -138,7 +138,7 @@ return {
           t = { toggleLspVirtualText, 'LSP virtual text' },
           z = { '<CMD>ZenMode<CR>', 'ZenMode' },
           c = { toggleCopilot, 'Copilot' },
-          n = { '<CMD>set nonumber!<CR>', 'Line Numbers' },
+          N = { '<CMD>set nonumber!<CR>', 'Line Numbers' },
           f = { toggleColorscheme, 'Colorscheme' },
           s = {
             name = '+Spell Check',
@@ -147,7 +147,7 @@ return {
             e = { setSpelllangEn, 'Set Lang To English' },
           },
         },
-        n = {
+        N = {
           name = '+New',
           T = { createTempFile, 'Temp File' },
           t = { '<CMD>tabnew<CR>', 'Tab' },
