@@ -11,6 +11,15 @@ return {
   {
     'https://github.com/tomasky/bookmarks.nvim',
     event = 'VeryLazy',
+    keys = {
+      { '<leader>mm', '<CMD>lua require("bookmarks").bookmark_toggle()<CR>',    desc = 'Toggle Bookmark' },
+      { '<leader>mi', '<CMD>lua require("bookmarks").bookmark_ann()<CR>',       desc = 'Add Annotation' },
+      { '<leader>mc', '<CMD>lua require("bookmarks").bookmark_clean()<CR>',     desc = 'Clean Bookmarks' },
+      { '<leader>mn', '<CMD>lua require("bookmarks").bookmark_next()<CR>',      desc = 'Next Bookmark' },
+      { '<leader>mp', '<CMD>lua require("bookmarks").bookmark_prev()<CR>',      desc = 'Previous Bookmark' },
+      { '<leader>ml', '<CMD>lua require("telescope").extensions.bookmarks.list()<CR>',      desc = 'List Bookmarks' },
+      { '<leader>mx', '<CMD>lua require("bookmarks").bookmark_clear_all()<CR>', desc = 'Clear All Bookmarks' },
+    },
     config = function()
       require('bookmarks').setup {
         -- sign_priority = 8,  --set bookmark sign priority to cover other sign
@@ -21,17 +30,6 @@ return {
           ["@f"] = "⛏ ", -- mark annotation startswith @f ,signs this icon as `Fix`
           ["@n"] = " ", -- mark annotation startswith @n ,signs this icon as `Note`
         },
-        on_attach = function(bufnr)
-          local bm = require "bookmarks"
-          local map = vim.keymap.set
-          map("n", "mm", bm.bookmark_toggle) -- add or remove bookmark at current line
-          map("n", "mi", bm.bookmark_ann) -- add or edit mark annotation at current line
-          map("n", "mc", bm.bookmark_clean) -- clean all marks in local buffer
-          map("n", "mn", bm.bookmark_next) -- jump to next mark in local buffer
-          map("n", "mp", bm.bookmark_prev) -- jump to previous mark in local buffer
-          map("n", "ml", bm.bookmark_list) -- show marked file list in quickfix window
-          map("n", "mx", bm.bookmark_clear_all) -- removes all bookmarks
-        end
       }
     end
   },
