@@ -1,5 +1,14 @@
 return {
   {
+    'https://github.com/MeanderingProgrammer/render-markdown.nvim',
+    opts = {},
+    ft = { 'markdown' },
+    config = true,
+    keys = {
+      { '<leader>tm', '<CMD>RenderMarkdown toggle<CR>', desc = 'Render Markdown' },
+    },
+  },
+  {
     'https://github.com/tomasky/bookmarks.nvim',
     event = 'VeryLazy',
     config = function()
