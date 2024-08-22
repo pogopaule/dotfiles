@@ -40,7 +40,6 @@
     global.brewfile = true;
     casks = [
       "raycast"
-      "uhk-agent"
       "todoist"
       "spotify"
       "cyberduck"

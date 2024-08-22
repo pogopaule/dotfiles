@@ -2,6 +2,7 @@
 
 {
   packages = [
+    pkgs.pyright
   ];
 
   languages.python = {
