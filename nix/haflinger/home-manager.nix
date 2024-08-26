@@ -11,13 +11,22 @@
       discord
       jetbrains.pycharm-community
       git-lfs
+      kubelogin
     ] ++ [
       devenv.packages.aarch64-darwin.devenv
-      pkgs-unstable.azure-cli
+      (pkgs-unstable.azure-cli.withExtensions [ pkgs-unstable.azure-cli.extensions.azure-devops ])
     ];
   };
 
   programs = {
+    k9s = {
+      enable = true;
+      settings = {
+        k9s = {
+          ui.skin = "solarized_light";
+        };
+      };
+    };
     zsh = {
       shellGlobalAliases = {
         Y = "| pbcopy";
