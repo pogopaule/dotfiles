@@ -121,6 +121,7 @@ return {
         c = { name = '+ChatGPT' },
         x = { name = '+Diagnostics' },
         d = { name = '+Debug' },
+        s = { name = '+Surround' },
         T = {
           name = '+Tests',
           c = { '+Coverage' },
@@ -158,7 +159,7 @@ return {
         Q = { '<CMD>quitall!<CR>', 'Quit All Force', mode = { 'n', 'v' } },
         h = { '<CMD>nohlsearch<CR>', 'Remove Highlight' },
         p = { paste_preproc, 'Paste From Clipboard', mode = { 'n', 'v' } },
-        s = { ':%s///gc<left><left><left><left>', 'Substitute', silent = false },
+        S = { ':%s///gc<left><left><left><left>', 'Substitute', silent = false },
       }, { prefix = '<leader>' })
 
       wk.register({
@@ -169,7 +170,7 @@ return {
           v = { "<ESC><CMD>lua require('refactoring').refactor('Extract Variable')<CR>", 'Extract Variable' },
         },
         c = { name = '+ChatGPT' },
-        s = { '"hy:%s/<C-r>h//gc<left><left><left>', 'Substitute Selection', silent = false },
+        S = { '"hy:%s/<C-r>h//gc<left><left><left>', 'Substitute Selection', silent = false },
 
       }, { prefix = '<leader>', mode = 'v' })
 
