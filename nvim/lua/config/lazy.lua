@@ -9,6 +9,7 @@
 -- https://github.com/jakewvincent/mkdnflow.nvim
 -- as a replacement for null-ls: https://github.com/nvimtools/none-ls.nvim
 -- lazyvim uses https://github.com/mfussenegger/nvim-lint and https://github.com/stevearc/conform.nvim instead of none-ls
+-- https://github.com/nvim-telescope/telescope-live-grep-args.nvim
 
 
 -- has to be defined here so keys activation work properly

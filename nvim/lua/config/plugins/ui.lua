@@ -1,4 +1,20 @@
 return {
+  -- Highlight word under cursor
+  {
+    "https://github.com/RRethy/vim-illuminate",
+    event = "BufReadPost",
+    config = function()
+      require('illuminate').configure({
+        filetypes_denylist = {
+          -- `lua = vim.bo.filetype` to get the filetype of the current buffer
+          'NvimTree',
+          'Outline',
+          'aerial-nav',
+          'aerial',
+        },
+      })
+    end,
+  },
   {
     'https://github.com/folke/zen-mode.nvim',
     event = { 'BufReadPost', 'BufNewFile' },

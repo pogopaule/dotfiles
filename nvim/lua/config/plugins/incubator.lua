@@ -1,24 +1,15 @@
 return {
   {
-    'https://github.com/MeanderingProgrammer/render-markdown.nvim',
-    opts = {},
-    ft = { 'markdown' },
-    config = true,
-    keys = {
-      { '<leader>tm', '<CMD>RenderMarkdown toggle<CR>', desc = 'Render Markdown' },
-    },
-  },
-  {
     'https://github.com/tomasky/bookmarks.nvim',
     event = 'VeryLazy',
     keys = {
-      { '<leader>mm', '<CMD>lua require("bookmarks").bookmark_toggle()<CR>',    desc = 'Toggle Bookmark' },
-      { '<leader>mi', '<CMD>lua require("bookmarks").bookmark_ann()<CR>',       desc = 'Add Annotation' },
-      { '<leader>mc', '<CMD>lua require("bookmarks").bookmark_clean()<CR>',     desc = 'Clean Bookmarks' },
-      { '<leader>mn', '<CMD>lua require("bookmarks").bookmark_next()<CR>',      desc = 'Next Bookmark' },
-      { '<leader>mp', '<CMD>lua require("bookmarks").bookmark_prev()<CR>',      desc = 'Previous Bookmark' },
-      { '<leader>ml', '<CMD>lua require("telescope").extensions.bookmarks.list()<CR>',      desc = 'List Bookmarks' },
-      { '<leader>mx', '<CMD>lua require("bookmarks").bookmark_clear_all()<CR>', desc = 'Clear All Bookmarks' },
+      { '<leader>mm', '<CMD>lua require("bookmarks").bookmark_toggle()<CR>',           desc = 'Toggle Bookmark' },
+      { '<leader>mi', '<CMD>lua require("bookmarks").bookmark_ann()<CR>',              desc = 'Add Annotation' },
+      { '<leader>mc', '<CMD>lua require("bookmarks").bookmark_clean()<CR>',            desc = 'Clean Bookmarks' },
+      { '<leader>mn', '<CMD>lua require("bookmarks").bookmark_next()<CR>',             desc = 'Next Bookmark' },
+      { '<leader>mp', '<CMD>lua require("bookmarks").bookmark_prev()<CR>',             desc = 'Previous Bookmark' },
+      { '<leader>ml', '<CMD>lua require("telescope").extensions.bookmarks.list()<CR>', desc = 'List Bookmarks' },
+      { '<leader>mx', '<CMD>lua require("bookmarks").bookmark_clear_all()<CR>',        desc = 'Clear All Bookmarks' },
     },
     config = function()
       require('bookmarks').setup {
@@ -76,37 +67,10 @@ return {
     },
   },
   {
-    "https://github.com/danielfalk/smart-open.nvim",
-    branch = "0.2.x",
-    event = 'VeryLazy',
-    config = function()
-      require("telescope").load_extension("smart_open")
-    end,
-    dependencies = {
-      "https://github.com/kkharji/sqlite.lua",
-    },
-    keys = {
-      { '<leader>fx', '<CMD>Telescope smart_open<CR>', desc = 'Smart Open' },
-    },
-  },
-  {
     'https://github.com/stevearc/oil.nvim',
     dependencies = { "https://github.com/nvim-tree/nvim-web-devicons" },
     config = true,
     cmd = { 'Oil' },
-  },
-  {
-    "https://github.com/RRethy/vim-illuminate",
-    event = "BufReadPost",
-    config = function()
-      require('illuminate').configure({
-        filetypes_denylist = {
-          'Outline',
-          'aerial-nav',
-          'aerial',
-        },
-      })
-    end,
   },
   {
     'https://github.com/ThePrimeagen/harpoon',
@@ -119,14 +83,6 @@ return {
       { '<leader>3',  '<CMD>:lua require("harpoon.ui").nav_file(3)<CR>', desc = 'Go to Harpoon File 3' },
     },
     config = true,
-  },
-  {
-    'https://github.com/AckslD/nvim-neoclip.lua',
-    event = 'VeryLazy',
-    config = function()
-      require('neoclip').setup()
-      require('telescope').load_extension('neoclip')
-    end,
   },
   {
     'https://github.com/sindrets/diffview.nvim',

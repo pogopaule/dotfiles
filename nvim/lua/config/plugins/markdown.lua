@@ -3,19 +3,10 @@ return {
   {
     'https://github.com/iamcco/markdown-preview.nvim',
     cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+    keys = {
+      { '<leader>tm', '<CMD>MarkdownPreviewToggle<CR>', desc = 'Markdown Preview' },
+    },
     ft = { 'markdown' },
     build = function() vim.fn['mkdp#util#install']() end,
   },
-  -- -- fixes indentation problems with bullet lists
-  -- {
-  --   'https://github.com/dkarter/bullets.vim',
-  --   ft = 'markdown',
-  -- },
-  {
-  'https://github.com/tadmccorkle/markdown.nvim',
-  ft = "markdown",
-  opts = {
-    -- configuration here or empty for defaults
-  },
-}
 }
