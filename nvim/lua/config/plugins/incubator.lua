@@ -4,7 +4,7 @@ return {
     event = 'VeryLazy',
     keys = {
       { '<leader>mm', '<CMD>lua require("bookmarks").bookmark_toggle()<CR>',           desc = 'Toggle Bookmark' },
-      { '<leader>mi', '<CMD>lua require("bookmarks").bookmark_ann()<CR>',              desc = 'Add Annotation' },
+      { '<leader>me', '<CMD>lua require("bookmarks").bookmark_ann()<CR>',              desc = 'Add Annotation' },
       { '<leader>mc', '<CMD>lua require("bookmarks").bookmark_clean()<CR>',            desc = 'Clean Bookmarks' },
       { '<leader>mn', '<CMD>lua require("bookmarks").bookmark_next()<CR>',             desc = 'Next Bookmark' },
       { '<leader>mp', '<CMD>lua require("bookmarks").bookmark_prev()<CR>',             desc = 'Previous Bookmark' },
@@ -15,11 +15,13 @@ return {
       require('bookmarks').setup {
         -- sign_priority = 8,  --set bookmark sign priority to cover other sign
         save_file = vim.fn.expand "$HOME/.bookmarks", -- bookmarks save file path
-        keywords = {
-          ["@t"] = "☑️ ", -- mark annotation startswith @t ,signs this icon as `Todo`
-          ["@w"] = "⚠️ ", -- mark annotation startswith @w ,signs this icon as `Warn`
-          ["@f"] = "⛏ ", -- mark annotation startswith @f ,signs this icon as `Fix`
-          ["@n"] = " ", -- mark annotation startswith @n ,signs this icon as `Note`
+        signs = {
+          add = {
+            text = "",
+          },
+          ann = {
+            text = "",
+          },
         },
       }
     end
