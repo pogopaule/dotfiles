@@ -134,7 +134,6 @@
 
     wezterm = {
       enable = true;
-      package = pkgs-unstable.wezterm;
       extraConfig = ''
         local theme = 'dawnfox'
 
