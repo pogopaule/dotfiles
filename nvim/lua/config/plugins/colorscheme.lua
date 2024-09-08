@@ -1,6 +1,7 @@
 return {
   -- nightfox theme
   {
+    -- TODO: has upstream fixed lspsage yet?
     'https://github.com/pogopaule/nightfox.nvim',
     lazy = false,
     priority = 1000,
