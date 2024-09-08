@@ -54,6 +54,7 @@ return {
     keys = {
       { '<leader>to', '<CMD>AerialToggle<CR>',    desc = 'Aerial' },
       { '<leader>tO', '<CMD>AerialNavToggle<CR>', desc = 'AerialNav' },
+      { '<leader>fO', '<CMD>Telescope aerial<CR>', desc = 'Outline' },
     },
     cmd = { 'AerialToggle', 'AerialPrev', 'AerialNext' },
     config = {

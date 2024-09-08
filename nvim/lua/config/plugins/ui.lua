@@ -3,6 +3,9 @@ return {
   {
     "https://github.com/RRethy/vim-illuminate",
     event = "BufReadPost",
+    keys = {
+      { "<leader>i", "<CMD>lua require('illuminate').goto_next_reference()<CR>", desc = "Highlight" },
+    },
     config = function()
       require('illuminate').configure({
         filetypes_denylist = {

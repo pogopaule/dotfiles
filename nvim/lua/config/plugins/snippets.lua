@@ -36,9 +36,6 @@ return {
         end
       })
 
-      map('n', '<F5>',
-        '<CMD>source ~/dotfiles/nvim/lua/config/plugins/snippets.lua<CR><CMD>lua require("notify")("Snippets reloaded")<CR>')
-
       -- selecting within a list of options
       map({ 'i', 's' }, '<c-e>', function()
         if ls.choice_active() then

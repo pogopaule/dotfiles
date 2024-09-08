@@ -30,7 +30,7 @@ return {
       { '<leader>oo', '<cmd>ObsidianOpen<CR>',        desc = 'Open in Obsidian' },
       { '<leader>of', '<cmd>ObsidianFollowLink<CR>',  desc = 'Follow Link' },
       { '<leader>ot', '<cmd>ObsidianTemplate<CR>',    desc = 'Insert Template' },
-      { '<leader>no', '<cmd>ObsidianNew<CR>',         desc = 'Obsidian' },
+      { '<leader>No', '<cmd>ObsidianNew<CR>',         desc = 'Obsidian' },
     },
   }
 }
