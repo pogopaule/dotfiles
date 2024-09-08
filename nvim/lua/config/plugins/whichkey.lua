@@ -22,46 +22,6 @@ return {
         copilot = not copilot
       end
 
-      local function createTempFile()
-        local function randomString()
-          local upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-          local lowerCase = "abcdefghijklmnopqrstuvwxyz"
-          local numbers = "0123456789"
-
-          local characterSet = upperCase .. lowerCase .. numbers
-
-          local resultLength = 5
-          local result = ""
-
-          for _ = 1, resultLength do
-            local rand = math.random(#characterSet)
-            result = result .. string.sub(characterSet, rand, rand)
-          end
-          return result
-        end
-
-        local canceledStr = "__INPUT_CANCELLED__"
-
-        vim.ui.input({
-            prompt = 'Scratch file name: ',
-            cancelreturn = canceledStr,
-            completion = 'file',
-            default = randomString(),
-          },
-          function(input)
-            if input == canceledStr then
-              vim.cmd("echohl WarningMsg")
-              vim.cmd("echomsg 'Scratch file creation cancelled!'")
-              vim.cmd("echohl None")
-            else
-              local path = '/tmp/' .. input
-              vim.cmd('edit ' .. path)
-              vim.notify('Scratch file created at ' .. path)
-            end
-          end
-        )
-      end
-
       local function toggleSpellCheck()
         if vim.o.spell then
           vim.o.spell = false
@@ -150,11 +110,28 @@ return {
         },
         N = {
           name = '+New',
-          T = { createTempFile, 'Temp File' },
-          t = { '<CMD>tabnew<CR>', 'Tab' },
-          s = { '<CMD>tabnew | setlocal buftype=nofile noswapfile bufhidden=wipe nobuflisted | Telescope filetypes<CR>', 'Scratch' },
+          t = {
+            name = '+Temp File',
+            t =  { '<CMD>tabnew `mktemp`<CR>', 'Tab' },
+            ['|'] = { '<CMD>vnew `mktemp`<CR>', '| Split' },
+            ['-'] = { '<CMD>new `mktemp`<CR>', '- Split' },
+          },
+          b = {
+            name = '+Buffer',
+            t = { '<CMD>tabnew<CR>', 'Tab' },
+            ['|'] = { '<CMD>vnew<CR>', '| Split' },
+            ['-'] = { '<CMD>new<CR>', '- Split' },
+          },
+          s = {
+            name = '+Scratch',
+            t = { '<CMD>tabnew | setlocal buftype=nofile noswapfile bufhidden=wipe nobuflisted | Telescope filetypes<CR>', 'Tab' },
+            ['|'] = { '<CMD>vnew | setlocal buftype=nofile noswapfile bufhidden=wipe nobuflisted | Telescope filetypes<CR>', '| Split' },
+            ['-'] = { '<CMD>new | setlocal buftype=nofile noswapfile bufhidden=wipe nobuflisted | Telescope filetypes<CR>', '- Split' },
+          },
+
+
         },
-        ["<leader>"] = {'<CMD>wq<CR>', 'Save and Quit'},
+        ["<leader>"] = { '<CMD>wq<CR>', 'Save and Quit' },
         q = { '<CMD>quit<CR>', 'Quit', mode = { 'n', 'v' } },
         Q = { '<CMD>quitall!<CR>', 'Quit All Force', mode = { 'n', 'v' } },
         h = { '<CMD>nohlsearch<CR>', 'Remove Highlight' },
