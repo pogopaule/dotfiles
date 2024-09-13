@@ -49,7 +49,7 @@ return {
         capabilities = capabilities,
       })
 
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         on_attach = on_attach,
         capabilities = capabilities,
         cmd = { -- see https://github.com/typescript-language-server/typescript-language-server/issues/411
