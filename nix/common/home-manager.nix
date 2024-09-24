@@ -57,6 +57,7 @@
       visidata
       jwt-cli
       mob # mob programming helper
+      difftastic
 
       nil # nix language server
       sumneko-lua-language-server
@@ -117,7 +118,6 @@
 
     git = {
       enable = true;
-      difftastic.enable = true;
       includes = [{ path = "~/.gitconfig.local"; }];
       extraConfig = {
         core.editor = "nvim";

@@ -200,6 +200,7 @@
       gsa = "git secret add";
       gdf = "git diff $@ --name-only | fzf -m --reverse --ansi --preview-window=right,70% --preview 'git diff $@ --color=always -- {-1} | ${pkgs.diff-so-fancy}/bin/diff-so-fancy'";
       gcop = "git checkout -p";
+      gd = "GIT_EXTERNAL_DIFF=\"difft --color auto --background light --display side-by-side\" git diff";
 
       gprunesquashmerged = ''git checkout -q develop && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base develop $branch) && [[ $(git cherry develop $(git commit-tree $(git rev-parse "$branch^{tree}") -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'';
       gprunesquashmergeddry = ''git checkout -q develop && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base develop $branch) && [[ $(git cherry develop $(git commit-tree $(git rev-parse "$branch^{tree}") -p $mergeBase -m _)) == "-"* ]] && echo "$branch is merged into develop and can be deleted"; done'';
