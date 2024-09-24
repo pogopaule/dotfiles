@@ -192,6 +192,8 @@
       F = "| fzf";
       L = "| less";
       J = "| jq";
+      C = "| wc -l";
+      E = "\ls . | entr";
     };
     shellAliases = {
       # git
