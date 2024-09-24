@@ -66,21 +66,9 @@ return {
   {
     'https://github.com/kylechui/nvim-surround',
     event = { 'BufReadPost', 'BufNewFile' },
-    config = {
-      keymaps = {
-        insert = "<C-g>s",
-        insert_line = "<C-g>S",
-        normal = "<leader>ss",
-        normal_line = "<leader>sS",
-        normal_cur = "<leader>sl",
-        normal_cur_line = "<leader>sL",
-        visual = "<leader>s",
-        visual_line = "<leader>S",
-        delete = "<leader>sd",
-        change = "<leader>sc",
-        change_line = "<leader>sC",
-      },
-    },
+    config = function()
+      require("nvim-surround").setup {}
+    end
   },
 
   -- Insert matching quote, brackets, etc.
