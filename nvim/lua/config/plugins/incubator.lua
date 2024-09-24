@@ -2,7 +2,7 @@ return {
   {
     "https://github.com/yetone/avante.nvim",
     event = "VeryLazy",
-    -- build = "make", -- This is Optional, only if you want to use tiktoken_core to calculate tokens count
+    build = "make",
     opts = {
     },
     dependencies = {
