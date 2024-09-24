@@ -55,6 +55,7 @@
       "stats"
       "skitch"
       "obsidian"
+      "qbserve"
     ];
     taps = [ ];
     brews = [ ];
