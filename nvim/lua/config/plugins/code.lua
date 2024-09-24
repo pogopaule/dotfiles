@@ -33,6 +33,9 @@ return {
   -- Colorize hex colors
   {
     'https://github.com/NvChad/nvim-colorizer.lua',
+    keys = {
+      { '<leader>tC', '<CMD>ColorizerToggle<CR>', 'Colorizer' },
+    },
     event = { 'BufReadPre', 'BufNewFile' },
     config = true,
   },
@@ -52,11 +55,10 @@ return {
   {
     'https://github.com/ThePrimeagen/refactoring.nvim',
     keys = {
-      {
-        '<leader>ri',
-        "<CMD>lua require('refactoring').refactor('Inline Variable')<CR>",
-        desc = 'Inline Variable',
-      },
+      { '<leader>ri', "<CMD>lua require('refactoring').refactor('Inline Variable')<CR>",       desc = 'Inline Variable' },
+      { "<leader>rf", "<ESC><CMD>lua require('refactoring').refactor('Extract Function')<CR>", desc = "Extract Function", mode = "v" },
+      { "<leader>ri", "<ESC><CMD>lua require('refactoring').refactor('Inline Variable')<CR>",  desc = "Inline Variable",  mode = "v" },
+      { "<leader>rv", "<ESC><CMD>lua require('refactoring').refactor('Extract Variable')<CR>", desc = "Extract Variable", mode = "v" },
     },
   },
 

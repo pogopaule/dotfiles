@@ -115,7 +115,7 @@ return {
     'https://github.com/nvimdev/lspsaga.nvim',
     event = { 'LspAttach' },
     keys = {
-      { '<leader>a',  '<CMD>Lspsaga code_action<CR>',                 desc = 'LSP Code Action' },
+      { '<leader>l',  '<CMD>Lspsaga code_action<CR>',                 desc = 'LSP Code Action' },
       { '<leader>e',  '<CMD>Lspsaga show_line_diagnostics<CR>',       desc = 'LSP Line Diagnostics' },
       { 'K',          '<CMD>Lspsaga hover_doc<CR>',                   desc = 'Hover LSP documentation' },
       { '<leader>rr', '<CMD>Lspsaga rename<CR>',                      desc = 'Rename' },

@@ -68,94 +68,85 @@ return {
       end
 
       local wk = require('which-key')
-      -- TODO: move mappings to plugin configs and only keep the +names
-      wk.register({
-        f = {
-          name = '+Find',
-          c = { name = '+Commit' },
-          s = { name = '+Symbol' },
-        },
-        r = { name = '+Refactor' },
-        o = { name = '+Obsidian' },
-        v = { name = '+Coverage' },
-        c = { name = '+ChatGPT' },
-        x = { name = '+Diagnostics' },
-        d = { name = '+Debug' },
-        s = { name = '+Surround' },
-        T = {
-          name = '+Tests',
-          c = { '+Coverage' },
-        },
-        g = {
-          name = '+Git',
-          b = { name = '+Blame' },
-          bf = { '<CMD>G blame<CR>', 'Blame File' },
-          g = { '<CMD>GBrowse<CR>', 'Open Buffer In Github' },
-        },
-        t = {
-          name = '+Toggle',
-          a = { '<CMD>set number!<CR>', 'Absolute Numbers' },
-          r = { '<CMD>set relativenumber!<CR>', 'Relative Numbers' },
-          t = { toggleLspVirtualText, 'LSP virtual text' },
-          z = { '<CMD>ZenMode<CR>', 'ZenMode' },
-          c = { toggleCopilot, 'Copilot' },
-          N = { '<CMD>set nonumber!<CR>', 'Line Numbers' },
-          f = { toggleColorscheme, 'Colorscheme' },
-          s = {
-            name = '+Spell Check',
-            s = { toggleSpellCheck, 'Spell Check' },
-            g = { setSpelllangDe, 'Set Lang To German' },
-            e = { setSpelllangEn, 'Set Lang To English' },
+      wk.add(
+        {
+          {
+            { "<leader>N",  group = "New" },
+            { "<leader>Nb", group = "Buffer" },
+            { "<leader>Ns", group = "Scratch" },
+            { "<leader>Nt", group = "Temp File" },
+            { "<leader>T",  group = "Tests" },
+            { "<leader>c",  group = "ChatGPT" },
+            { "<leader>d",  group = "Debug" },
+            { "<leader>f",  group = "Find" },
+            { "<leader>fc", group = "Commit" },
+            { "<leader>fs", group = "Symbol" },
+            { "<leader>g",  group = "Git" },
+            { "<leader>gb", group = "Blame" },
+            { "<leader>m",  group = "Bookmark", },
+            { "<leader>o",  group = "Obsidian" },
+            { "<leader>r",  group = "Refactor" },
+            { "<leader>t",  group = "Toggle" },
+            { "<leader>ts", group = "Spell Check" },
+            { "<leader>v",  group = "Coverage" },
+            { "<leader>x",  group = "Diagnostics" },
+            { "<leader>Tc", group = "Coverage" },
           },
-        },
-        N = {
-          name = '+New',
-          t = {
-            name = '+Temp File',
-            t =  { '<CMD>tabnew `mktemp`<CR>', 'Tab' },
-            ['|'] = { '<CMD>vnew `mktemp`<CR>', '| Split' },
-            ['-'] = { '<CMD>new `mktemp`<CR>', '- Split' },
+          {
+            mode = { "v" },
+            { "<leader>c", group = "ChatGPT" },
+            { "<leader>r", group = "Refactor" },
+          }
+        }
+      )
+
+
+      wk.add(
+        {
+          { "<leader><leader>", "<CMD>wq<CR>",                                                                                           desc = "Save and Quit" },
+          { "<leader>Nb-",      "<CMD>new<CR>",                                                                                          desc = "- Split" },
+          { "<leader>Nbt",      "<CMD>tabnew<CR>",                                                                                       desc = "Tab" },
+          { "<leader>Nb|",      "<CMD>vnew<CR>",                                                                                         desc = "| Split" },
+          { "<leader>Ns-",      "<CMD>new | setlocal buftype=nofile noswapfile bufhidden=wipe nobuflisted | Telescope filetypes<CR>",    desc = "- Split" },
+          { "<leader>Nst",      "<CMD>tabnew | setlocal buftype=nofile noswapfile bufhidden=wipe nobuflisted | Telescope filetypes<CR>", desc = "Tab" },
+          { "<leader>Ns|",      "<CMD>vnew | setlocal buftype=nofile noswapfile bufhidden=wipe nobuflisted | Telescope filetypes<CR>",   desc = "| Split" },
+          { "<leader>Nt-",      "<CMD>new `mktemp`<CR>",                                                                                 desc = "- Split" },
+          { "<leader>Ntt",      "<CMD>tabnew `mktemp`<CR>",                                                                              desc = "Tab" },
+          { "<leader>Nt|",      "<CMD>vnew `mktemp`<CR>",                                                                                desc = "| Split" },
+          { "<leader>S",        ":%s///gc<left><left><left><left>",                                                                      desc = "Substitute",            silent = false },
+          { "<leader>gbf",      "<CMD>G blame<CR>",                                                                                      desc = "Blame File" },
+          { "<leader>gg",       "<CMD>GBrowse<CR>",                                                                                      desc = "Open Buffer In Github" },
+          { "<leader>h",        "<CMD>nohlsearch<CR>",                                                                                   desc = "Remove Highlight" },
+          { "<leader>tN",       "<CMD>set nonumber!<CR>",                                                                                desc = "Line Numbers" },
+          { "<leader>ta",       "<CMD>set number!<CR>",                                                                                  desc = "Absolute Numbers" },
+          { "<leader>tc",       toggleCopilot,                                                                                           desc = "Copilot" },
+          { "<leader>tf",       toggleColorscheme,                                                                                       desc = "Colorscheme" },
+          { "<leader>tr",       "<CMD>set relativenumber!<CR>",                                                                          desc = "Relative Numbers" },
+          { "<leader>tse",      setSpelllangEn,                                                                                          desc = "Set Lang To English" },
+          { "<leader>tsg",      setSpelllangDe,                                                                                          desc = "Set Lang To German" },
+          { "<leader>tss",      toggleSpellCheck,                                                                                        desc = "Spell Check" },
+          { "<leader>tt",       toggleLspVirtualText,                                                                                    desc = "LSP virtual text" },
+          { "<leader>tz",       "<CMD>ZenMode<CR>",                                                                                      desc = "ZenMode" },
+          { "YY",               '"+yy',                                                                                                  desc = "Yank Line To Clipboard" },
+          { "<C-s>",            "<ESC><CMD>write<CR>",                                                                                   desc = "Write",                 mode = { "i", "n", "v" } },
+          { "Y",                '"+y',                                                                                                   desc = "Yank To Clipboard",     mode = { "n", "v" } },
+          {
+            mode = { "n", "v" },
+            { "<leader>F", function() vim.lsp.buf.format { async = true } end, desc = "Format" },
+            { "<leader>Q", "<CMD>quitall!<CR>",                                desc = "Quit All Force" },
+            { "<leader>p", paste_preproc,                                      desc = "Paste From Clipboard" },
+            { "<leader>q", "<CMD>quit<CR>",                                    desc = "Quit" },
           },
-          b = {
-            name = '+Buffer',
-            t = { '<CMD>tabnew<CR>', 'Tab' },
-            ['|'] = { '<CMD>vnew<CR>', '| Split' },
-            ['-'] = { '<CMD>new<CR>', '- Split' },
+          {
+            mode = { "v" },
+            { "<leader>S", '"hy:%s/<C-r>h//gc<left><left><left>', desc = "Substitute Selection", silent = false },
           },
-          s = {
-            name = '+Scratch',
-            t = { '<CMD>tabnew | setlocal buftype=nofile noswapfile bufhidden=wipe nobuflisted | Telescope filetypes<CR>', 'Tab' },
-            ['|'] = { '<CMD>vnew | setlocal buftype=nofile noswapfile bufhidden=wipe nobuflisted | Telescope filetypes<CR>', '| Split' },
-            ['-'] = { '<CMD>new | setlocal buftype=nofile noswapfile bufhidden=wipe nobuflisted | Telescope filetypes<CR>', '- Split' },
-          },
-
-
-        },
-        ["<leader>"] = { '<CMD>wq<CR>', 'Save and Quit' },
-        q = { '<CMD>quit<CR>', 'Quit', mode = { 'n', 'v' } },
-        Q = { '<CMD>quitall!<CR>', 'Quit All Force', mode = { 'n', 'v' } },
-        h = { '<CMD>nohlsearch<CR>', 'Remove Highlight' },
-        p = { paste_preproc, 'Paste From Clipboard', mode = { 'n', 'v' } },
-        S = { ':%s///gc<left><left><left><left>', 'Substitute', silent = false },
-      }, { prefix = '<leader>' })
-
-      wk.register({
-        r = {
-          name = '+Refactor',
-          i = { "<ESC><CMD>lua require('refactoring').refactor('Inline Variable')<CR>", 'Inline Variable' },
-          f = { "<ESC><CMD>lua require('refactoring').refactor('Extract Function')<CR>", 'Extract Function' },
-          v = { "<ESC><CMD>lua require('refactoring').refactor('Extract Variable')<CR>", 'Extract Variable' },
-        },
-        c = { name = '+ChatGPT' },
-        S = { '"hy:%s/<C-r>h//gc<left><left><left>', 'Substitute Selection', silent = false },
-
-      }, { prefix = '<leader>', mode = 'v' })
-
-      wk.register({
-        ["<C-s>"] = { '<ESC><CMD>write<CR>', 'Write', mode = { 'n', 'v', 'i' } },
-        Y = { '"+y', 'Yank To Clipboard', mode = { 'n', 'v' } },
-        YY = { '"+yy', 'Yank Line To Clipboard', mode = { 'n' } },
-      })
+          {
+            { mode = { "s", "x" } },
+            { "<leader>F",        function() vim.lsp.buf.format { async = true } end, desc = "Format" }
+          }
+        }
+      )
     end,
   },
 }

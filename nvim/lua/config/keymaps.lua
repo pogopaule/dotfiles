@@ -90,9 +90,3 @@ map("n", "dd", smart_dd, { noremap = true, expr = true })
 local group = vim.api.nvim_create_augroup('enter_in_quickfix', { clear = true })
 vim.api.nvim_create_autocmd('BufReadPost',
   { pattern = 'quickfix', command = 'nnoremap <buffer> <CR> <CR>', group = group, })
-
-
-map('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, opts)
-map('v', '<leader>F', function() vim.lsp.buf.format { async = true } end, opts)
-map('s', '<leader>F', function() vim.lsp.buf.format { async = true } end, opts)
-map('x', '<leader>F', function() vim.lsp.buf.format { async = true } end, opts)
