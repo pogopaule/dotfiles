@@ -2,6 +2,9 @@ local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 
 
+-- upper case in insert mode
+map('i', '<C-b>', '<ESC>viwUgi', opts)
+
 -- disable arrow keys
 map('i', '<Up>', '<NOP>', opts)
 map('i', '<Down>', '<NOP>', opts)
