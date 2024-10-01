@@ -16,16 +16,21 @@ return {
           },
         }
       })
-
-      local handle = io.open(os.getenv('HOME') .. '/.theme', 'r')
-      local result = handle:read("*a")
-      handle:close()
-      result = string.gsub(result, "\n", "")
-      if result == 'dark' then
-        vim.cmd('colorscheme nordfox')
-      else
-        vim.cmd('colorscheme dawnfox')
-      end
+      vim.cmd('colorscheme dawnfox')
     end
+  },
+  -- switch colorscheme depending on system theme
+  {
+    'https://github.com/f-person/auto-dark-mode.nvim',
+    lazy = false,
+    opts = {
+      update_interval = 3000,
+      set_dark_mode = function()
+        vim.cmd("colorscheme nordfox")
+      end,
+      set_light_mode = function()
+        vim.cmd("colorscheme dawnfox")
+      end,
+    },
   },
 }
