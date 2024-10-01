@@ -104,7 +104,7 @@
           user = "git";
         };
       };
-      extraConfig = "AddKeysToAgent yes";
+      addKeysToAgent = "yes";
     };
 
     fzf = rec {
@@ -135,16 +135,36 @@
     wezterm = {
       enable = true;
       extraConfig = ''
-        local theme = 'dawnfox'
+        -- Theme code taken from https://wezfurlong.org/wezterm/config/lua/wezterm.gui/get_appearance.html
+        local wezterm = require 'wezterm'
 
-
-        local handle = io.open(os.getenv('HOME') .. '/.theme', 'r')
-        local result = handle:read("*a")
-        handle:close()
-        result = string.gsub(result, "\n", "")
-        if result == 'dark' then
-          theme = 'nordfox'
+        -- wezterm.gui is not available to the mux server, so take care to
+        -- do something reasonable when this config is evaluated by the mux
+        function get_appearance()
+          if wezterm.gui then
+            return wezterm.gui.get_appearance()
+          end
+          return 'Dark'
         end
+
+        function scheme_for_appearance(appearance)
+          if appearance:find 'Dark' then
+            return 'nordfox'
+          else
+            return 'dawnfox'
+          end
+        end
+
+        local theme = scheme_for_appearance(get_appearance())
+
+        local theme_file = os.getenv('HOME') .. '/.theme'
+        local handle = io.open(theme_file, 'w')
+        if get_appearance():find 'Dark' then
+          handle:write('dark')
+        else
+          handle:write('light')
+        end
+        handle:close()
 
         return {
           hide_tab_bar_if_only_one_tab = true,
