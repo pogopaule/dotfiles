@@ -58,6 +58,7 @@
       jwt-cli
       mob # mob programming helper
       difftastic
+      pre-commit
 
       nil # nix language server
       sumneko-lua-language-server
@@ -85,6 +86,12 @@
     jq.enable = true;
     gh = {
       enable = true;
+    };
+
+    # tool version manager, e.g. for python 3.8 which is not supported by nixpkgs anymore
+    mise = {
+      enable = true;
+      enableZshIntegration = true;
     };
 
     direnv = {
