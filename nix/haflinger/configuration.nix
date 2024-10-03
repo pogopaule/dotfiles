@@ -60,4 +60,6 @@
     taps = [ ];
     brews = [ ];
   };
+
+  system.stateVersion = 5;
 }
