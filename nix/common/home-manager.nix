@@ -60,6 +60,7 @@
       difftastic
       pre-commit
 
+      # language servers are obsolete once migration to lazyvim is complete
       nil # nix language server
       sumneko-lua-language-server
       nodePackages.yaml-language-server
