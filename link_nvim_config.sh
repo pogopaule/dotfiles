@@ -1,4 +1,4 @@
 #! /bin/sh
 
 ln -s $PWD/nvim ~/.config/nvim
-ln -s $PWD/firenvim ~/.config/firenvim
+ln -s $PWD/lazyvim ~/.config/lazyvim
