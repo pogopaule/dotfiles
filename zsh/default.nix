@@ -230,7 +230,6 @@
       # neovim
       v = "nvim";
       vim = "nvim";
-      lv = "NVIM_APPNAME=lazyvim nvim";
     };
   };
 }
