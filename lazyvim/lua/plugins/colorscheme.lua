@@ -9,7 +9,7 @@ return {
   },
 
   {
-    "f-person/auto-dark-mode.nvim",
+    "https://github.com/f-person/auto-dark-mode.nvim",
     lazy = false,
     opts = {
       update_interval = 3000,
