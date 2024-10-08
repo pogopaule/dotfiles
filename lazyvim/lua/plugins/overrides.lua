@@ -51,4 +51,17 @@ return {
       },
     },
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    config = function(_, opts)
+      require("telescope").setup(opts)
+      vim.keymap.set("n", "<leader>,", "<cmd>wq<cr>", { desc = "Save file and quit" })
+    end,
+  },
+  {
+    "folke/which-key.nvim",
+    keys = {
+      { "<leader>,", desc = "Save file and quit", icon = "" },
+    },
+  },
 }
