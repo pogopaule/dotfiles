@@ -3,3 +3,4 @@
 -- Add any additional options here
 
 vim.g.mapleader = ","
+vim.opt.spelllang = { "en", "de" }

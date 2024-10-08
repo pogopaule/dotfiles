@@ -29,4 +29,24 @@ return {
     },
     config = true,
   },
+
+  -- Send line to tmux
+  {
+    "jpalardy/vim-slime",
+    event = "VeryLazy",
+    init = function()
+      vim.cmd([[let g:slime_no_mappings = 1]])
+    end,
+    config = function()
+      local map = vim.keymap.set
+      map("x", "<bar>", "<Plug>SlimeRegionSend", {})
+      map("n", "<bar>", "<Plug>SlimeParagraphSend", {})
+
+      vim.cmd([[
+          let g:slime_target = "tmux"
+          let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+          let g:slime_dont_ask_default = 1
+        ]])
+    end,
+  },
 }

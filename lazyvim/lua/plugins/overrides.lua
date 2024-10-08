@@ -53,6 +53,10 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
+    keys = {
+      { "<leader>se", "<cmd>Telescope spell_suggest<cr>", desc = "Spelling Suggestions" },
+      { "<leader><cr>", "<cmd>Telescope lsp_references<cr>", desc = "LSP References" },
+    },
     config = function(_, opts)
       require("telescope").setup(opts)
       vim.keymap.set("n", "<leader>,", "<cmd>wq<cr>", { desc = "Save file and quit" })

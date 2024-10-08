@@ -17,9 +17,6 @@ vim.keymap.set("n", "<space>", "za", { desc = "Toggle fold" })
 
 vim.keymap.set("n", "<CR>", "o<ESC>", { desc = "New line below" })
 
--- do not overwrite yanked when pasting in visual mode
--- map("x", "p", '"_dP', opts)
-
 vim.keymap.set("x", "D", "ygv<Esc>p", { desc = "Dupclicate visual selection" })
 
 -- do not put single empty line in yank register
