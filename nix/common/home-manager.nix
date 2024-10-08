@@ -76,6 +76,7 @@
       pkgs-unstable.sq # data wrangling tool
       pkgs-unstable.ruff-lsp
       pkgs-unstable.pyright
+      pkgs-unstable.uv
     ];
   };
 
