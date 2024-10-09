@@ -22,6 +22,9 @@ return {
         return title
       end,
       notes_subdir = "0 Inbox",
+      mappings = {
+        ["<cr>"] = { action = "<cmd>ObsidianFollowLink<CR>", opts = { buffer = true, desc = "Follow Obsidian Link" } },
+      },
       new_notes_location = "notes_subdir",
     },
     cmd = {

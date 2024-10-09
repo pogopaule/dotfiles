@@ -68,4 +68,7 @@ return {
       { "<leader>,", desc = "Save file and quit", icon = "" },
     },
   },
+
+  -- rendering breaks in obsidian, also doesn't allow for disabling conceallevel
+  { "MeanderingProgrammer/render-markdown.nvim", enabled = false },
 }
