@@ -33,3 +33,18 @@ vim.keymap.set("n", "dd", smart_dd, { desc = "Smart delete line", expr = true })
 -- I want to use L and H to move the cursor to the top or bottom of the buffer
 vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
+
+-- TODO: do this the lazyvim way
+local diagnostic_config = vim.diagnostic.config
+local diagnostic_get_config = vim.diagnostic.config
+
+local function toggle_virt_text()
+  local current_config = diagnostic_get_config()
+  local new_config = {
+    virtual_text = not current_config.virtual_text,
+  }
+  diagnostic_config(new_config)
+  print("Virtual text " .. (new_config.virtual_text and "enabled" or "disabled"))
+end
+
+vim.keymap.set("n", "<leader>uv", toggle_virt_text, { desc = "Toggle virtual text" })
