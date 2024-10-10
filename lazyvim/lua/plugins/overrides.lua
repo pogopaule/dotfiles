@@ -71,4 +71,13 @@ return {
 
   -- rendering breaks in obsidian, also doesn't allow for disabling conceallevel
   { "MeanderingProgrammer/render-markdown.nvim", enabled = false },
+
+  {
+    "akinsho/bufferline.nvim",
+    keys = {
+      -- I want to use L and H to move the cursor to the top or bottom of the buffer
+      { "<S-h>", false },
+      { "<S-l>", false },
+    },
+  },
 }

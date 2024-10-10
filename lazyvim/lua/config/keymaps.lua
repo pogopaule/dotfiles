@@ -29,3 +29,7 @@ local function smart_dd()
 end
 
 vim.keymap.set("n", "dd", smart_dd, { desc = "Smart delete line", expr = true })
+
+-- I want to use L and H to move the cursor to the top or bottom of the buffer
+vim.keymap.del("n", "<S-h>")
+vim.keymap.del("n", "<S-l>")
