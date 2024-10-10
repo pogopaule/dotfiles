@@ -34,17 +34,19 @@ vim.keymap.set("n", "dd", smart_dd, { desc = "Smart delete line", expr = true })
 vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
 
--- TODO: do this the lazyvim way
-local diagnostic_config = vim.diagnostic.config
-local diagnostic_get_config = vim.diagnostic.config
+local util_toggle = require("lazyvim.util.toggle")
+local virtual_text_toggle = util_toggle.wrap({
+  name = "LSP Virtual Text",
+  get = function()
+    return vim.diagnostic.config().virtual_text
+  end,
+  set = function(state)
+    if state then
+      vim.diagnostic.config({ virtual_text = true })
+    else
+      vim.diagnostic.config({ virtual_text = false })
+    end
+  end,
+})
 
-local function toggle_virt_text()
-  local current_config = diagnostic_get_config()
-  local new_config = {
-    virtual_text = not current_config.virtual_text,
-  }
-  diagnostic_config(new_config)
-  print("Virtual text " .. (new_config.virtual_text and "enabled" or "disabled"))
-end
-
-vim.keymap.set("n", "<leader>uv", toggle_virt_text, { desc = "Toggle virtual text" })
+LazyVim.toggle.map("<leader>uD", virtual_text_toggle)
