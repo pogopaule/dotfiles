@@ -34,6 +34,7 @@ return {
       { "<leader>o", "", desc = "+obsidian" },
       { "<leader>og", "<cmd>ObsidianSearch<CR>", desc = "Grep" },
       { "<leader>of", "<cmd>ObsidianQuickSwitch<CR>", desc = "Find File" },
+      { "<leader>fo", "<cmd>ObsidianQuickSwitch<CR>", desc = "Find File" },
       { "<leader>oo", "<cmd>ObsidianOpen<CR>", desc = "Open in Obsidian" },
       { "<leader>ot", "<cmd>ObsidianTemplate<CR>", desc = "Insert Template" },
       { "<leader>on", "<cmd>ObsidianNew<CR>", desc = "New Note" },
