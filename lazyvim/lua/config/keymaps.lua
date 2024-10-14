@@ -50,3 +50,12 @@ local virtual_text_toggle = util_toggle.wrap({
 })
 
 LazyVim.toggle.map("<leader>uD", virtual_text_toggle)
+
+vim.keymap.del("n", "<C-Up>")
+vim.keymap.del("n", "<C-Down>")
+vim.keymap.del("n", "<C-Left>")
+vim.keymap.del("n", "<C-Right>")
+vim.keymap.set("n", "<Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+vim.keymap.set("n", "<Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+vim.keymap.set("n", "<Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
+vim.keymap.set("n", "<Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
