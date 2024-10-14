@@ -80,4 +80,12 @@ return {
       { "<S-l>", false },
     },
   },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "nix",
+      },
+    },
+  },
 }
