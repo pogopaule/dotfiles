@@ -139,6 +139,16 @@
     starship = {
       enable = true;
       enableZshIntegration = true;
+      settings ={
+        format = ''
+''$fill
+''$all''$character
+        '';
+        fill = {
+          symbol = "─";
+          style = "green";
+        };
+      };
     };
 
     wezterm = {
