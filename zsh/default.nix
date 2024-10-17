@@ -16,7 +16,7 @@
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
       # https://github.com/jeffreytse/zsh-vi-mode#custom-escape-key
-      ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+      ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 
       # https://github.com/jeffreytse/zsh-vi-mode/issues/127#issuecomment-1025292052
       function zvm_after_init() {
