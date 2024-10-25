@@ -4,3 +4,6 @@
 
 vim.g.mapleader = ","
 vim.opt.spelllang = { "en", "de" }
+
+-- e.g. delete foo-bar with daw
+vim.opt.iskeyword:append("-")
