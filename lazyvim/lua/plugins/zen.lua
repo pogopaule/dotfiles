@@ -1,7 +1,6 @@
 return {
   {
     "folke/zen-mode.nvim",
-    dependencies = { "folke/twilight.nvim" },
     keys = {
       {
         "<leader>uz",
@@ -18,17 +17,6 @@ return {
         },
         tmux = { enabled = true },
       },
-    },
-  },
-  {
-    "folke/twilight.nvim",
-    opts = {
-      treesitter = true,
-      expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
-        "function",
-        "method",
-      },
-      context = 20,
     },
   },
 }
