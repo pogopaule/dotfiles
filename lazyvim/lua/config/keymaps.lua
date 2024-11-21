@@ -9,7 +9,7 @@ vim.keymap.set({ "n", "v", "i" }, "<C-PageUp>", "<cmd>BufferLineCyclePrev<cr>", 
 vim.keymap.set({ "n", "v", "i" }, "<C-PageDown>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
 vim.keymap.set({ "n", "v", "i" }, "<C-Tab>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
 vim.keymap.set({ "n", "v", "i" }, "<C-S-Tab>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
-vim.keymap.set({ "n", "v" }, "<C-w>", LazyVim.ui.bufremove, { desc = "Delete Buffer" })
+vim.keymap.set({ "n", "v" }, "<C-w>", Snacks.bufdelete, { desc = "Delete Buffer" })
 
 vim.keymap.set("i", "<C-b>", "<ESC>viwUgi", { desc = "Upper case word" })
 
@@ -37,8 +37,7 @@ vim.keymap.set("n", "c", '"_c')
 vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
 
-local util_toggle = require("lazyvim.util.toggle")
-local virtual_text_toggle = util_toggle.wrap({
+local virtual_text_toggle = Snacks.toggle({
   name = "LSP Virtual Text",
   get = function()
     return vim.diagnostic.config().virtual_text
@@ -50,9 +49,7 @@ local virtual_text_toggle = util_toggle.wrap({
       vim.diagnostic.config({ virtual_text = false })
     end
   end,
-})
-
-LazyVim.toggle.map("<leader>uD", virtual_text_toggle)
+}):map("<leader>uD")
 
 vim.keymap.del("n", "<C-Up>")
 vim.keymap.del("n", "<C-Down>")
