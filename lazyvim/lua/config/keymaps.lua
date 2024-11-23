@@ -9,7 +9,7 @@ vim.keymap.set({ "n", "v", "i" }, "<C-PageUp>", "<cmd>BufferLineCyclePrev<cr>", 
 vim.keymap.set({ "n", "v", "i" }, "<C-PageDown>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
 vim.keymap.set({ "n", "v", "i" }, "<C-Tab>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
 vim.keymap.set({ "n", "v", "i" }, "<C-S-Tab>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
-vim.keymap.set({ "n", "v" }, "<C-w>", Snacks.bufdelete, { desc = "Delete Buffer" })
+vim.keymap.set({ "n", "v" }, "<C-w>", "<cmd>lua Snacks.bufdelete()<cr>", { desc = "Delete Buffer" })
 
 vim.keymap.set("i", "<C-b>", "<ESC>viwUgi", { desc = "Upper case word" })
 
