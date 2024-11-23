@@ -10,16 +10,6 @@ local function dial(increment, g)
 end
 return {
   {
-    "monaqa/dial.nvim",
-    -- stylua: ignore
-    keys = {
-      { "<C-i>", function() return dial(true) end, expr = true, desc = "Increment", mode = { "n", "v" } },
-      { "<C-x>", function() return dial(false) end, expr = true, desc = "Decrement", mode = { "n", "v" } },
-      { "g<C-i>", function() return dial(true, true) end, expr = true, desc = "Increment", mode = { "n", "v" } },
-      { "g<C-x>", function() return dial(false, true) end, expr = true, desc = "Decrement", mode = { "n", "v" } },
-    },
-  },
-  {
     "nvimdev/dashboard-nvim",
     opts = {
       config = {
