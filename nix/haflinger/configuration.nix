@@ -56,9 +56,12 @@
       "skitch"
       "obsidian"
       "qbserve"
+      "postman"
     ];
     taps = [ ];
-    brews = [ ];
+    brews = [
+      "mysql"
+    ];
   };
 
   system.stateVersion = 5;

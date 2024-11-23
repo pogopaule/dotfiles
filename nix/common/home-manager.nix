@@ -77,6 +77,7 @@
       pkgs-unstable.ruff-lsp
       pkgs-unstable.pyright
       pkgs-unstable.uv
+      pkgs-unstable.devbox
     ];
   };
 
