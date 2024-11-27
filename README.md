@@ -27,7 +27,7 @@
 
 ## Install on a new Mac system
 
-- https://nixos.org/download.html#nix-install-macos
+- <https://nixos.org/download.html#nix-install-macos>
 - Install homebrew (will be controlled by nix)
 - `nix shell nixpkgs#git --extra-experimental-features 'nix-command flakes'`
 - `git clone https://github.com/pogopaule/dotfiles.git` into home folder
@@ -36,9 +36,13 @@
 - If there are errors: `sudo rm /etc/nix/nix.conf /etc/shells`
 - Change some keymaps in System Settings to use Ctrl instead of Meta key
 - Deactivate mission control Ctrl+Arrowkey keymaps so that tmux window resizing works
+
 - ```
   curl -O https://raw.githubusercontent.com/xv0x7c0/osx-us-altgr-intl/master/us-altgr-intl.keylayout
    sudo mv us-altgr-intl.keylayout /Library/Keyboard\ Layouts
+  ```
+
 ```
 - `ln -s $PWD/amethyst.yml ~/.amathyst.yml`
 - `echo light > ~/.theme`
+```
