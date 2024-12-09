@@ -33,10 +33,6 @@
       shellGlobalAliases = {
         Y = "| xclip -selection clip";
       };
-      shellAliases = {
-        "cpy" = "xclip -selection clip";
-        "pst" = "xclip -o -selection clipboard";
-      };
     };
     tmux.plugins = [
       {

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+file_type=${1:-txt}
+
+mkdir -p ~/dump
+
+file=~/dump/$(date +"%Y-%m-%dT%H:%M:%S")."$file_type"
+pst >"$file"
+
+echo "$file"

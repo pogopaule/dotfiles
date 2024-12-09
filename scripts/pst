@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    xclip -o -selection clipboard
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    pbpaste
+else
+    echo "Unsupported OS"
+    exit 1
+fi

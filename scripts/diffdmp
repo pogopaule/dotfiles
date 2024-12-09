@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Change to the target directory
+cd ~/dump || exit
+
+# Use fzf to select files
+selected_files=$(fzf --tac --ansi --multi --preview 'cat {}' --preview-window=right:60%:wrap)
+
+# Count the number of selected files
+file_count=$(echo "$selected_files" | wc -l)
+
+if [ "$file_count" -eq 1 ]; then
+  # If only one file is selected, show its contents
+  cat "$selected_files"
+elif [ "$file_count" -eq 2 ]; then
+  # If two files are selected, diff them
+  file1=$(echo "$selected_files" | sed -n '1p')
+  file2=$(echo "$selected_files" | sed -n '2p')
+  echo "Executing: difft \"$file1\" \"$file2\""
+  difft "$file1" "$file2"
+else
+  echo "Please select one or two files."
+fi

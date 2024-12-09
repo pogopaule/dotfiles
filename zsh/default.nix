@@ -158,6 +158,7 @@
         nix shell nixpkgs#"$1"
       }
 
+      export PATH=$PATH:~/dotfiles/scripts
     '';
     oh-my-zsh = {
       enable = true;

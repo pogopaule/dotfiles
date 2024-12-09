@@ -32,10 +32,6 @@
       shellGlobalAliases = {
         Y = "| pbcopy";
       };
-      shellAliases = {
-        "cpy" = "pbcopy";
-        "pst" = "pbpaste";
-      };
     };
     tmux.plugins = [
       {
