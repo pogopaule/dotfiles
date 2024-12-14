@@ -5,8 +5,6 @@
 vim.api.nvim_create_autocmd("RecordingEnter", {
   callback = function()
     local register = vim.fn.reg_recording()
-    Snacks.notify("Recording macro to register: " .. register, "info", {
-      title = "Macro Recording Started",
-    })
+    Snacks.notify.info("Recording macro to register: " .. register)
   end,
 })
