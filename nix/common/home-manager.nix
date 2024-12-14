@@ -57,15 +57,6 @@
       mob # mob programming helper
       difftastic
       pre-commit
-
-      # language servers are obsolete once migration to lazyvim is complete
-      nil # nix language server
-      sumneko-lua-language-server
-      nodePackages.yaml-language-server
-      nodePackages.eslint_d
-      nodePackages.prettier
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted
     ] ++ [
       pkgs-unstable.neovim
       pkgs-unstable.nodePackages."@githubnext/github-copilot-cli"
