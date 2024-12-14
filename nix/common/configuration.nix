@@ -1,6 +1,3 @@
-# TODO
-# - enable kde night colors
-# - ff extensions like vimium and ublock
 { config, pkgs, ... }:
 {
   # activate flakes
