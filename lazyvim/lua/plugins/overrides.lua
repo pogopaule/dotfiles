@@ -67,22 +67,4 @@ return {
       },
     },
   },
-  {
-    "zbirenbaum/copilot-cmp",
-    opts = function()
-      local copilot_toggle = Snacks.toggle({
-        name = "Copilot Completion",
-        get = function()
-          return not require("copilot.client").is_disabled()
-        end,
-        set = function(state)
-          if state then
-            require("copilot.command").enable()
-          else
-            require("copilot.command").disable()
-          end
-        end,
-      }):map("<leader>at")
-    end,
-  },
 }
