@@ -38,7 +38,6 @@
       ijq # interactive jq
       gnumake
       exiftool
-      pgcli
       hyperfine # benchmarking
       glow # markdown viewer
       hexyl # hex viewer
@@ -54,7 +53,6 @@
       d2 # data to diagrams
       hurl # http with plain text
       cachix
-      visidata
       jwt-cli
       mob # mob programming helper
       difftastic
@@ -78,6 +76,9 @@
       pkgs-unstable.pyright
       pkgs-unstable.uv
       pkgs-unstable.devbox
+      pkgs-unstable.pgcli
+      pkgs-unstable.poetry
+      pkgs-unstable.visidata
     ];
   };
 

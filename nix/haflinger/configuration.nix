@@ -12,7 +12,6 @@
   environment =
     {
       shells = [ pkgs.bash pkgs.zsh ];
-      loginShell = pkgs.zsh;
       systemPackages = [ pkgs.coreutils ];
     };
 

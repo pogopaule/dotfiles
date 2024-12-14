@@ -12,7 +12,6 @@
       jetbrains.pycharm-community
       git-lfs
       kubelogin
-      poetry
     ] ++ [
       devenv.packages.aarch64-darwin.devenv
       (pkgs-unstable.azure-cli.withExtensions [ pkgs-unstable.azure-cli.extensions.azure-devops ])
