@@ -14,9 +14,20 @@
 " :map <space><space> :action ExpandAllRegions<CR>
 " :map <C-o> :action Back<CR>
 
+set clipboard+=unnamed
+set clipboard+=ideaput
+
 let mapleader=","
 inoremap jj <ESC>
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>uz :action ToggleZenMode<CR>
+nnoremap <leader>e :action SelectInProjectView<CR>
+nnoremap gcc :action CommentByLineComment<CR>
+vnoremap gc :action CommentByLineComment<CR>
+nnoremap <leader>sg :action FindInPath<CR>
+nnoremap <leader>sc :action GotoAction<CR>
+nnoremap <leader>tt :action RunClass<CR>
+nnoremap ]b :action NextTab<CR>
+nnoremap [b :action PreviousTab<CR>
 
 " reload without restart. :source ~/.ideavimrc
