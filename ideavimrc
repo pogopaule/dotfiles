@@ -29,5 +29,6 @@ nnoremap <leader>sc :action GotoAction<CR>
 nnoremap <leader>tt :action RunClass<CR>
 nnoremap ]b :action NextTab<CR>
 nnoremap [b :action PreviousTab<CR>
+map s <Action>(flash.search)
 
 " reload without restart. :source ~/.ideavimrc
