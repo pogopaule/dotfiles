@@ -70,4 +70,21 @@ return {
       },
     },
   },
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    init = function()
+      local data_path = vim.fn.stdpath("data")
+
+      vim.g.db_ui_auto_execute_table_helpers = 1
+      vim.g.db_ui_save_location = data_path .. "/dadbod_ui"
+      vim.g.db_ui_show_database_icon = true
+      vim.g.db_ui_tmp_query_location = data_path .. "/dadbod_ui/tmp"
+      vim.g.db_ui_use_nerd_fonts = true
+      vim.g.db_ui_use_nvim_notify = true
+
+      -- override this. see https://github.com/LazyVim/LazyVim/blob/d0c366e4d861b848bdc710696d5311dca2c6d540/lua/lazyvim/plugins/extras/lang/sql.lua#L92
+      -- fixes https://github.com/LazyVim/LazyVim/discussions/5232
+      vim.g.db_ui_execute_on_save = true
+    end,
+  },
 }
