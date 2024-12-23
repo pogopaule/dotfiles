@@ -62,4 +62,12 @@ return {
       },
     },
   },
+  {
+    "saghen/blink.cmp",
+    opts = {
+      keymap = {
+        preset = "default", -- completing with enter messes up creating new lines
+      },
+    },
+  },
 }
