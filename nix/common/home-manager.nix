@@ -123,7 +123,10 @@
       enable = true;
       includes = [{ path = "~/.gitconfig.local"; }];
       extraConfig = {
-        core.editor = "nvim";
+        core = {
+          editor = "nvim";
+          excludesfile = "~/.gitignore_global";
+        };
         push = {
           autoSetupRemote = true;
         };
