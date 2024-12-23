@@ -57,6 +57,7 @@
       mob # mob programming helper
       difftastic
       pre-commit
+      redis # for redis-cli
     ] ++ [
       pkgs-unstable.neovim
       pkgs-unstable.nodePackages."@githubnext/github-copilot-cli"

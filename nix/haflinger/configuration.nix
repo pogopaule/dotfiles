@@ -56,6 +56,7 @@
       "obsidian"
       "qbserve"
       "postman"
+      "redisinsight"
     ];
     taps = [ ];
     brews = [
