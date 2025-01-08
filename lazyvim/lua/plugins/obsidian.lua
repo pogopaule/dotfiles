@@ -6,6 +6,7 @@ return {
     ft = "markdown",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "saghen/blink.compat",
     },
     opts = {
       workspaces = {

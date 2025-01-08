@@ -65,8 +65,14 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
-      keymap = {
-        preset = "default", -- completing with enter messes up creating new lines
+      completion = {
+        list = {
+          selection = "manual",
+        },
+      },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer", "copilot" },
+        compat = { "obsidian", "obsidian_new", "obsidian_tags" },
       },
     },
   },
