@@ -59,6 +59,7 @@
       pre-commit
       redis # for redis-cli
       postgresql # for psql
+      yazi # file manager
     ] ++ [
       pkgs-unstable.neovim
       pkgs-unstable.nodePackages."@githubnext/github-copilot-cli"
