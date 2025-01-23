@@ -31,12 +31,6 @@ return {
     },
   },
   {
-    "ibhagwan/fzf-lua",
-    keys = {
-      { "<leader><cr>", "<cmd>FzfLua lsp_references<cr>", desc = "LSP References" },
-    },
-  },
-  {
     "folke/which-key.nvim",
     keys = {
       { "<leader>,", desc = "Save file and quit", icon = "" },
