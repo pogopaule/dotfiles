@@ -2,12 +2,15 @@
 {
   programs.tmux = {
     enable = true;
-    keyMode = "vi";
+    keyMode = "emacs";
     shortcut = "a";
     baseIndex = 1;
+    historyLimit = 50000;
+    escapeTime = 0;
     terminal = "xterm-256color";
     shell = "${pkgs.zsh}/bin/zsh";
     tmuxinator.enable = true;
+    sensibleOnTop = false;
     plugins = with pkgs.tmuxPlugins; [
       {
         plugin = yank;

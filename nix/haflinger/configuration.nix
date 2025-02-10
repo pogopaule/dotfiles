@@ -1,7 +1,5 @@
 { pkgs, ... }: {
 
-  programs.zsh.enable = true;
-
   nix.settings.trusted-users = [ "root" "fabian" ];
 
   users.users.fabian = {
@@ -11,7 +9,7 @@
 
   environment =
     {
-      shells = [ pkgs.bash pkgs.zsh ];
+      shells = [ pkgs.zsh ];
       systemPackages = [ pkgs.coreutils ];
     };
 
@@ -41,8 +39,6 @@
       "raycast"
       "todoist"
       "spotify"
-      "cyberduck"
-      "firefox"
       "1password"
       "gpg-suite"
       "amethyst"
@@ -52,11 +48,8 @@
       "espanso"
       "hazeover"
       "stats"
-      "skitch"
       "obsidian"
-      "qbserve"
       "postman"
-      "redisinsight"
     ];
     taps = [ ];
     brews = [

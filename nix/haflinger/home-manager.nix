@@ -8,13 +8,11 @@
   home = {
     packages = with pkgs; [
       meld
-      discord
-      jetbrains.pycharm-community
       git-lfs
       kubelogin
+      azure-cli
     ] ++ [
       devenv.packages.aarch64-darwin.devenv
-      (pkgs-unstable.azure-cli.withExtensions [ pkgs-unstable.azure-cli.extensions.azure-devops ])
     ];
   };
 

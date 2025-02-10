@@ -168,8 +168,6 @@
 
       plugins = [
         "httpie"
-        "ripgrep"
-        "fd"
         "git"
         "docker"
         "docker-compose"
@@ -179,7 +177,6 @@
         "tmuxinator"
         "gh"
         "web-search"
-        "aws"
         "zoxide"
         "kubectl"
       ];
