@@ -1,0 +1,2 @@
+- <https://cmp.saghen.dev/configuration/snippets>
+- LLM nutzen um Snippet JSON erstellen zu lassen

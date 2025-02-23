@@ -1,0 +1,15 @@
+{
+  "Python Script with UV Run": {
+    "prefix": "uvrun",
+    "body": [
+      "#!/usr/bin/env -S uv run --script",
+      "",
+      "# /// script",
+      "# dependencies = [",
+      "#   $0",
+      "# ]",
+      "# ///"
+    ],
+    "description": "Boilerplate for a Python script using uv run"
+  }
+}
