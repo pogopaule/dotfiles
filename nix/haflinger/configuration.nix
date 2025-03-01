@@ -54,6 +54,7 @@
     taps = [ ];
     brews = [
       "mysql"
+      "azure-cli"
     ];
   };
 

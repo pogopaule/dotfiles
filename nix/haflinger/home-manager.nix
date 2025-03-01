@@ -10,7 +10,6 @@
       meld
       git-lfs
       kubelogin
-      azure-cli
     ] ++ [
       devenv.packages.aarch64-darwin.devenv
     ];
