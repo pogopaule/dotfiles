@@ -87,4 +87,15 @@ return {
       vim.g.db_ui_execute_on_save = true
     end,
   },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    opts = {
+      mappings = {
+        reset = {
+          normal = "",
+          insert = "",
+        },
+      },
+    },
+  },
 }
